@@ -12,8 +12,9 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  basePath: process.env.NODE_ENV === 'production' ? '/tmarhguy' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/tmarhguy' : '',
+  // Remove basePath for Vercel deployment
+  // basePath: process.env.NODE_ENV === 'production' ? '/tmarhguy' : '',
+  // assetPrefix: process.env.NODE_ENV === 'production' ? '/tmarhguy' : '',
 };
 
 export default withMDX(nextConfig);
