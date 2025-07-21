@@ -163,32 +163,32 @@ export default function Home() {
     <main className="min-h-screen bg-black">
       <Hero />
       
-      <section id="projects" className="py-20 px-6">
+      <section id="projects" className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">
               Flagship Projects
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto px-2">
               From hardware design to machine learning, these projects showcase the breadth and depth of my technical expertise.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
             {flagshipProjects.map((project, index) => (
               <FlagshipCard key={index} {...project} />
             ))}
           </div>
           
           {/* Additional Software Projects */}
-          <div className="mt-20">
-            <h3 className="text-3xl font-bold text-center mb-4 text-white">
+          <div className="mt-16 sm:mt-20">
+            <h3 className="text-2xl sm:text-3xl font-bold text-center mb-3 sm:mb-4 text-white">
               Software Development
             </h3>
-            <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+            <p className="text-gray-400 text-center mb-8 sm:mb-12 max-w-2xl mx-auto px-2">
               From psychology-based games to automation tools, exploring diverse applications of software engineering.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {softwareProjects.map((project, index) => (
                 <ProjectCard key={index} {...project} />
               ))}
@@ -196,14 +196,14 @@ export default function Home() {
           </div>
           
           {/* Hardware Projects */}
-          <div className="mt-20">
-            <h3 className="text-3xl font-bold text-center mb-4 text-white">
+          <div className="mt-16 sm:mt-20">
+            <h3 className="text-2xl sm:text-3xl font-bold text-center mb-3 sm:mb-4 text-white">
               Hardware Engineering
             </h3>
-            <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+            <p className="text-gray-400 text-center mb-8 sm:mb-12 max-w-2xl mx-auto px-2">
               Building from transistors up, creating physical computing systems and culturally-inspired automation.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {hardwareProjects.map((project, index) => (
                 <ProjectCard key={index} {...project} />
               ))}
@@ -213,22 +213,22 @@ export default function Home() {
       </section>
       
       {/* About Section */}
-      <section id="about" className="py-20 px-6 bg-gray-950">
+      <section id="about" className="py-12 sm:py-20 px-4 sm:px-6 bg-gray-950">
         <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">
               About Me
             </h2>
-            <p className="text-xl text-gray-400">
+            <p className="text-lg sm:text-xl text-gray-400 px-2">
               Building the future through hardware innovation and principled problem-solving
             </p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start">
             <div className="space-y-6">
               <div>
-                <h3 className="text-2xl font-semibold text-white mb-4">Engineering Philosophy</h3>
-                <p className="text-gray-300 leading-relaxed">
+                <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3 sm:mb-4">Engineering Philosophy</h3>
+                <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
                   I believe in building from first principles—whether designing transistor-level CPUs or 
                   developing ML algorithms. My approach combines rigorous technical execution with a deep 
                   understanding of real-world constraints and user needs.
@@ -236,8 +236,8 @@ export default function Home() {
               </div>
               
               <div>
-                <h3 className="text-2xl font-semibold text-white mb-4">Resilience & Advocacy</h3>
-                <p className="text-gray-300 leading-relaxed">
+                <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3 sm:mb-4">Resilience & Advocacy</h3>
+                <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
                   My advocacy for student rights in Ghana gained international recognition{" "}
                   <a 
                     href="https://en.wikipedia.org/wiki/Tyrone_Marhguy" 
@@ -253,64 +253,64 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="space-y-6">
-              <div className="bg-gray-900 rounded-lg p-6 border border-gray-800">
-                <h3 className="text-xl font-semibold text-white mb-4">Timeline Highlights</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <div className="w-3 h-3 bg-brand-500 rounded-full flex-shrink-0"></div>
+            <div className="space-y-4 sm:space-y-6">
+              <div className="bg-gray-900 rounded-lg p-4 sm:p-6 border border-gray-800">
+                <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">Timeline Highlights</h3>
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-brand-500 rounded-full flex-shrink-0"></div>
                     <div>
-                      <div className="text-brand-400 text-sm font-medium">2024</div>
-                      <div className="text-gray-300">Computer Engineering at University of Pennsylvania</div>
+                      <div className="text-brand-400 text-xs sm:text-sm font-medium">2024</div>
+                      <div className="text-gray-300 text-sm sm:text-base">Computer Engineering at University of Pennsylvania</div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-3 h-3 bg-brand-500 rounded-full flex-shrink-0"></div>
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-brand-500 rounded-full flex-shrink-0"></div>
                     <div>
-                      <div className="text-brand-400 text-sm font-medium">2023</div>
-                      <div className="text-gray-300">8 A1s in WASSCE, Math & Physics Olympiad medals</div>
+                      <div className="text-brand-400 text-xs sm:text-sm font-medium">2023</div>
+                      <div className="text-gray-300 text-sm sm:text-base">8 A1s in WASSCE, Math & Physics Olympiad medals</div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-3 h-3 bg-brand-500 rounded-full flex-shrink-0"></div>
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-brand-500 rounded-full flex-shrink-0"></div>
                     <div>
-                      <div className="text-brand-400 text-sm font-medium">2021</div>
-                      <div className="text-gray-300">High Court victory on student rights</div>
+                      <div className="text-brand-400 text-xs sm:text-sm font-medium">2021</div>
+                      <div className="text-gray-300 text-sm sm:text-base">High Court victory on student rights</div>
                     </div>
                   </div>
                 </div>
               </div>
               
-              <div className="bg-gray-900 rounded-lg p-6 border border-gray-800">
-                <h3 className="text-xl font-semibold text-white mb-4">Contact</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <Mail className="h-4 w-4 text-brand-400" />
+              <div className="bg-gray-900 rounded-lg p-4 sm:p-6 border border-gray-800">
+                <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">Contact</h3>
+                <div className="space-y-2 sm:space-y-3">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <Mail className="h-3 w-3 sm:h-4 sm:w-4 text-brand-400 flex-shrink-0" />
                     <a 
                       href="mailto:tmarhguy@gmail.com" 
-                      className="text-gray-300 hover:text-brand-400 transition-colors"
+                      className="text-gray-300 hover:text-brand-400 transition-colors text-sm sm:text-base break-all"
                     >
                       tmarhguy@gmail.com
                     </a>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <svg className="h-4 w-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <svg className="h-3 w-3 sm:h-4 sm:w-4 text-brand-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                     </svg>
                     <a 
                       href="tel:+12156511357" 
-                      className="text-gray-300 hover:text-brand-400 transition-colors"
+                      className="text-gray-300 hover:text-brand-400 transition-colors text-sm sm:text-base"
                     >
                       +1 (215) 651-1357
                     </a>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <Linkedin className="h-4 w-4 text-brand-400" />
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <Linkedin className="h-3 w-3 sm:h-4 sm:w-4 text-brand-400 flex-shrink-0" />
                     <a 
                       href="https://linkedin.com/in/tmarhguy" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-gray-300 hover:text-brand-400 transition-colors"
+                      className="text-gray-300 hover:text-brand-400 transition-colors text-sm sm:text-base break-all"
                     >
                       linkedin.com/in/tmarhguy
                     </a>
@@ -318,9 +318,9 @@ export default function Home() {
                 </div>
               </div>
               
-              <div className="bg-gray-900 rounded-lg p-6 border border-gray-800">
-                <h3 className="text-xl font-semibold text-white mb-4">Core Competencies</h3>
-                <div className="flex flex-wrap gap-2">
+              <div className="bg-gray-900 rounded-lg p-4 sm:p-6 border border-gray-800">
+                <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">Core Competencies</h3>
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {[
                     "Digital Circuit Design",
                     "Computer Architecture", 
@@ -331,7 +331,7 @@ export default function Home() {
                   ].map((skill) => (
                     <span 
                       key={skill}
-                      className="px-3 py-1 bg-brand-600/20 text-brand-300 text-sm rounded-full border border-brand-600/30"
+                      className="px-2 sm:px-3 py-1 bg-brand-600/20 text-brand-300 text-xs sm:text-sm rounded-full border border-brand-600/30"
                     >
                       {skill}
                     </span>

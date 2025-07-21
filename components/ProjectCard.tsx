@@ -50,14 +50,14 @@ export default function ProjectCard({
 
   return (
     <Card className="bg-gray-900 border-gray-800 hover:border-brand-600/50 transition-colors group">
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         {/* Header */}
-        <div className="flex items-start justify-between mb-4">
-          <div>
-            <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-brand-400 transition-colors">
+        <div className="flex items-start justify-between mb-3 sm:mb-4">
+          <div className="flex-1 min-w-0">
+            <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 group-hover:text-brand-400 transition-colors leading-tight">
               {title}
             </h3>
-            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm border ${statusConfig[status].bg} ${statusConfig[status].color}`}>
+            <div className={`inline-flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm border ${statusConfig[status].bg} ${statusConfig[status].color}`}>
               <StatusIcon className="w-3 h-3" />
               {status}
             </div>
@@ -65,12 +65,12 @@ export default function ProjectCard({
         </div>
 
         {/* Description */}
-        <p className="text-gray-400 text-sm leading-relaxed mb-4">
+        <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
           {description}
         </p>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
           {tags.map((tag) => (
             <span 
               key={tag}
@@ -82,24 +82,24 @@ export default function ProjectCard({
         </div>
 
         {/* Actions */}
-        <div className="flex gap-3">
+        <div className="flex gap-2 sm:gap-3">
           <Button 
             variant="outline" 
             size="sm"
-            className="border-gray-700 text-gray-300 hover:bg-gray-800 flex-1"
+            className="border-gray-700 text-gray-300 hover:bg-gray-800 flex-1 text-xs sm:text-sm h-8 sm:h-9 px-2 sm:px-3"
             onClick={() => window.open(github, '_blank')}
           >
-            <Github className="mr-2 h-4 w-4" />
+            <Github className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
             Code
           </Button>
           
           <Button 
             variant="outline" 
             size="sm"
-            className="border-gray-700 text-gray-300 hover:bg-gray-800 flex-1"
+            className="border-gray-700 text-gray-300 hover:bg-gray-800 flex-1 text-xs sm:text-sm h-8 sm:h-9 px-2 sm:px-3"
             onClick={() => window.open(demo, '_blank')}
           >
-            <ExternalLink className="mr-2 h-4 w-4" />
+            <ExternalLink className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
             Details
           </Button>
         </div>
