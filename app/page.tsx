@@ -48,7 +48,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-gray-900">
+    <main className="min-h-screen bg-black">
       <Hero />
       
       <section id="projects" className="py-20 px-6">
