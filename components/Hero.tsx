@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Github, Mail } from "lucide-react";
+import { ChevronRight, Github, Mail, Linkedin, FileText } from "lucide-react";
 
 const taglines = [
   "Hardware Hacker",
@@ -13,7 +13,7 @@ const taglines = [
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
   const [currentTagline, setCurrentTagline] = useState(0);
-  const [displayText, setDisplayText] = useState("");
+  const [displayText, setDisplayText] = useState("Hardware Hacker");
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
@@ -53,8 +53,8 @@ export default function Hero() {
           </h1>
           
           <div className="text-2xl md:text-3xl text-gray-300 mb-8 h-12 flex items-center justify-center">
-            <span className="font-mono">
-              {mounted ? displayText : "Hardware Hacker"}
+            <span className="font-mono" suppressHydrationWarning>
+              {displayText}
               <span className="animate-pulse">|</span>
             </span>
           </div>
@@ -65,17 +65,28 @@ export default function Hero() {
             Passionate about bridging hardware and software to create impactful solutions.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              size="lg" 
-              className="bg-brand-600 hover:bg-brand-500 text-white px-8 py-3 text-lg transition-swift"
-              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Explore Projects
-              <ChevronRight className="ml-2 h-5 w-5" />
-            </Button>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button 
+                size="lg" 
+                className="bg-brand-600 hover:bg-brand-500 text-white px-8 py-3 text-lg transition-swift"
+                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Explore Projects
+                <ChevronRight className="ml-2 h-5 w-5" />
+              </Button>
+              
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="border-brand-600 text-brand-400 hover:bg-brand-600/10 px-8 py-3 text-lg"
+                onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                About Me
+              </Button>
+            </div>
             
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-3 justify-center">
               <Button 
                 variant="outline" 
                 size="lg"
@@ -90,10 +101,30 @@ export default function Hero() {
                 variant="outline" 
                 size="lg"
                 className="border-brand-600 text-brand-400 hover:bg-brand-600/10"
+                onClick={() => window.open('https://linkedin.com/in/tmarhguy', '_blank')}
+              >
+                <Linkedin className="mr-2 h-5 w-5" />
+                LinkedIn
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="border-brand-600 text-brand-400 hover:bg-brand-600/10"
+                onClick={() => window.open('/resume.pdf', '_blank')}
+              >
+                <FileText className="mr-2 h-5 w-5" />
+                Resume
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="border-brand-600 text-brand-400 hover:bg-brand-600/10"
                 onClick={() => window.open('mailto:tmarhguy@gmail.com?subject=Let\'s Chat', '_blank')}
               >
                 <Mail className="mr-2 h-5 w-5" />
-                Contact
+                Email
               </Button>
             </div>
           </div>
