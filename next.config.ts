@@ -1,7 +1,19 @@
 import type { NextConfig } from "next";
+import createMDX from '@next/mdx'
+
+const withMDX = createMDX({
+  // Add markdown plugins here, as desired
+})
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'export',
+  trailingSlash: true,
+  images: {
+    unoptimized: true,
+  },
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  basePath: process.env.NODE_ENV === 'production' ? '/tmarhguy.dev' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/tmarhguy.dev/' : '',
 };
 
-export default nextConfig;
+export default withMDX(nextConfig);

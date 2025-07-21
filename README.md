@@ -1,24 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tyrone Marhguy - Personal Portfolio
 
-## Getting Started
+A modern personal portfolio website showcasing hardware projects, software development, and research work. Built with Next.js 14, TypeScript, and TailwindCSS for optimal performance and developer experience.
 
-First, run the development server:
+## ✨ Features
+
+- **🎯 Fast & Modern**: Next.js 14 with App Router and static export for GitHub Pages
+- **🎨 Beautiful Design**: Custom design system with TailwindCSS and shadcn/ui
+- **⚡ Interactive Demos**: Live WASM CPU simulator and API playground
+- **📱 Responsive**: Mobile-first design that works on all devices
+- **🔍 SEO Optimized**: Meta tags, OpenGraph, and structured data
+- **📊 Analytics Ready**: Plausible analytics integration
+
+## 🚀 Quick Start
+
+Get the development environment running in 3 commands:
 
 ```bash
+# Install dependencies
+npm install --legacy-peer-deps
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Learn More
 
