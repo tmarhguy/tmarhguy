@@ -1,27 +1,67 @@
-# Tyrone Marhguy - Personal Portfolio
+# 👋 Hi there, I’m Tyrone Marhguy
 
-A modern personal portfolio website showcasing hardware projects, software development, and research work. Built with Next.js 14, TypeScript, and TailwindCSS for optimal performance and developer experience.
+**Computer Engineering BSE @ University of Pennsylvania** | **Software Development** | **Hardware Engineering** | **Robotics**
 
-## ✨ Features
+I build end‑to‑end systems— from transistor‑level CPUs and IoT circuits to full‑stack web & ML platforms. My goal is to bridge hardware and software to deliver real‑world impact.
 
-- **🎯 Fast & Modern**: Next.js 14 with App Router and static export for GitHub Pages
-- **🎨 Beautiful Design**: Custom design system with TailwindCSS and shadcn/ui
-- **⚡ Interactive Demos**: Live WASM CPU simulator and API playground
-- **📱 Responsive**: Mobile-first design that works on all devices
-- **🔍 SEO Optimized**: Meta tags, OpenGraph, and structured data
-- **📊 Analytics Ready**: Plausible analytics integration
+---
 
-## 🚀 Quick Start
+## 🔭 What I’m Working On
 
-Get the development environment running in 3 commands:
+- **8‑bit Transistor CPU**  
+  Designing and building a complete 8‑bit CPU in discrete transistors, with assembler toolchain and timing‑verified datapath.
 
-```bash
-# Install dependencies
-npm install --legacy-peer-deps
+- **MoMo Credit Score Generator (MoMo‑CSG)**  
+  Privacy‑respecting credit‑risk engine for mobile‑money users in Ghana. REST API + dashboard + SHAP explainability.
 
-# Start development server
-npm run dev
+- **UniBridge GH**  
+  “Common App” platform for Ghanaian universities. Dynamic JSON‑driven forms, cryptographically‑verifiable submissions.
 
-# Build for production
-npm run build
-```
+- **PsyColor Game Experiment**  
+  React‑based psychology research game for studying color communication. Real‑time WebSockets, SVG animations, data logging.
+
+- **Music & You**  
+  Predict Big‑Five personality traits from Spotify/YouTube listening behavior. Multi‑modal features, explainable ML, federated learning prototype.
+
+- **YT‑Music Migrator CLI**  
+  A cross‑platform tool to sync YouTube Music playlists → Spotify, powered by OAuth and REST.
+  
+- **Sudoku iPad App**  
+  SwiftUI + MVVM solver & generator. Polished UI, persistence via CoreData.
+
+---
+
+## 💡 Skills & Tools
+
+| Domain                 | Technologies & Frameworks                             |
+| ---------------------- | ----------------------------------------------------- |
+| **Languages**          | C/C++, Python, Java, JavaScript/TypeScript, Verilog   |
+| **Frontend & Backend** | React, Next.js, FastAPI, Flask, Node.js, Docker       |
+| **ML & Data**          | scikit‑learn, XGBoost, TensorFlow, PyTorch, Pandas    |
+| **Hardware & Embedded**| Arduino, STM32, FPGA (Verilog), KiCad, Oscilloscope   |
+| **Cloud & Infra**      | AWS (Lambda, S3, EC2), GCP, Terraform, Kubernetes     |
+| **Tools**              | Git, GitHub Actions, Docker, Linux, VS Code, Jupyter  |
+
+---
+
+## 📂 Featured Repositories
+
+| Project                                    | Tech Highlights                                              |
+| ------------------------------------------ | ------------------------------------------------------------ |
+| [cpu](https://github.com/tmarhguy/cpu)     | Discrete‑transistor 8‑bit CPU, assembler, timing analysis    |
+| [kente](https://github.com/tmarhguy/kente) | Mechanized kente loom design, motor control, closed‑loop firmware |
+| [Psych_Color_Game_Experiment](https://github.com/tmarhguy/Psych_Color_Game_Experiment) | React, WebSockets, SVG animations, research‑grade data logging |
+| [music-and-you](https://github.com/tmarhguy/music-and-you) | Multi‑modal feature engineering, explainable regression models |
+| [ytmusic-spotify-migrator](https://github.com/tmarhguy/ytmusic-spotify-migrator) | OAuth2, CLI, Spotify & YouTube Music APIs                    |
+| [unibridgeGhana](https://github.com/tmarhguy/unibridgeGhana) | FastAPI backend, Next.js frontend, JSON DSL for dynamic forms |
+
+---
+
+## 📫 How to Reach Me
+
+- 💼 LinkedIn: [in/tmarhguy](https://linkedin.com/in/tmarhguy)  
+- ✉️ Email: **tmarhguy@seas.upenn.edu**  
+- 🐦 Twitter: [@marhguy_tyrone](https://twitter.com/marhguy_tyrone)  
+
+---
+> — Tyrone Marhguy
