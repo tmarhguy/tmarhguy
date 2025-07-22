@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import FlagshipCard from "@/components/FlagshipCard";
 import ProjectCard from "@/components/ProjectCard";
+import Skills from "@/components/Skills";
 import { Mail, Linkedin } from "lucide-react";
 
 export default function Home() {
@@ -179,7 +180,11 @@ export default function Home() {
               <FlagshipCard key={index} {...project} />
             ))}
           </div>
-          
+        </div>
+      </section>
+      
+      <section className="px-4 sm:px-6">
+        <div className="container mx-auto">
           {/* Additional Software Projects */}
           <div className="mt-16 sm:mt-20">
             <h3 className="text-2xl sm:text-3xl font-bold text-center mb-3 sm:mb-4 text-white">
@@ -211,6 +216,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
+      {/* Skills Section */}
+      <Skills />
       
       {/* About Section */}
       <section id="about" className="py-12 sm:py-20 px-4 sm:px-6 bg-gray-950">
