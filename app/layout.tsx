@@ -19,6 +19,23 @@ export const metadata: Metadata = {
   keywords: ["hardware engineer", "CPU design", "digital systems", "FPGA", "embedded systems", "software development"],
   authors: [{ name: "Tyrone Marhguy", url: "https://tyrone.tech" }],
   creator: "Tyrone Marhguy",
+  icons: {
+    icon: [
+      { url: "/icons/favicon.ico", sizes: "any" },
+      { url: "/icons/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/icons/apple-touch-icon-57x57.png", sizes: "57x57" },
+      { url: "/icons/apple-touch-icon-72x72.png", sizes: "72x72" },
+      { url: "/icons/apple-touch-icon-76x76.png", sizes: "76x76" },
+      { url: "/icons/apple-touch-icon-114x114.png", sizes: "114x114" },
+      { url: "/icons/apple-touch-icon-120x120.png", sizes: "120x120" },
+      { url: "/icons/apple-touch-icon-144x144.png", sizes: "144x144" },
+      { url: "/icons/apple-touch-icon-152x152.png", sizes: "152x152" },
+      { url: "/icons/apple-touch-icon-180x180.png", sizes: "180x180" },
+      { url: "/icons/apple-touch-icon.png", sizes: "180x180" },
+    ],
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
