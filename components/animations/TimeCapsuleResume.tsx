@@ -40,19 +40,40 @@ const TimeCapsuleResume = forwardRef<TimeCapsuleResumeRef>((props, ref) => {
   const handleDownload = (type: 'hardware' | 'software') => {
     setDownloadEffect(type);
     
+    const url = type === 'hardware' ? '/hardware_resume.pdf' : '/software_resume.pdf';
+    const filename = type === 'hardware' ? 'Tyrone_Marhguy_Hardware_Resume.pdf' : 'Tyrone_Marhguy_Software_Resume.pdf';
+    
+    console.log(`Downloading ${type} resume:`, { url, filename });
+    
     // Faster download effect - reduced delay
     setTimeout(() => {
-      const url = type === 'hardware' ? '/hardware_resume.pdf' : '/software_resume.pdf';
-      const filename = type === 'hardware' ? 'Tyrone_Marhguy_Hardware_Resume.pdf' : 'Tyrone_Marhguy_Software_Resume.pdf';
-      
-      // Create a temporary link element for download
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = filename;
-      link.target = '_blank';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      // More reliable download approach
+      try {
+        // First try opening in a new tab (for better PDF viewing)
+        const newWindow = window.open(url, '_blank');
+        
+        // If popup was blocked, fall back to direct download
+        if (!newWindow || newWindow.closed) {
+          console.log('Popup blocked, using download link');
+          // Create a temporary link element for download
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = filename;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          
+          // Temporarily add to DOM and click
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        } else {
+          console.log('Opened in new tab successfully');
+        }
+      } catch (error) {
+        console.error('Download failed:', error);
+        // Fallback: direct navigation
+        window.location.href = url;
+      }
       
       // Close faster after download
       setTimeout(() => closeCapsule(), 600); // Reduced from 1000ms to 600ms
