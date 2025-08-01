@@ -3,11 +3,13 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Github, Mail, Linkedin, FileText } from "lucide-react";
+import { openTimeCapsule } from "@/utils/timeCapsuleEvent";
 
 const taglines = [
-  "Hardware Hacker",
-  "ML Researcher", 
-  "Civic-Tech Builder"
+  "Discrete-Transistor CPU Designer",
+  "ML/AI Systems Researcher", 
+  "Full-Stack Product Builder",
+  "Hardware-Software Bridge Engineer"
 ];
 
 export default function Hero() {
@@ -45,25 +47,97 @@ export default function Hero() {
   }, [displayText, isDeleting, currentTagline, mounted]);
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-      <div className="container mx-auto px-6 text-center">
+    <section className="min-h-screen flex items-center justify-center relative">
+      {/* Terminal-style background with scanlines */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900" />
+        
+        {/* Terminal scanlines */}
+        <div className="absolute inset-0 opacity-20">
+          <style jsx>{`
+            .scanlines {
+              background: linear-gradient(transparent 50%, rgba(26, 127, 100, 0.03) 50%);
+              background-size: 100% 4px;
+              animation: scanlines 0.1s linear infinite;
+            }
+            
+            @keyframes scanlines {
+              0% { background-position: 0 0; }
+              100% { background-position: 0 4px; }
+            }
+          `}</style>
+          <div className="scanlines w-full h-full" />
+        </div>
+        
+        {/* CRT glow effect */}
+        <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-gray-900/20" />
+      </div>
+
+      <div className="container mx-auto px-6 text-center relative z-10">
         <div className="animate-fadeUp">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">
-            Tyrone Marhguy
-          </h1>
-          
-          <div className="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-6 sm:mb-8 h-10 sm:h-12 flex items-center justify-center">
-            <span className="font-mono" suppressHydrationWarning>
-              {displayText}
-              <span className="animate-pulse">|</span>
-            </span>
+          {/* Glitch effect on name */}
+          <div className="relative mb-4 sm:mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent relative z-10">
+              I&apos;m Tyrone Marhguy
+            </h1>
+            
+            {/* Glitch layers */}
+            <h1 className="absolute top-0 left-0 right-0 text-4xl sm:text-5xl md:text-7xl font-bold text-brand-400 opacity-20 animate-pulse"
+                style={{ 
+                  animation: 'glitch1 2s infinite',
+                  clipPath: 'polygon(0 0, 100% 0, 100% 45%, 0 45%)'
+                }}>
+              I&apos;m Tyrone Marhguy
+            </h1>
+            <h1 className="absolute top-0 left-0 right-0 text-4xl sm:text-5xl md:text-7xl font-bold text-red-400 opacity-20"
+                style={{ 
+                  animation: 'glitch2 2s infinite',
+                  clipPath: 'polygon(0 55%, 100% 55%, 100% 100%, 0 100%)'
+                }}>
+              I&apos;m Tyrone Marhguy
+            </h1>
+            
+            <style jsx>{`
+              @keyframes glitch1 {
+                0%, 100% { transform: translateX(0); }
+                10% { transform: translateX(-2px); }
+                20% { transform: translateX(2px); }
+                30% { transform: translateX(-1px); }
+                40% { transform: translateX(1px); }
+                50% { transform: translateX(0); }
+              }
+              
+              @keyframes glitch2 {
+                0%, 100% { transform: translateX(0); }
+                15% { transform: translateX(2px); }
+                25% { transform: translateX(-2px); }
+                35% { transform: translateX(1px); }
+                45% { transform: translateX(-1px); }
+                55% { transform: translateX(0); }
+              }
+            `}</style>
           </div>
           
-          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4">
-            Building everything from <span className="text-brand-400 font-medium">transistor-level CPUs</span> to 
-            <span className="text-brand-400 font-medium"> ML-powered applications</span>. 
-            Passionate about bridging hardware and software to create impactful solutions.
-          </p>
+          {/* Terminal-style typing effect for taglines */}
+          <div className="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-6 sm:mb-8 h-10 sm:h-12 flex items-center justify-center">
+            <div className="font-mono flex items-center" suppressHydrationWarning>
+              <span className="text-brand-400 mr-2">&gt;</span>
+              <span>{displayText}</span>
+              <span className="animate-pulse ml-1 text-brand-400">█</span>
+            </div>
+          </div>
+          
+          {/* Enhanced description with terminal styling */}
+          <div className="max-w-3xl mx-auto mb-8 sm:mb-12 px-4">
+            <div className="font-mono text-brand-400/60 text-xs sm:text-sm mb-2">
+              {`// Building the future, one transistor at a time`}
+            </div>
+            <p className="text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed">
+              Designing everything from <span className="text-brand-400 font-medium bg-brand-400/10 px-1 rounded">discrete-transistor CPUs</span> to 
+              <span className="text-brand-400 font-medium bg-brand-400/10 px-1 rounded"> AI-powered applications</span>. 
+              Passionate about bridging the gap between silicon and software to create impactful solutions.
+            </p>
+          </div>
           
           <div className="flex flex-col gap-6 justify-center items-center px-4">
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
@@ -113,7 +187,7 @@ export default function Hero() {
                 variant="outline" 
                 size="lg"
                 className="border-brand-600 text-brand-400 hover:bg-brand-600/10 text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3"
-                onClick={() => window.open('/resume.pdf', '_blank')}
+                onClick={openTimeCapsule}
               >
                 <FileText className="mr-1 sm:mr-2 h-4 w-4" />
                 <span className="hidden xs:inline">Resume</span>

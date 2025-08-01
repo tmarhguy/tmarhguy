@@ -111,7 +111,7 @@ export default function FlagshipCard({
   return (
     <>
       <Card 
-        className="group hover:scale-[1.02] transition-all duration-300 bg-gray-800 border-gray-700 hover:border-brand-600/50 hover:shadow-2xl hover:shadow-brand-600/20 cursor-pointer sm:cursor-default"
+        className="group hover:scale-[1.02] transition-all duration-300 bg-gray-800 border-gray-700 hover:border-brand-600/50 hover:shadow-2xl hover:shadow-brand-600/20 cursor-pointer sm:cursor-default h-full flex flex-col"
         onClick={() => {
           // Only open modal on mobile
           if (window.innerWidth < 640) {
@@ -133,14 +133,14 @@ export default function FlagshipCard({
           </CardTitle>
         </CardHeader>
         
-        <CardContent className="space-y-2 sm:space-y-4">
+        <CardContent className="space-y-2 sm:space-y-4 flex-1 flex flex-col">
           {/* Mobile: Tap to view indicator */}
           <div className="sm:hidden">
             <span className="text-brand-400 text-xs">Tap to view details</span>
           </div>
 
           {/* Desktop: Show all details */}
-          <div className="hidden sm:block space-y-4">
+          <div className="hidden sm:block space-y-4 flex-1 flex flex-col">
             <p className="text-gray-300 text-sm leading-relaxed">{description}</p>
             
             <div className="grid grid-cols-2 gap-3">
@@ -165,7 +165,7 @@ export default function FlagshipCard({
               ))}
             </div>
             
-            <div className="flex gap-2 pt-2">
+            <div className="flex gap-2 pt-2 mt-auto">
               {github && (
                 <Button
                   variant="outline"

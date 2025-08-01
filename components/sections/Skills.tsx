@@ -37,10 +37,10 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section className="py-12 sm:py-16 px-4 sm:px-6">
+    <section className="py-1 sm:py-2 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">
+        <div className="text-center mb-2 sm:mb-3">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">
             Technical Skills
           </h2>
           <p className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto">
@@ -48,15 +48,15 @@ export default function Skills() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">
           {skillCategories.map((category) => {
             const IconComponent = category.icon;
             return (
               <div 
                 key={category.title}
-                className="bg-gray-900 rounded-lg border border-gray-800 p-4 sm:p-5 hover:border-brand-600/50 transition-all duration-300 group"
+                className="bg-gray-900 rounded-lg border border-gray-800 p-2 sm:p-3 hover:border-brand-600/50 transition-all duration-300 group"
               >
-                <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
                   <div className="w-6 h-6 sm:w-8 sm:h-8 bg-brand-600/20 rounded-lg flex items-center justify-center group-hover:bg-brand-600/30 transition-colors">
                     <IconComponent className="w-3 h-3 sm:w-4 sm:h-4 text-brand-400" />
                   </div>
@@ -81,8 +81,8 @@ export default function Skills() {
         </div>
 
         {/* Learning Interests - More Compact */}
-        <div className="mt-8 sm:mt-12 bg-gray-900 rounded-lg border border-gray-800 p-4 sm:p-6">
-          <h3 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4 flex items-center gap-2">
+        <div className="mt-2 sm:mt-3 bg-gray-900 rounded-lg border border-gray-800 p-3 sm:p-4">
+          <h3 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3 flex items-center gap-2">
             <div className="w-5 h-5 sm:w-6 sm:h-6 bg-brand-600/20 rounded flex items-center justify-center">
               <Zap className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-brand-400" />
             </div>
