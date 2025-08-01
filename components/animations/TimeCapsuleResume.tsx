@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useImperativeHandle, forwardRef } from "react";
 import { Download, FileText, X, Cpu, Zap, Sparkles, Clock } from "lucide-react";
+import { getAssetPath } from "@/utils/paths";
 
 export interface TimeCapsuleResumeRef {
   openCapsule: () => void;
@@ -40,7 +41,7 @@ const TimeCapsuleResume = forwardRef<TimeCapsuleResumeRef>((props, ref) => {
   const handleDownload = (type: 'hardware' | 'software') => {
     setDownloadEffect(type);
     
-    const url = type === 'hardware' ? '/hardware_resume.pdf' : '/software_resume.pdf';
+    const url = type === 'hardware' ? getAssetPath('hardware_resume.pdf') : getAssetPath('software_resume.pdf');
     const filename = type === 'hardware' ? 'Tyrone_Marhguy_Hardware_Resume.pdf' : 'Tyrone_Marhguy_Software_Resume.pdf';
     
     console.log(`Downloading ${type} resume:`, { url, filename });

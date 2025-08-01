@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://tyrone.tech",
+    url: "https://tmarhguy.github.io/tmarhguy",
     title: "Tyrone Marhguy - Hardware Engineer & Researcher",
     description: "Personal portfolio showcasing hardware projects, CPU design, software development, and research.",
     siteName: "Tyrone Marhguy Portfolio",
