@@ -1,0 +1,112 @@
+<svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="uniGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dataFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0" />
+      <stop offset="50%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:0" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="320" height="220" fill="#0f172a"/>
+  
+  <!-- Title -->
+  <text x="160" y="20" text-anchor="middle" fill="#3b82f6" font-family="monospace" font-size="14" font-weight="bold">UniBridge Platform</text>
+  
+  <!-- University Buildings -->
+  <g id="universities">
+    <!-- University 1 -->
+    <rect x="20" y="130" width="40" height="65" fill="url(#uniGradient)" rx="2"/>
+    <rect x="25" y="135" width="8" height="8" fill="#60a5fa" opacity="0.8"/>
+    <rect x="37" y="135" width="8" height="8" fill="#60a5fa" opacity="0.8"/>
+    <rect x="25" y="147" width="8" height="8" fill="#60a5fa" opacity="0.8"/>
+    <rect x="37" y="147" width="8" height="8" fill="#60a5fa" opacity="0.8"/>
+    <rect x="25" y="159" width="8" height="8" fill="#60a5fa" opacity="0.8"/>
+    <rect x="37" y="159" width="8" height="8" fill="#60a5fa" opacity="0.8"/>
+    <text x="40" y="210" text-anchor="middle" fill="#3b82f6" font-family="monospace" font-size="7">Uni A</text>
+    
+    <!-- University 2 -->
+    <rect x="80" y="125" width="35" height="70" fill="url(#uniGradient)" rx="2"/>
+    <rect x="84" y="130" width="6" height="6" fill="#60a5fa" opacity="0.8"/>
+    <rect x="94" y="130" width="6" height="6" fill="#60a5fa" opacity="0.8"/>
+    <rect x="104" y="130" width="6" height="6" fill="#60a5fa" opacity="0.8"/>
+    <rect x="84" y="140" width="6" height="6" fill="#60a5fa" opacity="0.8"/>
+    <rect x="94" y="140" width="6" height="6" fill="#60a5fa" opacity="0.8"/>
+    <rect x="104" y="140" width="6" height="6" fill="#60a5fa" opacity="0.8"/>
+    <text x="97" y="210" text-anchor="middle" fill="#3b82f6" font-family="monospace" font-size="7">Uni B</text>
+    
+    <!-- University 3 -->
+    <rect x="130" y="130" width="38" height="65" fill="url(#uniGradient)" rx="2"/>
+    <rect x="135" y="135" width="7" height="7" fill="#60a5fa" opacity="0.8"/>
+    <rect x="146" y="135" width="7" height="7" fill="#60a5fa" opacity="0.8"/>
+    <rect x="157" y="135" width="7" height="7" fill="#60a5fa" opacity="0.8"/>
+    <rect x="135" y="146" width="7" height="7" fill="#60a5fa" opacity="0.8"/>
+    <rect x="146" y="146" width="7" height="7" fill="#60a5fa" opacity="0.8"/>
+    <rect x="157" y="146" width="7" height="7" fill="#60a5fa" opacity="0.8"/>
+    <text x="149" y="210" text-anchor="middle" fill="#3b82f6" font-family="monospace" font-size="7">Uni C</text>
+  </g>
+  
+  <!-- Central UniBridge Platform -->
+  <rect x="200" y="85" width="95" height="85" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="6"/>
+  <text x="247" y="105" text-anchor="middle" fill="#3b82f6" font-family="monospace" font-size="11" font-weight="bold">UniBridge</text>
+  <text x="247" y="120" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="9">350K+</text>
+  <text x="247" y="132" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="9">Applicants/yr</text>
+  
+  <!-- Dashboard Elements -->
+  <rect x="210" y="145" width="70" height="4" fill="#10b981" rx="2"/>
+  <rect x="210" y="152" width="55" fill="#3b82f6" height="4" rx="2"/>
+  <rect x="210" y="159" width="60" fill="#10b981" height="4" rx="2"/>
+  
+  <!-- Application Flow Lines -->
+  <g id="dataStreams">
+    <!-- From University 1 -->
+    <line x1="60" y1="162" x2="200" y2="140" stroke="url(#dataFlow)" stroke-width="2">
+      <animate attributeName="stroke-dasharray" values="0,100;20,80;0,100" dur="2s" repeatCount="indefinite"/>
+    </line>
+    
+    <!-- From University 2 -->
+    <line x1="115" y1="160" x2="200" y2="135" stroke="url(#dataFlow)" stroke-width="2">
+      <animate attributeName="stroke-dasharray" values="0,100;20,80;0,100" dur="2.5s" repeatCount="indefinite"/>
+    </line>
+    
+    <!-- From University 3 -->
+    <line x1="168" y1="162" x2="200" y2="140" stroke="url(#dataFlow)" stroke-width="2">
+      <animate attributeName="stroke-dasharray" values="0,100;20,80;0,100" dur="1.8s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- Processing Animation -->
+  <g id="processing">
+    <circle cx="247" cy="142" r="3" fill="#10b981" opacity="0.8">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Application Documents -->
+  <g id="documents">
+    <rect x="20" y="40" width="15" height="20" fill="#3b82f6" rx="1" opacity="0.7">
+      <animateTransform attributeType="XML" attributeName="transform" type="translate" values="0,0;60,25;120,50" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
+    </rect>
+    
+    <rect x="80" y="35" width="15" height="20" fill="#10b981" rx="1" opacity="0.7">
+      <animateTransform attributeType="XML" attributeName="transform" type="translate" values="0,0;50,30;100,60" dur="3.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="3.5s" repeatCount="indefinite"/>
+    </rect>
+    
+    <rect x="140" y="45" width="15" height="20" fill="#8b5cf6" rx="1" opacity="0.7">
+      <animateTransform attributeType="XML" attributeName="transform" type="translate" values="0,0;40,25;80,50" dur="2.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Success Indicators -->
+  <g id="metrics">
+    <text x="20" y="35" fill="#10b981" font-family="monospace" font-size="9">350K+ Applications/year</text>
+    <text x="160" y="35" fill="#3b82f6" font-family="monospace" font-size="9">99.9% Uptime</text>
+  </g>
+</svg>

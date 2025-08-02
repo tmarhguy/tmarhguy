@@ -1,0 +1,139 @@
+<svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gameGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="colorFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.8" />
+      <stop offset="25%" style="stop-color:#fbbf24;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#10b981;stop-opacity:0.8" />
+      <stop offset="75%" style="stop-color:#3b82f6;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.8" />
+    </linearGradient>
+    <radialGradient id="communicationGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="340" height="220" fill="#0f172a"/>
+  
+  <!-- Title -->
+  <text x="170" y="20" text-anchor="middle" fill="#8b5cf6" font-family="monospace" font-size="14" font-weight="bold">Color Communication Game</text>
+  <text x="170" y="35" text-anchor="middle" fill="#a855f7" font-family="monospace" font-size="8">Psychology-Based Multiplayer Experience</text>
+  
+  <!-- Game Arena -->
+  <rect x="30" y="50" width="280" height="130" fill="#1e293b" stroke="#8b5cf6" stroke-width="2" rx="8"/>
+  
+  <!-- Player 1 Area -->
+  <rect x="50" y="70" width="80" height="80" fill="#0f172a" stroke="#3b82f6" stroke-width="1" rx="4"/>
+  <text x="90" y="85" text-anchor="middle" fill="#3b82f6" font-family="monospace" font-size="9">Player 1</text>
+  
+  <!-- Player 1 Color Pattern -->
+  <g id="player1Colors">
+    <rect x="60" y="95" width="15" height="15" fill="#ef4444" rx="2">
+      <animate attributeName="fill" values="#ef4444;#fbbf24;#10b981;#3b82f6;#ef4444" dur="3s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="80" y="95" width="15" height="15" fill="#10b981" rx="2">
+      <animate attributeName="fill" values="#10b981;#3b82f6;#8b5cf6;#ef4444;#10b981" dur="3.2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="100" y="95" width="15" height="15" fill="#3b82f6" rx="2">
+      <animate attributeName="fill" values="#3b82f6;#8b5cf6;#ef4444;#fbbf24;#3b82f6" dur="2.8s" repeatCount="indefinite"/>
+    </rect>
+    
+    <rect x="60" y="115" width="15" height="15" fill="#fbbf24" rx="2">
+      <animate attributeName="fill" values="#fbbf24;#10b981;#3b82f6;#8b5cf6;#fbbf24" dur="2.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="80" y="115" width="15" height="15" fill="#8b5cf6" rx="2">
+      <animate attributeName="fill" values="#8b5cf6;#ef4444;#fbbf24;#10b981;#8b5cf6" dur="3.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="100" y="115" width="15" height="15" fill="#ef4444" rx="2">
+      <animate attributeName="fill" values="#ef4444;#3b82f6;#10b981;#fbbf24;#ef4444" dur="2.2s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Player 2 Area -->
+  <rect x="210" y="70" width="80" height="80" fill="#0f172a" stroke="#10b981" stroke-width="1" rx="4"/>
+  <text x="250" y="85" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="9">Player 2</text>
+  
+  <!-- Player 2 Color Pattern -->
+  <g id="player2Colors">
+    <rect x="220" y="95" width="15" height="15" fill="#10b981" rx="2">
+      <animate attributeName="fill" values="#10b981;#ef4444;#3b82f6;#fbbf24;#10b981" dur="2.8s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="240" y="95" width="15" height="15" fill="#3b82f6" rx="2">
+      <animate attributeName="fill" values="#3b82f6;#fbbf24;#ef4444;#8b5cf6;#3b82f6" dur="3.1s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="260" y="95" width="15" height="15" fill="#fbbf24" rx="2">
+      <animate attributeName="fill" values="#fbbf24;#8b5cf6;#10b981;#ef4444;#fbbf24" dur="2.6s" repeatCount="indefinite"/>
+    </rect>
+    
+    <rect x="220" y="115" width="15" height="15" fill="#8b5cf6" rx="2">
+      <animate attributeName="fill" values="#8b5cf6;#10b981;#fbbf24;#3b82f6;#8b5cf6" dur="3.3s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="240" y="115" width="15" height="15" fill="#ef4444" rx="2">
+      <animate attributeName="fill" values="#ef4444;#3b82f6;#8b5cf6;#10b981;#ef4444" dur="2.4s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="260" y="115" width="15" height="15" fill="#10b981" rx="2">
+      <animate attributeName="fill" values="#10b981;#fbbf24;#ef4444;#3b82f6;#10b981" dur="2.9s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Communication Flow -->
+  <g id="communication">
+    <!-- Language Development Indicator -->
+    <path d="M130 110 Q170 90 210 110" stroke="url(#colorFlow)" stroke-width="4" fill="none">
+      <animate attributeName="stroke-dasharray" values="0,100;30,70;0,100" dur="2s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Bidirectional Communication -->
+    <path d="M210 125 Q170 140 130 125" stroke="url(#colorFlow)" stroke-width="4" fill="none">
+      <animate attributeName="stroke-dasharray" values="0,100;30,70;0,100" dur="2.3s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Shared Language Development -->
+  <circle cx="170" cy="118" r="25" fill="url(#communicationGlow)" opacity="0.4">
+    <animate attributeName="r" values="20;35;20" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Language Emergence Center -->
+  <rect x="150" y="103" width="40" height="30" fill="#1e293b" stroke="#8b5cf6" stroke-width="1" rx="4"/>
+  <text x="170" y="114" text-anchor="middle" fill="#8b5cf6" font-family="monospace" font-size="7">Shared</text>
+  <text x="170" y="124" text-anchor="middle" fill="#8b5cf6" font-family="monospace" font-size="7">Language</text>
+  
+  <!-- Psychology Indicators -->
+  <g id="psychologyMetrics">
+    <rect x="50" y="135" width="70" height="12" fill="#0f172a" stroke="#fbbf24" stroke-width="1" rx="2"/>
+    <text x="85" y="143" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="6">Behavioral Analysis</text>
+    
+    <rect x="220" y="135" width="70" height="12" fill="#0f172a" stroke="#fbbf24" stroke-width="1" rx="2"/>
+    <text x="255" y="143" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="6">Semantic Evolution</text>
+  </g>
+  
+  <!-- Real-time Connection Status -->
+  <g id="connectionStatus">
+    <circle cx="70" cy="65" r="2" fill="#10b981">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <text x="78" y="67" fill="#10b981" font-family="monospace" font-size="6">Online</text>
+    
+    <circle cx="230" cy="65" r="2" fill="#10b981">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="238" y="67" fill="#10b981" font-family="monospace" font-size="6">Online</text>
+  </g>
+  
+  <!-- Flutter Framework Indicator -->
+  <rect x="250" y="155" width="50" height="15" fill="#3b82f6" rx="7"/>
+  <text x="275" y="165" text-anchor="middle" fill="white" font-family="monospace" font-size="7">Flutter</text>
+  
+  <!-- Progress Indicators -->
+  <g id="progress">
+    <text x="20" y="205" fill="#fbbf24" font-family="monospace" font-size="8">Status: In Progress • Flutter Framework</text>
+    <text x="190" y="205" fill="#10b981" font-family="monospace" font-size="8">Emergent Communication Study</text>
+  </g>
+</svg>

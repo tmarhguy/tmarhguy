@@ -1,0 +1,125 @@
+<svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="momoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="mlGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="pulseGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="320" height="220" fill="#0f172a"/>
+  
+  <!-- Title -->
+  <text x="160" y="20" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="14" font-weight="bold">MoMo Credit Score - Ghana</text>
+  
+  <!-- Ghana Map Outline (simplified) -->
+  <path d="M50 90 L80 85 L110 90 L120 110 L115 130 L95 140 L70 135 L55 120 Z" fill="#1e293b" stroke="#fbbf24" stroke-width="1" opacity="0.6"/>
+  
+  <!-- Mobile Money Icons -->
+  <g id="phones">
+    <!-- Phone 1 -->
+    <rect x="30" y="70" width="15" height="25" fill="url(#momoGradient)" rx="3"/>
+    <rect x="32" y="73" width="11" height="16" fill="#1e293b" rx="1"/>
+    <text x="37.5" y="83" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="6">₵</text>
+    
+    <!-- Phone 2 -->
+    <rect x="90" y="65" width="15" height="25" fill="url(#momoGradient)" rx="3"/>
+    <rect x="92" y="68" width="11" height="16" fill="#1e293b" rx="1"/>
+    <text x="97.5" y="78" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="6">₵</text>
+    
+    <!-- Phone 3 -->
+    <rect x="70" y="120" width="15" height="25" fill="url(#momoGradient)" rx="3"/>
+    <rect x="72" y="123" width="11" height="16" fill="#1e293b" rx="1"/>
+    <text x="77.5" y="133" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="6">₵</text>
+  </g>
+  
+  <!-- Central ML Processing Engine -->
+  <rect x="160" y="70" width="120" height="80" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="4"/>
+  <text x="220" y="90" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="12" font-weight="bold">XGBoost ML</text>
+  <text x="220" y="105" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="9">Credit Scoring</text>
+  
+  <!-- AUC Score Display -->
+  <rect x="170" y="115" width="100" height="25" fill="#0f172a" stroke="#10b981" stroke-width="1" rx="2"/>
+  <text x="220" y="125" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="10">AUC: 0.82</text>
+  <text x="220" y="135" text-anchor="middle" fill="#3b82f6" font-family="monospace" font-size="8">1M+ Transactions</text>
+  
+  <!-- Data Flow from Phones to ML Engine -->
+  <g id="dataFlow">
+    <!-- From Phone 1 -->
+    <path d="M45 82 Q90 60 160 95" stroke="#fbbf24" stroke-width="2" fill="none" opacity="0.8">
+      <animate attributeName="stroke-dasharray" values="0,100;30,70;0,100" dur="2s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- From Phone 2 -->
+    <path d="M105 77 Q130 70 160 95" stroke="#fbbf24" stroke-width="2" fill="none" opacity="0.8">
+      <animate attributeName="stroke-dasharray" values="0,100;30,70;0,100" dur="2.3s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- From Phone 3 -->
+    <path d="M85 135 Q120 120 160 120" stroke="#fbbf24" stroke-width="2" fill="none" opacity="0.8">
+      <animate attributeName="stroke-dasharray" values="0,100;30,70;0,100" dur="1.8s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- ML Processing Nodes - Repositioned to avoid text interference -->
+  <g id="mlNodes">
+    <circle cx="180" cy="85" r="3" fill="#10b981">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="200" cy="90" r="3" fill="#10b981">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="220" cy="85" r="3" fill="#10b981">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="240" cy="90" r="3" fill="#10b981">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="260" cy="85" r="3" fill="#10b981">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Credit Score Output - Properly aligned -->
+  <g id="creditScores">
+    <!-- Score Display 1 -->
+    <rect x="180" y="175" width="30" height="20" fill="#10b981" rx="2" opacity="0.9">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+    </rect>
+    <text x="195" y="187" text-anchor="middle" fill="white" font-family="monospace" font-size="8">750</text>
+    
+    <!-- Score Display 2 -->
+    <rect x="220" y="175" width="30" height="20" fill="#3b82f6" rx="2" opacity="0.9">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="3.2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="235" y="187" text-anchor="middle" fill="white" font-family="monospace" font-size="8">680</text>
+    
+    <!-- Score Display 3 -->
+    <rect x="260" y="175" width="30" height="20" fill="#f59e0b" rx="2" opacity="0.9">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite"/>
+    </rect>
+    <text x="275" y="187" text-anchor="middle" fill="white" font-family="monospace" font-size="8">590</text>
+  </g>
+  
+  <!-- Performance Metrics -->
+  <g id="metrics">
+    <text x="20" y="35" fill="#10b981" font-family="monospace" font-size="9">FastAPI Microservices</text>
+    <text x="20" y="50" fill="#fbbf24" font-family="monospace" font-size="8">Processing: 1M+ transactions</text>
+    <text x="20" y="200" fill="#3b82f6" font-family="monospace" font-size="8">Lender Approval: +32%</text>
+    <text x="180" y="200" fill="#10b981" font-family="monospace" font-size="8">Model Accuracy: AUC 0.82</text>
+  </g>
+  
+  <!-- Transaction Pulse Effect -->
+  <circle cx="100" cy="105" r="20" fill="url(#pulseGradient)" opacity="0.3">
+    <animate attributeName="r" values="10;30;10" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</svg>

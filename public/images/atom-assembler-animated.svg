@@ -1,0 +1,131 @@
+<svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="assemblerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="hexGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="codeFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0" />
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="340" height="220" fill="#0f172a"/>
+  
+  <!-- Title -->
+  <text x="170" y="20" text-anchor="middle" fill="#dc2626" font-family="monospace" font-size="14" font-weight="bold">AtomAssembler - Two-Pass Assembler</text>
+  
+  <!-- Assembly Code Input Panel -->
+  <rect x="20" y="40" width="100" height="110" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="4"/>
+  <text x="70" y="55" text-anchor="middle" fill="#3b82f6" font-family="monospace" font-size="9" font-weight="bold">Assembly Code</text>
+  
+  <!-- Assembly Instructions -->
+  <g id="asmCode" font-family="monospace" font-size="7" fill="#e5e7eb">
+    <text x="25" y="70" fill="#fbbf24">MOV</text>
+    <text x="45" y="70" fill="#e5e7eb">A, #0x42</text>
+    
+    <text x="25" y="82" fill="#fbbf24">ADD</text>
+    <text x="45" y="82" fill="#e5e7eb">B, A</text>
+    
+    <text x="25" y="94" fill="#fbbf24">JMP</text>
+    <text x="45" y="94" fill="#e5e7eb">LOOP</text>
+    
+    <text x="25" y="106" fill="#fbbf24">LOAD</text>
+    <text x="50" y="106" fill="#e5e7eb">R1, M</text>
+    
+    <text x="25" y="118" fill="#fbbf24">STORE</text>
+    <text x="55" y="118" fill="#e5e7eb">M, R2</text>
+    
+    <text x="25" y="130" fill="#fbbf24">SUB</text>
+    <text x="45" y="130" fill="#e5e7eb">A, B</text>
+    
+    <text x="25" y="142" fill="#fbbf24">HALT</text>
+  </g>
+  
+  <!-- AtomAssembler Engine -->
+  <rect x="140" y="60" width="80" height="60" fill="#1e293b" stroke="#dc2626" stroke-width="2" rx="4"/>
+  <text x="180" y="76" text-anchor="middle" fill="#dc2626" font-family="monospace" font-size="9" font-weight="bold">AtomAssembler</text>
+  <text x="180" y="88" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="7">Two-Pass</text>
+  <text x="180" y="98" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="7">20+ Mnemonics</text>
+  <text x="180" y="108" text-anchor="middle" fill="#3b82f6" font-family="monospace" font-size="7">70% Faster</text>
+  
+  <!-- Intel HEX Output -->
+  <rect x="240" y="40" width="60" height="110" fill="#1e293b" stroke="#10b981" stroke-width="2" rx="4"/>
+  <text x="270" y="55" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="9" font-weight="bold">Intel-HEX</text>
+  
+  <!-- HEX Output Lines -->
+  <g id="hexOutput" font-family="monospace" font-size="6" fill="#10b981">
+    <text x="245" y="70">:10000000</text>
+    <text x="245" y="80">420A83FF</text>
+    <text x="245" y="90">:08001000</text>
+    <text x="245" y="100">8B2A91C4</text>
+    <text x="245" y="110">:04002000</text>
+    <text x="245" y="120">7F8E93A1</text>
+    <text x="245" y="130">:00000001</text>
+    <text x="245" y="140">FF</text>
+  </g>
+  
+  <!-- Processing Flow -->
+  <g id="processingFlow">
+    <!-- Pass 1 Arrow -->
+    <path d="M120 80 Q130 70 140 80" stroke="url(#codeFlow)" stroke-width="2" fill="none" marker-end="url(#arrowhead)">
+      <animate attributeName="stroke-dasharray" values="0,100;20,80;0,100" dur="1.5s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Pass 2 Arrow -->
+    <path d="M120 100 Q130 110 140 100" stroke="url(#codeFlow)" stroke-width="2" fill="none" marker-end="url(#arrowhead)">
+      <animate attributeName="stroke-dasharray" values="0,100;20,80;0,100" dur="1.8s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Output Arrow - Fixed positioning -->
+    <path d="M220 90 L240 90" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)">
+      <animate attributeName="stroke-dasharray" values="0,30;10,20;0,30" dur="1.2s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Processing Indicators -->
+  <g id="processingLights">
+    <circle cx="155" cy="85" r="2" fill="#dc2626">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="165" cy="95" r="2" fill="#fbbf24">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="195" cy="95" r="2" fill="#10b981">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="205" cy="85" r="2" fill="#3b82f6">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- CPU Architecture Target -->
+  <rect x="20" y="160" width="120" height="20" fill="#0f172a" stroke="#fbbf24" stroke-width="1" rx="4"/>
+  <text x="80" y="172" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="8">Custom 8-bit CPU Target</text>
+  
+  <!-- Test Results Panel -->
+  <rect x="160" y="135" width="120" height="40" fill="#0f172a" stroke="#10b981" stroke-width="1" rx="4"/>
+  <text x="220" y="147" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="8">Test Results</text>
+  <text x="220" y="157" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="7">50+ Programs</text>
+  <text x="220" y="167" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="7">100% Pass Rate</text>
+  
+  <!-- Performance Metrics -->
+  <g id="metrics">
+    <text x="20" y="35" fill="#dc2626" font-family="monospace" font-size="9">Two-Pass Assembly Processing</text>
+    <text x="20" y="205" fill="#10b981" font-family="monospace" font-size="7">Build Time: -70% • Test Coverage: 100%</text>
+    <text x="20" y="215" fill="#3b82f6" font-family="monospace" font-size="7">20+ Mnemonics → Intel-HEX</text>
+  </g>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6"/>
+    </marker>
+  </defs>
+</svg>
