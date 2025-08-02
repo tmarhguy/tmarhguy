@@ -18,21 +18,24 @@ export const metadata: Metadata = {
   title: "Tyrone Marhguy - Computer Engineering @ UPenn",
   description: "Computer Engineering student at UPenn specializing in discrete hardware systems, embedded design, and full-stack development. Building everything from 700+ transistor CPUs to scalable web platforms.",
   keywords: ["computer engineering", "discrete transistor CPU", "hardware design", "FPGA", "embedded systems", "full-stack development", "UPenn"],
-  authors: [{ name: "Tyrone Marhguy", url: "https://tmarhguy.dev" }],
+  authors: [{ name: "Tyrone Marhguy", url: "https://tmarhguy.github.io/tmarhguy" }],
   creator: "Tyrone Marhguy",
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-16x16.svg", sizes: "16x16", type: "image/svg+xml" },
+      { url: "/favicon-32x32.svg", sizes: "32x32", type: "image/svg+xml" },
     ],
     apple: [
       { url: "/apple-touch-icon.svg", sizes: "180x180", type: "image/svg+xml" },
     ],
+    shortcut: "/favicon.ico",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://tmarhguy.dev",
+    url: "https://tmarhguy.github.io/tmarhguy",
     title: "Tyrone Marhguy - Computer Engineering @ UPenn",
     description: "Computer Engineering student at UPenn specializing in discrete hardware systems, embedded design, and full-stack development.",
     siteName: "Tyrone Marhguy Portfolio",
@@ -62,7 +65,7 @@ export default function RootLayout({
           <script
             async
             defer
-            data-domain="tyrone.tech"
+            data-domain="tmarhguy.dev"
             src="https://plausible.io/js/script.js"
           />
         )}
