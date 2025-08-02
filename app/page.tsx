@@ -28,7 +28,7 @@ export default function Home() {
     {
       title: "MoMo Credit Score Generator - Ghana",
       description: "Ghana's first consumer credit platform processing 1M+ transactions with FastAPI microservices and XGBoost ML pipeline, achieving AUC 0.82 and improving lender approval rates by 32%.",
-      image: "/images/momo-credit-animated.svg",
+      image: "/tmarhguy/images/momo-credit-animated.svg",
       metrics: [
         { label: "Transactions", value: "1M+" },
         { label: "AUC Score", value: "0.82" },
@@ -42,7 +42,7 @@ export default function Home() {
     {
       title: "Music & You",
       description: "ML-based music analytics platform (FastAPI, OAuth2) supporting 1M+ users with <2s P95 latency, featuring React interface with async streaming that reduced load times by 40%.",
-      image: "/images/music-analytics-animated.svg",
+      image: "/tmarhguy/images/music-analytics-animated.svg",
       metrics: [
         { label: "Users", value: "1M+" },
         { label: "Latency P95", value: "<2s" },
@@ -56,7 +56,7 @@ export default function Home() {
     {
       title: "UniBridge - Ghana",
       description: "Ghana's first centralized admissions portal for 350K+ applicants/year using FastAPI, React, Redis, and PostgreSQL, achieving 99.9% uptime and P99 <500ms latency under 10K+ daily requests.",
-      image: "/images/unibridge-animated.svg",
+      image: "/tmarhguy/images/unibridge-animated.svg",
       metrics: [
         { label: "Applicants", value: "350K+/yr" },
         { label: "Daily Requests", value: "10K+" },
@@ -73,7 +73,7 @@ export default function Home() {
     {
       title: "UniBridge-Ghana",
       description: "Full-stack student platforms (NextJS, Express, MongoDB) handling 800+ MAU with automated scheduling, real-time chat, and SPA with multi-course management.",
-      image: "/images/unibridge-animated.svg",
+      image: "/tmarhguy/images/unibridge-animated.svg",
       github: "https://github.com/tmarhguy",
       demo: "/projects/software/unibridge",
       tags: ["NextJS", "Full Stack", "MongoDB"],
@@ -82,7 +82,7 @@ export default function Home() {
     {
       title: "MoMo Credit Score Generator - Ghana",
       description: "Ghana's first consumer credit platform processing 1M+ transactions with FastAPI microservices and XGBoost ML pipeline, achieving AUC 0.82 and improving lender approval rates by 32%.",
-      image: "/images/momo-credit-animated.svg",
+      image: "/tmarhguy/images/momo-credit-animated.svg",
       github: "https://github.com/tmarhguy/momo-credit-score",
       demo: "/projects/software/momo-csg",
       tags: ["FinTech", "XGBoost", "FastAPI"],
@@ -91,7 +91,7 @@ export default function Home() {
     {
       title: "Music & You",
       description: "ML-based music analytics platform (FastAPI, OAuth2) supporting 1M+ users with <2s P95 latency, featuring React interface with async streaming that reduced load times by 40%.",
-      image: "/images/music-analytics-animated.svg",
+      image: "//tmarhguy/images/music-analytics-animated.svg",
       github: "https://github.com/tmarhguy/music-and-you",
       demo: "https://music-and-you.vercel.app",
       tags: ["ML Analytics", "OAuth2", "React"],
@@ -130,7 +130,7 @@ export default function Home() {
     {
       title: "8-bit Transistor CPU",
       description: "Complete CPU built from 700+ discrete 2N7000 NMOS transistors with custom 12-instruction ISA, capable of running assembly programs and measured with logic analyzer for gate propagation delays.",
-      image: "/images/transistor-cpu-animated.svg",
+      image: "/tmarhguy/images/transistor-cpu-animated.svg",
       github: "https://github.com/tmarhguy/cpu",
       demo: "/projects/hardware/cpu",
       tags: ["Discrete Logic", "ISA Design", "Assembly"],
