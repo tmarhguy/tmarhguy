@@ -100,7 +100,7 @@ export default function Home() {
     {
       title: "AtomAssembler",
       description: "Two-pass assembler translating 20+ mnemonics to Intel-HEX for custom 8-bit CPU, reducing firmware build time by 70% with automated testbench validating 50+ programs at 100% pass rate.",
-      image: "/images/atom-assembler-animated.svg",
+      image: "/tmarhguy/images/atom-assembler-animated.svg",
       github: "https://github.com/tmarhguy/atomassembler",
       demo: "/projects/software/atom-assembler",
       tags: ["Assembler", "CLI Tools", "Testing"],
