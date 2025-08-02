@@ -4,10 +4,12 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Github, ExternalLink, Clock, CheckCircle, Lightbulb, Wrench, X } from "lucide-react";
+import Image from "next/image";
 
 interface ProjectCardProps {
   title: string;
   description: string;
+  image?: string;
   github: string;
   demo: string;
   tags: string[];
@@ -40,6 +42,7 @@ const statusConfig = {
 export default function ProjectCard({
   title,
   description,
+  image,
   github,
   demo,
   tags,
@@ -167,6 +170,18 @@ export default function ProjectCard({
               </div>
             </div>
           </div>
+
+          {/* Image - if provided */}
+          {image && (
+            <div className="aspect-square sm:aspect-video relative overflow-hidden rounded-lg mb-2 sm:mb-4">
+              <Image
+                src={image}
+                alt={title}
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+          )}
 
           {/* Mobile: Tap to view full details indicator */}
           <div className="sm:hidden mb-2">

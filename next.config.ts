@@ -12,9 +12,6 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  // Enable basePath for GitHub Pages deployment
-  basePath: process.env.NODE_ENV === 'production' ? '/tmarhguy' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/tmarhguy' : '',
 };
 
 export default withMDX(nextConfig);
