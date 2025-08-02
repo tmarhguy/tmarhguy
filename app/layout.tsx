@@ -22,7 +22,6 @@ export const metadata: Metadata = {
   creator: "Tyrone Marhguy",
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon.svg", type: "image/svg+xml" },
       { url: "/favicon-16x16.svg", sizes: "16x16", type: "image/svg+xml" },
       { url: "/favicon-32x32.svg", sizes: "32x32", type: "image/svg+xml" },
@@ -30,7 +29,6 @@ export const metadata: Metadata = {
     apple: [
       { url: "/apple-touch-icon.svg", sizes: "180x180", type: "image/svg+xml" },
     ],
-    shortcut: "/favicon.ico",
   },
   openGraph: {
     type: "website",
@@ -53,14 +51,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const basePath = "/tmarhguy";
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href={`${basePath}/favicon.ico`} sizes="any" />
-        <link rel="icon" href={`${basePath}/favicon.svg`} type="image/svg+xml" />
-        <link rel="apple-touch-icon" href={`${basePath}/apple-touch-icon.svg`} />
-      </head>
       <body
         className={`${spaceGrotesk.variable} ${ibmPlexMono.variable} font-sans antialiased bg-black text-white`}
         suppressHydrationWarning={true}
