@@ -1,0 +1,117 @@
+<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="oscillatorGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fbbf24;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="signalGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#34d399;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="200" fill="#0f0f0f"/>
+  
+  <!-- RC Circuit Components -->
+  <g id="rc-circuit">
+    <!-- Resistor -->
+    <g id="resistor" transform="translate(50,100)">
+      <rect x="-15" y="-4" width="30" height="8" fill="none" stroke="#888" stroke-width="2"/>
+      <path d="M-15,0 L-10,0 M-10,-4 L-5,4 L5,-4 L15,4 L10,0 M10,0 L15,0" stroke="#888" stroke-width="2" fill="none"/>
+      <text x="0" y="-15" font-family="monospace" font-size="8" fill="#888" text-anchor="middle">R</text>
+    </g>
+    
+    <!-- Capacitor -->
+    <g id="capacitor" transform="translate(150,100)">
+      <line x1="-8" y1="-10" x2="-8" y2="10" stroke="#888" stroke-width="3"/>
+      <line x1="8" y1="-10" x2="8" y2="10" stroke="#888" stroke-width="3"/>
+      <line x1="-15" y1="0" x2="-8" y2="0" stroke="#888" stroke-width="2"/>
+      <line x1="8" y1="0" x2="15" y2="0" stroke="#888" stroke-width="2"/>
+      <text x="0" y="-20" font-family="monospace" font-size="8" fill="#888" text-anchor="middle">C</text>
+    </g>
+    
+    <!-- Connecting wires -->
+    <line x1="65" y1="100" x2="135" y2="100" stroke="#888" stroke-width="2"/>
+    <line x1="165" y1="100" x2="230" y2="100" stroke="#888" stroke-width="2"/>
+    <line x1="50" y1="80" x2="50" y2="100" stroke="#888" stroke-width="2"/>
+    <line x1="230" y1="80" x2="230" y2="100" stroke="#888" stroke-width="2"/>
+    <line x1="50" y1="80" x2="230" y2="80" stroke="#888" stroke-width="2"/>
+  </g>
+  
+  <!-- Oscillator Output -->
+  <g id="output-connector">
+    <circle cx="250" cy="100" r="6" fill="url(#oscillatorGradient)" stroke="#444" stroke-width="2">
+      <animate attributeName="r" values="6;8;6" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <text x="250" y="125" font-family="monospace" font-size="8" fill="#f59e0b" text-anchor="middle">1 kHz OUT</text>
+  </g>
+  
+  <!-- Waveform Display -->
+  <g id="waveform">
+    <rect x="50" y="140" width="200" height="40" fill="#1a1a1a" stroke="#333" stroke-width="1" rx="4"/>
+    
+    <!-- Square wave animation -->
+    <g id="square-wave">
+      <path d="M 60 165 L 60 155 L 80 155 L 80 165 L 100 165 L 100 155 L 120 155 L 120 165 L 140 165 L 140 155 L 160 155 L 160 165 L 180 165 L 180 155 L 200 155 L 200 165 L 220 165 L 220 155 L 240 155 L 240 165" 
+            stroke="url(#signalGradient)" stroke-width="2" fill="none">
+        <animateTransform attributeName="transform" type="translate" values="0,0;-20,0;0,0" dur="2s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    
+    <!-- Grid lines -->
+    <g stroke="#333" stroke-width="0.5" opacity="0.5">
+      <line x1="70" y1="140" x2="70" y2="180"/>
+      <line x1="90" y1="140" x2="90" y2="180"/>
+      <line x1="110" y1="140" x2="110" y2="180"/>
+      <line x1="130" y1="140" x2="130" y2="180"/>
+      <line x1="150" y1="140" x2="150" y2="180"/>
+      <line x1="170" y1="140" x2="170" y2="180"/>
+      <line x1="190" y1="140" x2="190" y2="180"/>
+      <line x1="210" y1="140" x2="210" y2="180"/>
+      <line x1="230" y1="140" x2="230" y2="180"/>
+    </g>
+  </g>
+  
+  <!-- Frequency Display -->
+  <g id="frequency-display">
+    <rect x="260" y="140" width="35" height="25" fill="#2563eb" stroke="#444" stroke-width="1" rx="2"/>
+    <text x="277" y="150" font-family="monospace" font-size="6" fill="#ffffff" text-anchor="middle">FREQ</text>
+    <text x="277" y="160" font-family="monospace" font-size="8" fill="#00ff00" text-anchor="middle">1000</text>
+    <text x="277" y="170" font-family="monospace" font-size="6" fill="#ffffff" text-anchor="middle">Hz</text>
+  </g>
+  
+  <!-- Stability Indicator -->
+  <g id="stability">
+    <circle cx="280" cy="50" r="8" fill="#10b981" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.4;0.8" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <text x="280" y="35" font-family="monospace" font-size="8" fill="#10b981" text-anchor="middle">STABLE</text>
+    <text x="280" y="75" font-family="monospace" font-size="6" fill="#888" text-anchor="middle">&lt;1% drift</text>
+  </g>
+  
+  <!-- Temperature Indicator -->
+  <g id="temperature">
+    <rect x="15" y="40" width="12" height="20" fill="#dc2626" rx="2"/>
+    <circle cx="21" cy="65" r="4" fill="#dc2626"/>
+    <text x="21" y="35" font-family="monospace" font-size="6" fill="#888" text-anchor="middle">TEMP</text>
+    <text x="21" y="80" font-family="monospace" font-size="6" fill="#888" text-anchor="middle">25°C</text>
+  </g>
+  
+  <!-- Power Supply Lines -->
+  <g id="power-lines">
+    <line x1="20" y1="20" x2="280" y2="20" stroke="#dc2626" stroke-width="2" opacity="0.6"/>
+    <line x1="20" y1="120" x2="280" y2="120" stroke="#1f2937" stroke-width="2" opacity="0.6"/>
+    <text x="25" y="18" font-family="monospace" font-size="6" fill="#dc2626">+Vcc</text>
+    <text x="25" y="133" font-family="monospace" font-size="6" fill="#888">GND</text>
+  </g>
+  
+  <!-- Duty Cycle Indicator -->
+  <g id="duty-cycle">
+    <text x="150" y="190" font-family="monospace" font-size="8" fill="#10b981" text-anchor="middle">Duty Cycle: 50% ± 0.1%</text>
+  </g>
+  
+  <!-- Title -->
+  <text x="150" y="15" font-family="monospace" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">Precision Clock Oscillator</text>
+</svg>

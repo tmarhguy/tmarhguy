@@ -10,12 +10,11 @@ import Skills from "@/components/sections/Skills";
 import { Mail, Linkedin } from "lucide-react";
 
 export default function Home() {
-  const basePath = "/tmarhguy";
   const flagshipProjects = [
     {
       title: "8-bit Transistor CPU",
       description: "Complete CPU built from 700+ discrete 2N7000 NMOS transistors with custom 12-instruction ISA, capable of running assembly programs and measured with logic analyzer for gate propagation delays.",
-      image: `${basePath}/images/transistor-cpu-animated.svg`,
+      image: "/images/transistor-cpu-animated.svg",
       metrics: [
         { label: "Transistors", value: "700+" },
         { label: "Instructions", value: "12-ISA" },
@@ -29,7 +28,7 @@ export default function Home() {
     {
       title: "MoMo Credit Score Generator - Ghana",
       description: "Ghana's first consumer credit platform processing 1M+ transactions with FastAPI microservices and XGBoost ML pipeline, achieving AUC 0.82 and improving lender approval rates by 32%.",
-      image: `${basePath}/images/momo-credit-animated.svg`,
+      image: "/images/momo-credit-animated.svg",
       metrics: [
         { label: "Transactions", value: "1M+" },
         { label: "AUC Score", value: "0.82" },
@@ -43,7 +42,7 @@ export default function Home() {
     {
       title: "Music & You",
       description: "ML-based music analytics platform (FastAPI, OAuth2) supporting 1M+ users with <2s P95 latency, featuring React interface with async streaming that reduced load times by 40%.",
-      image: `${basePath}/images/music-analytics-animated.svg`,
+      image: "/images/music-analytics-animated.svg",
       metrics: [
         { label: "Users", value: "1M+" },
         { label: "Latency P95", value: "<2s" },
@@ -57,7 +56,7 @@ export default function Home() {
     {
       title: "UniBridge - Ghana",
       description: "Ghana's first centralized admissions portal for 350K+ applicants/year using FastAPI, React, Redis, and PostgreSQL, achieving 99.9% uptime and P99 <500ms latency under 10K+ daily requests.",
-      image: `${basePath}/images/unibridge-animated.svg`,
+      image: "/images/unibridge-animated.svg",
       metrics: [
         { label: "Applicants", value: "350K+/yr" },
         { label: "Daily Requests", value: "10K+" },
@@ -72,45 +71,45 @@ export default function Home() {
 
   const softwareProjects = [
     {
-      title: "UniMTL & UniBridge",
+      title: "UniBridge-Ghana",
       description: "Full-stack student platforms (NextJS, Express, MongoDB) handling 800+ MAU with automated scheduling, real-time chat, and SPA with multi-course management.",
-      image: `${basePath}/images/unibridge-animated.svg`,
+      image: "/images/unibridge-animated.svg",
       github: "https://github.com/tmarhguy",
       demo: "/projects/software/unibridge",
       tags: ["NextJS", "Full Stack", "MongoDB"],
-      status: "Complete" as const
+      status: "In Progress" as const
     },
     {
       title: "MoMo Credit Score Generator - Ghana",
       description: "Ghana's first consumer credit platform processing 1M+ transactions with FastAPI microservices and XGBoost ML pipeline, achieving AUC 0.82 and improving lender approval rates by 32%.",
-      image: `${basePath}/images/momo-credit-animated.svg`,
+      image: "/images/momo-credit-animated.svg",
       github: "https://github.com/tmarhguy/momo-credit-score",
       demo: "/projects/software/momo-csg",
       tags: ["FinTech", "XGBoost", "FastAPI"],
-      status: "Complete" as const
+      status: "In Progress" as const
     },
     {
       title: "Music & You",
       description: "ML-based music analytics platform (FastAPI, OAuth2) supporting 1M+ users with <2s P95 latency, featuring React interface with async streaming that reduced load times by 40%.",
-      image: `${basePath}/images/music-analytics-animated.svg`,
+      image: "/images/music-analytics-animated.svg",
       github: "https://github.com/tmarhguy/music-and-you",
       demo: "https://music-and-you.vercel.app",
       tags: ["ML Analytics", "OAuth2", "React"],
-      status: "Complete" as const
+      status: "In Progress" as const
     },
     {
       title: "AtomAssembler",
       description: "Two-pass assembler translating 20+ mnemonics to Intel-HEX for custom 8-bit CPU, reducing firmware build time by 70% with automated testbench validating 50+ programs at 100% pass rate.",
-      image: `${basePath}/images/atom-assembler-animated.svg`,
+      image: "/images/atom-assembler-animated.svg",
       github: "https://github.com/tmarhguy/atomassembler",
       demo: "/projects/software/atom-assembler",
       tags: ["Assembler", "CLI Tools", "Testing"],
-      status: "Complete" as const
+      status: "In Progress" as const
     },
     {
       title: "Color Communication Game",
       description: "Multiplayer psychology-based game where users develop shared language using color patterns, exploring behavioral communication and emergent semantics.",
-      image: `${basePath}/images/color-game-animated.svg`,
+      image: "/images/color-game-animated.svg",
       github: "https://github.com/tmarhguy/Psych_Color_Game_Experiment",
       demo: "/projects/software/color-game",
       tags: ["Flutter", "Psychology", "Real-time"],
@@ -119,7 +118,7 @@ export default function Home() {
     {
       title: "YouTube to Spotify Migrator",
       description: "CLI tool for seamless playlist and liked songs migration from YouTube Music to Spotify using OAuth and API automation.",
-      image: `${basePath}/images/music-analytics-animated.svg`,
+      image: "/images/youtube-spotify-migrator-animated.svg",
       github: "https://github.com/tmarhguy/ytmusic-spotify-migrator",
       demo: "/projects/software/migrator",
       tags: ["Python", "CLI", "Automation"],
@@ -131,38 +130,38 @@ export default function Home() {
     {
       title: "8-bit Transistor CPU",
       description: "Complete CPU built from 700+ discrete 2N7000 NMOS transistors with custom 12-instruction ISA, capable of running assembly programs and measured with logic analyzer for gate propagation delays.",
-      image: `${basePath}/images/transistor-cpu-animated.svg`,
+      image: "/images/transistor-cpu-animated.svg",
       github: "https://github.com/tmarhguy/cpu",
       demo: "/projects/hardware/cpu",
       tags: ["Discrete Logic", "ISA Design", "Assembly"],
-      status: "Complete" as const
+      status: "In Progress" as const
     },
     {
       title: "16-Bit Transistor Memory Module",
       description: "16-bit addressable memory from ~350 discrete transistors using D-flip-flop latch arrays, integrated with Arduino microcontroller achieving stable operation over 1,000+ access cycles.",
-      image: `${basePath}/images/transistor-cpu-animated.svg`,
+      image: "/images/memory-module-animated.svg",
       github: "https://github.com/tmarhguy/memory-drive",
       demo: "/projects/hardware/memory",
       tags: ["Memory Systems", "Bus Control", "Microcontroller"],
-      status: "Complete" as const
+      status: "In Progress" as const
     },
     {
       title: "Precision Clock Oscillator",
       description: "RC multivibrator delivering 1 kHz clock with <1% drift, tuned for stable duty cycle and temperature resilience using discrete components.",
-      image: "/images/cpu-animated.svg",
+      image: "/images/clock-oscillator-animated.svg",
       github: "https://github.com/tmarhguy/custom-clock",
       demo: "/projects/hardware/clock",
       tags: ["Oscillators", "Timing", "Analog Design"],
-      status: "Complete" as const
+      status: "In Progress" as const
     },
     {
       title: "Transistor-Logic Calculator",
       description: "Four-function calculator using ripple-carry adders and custom 7-segment decoder with power management, achieving <5ns propagation latency for all 16-bit operations.",
-      image: "/images/cpu-animated.svg",
+      image: "/images/calculator-animated.svg",
       github: "https://github.com/tmarhguy/custom-calculator",
       demo: "/projects/hardware/calculator",
       tags: ["Adders", "Display Logic", "Power Management"],
-      status: "Complete" as const
+      status: "In Progress" as const
     },
   ];
 
