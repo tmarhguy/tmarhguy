@@ -174,11 +174,11 @@ export default function ProjectCard({
           {/* Image - if provided */}
           {image && (
             <div className="aspect-square sm:aspect-video relative overflow-hidden rounded-lg mb-2 sm:mb-4">
-              <Image
+              <img
                 src={image}
                 alt={title}
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                className="group-hover:scale-110 transition-transform duration-500"
               />
             </div>
           )}

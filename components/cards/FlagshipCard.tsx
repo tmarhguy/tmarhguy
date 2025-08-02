@@ -121,11 +121,11 @@ export default function FlagshipCard({
       >
         <CardHeader className="pb-2 sm:pb-4">
           <div className="aspect-square sm:aspect-video relative overflow-hidden rounded-lg mb-2 sm:mb-4">
-            <Image
+            <img
               src={image}
               alt={title}
-              fill
-              className="object-cover group-hover:scale-110 transition-transform duration-500"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              className="group-hover:scale-110 transition-transform duration-500"
             />
           </div>
           <CardTitle className="text-sm sm:text-xl text-white group-hover:text-brand-400 transition-colors line-clamp-2">
