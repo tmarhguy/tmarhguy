@@ -91,7 +91,7 @@ export default function Home() {
     {
       title: "Music & You",
       description: "ML-based music analytics platform (FastAPI, OAuth2) supporting 1M+ users with <2s P95 latency, featuring React interface with async streaming that reduced load times by 40%.",
-      image: "//tmarhguy/images/music-analytics-animated.svg",
+      image: "/tmarhguy/images/music-analytics-animated.svg",
       github: "https://github.com/tmarhguy/music-and-you",
       demo: "https://music-and-you.vercel.app",
       tags: ["ML Analytics", "OAuth2", "React"],
