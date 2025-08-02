@@ -15,17 +15,22 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tyrone Marhguy - Hardware Engineer & Researcher",
-  description: "Personal portfolio showcasing hardware projects, CPU design, software development, and research by Tyrone Marhguy.",
-  keywords: ["hardware engineer", "CPU design", "digital systems", "FPGA", "embedded systems", "software development"],
-  authors: [{ name: "Tyrone Marhguy", url: "https://tyrone.tech" }],
+  title: "Tyrone Marhguy - Computer Engineering @ UPenn",
+  description: "Computer Engineering student at UPenn specializing in discrete hardware systems, embedded design, and full-stack development. Building everything from 700+ transistor CPUs to scalable web platforms.",
+  keywords: ["computer engineering", "discrete transistor CPU", "hardware design", "FPGA", "embedded systems", "full-stack development", "UPenn"],
+  authors: [{ name: "Tyrone Marhguy", url: "https://tmarhguy.github.io/tmarhguy" }],
   creator: "Tyrone Marhguy",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "32x32" },
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-16x16.svg", sizes: "16x16", type: "image/svg+xml" },
+      { url: "/favicon-32x32.svg", sizes: "32x32", type: "image/svg+xml" },
     ],
-    apple: "/apple-touch-icon.png",
+    apple: [
+      { url: "/apple-touch-icon.svg", sizes: "180x180", type: "image/svg+xml" },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
     other: [
       { url: "/icons/apple-touch-icon-57x57.png", sizes: "57x57", type: "image/png" },
       { url: "/icons/apple-touch-icon-72x72.png", sizes: "72x72", type: "image/png" },
@@ -41,13 +46,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://tmarhguy.github.io/tmarhguy",
-    title: "Tyrone Marhguy - Hardware Engineer & Researcher",
-    description: "Personal portfolio showcasing hardware projects, CPU design, software development, and research.",
+    title: "Tyrone Marhguy - Computer Engineering @ UPenn",
+    description: "Computer Engineering student at UPenn specializing in discrete hardware systems, embedded design, and full-stack development.",
     siteName: "Tyrone Marhguy Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tyrone Marhguy - Hardware Engineer & Researcher",
+    title: "Tyrone Marhguy - Computer Engineering @ UPenn",
     description: "Personal portfolio showcasing hardware projects, CPU design, software development, and research.",
   },
   manifest: "/site.webmanifest",

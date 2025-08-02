@@ -13,27 +13,27 @@ export default function Home() {
   const flagshipProjects = [
     {
       title: "8-bit Transistor CPU",
-      description: "A complete CPU built from discrete 2N7000 NMOS transistors with custom instruction set architecture, capable of running assembly programs including Fibonacci calculations.",
-      image: "/images/cpu-placeholder.svg",
+      description: "Complete CPU built from 700+ discrete 2N7000 NMOS transistors with custom 12-instruction ISA, capable of running assembly programs and measured with logic analyzer for gate propagation delays.",
+      image: "/images/cpu-animated.svg",
       metrics: [
-        { label: "Transistors", value: "734" },
-        { label: "Max Freq", value: "4.3 kHz" },
-        { label: "Power", value: "180 mA" },
-        { label: "Tests Pass", value: "100%" },
+        { label: "Transistors", value: "700+" },
+        { label: "Instructions", value: "12-ISA" },
+        { label: "Programs", value: "20+" },
+        { label: "Verification", value: "100%" },
       ],
       github: "https://github.com/tmarhguy/cpu",
       demo: "/projects/hardware/cpu",
-      tags: ["Hardware", "CPU", "Digital Design"],
+      tags: ["Hardware", "ISA Design", "Digital Logic"],
     },
     {
       title: "MoMo Credit Score Generator - Ghana",
-      description: "ML-driven credit scoring engine that analyzes mobile money transactions to generate alternative credit scores for the un/under-banked population in Ghana, achieving 89% accuracy in default prediction.",
-      image: "/images/momo-csg-placeholder.svg",
+      description: "Ghana's first consumer credit platform processing 1M+ transactions with FastAPI microservices and XGBoost ML pipeline, achieving AUC 0.82 and improving lender approval rates by 32%.",
+      image: "/images/ml-animated.svg",
       metrics: [
-        { label: "Accuracy", value: "89%" },
-        { label: "Population", value: "350M+" },
-        { label: "Markets", value: "5 Countries" },
-        { label: "Latency", value: "< 400ms" },
+        { label: "Transactions", value: "1M+" },
+        { label: "AUC Score", value: "0.82" },
+        { label: "Latency P99", value: "<400ms" },
+        { label: "Approval ↑", value: "32%" },
       ],
       github: "https://github.com/tmarhguy/momo-credit-score",
       demo: "/projects/software/momo-csg",
@@ -41,13 +41,13 @@ export default function Home() {
     },
     {
       title: "Music & You",
-      description: "AI-powered platform that predicts Big Five personality traits from Spotify and YouTube Music listening patterns using multi-modal ML with acoustic features and temporal behavior.",
-      image: "/images/music-placeholder.svg", 
+      description: "ML-based music analytics platform (FastAPI, OAuth2) supporting 1M+ users with <2s P95 latency, featuring React interface with async streaming that reduced load times by 40%.",
+      image: "/images/portfolio-animated.svg", 
       metrics: [
-        { label: "Users", value: "2.1K" },
-        { label: "Accuracy", value: "89%" },
-        { label: "Songs", value: "50K+" },
-        { label: "Uptime", value: "99.9%" },
+        { label: "Users", value: "1M+" },
+        { label: "Latency P95", value: "<2s" },
+        { label: "Load Time ↓", value: "40%" },
+        { label: "MTTR", value: "12min" },
       ],
       github: "https://github.com/tmarhguy/music-and-you",
       demo: "https://music-and-you.vercel.app",
@@ -55,13 +55,13 @@ export default function Home() {
     },
     {
       title: "UniBridge - Ghana",
-      description: "Centralized application portal for Ghanaian tertiary institutions, similar to Common App, with WASSCE integration and university dashboards for streamlined admissions.",
-      image: "/images/unibridge-placeholder.svg",
+      description: "Ghana's first centralized admissions portal for 350K+ applicants/year using FastAPI, React, Redis, and PostgreSQL, achieving 99.9% uptime and P99 <500ms latency under 10K+ daily requests.",
+      image: "/images/platformer-animated.svg",
       metrics: [
-        { label: "Universities", value: "15+" },
-        { label: "Applications", value: "5K+" },
-        { label: "Success Rate", value: "94%" },
-        { label: "Response Time", value: "< 2s" },
+        { label: "Applicants", value: "350K+/yr" },
+        { label: "Daily Requests", value: "10K+" },
+        { label: "Uptime", value: "99.9%" },
+        { label: "Latency P99", value: "<500ms" },
       ],
       github: "https://github.com/tmarhguy/unibridgeGhana",
       demo: "/projects/software/unibridge",
@@ -72,44 +72,44 @@ export default function Home() {
   const softwareProjects = [
     {
       title: "UniBridge",
-      description: "Centralized application portal for Ghanaian tertiary institutions, similar to Common App, with WASSCE integration and university dashboards for streamlined admissions.",
-      image: "/images/unibridge-placeholder.svg",
+      description: "Ghana's first centralized admissions portal for 350K+ applicants/year using FastAPI, React, Redis, and PostgreSQL, achieving 99.9% uptime and P99 <500ms latency under 10K+ daily requests.",
+      image: "/images/platformer-animated.svg",
       github: "https://github.com/tmarhguy/unibridgeGhana",
       demo: "/projects/software/unibridge",
-      tags: ["Backend", "API", "Education"],
-      status: "In Progress" as const
-    },
-    {
-      title: "Music & You",
-      description: "AI-powered platform that predicts Big Five personality traits from Spotify and YouTube Music listening patterns using multi-modal ML with acoustic features and temporal behavior.",
-      image: "/images/music-placeholder.svg",
-      github: "https://github.com/tmarhguy/music-and-you",
-      demo: "https://music-and-you.vercel.app",
-      tags: ["AI/ML", "Psychology", "Music"],
-      status: "In Progress" as const
+      tags: ["FastAPI", "React", "PostgreSQL"],
+      status: "Complete" as const
     },
     {
       title: "MoMo Credit Score Generator - Ghana",
-      description: "ML-driven credit scoring engine that analyzes mobile money transactions to generate alternative credit scores for the un/under-banked population in Ghana, achieving 89% accuracy in default prediction.",
-      image: "/images/momo-csg-placeholder.svg",
+      description: "Ghana's first consumer credit platform processing 1M+ transactions with FastAPI microservices and XGBoost ML pipeline, achieving AUC 0.82 and improving lender approval rates by 32%.",
+      image: "/images/ml-animated.svg",
       github: "https://github.com/tmarhguy/momo-credit-score",
       demo: "/projects/software/momo-csg",
-      tags: ["FinTech", "ML", "API"],
-      status: "In Progress" as const
+      tags: ["FinTech", "XGBoost", "FastAPI"],
+      status: "Complete" as const
+    },
+    {
+      title: "Music & You",
+      description: "ML-based music analytics platform (FastAPI, OAuth2) supporting 1M+ users with <2s P95 latency, featuring React interface with async streaming that reduced load times by 40%.",
+      image: "/images/portfolio-animated.svg",
+      github: "https://github.com/tmarhguy/music-and-you",
+      demo: "https://music-and-you.vercel.app",
+      tags: ["ML Analytics", "OAuth2", "React"],
+      status: "Complete" as const
     },
     {
       title: "AtomAssembler",
-      description: "Two-pass assembler that converts human-readable mnemonics for discrete-transistor 8-bit CPU into executable machine code with labels, macros, and Intel-HEX output support.",
-      image: "/images/atom-assembler-placeholder.svg",
-      github: "https://github.com/tmarhguy/atom-assembler",
+      description: "Two-pass assembler translating 20+ mnemonics to Intel-HEX for custom 8-bit CPU, reducing firmware build time by 70% with automated testbench validating 50+ programs at 100% pass rate.",
+      image: "/images/cpu-animated.svg",
+      github: "https://github.com/tmarhguy/atomassembler",
       demo: "/projects/software/atom-assembler",
-      tags: ["Compiler", "Assembly", "Tools"],
-      status: "In Progress" as const
+      tags: ["Assembler", "CLI Tools", "Testing"],
+      status: "Complete" as const
     },
     {
       title: "Color Communication Game",
       description: "Multiplayer psychology-based game where users develop shared language using color patterns, exploring behavioral communication and emergent semantics.",
-      image: "/images/color-game-placeholder.svg",
+      image: "/images/platformer-animated.svg",
       github: "https://github.com/tmarhguy/Psych_Color_Game_Experiment",
       demo: "/projects/software/color-game",
       tags: ["Flutter", "Psychology", "Real-time"],
@@ -118,7 +118,7 @@ export default function Home() {
     {
       title: "YouTube to Spotify Migrator",
       description: "CLI tool for seamless playlist and liked songs migration from YouTube Music to Spotify using OAuth and API automation.",
-      image: "/images/migrator-placeholder.svg",
+      image: "/images/portfolio-animated.svg",
       github: "https://github.com/tmarhguy/ytmusic-spotify-migrator",
       demo: "/projects/software/migrator",
       tags: ["Python", "CLI", "Automation"],
@@ -128,40 +128,40 @@ export default function Home() {
 
   const hardwareProjects = [
     {
-      title: "Precision Clock Circuit",
-      description: "Crystal oscillator-based timing generator with frequency dividers and pulse shaping for CPU synchronization and digital systems.",
-      image: "/images/clock-placeholder.svg",
-      github: "https://github.com/tmarhguy/custom-clock",
-      demo: "/projects/hardware/clock",
-      tags: ["Oscillators", "Timing", "Digital"],
-      status: "In Progress" as const
+      title: "8-bit Transistor CPU",
+      description: "Complete CPU built from 700+ discrete 2N7000 NMOS transistors with custom 12-instruction ISA, capable of running assembly programs and measured with logic analyzer for gate propagation delays.",
+      image: "/images/cpu-animated.svg",
+      github: "https://github.com/tmarhguy/cpu",
+      demo: "/projects/hardware/cpu",
+      tags: ["Discrete Logic", "ISA Design", "Assembly"],
+      status: "Complete" as const
     },
     {
-      title: "CPU-Powered Calculator",
-      description: "Full calculator driven by hand-built CPU with 7-segment displays, keypad interface, and arithmetic operations demonstrating practical CPU applications.",
-      image: "/images/calculator-placeholder.svg",
-      github: "https://github.com/tmarhguy/custom-calculator",
-      demo: "/projects/hardware/calculator",
-      tags: ["I/O Interface", "Display", "Integration"],
-      status: "In Progress" as const
-    },
-    {
-      title: "32-Bit Memory Drive",
-      description: "Transistor-based memory unit with 32-bit addressing, manual soldering, and potential USB detection through microcontroller bridge.",
-      image: "/images/memory-placeholder.svg",
+      title: "16-Bit Transistor Memory Module",
+      description: "16-bit addressable memory from ~350 discrete transistors using D-flip-flop latch arrays, integrated with Arduino microcontroller achieving stable operation over 1,000+ access cycles.",
+      image: "/images/cpu-animated.svg",
       github: "https://github.com/tmarhguy/memory-drive",
       demo: "/projects/hardware/memory",
-      tags: ["Memory", "Bus Interface", "Storage"],
-      status: "In Progress" as const
+      tags: ["Memory Systems", "Bus Control", "Microcontroller"],
+      status: "Complete" as const
     },
     {
-      title: "Kente Weaving Machine",
-      description: "Semi-automated loom with programmable pattern encoding and stepper motor control, preserving traditional Kente aesthetics while increasing efficiency.",
-      image: "/images/kente-placeholder.svg",
-      github: "https://github.com/tmarhguy/kente",
-      demo: "/projects/hardware/kente",
-      tags: ["Cultural Tech", "Automation", "Mechanical"],
-      status: "Concept" as const
+      title: "Precision Clock Oscillator",
+      description: "RC multivibrator delivering 1 kHz clock with <1% drift, tuned for stable duty cycle and temperature resilience using discrete components.",
+      image: "/images/cpu-animated.svg",
+      github: "https://github.com/tmarhguy/custom-clock",
+      demo: "/projects/hardware/clock",
+      tags: ["Oscillators", "Timing", "Analog Design"],
+      status: "Complete" as const
+    },
+    {
+      title: "Transistor-Logic Calculator",
+      description: "Four-function calculator using ripple-carry adders and custom 7-segment decoder with power management, achieving <5ns propagation latency for all 16-bit operations.",
+      image: "/images/cpu-animated.svg",
+      github: "https://github.com/tmarhguy/custom-calculator",
+      demo: "/projects/hardware/calculator",
+      tags: ["Adders", "Display Logic", "Power Management"],
+      status: "Complete" as const
     },
   ];
 

@@ -10,7 +10,7 @@ export default function BioSection() {
         Download My Resume!
       </h3>
       <p className="text-gray-300 text-sm mb-4">
-        Specialized resumes tailored for hardware engineering and software development roles, showcasing relevant experience and projects.
+        Computer Engineering student at UPenn with specialized resumes for hardware engineering (discrete systems, FPGA, embedded) and software development (full-stack, ML, fintech) roles.
       </p>
       <div className="flex justify-center">
         <button 

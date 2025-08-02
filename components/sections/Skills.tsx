@@ -6,32 +6,32 @@ const skillCategories = [
   {
     icon: Code,
     title: "Programming",
-    skills: ["Python", "TypeScript", "Verilog", "C/C++", "Assembly"]
+    skills: ["Python", "C++/C", "TypeScript/JS", "Bash/Shell", "Verilog/VHDL"]
   },
   {
     icon: Globe,
-    title: "Web Tech",
-    skills: ["React/Next.js", "Node.js", "TailwindCSS", "REST APIs", "MongoDB"]
+    title: "Web & APIs",
+    skills: ["FastAPI", "React/Next.js", "Node.js", "GraphQL/REST", "OAuth2/JWT"]
   },
   {
     icon: Database,
-    title: "AI/ML & Data",
-    skills: ["TensorFlow", "Scikit-learn", "Pandas", "Statistical Modeling", "Feature Engineering"]
+    title: "Data & Cloud",
+    skills: ["PostgreSQL", "Redis", "MongoDB", "AWS (EC2/S3)", "Docker/K8s"]
   },
   {
     icon: Cpu,
-    title: "Hardware",
-    skills: ["Digital Design", "FPGA", "RISC-V", "PCB Design", "Microcontrollers"]
+    title: "Hardware Design",
+    skills: ["RTL (Verilog)", "FPGA (Vivado)", "PCB (KiCad)", "Transistor Logic", "ISA Design"]
   },
   {
     icon: Wrench,
-    title: "Tools",
-    skills: ["Git", "Docker", "Linux", "Quartus", "KiCad"]
+    title: "DevOps & Testing",
+    skills: ["GitHub Actions", "Jenkins", "Pytest/Jest", "LTspice", "Logic Analyzer"]
   },
   {
     icon: Zap,
-    title: "Specialized",
-    skills: ["Financial Modeling", "Psychology Research", "Real-time Systems", "API Development"]
+    title: "ML & Analytics",
+    skills: ["XGBoost", "scikit-learn", "SHAP", "pandas/NumPy", "Feature Engineering"]
   }
 ];
 
@@ -90,11 +90,11 @@ export default function Skills() {
           </h3>
           <div className="flex flex-wrap gap-2 sm:gap-3">
             {[
-              "Advanced FPGA",
-              "Rust",
-              "Quantum Computing",
-              "Edge AI/ML",
-              "5G/6G Networks"
+              "SystemVerilog/UVM",
+              "Signal Integrity",
+              "Embedded Systems", 
+              "Microcontroller Integration",
+              "Hardware Bring-up"
             ].map((interest) => (
               <span 
                 key={interest}

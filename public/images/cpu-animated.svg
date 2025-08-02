@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#0a0a0a"/>
+  
+  <!-- Circuit Board Background -->
+  <defs>
+    <pattern id="circuit" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+      <rect width="50" height="50" fill="#111111"/>
+      <path d="M10,10 L40,10 M25,10 L25,40 M10,40 L40,40" stroke="#1e40af" stroke-width="1" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="450" fill="url(#circuit)"/>
+  
+  <!-- CPU Chip -->
+  <rect x="300" y="150" width="200" height="150" fill="#1a1a1a" stroke="#3b82f6" stroke-width="2" rx="8"/>
+  
+  <!-- CPU Pins -->
+  <g stroke="#6b7280" stroke-width="2">
+    <rect x="280" y="165" width="15" height="4" fill="#6b7280"/>
+    <rect x="280" y="175" width="15" height="4" fill="#6b7280"/>
+    <rect x="280" y="185" width="15" height="4" fill="#6b7280"/>
+    <rect x="280" y="195" width="15" height="4" fill="#6b7280"/>
+    
+    <rect x="505" y="165" width="15" height="4" fill="#6b7280"/>
+    <rect x="505" y="175" width="15" height="4" fill="#6b7280"/>
+    <rect x="505" y="185" width="15" height="4" fill="#6b7280"/>
+    <rect x="505" y="195" width="15" height="4" fill="#6b7280"/>
+  </g>
+  
+  <!-- Animated Clock Signal -->
+  <g>
+    <text x="400" y="180" text-anchor="middle" fill="#3b82f6" font-family="monospace" font-size="12">CLK</text>
+    <rect x="350" y="190" width="100" height="30" fill="none" stroke="#3b82f6" stroke-width="1"/>
+    
+    <!-- Clock wave animation -->
+    <g stroke="#10b981" stroke-width="2" fill="none">
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        values="0,0; -50,0; 0,0"
+        dur="2s"
+        repeatCount="indefinite"/>
+      <path d="M350,215 L360,215 L360,195 L370,195 L370,215 L380,215 L380,195 L390,195 L390,215 L400,215 L400,195 L410,195 L410,215 L420,215 L420,195 L430,195 L430,215 L440,215 L440,195 L450,195 L450,215 L460,215"/>
+    </g>
+  </g>
+  
+  <!-- Data Bus Animation -->
+  <g>
+    <text x="400" y="240" text-anchor="middle" fill="#f59e0b" font-family="monospace" font-size="10">8-BIT DATA BUS</text>
+    <g fill="#f59e0b">
+      <circle cx="320" cy="250" r="2">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="340" cy="250" r="2">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" begin="0.1s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="360" cy="250" r="2">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" begin="0.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="380" cy="250" r="2">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" begin="0.3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="420" cy="250" r="2">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" begin="0.4s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="440" cy="250" r="2">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" begin="0.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="460" cy="250" r="2">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" begin="0.6s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="480" cy="250" r="2">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" begin="0.7s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+  
+  <!-- Memory Display -->
+  <rect x="550" y="150" width="180" height="120" fill="#1a1a1a" stroke="#6b7280" stroke-width="1" rx="4"/>
+  <text x="640" y="170" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="12">MEMORY</text>
+  
+  <!-- Animated Memory Contents -->
+  <g font-family="monospace" font-size="10" fill="#10b981">
+    <text x="560" y="190">0x00: 0xA9</text>
+    <text x="560" y="205">0x01: 0x02</text>
+    <text x="560" y="220">0x02: 0x8D</text>
+    <text x="560" y="235">0x03: 0xFF</text>
+    <text x="560" y="250">0x04: 0x4C</text>
+    
+    <!-- Blinking cursor -->
+    <rect x="700" y="240" width="8" height="12" fill="#3b82f6">
+      <animate attributeName="opacity" values="0;1;0" dur="1s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Fibonacci Sequence Output -->
+  <rect x="50" y="320" width="700" height="80" fill="#000" stroke="#3b82f6" stroke-width="1" rx="4"/>
+  <text x="60" y="340" fill="#10b981" font-family="monospace" font-size="12">Fibonacci Sequence Output:</text>
+  
+  <!-- Animated Fibonacci Numbers -->
+  <g font-family="monospace" font-size="14" fill="#f59e0b">
+    <text x="60" y="360">
+      <animate attributeName="opacity" values="0;1;1;1" dur="4s" repeatCount="indefinite"/>
+      1
+    </text>
+    <text x="100" y="360">
+      <animate attributeName="opacity" values="0;0;1;1" dur="4s" repeatCount="indefinite"/>
+      1
+    </text>
+    <text x="140" y="360">
+      <animate attributeName="opacity" values="0;0;0;1" dur="4s" repeatCount="indefinite"/>
+      2
+    </text>
+    <text x="180" y="360">
+      <animate attributeName="opacity" values="0;0;0;0" dur="4s" repeatCount="indefinite"/>
+      3
+    </text>
+    <text x="220" y="360">
+      <animate attributeName="opacity" values="0;0;0;0" dur="4s" repeatCount="indefinite"/>
+      5
+    </text>
+    <text x="260" y="360">
+      <animate attributeName="opacity" values="0;0;0;0" dur="4s" repeatCount="indefinite"/>
+      8
+    </text>
+  </g>
+  
+  <!-- Status LED -->
+  <circle cx="730" y="380" r="6" fill="#10b981">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="745" y="385" fill="#9ca3af" font-family="monospace" font-size="10">RUNNING</text>
+  
+  <!-- Title -->
+  <text x="400" y="50" text-anchor="middle" fill="#3b82f6" font-family="sans-serif" font-size="24" font-weight="bold">8-bit Transistor CPU</text>
+  <text x="400" y="75" text-anchor="middle" fill="#9ca3af" font-family="sans-serif" font-size="14">734 Discrete Transistors • 4.3 kHz • Custom ISA</text>
+</svg>

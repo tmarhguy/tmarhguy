@@ -1,21 +1,22 @@
 {
-  "name": "Tyrone Marhguy - Hardware Engineer & Researcher",
+  "name": "Tyrone Marhguy - Computer Engineering @ UPenn",
   "short_name": "Tyrone Marhguy",
-  "description": "Personal portfolio showcasing hardware projects, CPU design, software development, and research.",
+  "description": "Computer Engineering student at UPenn specializing in discrete hardware systems, embedded design, and full-stack development.",
   "start_url": "/tmarhguy/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#3b82f6",
   "icons": [
     {
-      "src": "/tmarhguy/icons/apple-touch-icon-57x57.png",
-      "sizes": "57x57",
-      "type": "image/png"
+      "src": "/tmarhguy/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     },
     {
-      "src": "/tmarhguy/icons/apple-touch-icon-72x72.png",
-      "sizes": "72x72",
-      "type": "image/png"
+      "src": "/tmarhguy/apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml"
     },
     {
       "src": "/tmarhguy/icons/apple-touch-icon-76x76.png",

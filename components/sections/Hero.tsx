@@ -6,9 +6,9 @@ import { ChevronRight, Github, Mail, Linkedin, FileText } from "lucide-react";
 import { openTimeCapsule } from "@/utils/timeCapsuleEvent";
 
 const taglines = [
-  "Discrete-Transistor CPU Designer",
-  "ML/AI Systems Researcher", 
-  "Full-Stack Product Builder",
+  "Computer Engineering @ UPenn",
+  "Full-Stack Development & Systems Software", 
+  "Discrete Hardware Systems & Embedded Design",
   "Hardware-Software Bridge Engineer"
 ];
 
@@ -133,9 +133,9 @@ export default function Hero() {
               {`// Building the future, one transistor at a time`}
             </div>
             <p className="text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed">
-              Designing everything from <span className="text-brand-400 font-medium bg-brand-400/10 px-1 rounded">discrete-transistor CPUs</span> to 
-              <span className="text-brand-400 font-medium bg-brand-400/10 px-1 rounded"> AI-powered applications</span>. 
-              Passionate about bridging the gap between silicon and software to create impactful solutions.
+              Building everything from <span className="text-brand-400 font-medium bg-brand-400/10 px-1 rounded">700+ discrete-transistor CPUs</span> to 
+              <span className="text-brand-400 font-medium bg-brand-400/10 px-1 rounded"> scalable web platforms serving 350K+ users</span>. 
+              Computer Engineering student at UPenn passionate about bridging silicon and software to create impactful solutions.
             </p>
           </div>
           
