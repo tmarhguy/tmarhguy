@@ -5,6 +5,7 @@
 @tailwind utilities;
 
 @layer base {
+  /* Default to dark theme values */
   :root {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
@@ -33,12 +34,68 @@
     --radius: 0.5rem;
   }
 
+  /* Light theme overrides when html has light class */
+  html.light {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  /* Dark theme explicit (same as root, but for clarity and specificity) */
+  html.dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
   * {
     border-color: hsl(var(--border));
   }
   
   body {
-    @apply bg-black text-white;
+    @apply bg-background text-foreground;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     font-weight: 400;
   }
@@ -75,4 +132,102 @@
     background-color: rgb(var(--brand-600) / 0.3);
     color: rgb(var(--brand-100));
   }
+}
+
+/* Theme-aware utility classes */
+@layer utilities {
+  /* Background utilities with theme support */
+  .bg-surface-dark {
+    @apply bg-gray-900 dark:bg-gray-900;
+  }
+  
+  .bg-surface-muted {
+    @apply bg-gray-800 dark:bg-gray-800;
+  }
+  
+  /* Light mode overrides */
+  html.light .bg-surface-dark {
+    @apply bg-gray-100;
+  }
+  
+  html.light .bg-surface-muted {
+    @apply bg-gray-50;
+  }
+  
+  /* Border utilities */
+  .border-surface {
+    @apply border-gray-700;
+  }
+  
+  html.light .border-surface {
+    @apply border-gray-300;
+  }
+  
+  /* Text utilities */
+  .text-surface-primary {
+    @apply text-white;
+  }
+  
+  html.light .text-surface-primary {
+    @apply text-gray-900;
+  }
+  
+  .text-surface-secondary {
+    @apply text-gray-300;
+  }
+  
+  html.light .text-surface-secondary {
+    @apply text-gray-700;
+  }
+  
+  .text-surface-muted {
+    @apply text-gray-400;
+  }
+  
+  html.light .text-surface-muted {
+    @apply text-gray-600;
+  }
+}
+
+/* Light mode - Wikipedia-inspired */
+html.light {
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+/* Black borders for all elements in light mode */
+html.light button,
+html.light .card,
+html.light input,
+html.light textarea,
+html.light select {
+  border: 1px solid black !important;
+}
+
+/* Update typography for light mode */
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  color: black;
+}
+
+/* Adjust brand colors for light mode */
+html.light .text-brand-400 {
+  color: #0066cc;
+}
+
+html.light .text-brand-600 {
+  color: #0044aa;
+}
+
+html.light .bg-brand-600 {
+  background-color: #0066cc;
+}
+
+html.light .border-brand-600 {
+  border-color: #0066cc;
 }

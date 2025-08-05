@@ -4,12 +4,12 @@ import { openTimeCapsule } from "@/utils/timeCapsuleEvent";
 
 export default function BioSection() {
   return (
-    <div className="bg-gradient-to-br from-brand-600/20 to-brand-800/20 rounded-lg p-4 sm:p-6 border border-brand-600/30">
-      <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4 flex items-center gap-2">
+    <div className="bg-surface-dark rounded-lg p-4 sm:p-6 border border-surface">
+      <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-3 sm:mb-4 flex items-center gap-2">
         <span className="text-brand-400">📄</span>
         Download My Resume!
       </h3>
-      <p className="text-gray-300 text-sm mb-4">
+      <p className="text-muted-foreground text-sm mb-4">
         Computer Engineering student at UPenn with specialized resumes for hardware engineering (discrete systems, FPGA, embedded) and software development (full-stack, ML, fintech) roles.
       </p>
       <div className="flex justify-center">

@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Github, ExternalLink, Clock, CheckCircle, Lightbulb, Wrench, X } from "lucide-react";
-import Image from "next/image";
 
 interface ProjectCardProps {
   title: string;
@@ -148,7 +147,7 @@ export default function ProjectCard({
   return (
     <>
       <Card 
-        className="group hover:scale-[1.02] transition-all duration-300 bg-gray-900 border-gray-800 hover:border-brand-600/50 hover:shadow-2xl hover:shadow-brand-600/20 cursor-pointer sm:cursor-default"
+        className="group hover:scale-[1.02] transition-all duration-300 bg-surface-dark border-surface hover:border-brand-600/50 hover:shadow-2xl hover:shadow-brand-600/20 cursor-pointer sm:cursor-default h-full flex flex-col"
         onClick={() => {
           // Only open modal on mobile
           if (window.innerWidth < 640) {
@@ -156,11 +155,11 @@ export default function ProjectCard({
           }
         }}
       >
-        <div className="p-3 sm:p-6">
+        <div className="p-3 sm:p-6 flex flex-col h-full">
           {/* Header - Always visible */}
           <div className="flex items-start justify-between mb-2 sm:mb-4">
             <div className="flex-1 min-w-0">
-              <h3 className="text-sm sm:text-xl font-semibold text-white mb-1 sm:mb-2 group-hover:text-brand-400 transition-colors leading-tight line-clamp-2">
+              <h3 className="text-sm sm:text-xl font-semibold text-foreground mb-1 sm:mb-2 group-hover:text-brand-400 transition-colors leading-tight line-clamp-2">
                 {title}
               </h3>
               <div className={`inline-flex items-center gap-1 sm:gap-2 px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs border ${statusConfig[status].bg} ${statusConfig[status].color}`}>
@@ -189,8 +188,8 @@ export default function ProjectCard({
           </div>
 
           {/* Desktop: Show all details */}
-          <div className="hidden sm:block">
-            <p className="text-gray-400 text-sm leading-relaxed mb-4">
+          <div className="hidden sm:flex sm:flex-col sm:flex-1">
+            <p className="text-surface-muted text-sm leading-relaxed mb-4">
               {description}
             </p>
             
@@ -198,18 +197,18 @@ export default function ProjectCard({
               {tags.map((tag) => (
                 <span 
                   key={tag}
-                  className="px-2 py-1 bg-gray-800 text-gray-300 text-xs rounded border border-gray-700"
+                  className="px-2 py-1 bg-surface-muted text-surface-secondary text-xs rounded border border-surface"
                 >
                   {tag}
                 </span>
               ))}
             </div>
 
-            <div className="flex gap-3">
+            <div className="flex gap-3 mt-auto">
               <Button 
                 variant="outline" 
                 size="sm"
-                className="border-gray-700 text-gray-300 hover:bg-gray-800 flex-1 text-sm h-9 px-3"
+                className="border-surface text-surface-secondary hover:bg-surface-muted flex-1 text-sm h-9 px-3"
                 onClick={() => window.open(github, '_blank')}
               >
                 <Github className="w-4 h-4 mr-2" />
@@ -219,7 +218,7 @@ export default function ProjectCard({
               <Button 
                 variant="outline" 
                 size="sm"
-                className="border-gray-700 text-gray-300 hover:bg-gray-800 flex-1 text-sm h-9 px-3"
+                className="border-surface text-surface-secondary hover:bg-surface-muted flex-1 text-sm h-9 px-3"
                 onClick={() => window.open(demo, '_blank')}
               >
                 <ExternalLink className="w-4 h-4 mr-2" />
@@ -233,7 +232,7 @@ export default function ProjectCard({
             <Button 
               variant="outline" 
               size="sm"
-              className="border-gray-700 text-gray-300 hover:bg-gray-800 flex-1 text-xs h-7 px-1.5"
+              className="border-surface text-surface-secondary hover:bg-surface-muted flex-1 text-xs h-7 px-1.5"
               onClick={(e) => {
                 e.stopPropagation();
                 window.open(github, '_blank');
@@ -245,7 +244,7 @@ export default function ProjectCard({
             <Button 
               variant="outline" 
               size="sm"
-              className="border-gray-700 text-gray-300 hover:bg-gray-800 flex-1 text-xs h-7 px-1.5"
+              className="border-surface text-surface-secondary hover:bg-surface-muted flex-1 text-xs h-7 px-1.5"
               onClick={(e) => {
                 e.stopPropagation();
                 window.open(demo, '_blank');
@@ -260,7 +259,7 @@ export default function ProjectCard({
       {/* Mobile Modal Overlay */}
       {isModalOpen && (
         <div 
-          className={`fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 sm:hidden transition-all duration-200 ease-out ${
+          className={`fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 sm:hidden transition-all duration-200 ease-out ${
             isAnimating ? 'opacity-0' : 'opacity-100'
           }`}
           onClick={closeModal}
@@ -270,7 +269,7 @@ export default function ProjectCard({
         >
           <div 
             ref={modalRef}
-            className="bg-gray-900 border border-gray-700 rounded-xl max-w-sm w-full max-h-[80vh] overflow-y-auto will-change-transform"
+            className="bg-card border border-border rounded-xl max-w-sm w-full max-h-[80vh] overflow-y-auto will-change-transform"
             style={{
               transform: `translate(${dragX}px, ${dragY}px) scale(${
                 isAnimating ? 0.9 : isDragging ? Math.max(0.95, 1 - (Math.abs(dragY) + Math.abs(dragX)) / 400) : 1
@@ -285,14 +284,14 @@ export default function ProjectCard({
           >
             {/* Drag Indicator */}
             <div className="flex justify-center pt-3 pb-2">
-              <div className="w-12 h-1.5 bg-gray-600 rounded-full opacity-80"></div>
+              <div className="w-12 h-1.5 bg-muted rounded-full opacity-80"></div>
             </div>
             
             <div className="px-6 pb-6">
               {/* Modal Header */}
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1 min-w-0 pr-4">
-                  <h3 className="text-xl font-semibold text-white mb-2 leading-tight">
+                  <h3 className="text-xl font-semibold text-foreground mb-2 leading-tight">
                     {title}
                   </h3>
                   <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm border ${statusConfig[status].bg} ${statusConfig[status].color}`}>
@@ -302,7 +301,7 @@ export default function ProjectCard({
                 </div>
                 <button
                   onClick={closeModal}
-                  className="text-gray-400 hover:text-white transition-all duration-150 p-2 rounded-full hover:bg-gray-800/50 active:scale-95"
+                  className="text-surface-muted hover:text-foreground transition-all duration-150 p-2 rounded-full hover:bg-accent/50 active:scale-95"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -310,7 +309,7 @@ export default function ProjectCard({
 
               {/* Modal Content */}
               <div className="space-y-4">
-                <p className="text-gray-300 text-sm leading-relaxed">
+                <p className="text-surface-secondary text-sm leading-relaxed">
                   {description}
                 </p>
                 
@@ -318,7 +317,7 @@ export default function ProjectCard({
                   {tags.map((tag) => (
                     <span 
                       key={tag}
-                      className="px-2 py-1 bg-gray-800 text-gray-300 text-xs rounded border border-gray-700 transition-transform duration-150 hover:scale-105"
+                      className="px-2 py-1 bg-surface-muted text-surface-secondary text-xs rounded border border-surface transition-transform duration-150 hover:scale-105"
                     >
                       {tag}
                     </span>
@@ -329,7 +328,7 @@ export default function ProjectCard({
                   <Button 
                     variant="outline" 
                     size="sm"
-                    className="border-gray-700 text-gray-300 hover:bg-gray-800 flex-1 transition-all duration-150 hover:scale-[1.02] active:scale-95"
+                    className="border-surface text-surface-secondary hover:bg-surface-muted flex-1 transition-all duration-150 hover:scale-[1.02] active:scale-95"
                     onClick={() => {
                       window.open(github, '_blank');
                       closeModal();
@@ -342,7 +341,7 @@ export default function ProjectCard({
                   <Button 
                     variant="outline" 
                     size="sm"
-                    className="border-gray-700 text-gray-300 hover:bg-gray-800 flex-1 transition-all duration-150 hover:scale-[1.02] active:scale-95"
+                    className="border-surface text-surface-secondary hover:bg-surface-muted flex-1 transition-all duration-150 hover:scale-[1.02] active:scale-95"
                     onClick={() => {
                       window.open(demo, '_blank');
                       closeModal();

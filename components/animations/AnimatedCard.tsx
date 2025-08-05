@@ -2,6 +2,12 @@
 
 import { ReactNode, useState } from 'react';
 
+// Deterministic pseudo-random function based on seed
+const getPseudoRandom = (seed: number, max: number = 1) => {
+  const x = Math.sin(seed) * 10000;
+  return (x - Math.floor(x)) * max;
+};
+
 interface AnimatedCardProps {
   children: ReactNode;
   className?: string;
@@ -28,17 +34,20 @@ export default function AnimatedCard({
   };
 
   return (
-    <div
-      className={`relative overflow-hidden transition-all duration-300 ${className}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onMouseMove={handleMouseMove}
-      style={{
-        transform: tiltEffect && isHovered 
-          ? `perspective(1000px) rotateX(${(mousePosition.y - 150) * 0.05}deg) rotateY(${(mousePosition.x - 150) * 0.05}deg)` 
-          : 'perspective(1000px) rotateX(0deg) rotateY(0deg)',
-      }}
-    >
+    <div className={`relative ${className}`}>
+      <div
+        className="relative overflow-hidden transition-all duration-300 h-full"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onMouseMove={handleMouseMove}
+        style={{
+          transform: tiltEffect && isHovered 
+            ? `perspective(1000px) rotateX(${(mousePosition.y - 150) * 0.05}deg) rotateY(${(mousePosition.x - 150) * 0.05}deg)` 
+            : 'perspective(1000px) rotateX(0deg) rotateY(0deg)',
+          transformOrigin: 'center',
+          transformStyle: 'preserve-3d',
+        }}
+      >
       {/* Glow effect */}
       {glowEffect && (
         <div 
@@ -85,10 +94,10 @@ export default function AnimatedCard({
         }`}
       />
 
-      {/* Content */}
-      <div className="relative z-10">
-        {children}
-      </div>
+        {/* Content */}
+        <div className="relative z-10 h-full">
+          {children}
+        </div>
 
       {/* Floating particles on hover */}
       {isHovered && (
@@ -98,10 +107,10 @@ export default function AnimatedCard({
               key={i}
               className="absolute w-1 h-1 bg-brand-400 rounded-full opacity-60"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animation: `float ${1 + Math.random()}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 0.5}s`,
+                left: `${getPseudoRandom(i * 17, 100)}%`,
+                top: `${getPseudoRandom(i * 23, 100)}%`,
+                animation: `float ${1 + getPseudoRandom(i * 29, 1)}s ease-in-out infinite`,
+                animationDelay: `${getPseudoRandom(i * 31, 0.5)}s`,
               }}
             />
           ))}
@@ -111,8 +120,9 @@ export default function AnimatedCard({
               50% { transform: translateY(-10px) scale(1.2); opacity: 1; }
             }
           `}</style>
-        </div>
-      )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

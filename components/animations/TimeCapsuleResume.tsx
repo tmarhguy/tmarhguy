@@ -4,6 +4,12 @@ import { useState, useRef, useEffect, useImperativeHandle, forwardRef } from "re
 import { Download, FileText, X, Cpu, Zap, Sparkles, Clock } from "lucide-react";
 import { getAssetPath } from "@/utils/paths";
 
+// Deterministic pseudo-random function based on seed
+const getPseudoRandom = (seed: number, max: number = 1) => {
+  const x = Math.sin(seed) * 10000;
+  return (x - Math.floor(x)) * max;
+};
+
 export interface TimeCapsuleResumeRef {
   openCapsule: () => void;
 }
@@ -177,13 +183,13 @@ const TimeCapsuleResume = forwardRef<TimeCapsuleResumeRef>((props, ref) => {
                   key={i}
                   className="absolute rounded-full animate-pulse"
                   style={{
-                    width: `${Math.random() * 3 + 1}px`,
-                    height: `${Math.random() * 3 + 1}px`,
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    backgroundColor: ['#3b82f6', '#1e40af', '#06b6d4', '#0891b2', '#1d4ed8', '#0284c7'][Math.floor(Math.random() * 6)],
-                    animationDelay: `${Math.random() * 3}s`,
-                    animationDuration: `${1 + Math.random() * 3}s`
+                    width: `${getPseudoRandom(i * 7, 3) + 1}px`,
+                    height: `${getPseudoRandom(i * 7, 3) + 1}px`,
+                    left: `${getPseudoRandom(i * 13, 100)}%`,
+                    top: `${getPseudoRandom(i * 17, 100)}%`,
+                    backgroundColor: ['#3b82f6', '#1e40af', '#06b6d4', '#0891b2', '#1d4ed8', '#0284c7'][Math.floor(getPseudoRandom(i * 23, 6))],
+                    animationDelay: `${getPseudoRandom(i * 29, 3)}s`,
+                    animationDuration: `${1 + getPseudoRandom(i * 31, 3)}s`
                   }}
                 />
               ))}
@@ -194,12 +200,12 @@ const TimeCapsuleResume = forwardRef<TimeCapsuleResumeRef>((props, ref) => {
                   key={`orbit-${i}`}
                   className="absolute w-4 h-4 border-2 rounded-full animate-spin"
                   style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    borderColor: ['rgba(59, 130, 246, 0.3)', 'rgba(30, 64, 175, 0.3)', 'rgba(6, 182, 212, 0.3)', 'rgba(8, 145, 178, 0.3)'][Math.floor(Math.random() * 4)],
-                    animationDelay: `${Math.random() * 4}s`,
-                    animationDuration: `${3 + Math.random() * 5}s`,
-                    animationDirection: Math.random() > 0.5 ? 'normal' : 'reverse'
+                    left: `${getPseudoRandom(i * 37 + 100, 100)}%`,
+                    top: `${getPseudoRandom(i * 41 + 100, 100)}%`,
+                    borderColor: ['rgba(59, 130, 246, 0.3)', 'rgba(30, 64, 175, 0.3)', 'rgba(6, 182, 212, 0.3)', 'rgba(8, 145, 178, 0.3)'][Math.floor(getPseudoRandom(i * 43 + 100, 4))],
+                    animationDelay: `${getPseudoRandom(i * 47 + 100, 4)}s`,
+                    animationDuration: `${3 + getPseudoRandom(i * 53 + 100, 5)}s`,
+                    animationDirection: getPseudoRandom(i * 59 + 100, 1) > 0.5 ? 'normal' : 'reverse'
                   }}
                 />
               ))}
@@ -210,14 +216,14 @@ const TimeCapsuleResume = forwardRef<TimeCapsuleResumeRef>((props, ref) => {
                   key={`float-${i}`}
                   className="absolute rounded-full animate-bounce"
                   style={{
-                    width: `${Math.random() * 6 + 2}px`,
-                    height: `${Math.random() * 6 + 2}px`,
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    backgroundColor: ['#3b82f6', '#1e40af', '#06b6d4', '#0891b2', '#1d4ed8', '#0284c7', '#2563eb', '#0ea5e9'][Math.floor(Math.random() * 8)],
-                    animationDelay: `${Math.random() * 5}s`,
-                    animationDuration: `${2 + Math.random() * 4}s`,
-                    opacity: 0.4 + Math.random() * 0.4
+                    width: `${getPseudoRandom(i * 61 + 200, 6) + 2}px`,
+                    height: `${getPseudoRandom(i * 61 + 200, 6) + 2}px`,
+                    left: `${getPseudoRandom(i * 67 + 200, 100)}%`,
+                    top: `${getPseudoRandom(i * 71 + 200, 100)}%`,
+                    backgroundColor: ['#3b82f6', '#1e40af', '#06b6d4', '#0891b2', '#1d4ed8', '#0284c7', '#2563eb', '#0ea5e9'][Math.floor(getPseudoRandom(i * 73 + 200, 8))],
+                    animationDelay: `${getPseudoRandom(i * 79 + 200, 5)}s`,
+                    animationDuration: `${2 + getPseudoRandom(i * 83 + 200, 4)}s`,
+                    opacity: 0.4 + getPseudoRandom(i * 89 + 200, 0.4)
                   }}
                 />
               ))}
