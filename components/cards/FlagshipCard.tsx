@@ -6,13 +6,29 @@ import { Button } from "@/components/ui/button";
 import { Github, ExternalLink, X } from "lucide-react";
 import Image from "next/image";
 
+/**
+ * Props for the FlagshipCard component - used for featured projects
+ * @interface FlagshipCardProps
+ */
 interface FlagshipCardProps {
+  /** Project title for the flagship card */
   title: string;
+  /** Comprehensive project description */
   description: string;
+  /** Project image URL (required for flagship cards) */
   image: string;
-  metrics: Array<{ label: string; value: string }>;
+  /** Array of key performance metrics to display */
+  metrics: Array<{ 
+    /** Metric label (e.g., "Users", "Latency") */
+    label: string; 
+    /** Metric value (e.g., "1M+", "<500ms") */
+    value: string;
+  }>;
+  /** Optional GitHub repository URL */
   github?: string;
+  /** Optional demo or details URL */
   demo?: string;
+  /** Technology/skill tags for categorization */
   tags: string[];
 }
 

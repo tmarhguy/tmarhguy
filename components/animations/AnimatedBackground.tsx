@@ -2,9 +2,16 @@
 
 import { useMemo } from 'react';
 
+/**
+ * Props for the AnimatedBackground component
+ * @interface AnimatedBackgroundProps
+ */
 interface AnimatedBackgroundProps {
+  /** Background animation variant style */
   variant?: 'matrix' | 'circuit' | 'particles' | 'terminal';
+  /** Animation intensity level affecting speed and density */
   intensity?: 'low' | 'medium' | 'high';
+  /** Optional CSS classes for customization */
   className?: string;
 }
 

@@ -1,0 +1,123 @@
+<svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="musicGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0" />
+      <stop offset="50%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:0" />
+    </linearGradient>
+    <radialGradient id="analyticsGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="320" height="220" fill="#0f172a"/>
+  
+  <!-- Title -->
+  <text x="160" y="20" text-anchor="middle" fill="#8b5cf6" font-family="monospace" font-size="14" font-weight="bold">Music &amp; You Analytics</text>
+  
+  <!-- Music Platform Interface -->
+  <rect x="30" y="40" width="260" height="130" fill="#1e293b" stroke="#8b5cf6" stroke-width="2" rx="8"/>
+  
+  <!-- Header -->
+  <rect x="40" y="50" width="240" height="20" fill="#8b5cf6" rx="4"/>
+  <text x="160" y="62" text-anchor="middle" fill="white" font-family="monospace" font-size="10" font-weight="bold">ML Analytics Dashboard</text>
+  
+  <!-- User Counter -->
+  <rect x="50" y="80" width="70" height="25" fill="#0f172a" stroke="#10b981" stroke-width="1" rx="4"/>
+  <text x="85" y="90" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="7">Users Online</text>
+  <text x="85" y="99" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="9" font-weight="bold">1M+</text>
+  
+  <!-- Performance Metrics -->
+  <rect x="130" y="80" width="70" height="25" fill="#0f172a" stroke="#3b82f6" stroke-width="1" rx="4"/>
+  <text x="165" y="90" text-anchor="middle" fill="#3b82f6" font-family="monospace" font-size="7">P95 Latency</text>
+  <text x="165" y="99" text-anchor="middle" fill="#3b82f6" font-family="monospace" font-size="9" font-weight="bold">&lt;2s</text>
+  
+  <!-- Load Time Improvement -->
+  <rect x="210" y="80" width="60" height="25" fill="#0f172a" stroke="#f59e0b" stroke-width="1" rx="4"/>
+  <text x="240" y="90" text-anchor="middle" fill="#f59e0b" font-family="monospace" font-size="7">Load -40%</text>
+  <text x="240" y="99" text-anchor="middle" fill="#f59e0b" font-family="monospace" font-size="9" font-weight="bold">Fast</text>
+  
+  <!-- Music Waveform Visualization -->
+  <g id="waveform">
+    <path d="M50 130 Q60 120 70 130 Q80 140 90 130 Q100 115 110 130 Q120 145 130 130 Q140 110 150 130 Q160 150 170 130 Q180 120 190 130 Q200 140 210 130 Q220 115 230 130 Q240 145 250 130 Q260 125 270 130" 
+          stroke="url(#waveGradient)" stroke-width="3" fill="none">
+      <animate attributeName="d" 
+               values="M50 130 Q60 120 70 130 Q80 140 90 130 Q100 115 110 130 Q120 145 130 130 Q140 110 150 130 Q160 150 170 130 Q180 120 190 130 Q200 140 210 130 Q220 115 230 130 Q240 145 250 130 Q260 125 270 130;
+                       M50 130 Q60 140 70 130 Q80 115 90 130 Q100 145 110 130 Q120 120 130 130 Q140 150 150 130 Q160 110 170 130 Q180 140 190 130 Q200 125 210 130 Q220 145 230 130 Q240 115 250 130 Q260 140 270 130;
+                       M50 130 Q60 120 70 130 Q80 140 90 130 Q100 115 110 130 Q120 145 130 130 Q140 110 150 130 Q160 150 170 130 Q180 120 190 130 Q200 140 210 130 Q220 115 230 130 Q240 145 250 130 Q260 125 270 130" 
+               dur="2s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- React Interface Elements -->
+  <g id="reactComponents">
+    <!-- Component 1 -->
+    <rect x="50" y="115" width="45" height="6" fill="#3b82f6" rx="2" opacity="0.8">
+      <animate attributeName="width" values="30;45;30" dur="2.5s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Component 2 -->
+    <rect x="105" y="115" width="55" height="6" fill="#10b981" rx="2" opacity="0.8">
+      <animate attributeName="width" values="40;55;40" dur="3s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Component 3 -->
+    <rect x="170" y="115" width="40" height="6" fill="#8b5cf6" rx="2" opacity="0.8">
+      <animate attributeName="width" values="25;40;25" dur="2.2s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Component 4 -->
+    <rect x="220" y="115" width="35" height="6" fill="#f59e0b" rx="2" opacity="0.8">
+      <animate attributeName="width" values="20;35;20" dur="1.8s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Async Streaming Indicators -->
+  <g id="streamingData">
+    <circle cx="60" cy="145" r="2" fill="#10b981">
+      <animate attributeName="cx" values="60;260;60" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    
+    <circle cx="90" cy="148" r="2" fill="#3b82f6">
+      <animate attributeName="cx" values="90;290;90" dur="3.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.3;1" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <circle cx="120" cy="142" r="2" fill="#8b5cf6">
+      <animate attributeName="cx" values="120;320;120" dur="2.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.3;1" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- OAuth2 Security Badge -->
+  <rect x="200" y="155" width="70" height="12" fill="#059669" rx="6"/>
+  <text x="235" y="163" text-anchor="middle" fill="white" font-family="monospace" font-size="7">OAuth2 Secure</text>
+  
+  <!-- Analytics Glow Effect -->
+  <circle cx="160" cy="110" r="40" fill="url(#analyticsGlow)" opacity="0.3">
+    <animate attributeName="r" values="30;50;30" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- FastAPI Backend Indicator -->
+  <g id="apiStatus">
+    <rect x="40" y="155" width="12" height="8" fill="#10b981" rx="2">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1s" repeatCount="indefinite"/>
+    </rect>
+    <text x="58" y="161" fill="#10b981" font-family="monospace" font-size="7">FastAPI Backend</text>
+  </g>
+  
+  <!-- Performance Stats -->
+  <g id="stats">
+    <text x="20" y="35" fill="#8b5cf6" font-family="monospace" font-size="9">ML Music Analytics Platform</text>
+    <text x="20" y="205" fill="#10b981" font-family="monospace" font-size="8">1M+ Users • &lt;2s Latency • 40% Faster Load</text>
+    <text x="20" y="215" fill="#3b82f6" font-family="monospace" font-size="8">React + FastAPI + OAuth2</text>
+  </g>
+</svg>

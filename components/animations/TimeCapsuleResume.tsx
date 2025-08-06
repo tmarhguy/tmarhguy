@@ -10,7 +10,15 @@ const getPseudoRandom = (seed: number, max: number = 1) => {
   return (x - Math.floor(x)) * max;
 };
 
+/**
+ * Ref interface for TimeCapsuleResume component
+ * @interface TimeCapsuleResumeRef
+ * @example
+ * const timeCapsuleRef = useRef<TimeCapsuleResumeRef>(null);
+ * timeCapsuleRef.current?.openCapsule();
+ */
 export interface TimeCapsuleResumeRef {
+  /** Method to programmatically open the time capsule modal */
   openCapsule: () => void;
 }
 

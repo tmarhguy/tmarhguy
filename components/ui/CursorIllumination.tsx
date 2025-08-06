@@ -2,8 +2,14 @@
 
 import { useEffect, useRef } from 'react';
 
+/**
+ * Props for CursorIllumination component that creates a light effect following the cursor
+ * @interface CursorIlluminationProps
+ */
 interface CursorIlluminationProps {
+  /** Size of the illumination effect in pixels (default: 900) */
   size?: number;
+  /** Opacity of the illumination effect from 0 to 1 (default: 0.4) */
   opacity?: number;
 }
 

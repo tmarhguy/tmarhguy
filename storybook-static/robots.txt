@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tmarhguy.github.io/tmarhguy/sitemap.xml

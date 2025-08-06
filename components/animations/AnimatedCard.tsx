@@ -8,11 +8,20 @@ const getPseudoRandom = (seed: number, max: number = 1) => {
   return (x - Math.floor(x)) * max;
 };
 
+/**
+ * Props for the AnimatedCard component with interactive visual effects
+ * @interface AnimatedCardProps
+ */
 interface AnimatedCardProps {
+  /** Child components to render inside the animated card */
   children: ReactNode;
+  /** Optional CSS classes to apply to the card */
   className?: string;
+  /** Enable/disable glow effect on hover (default: true) */
   glowEffect?: boolean;
+  /** Enable/disable scanline animation effect (default: false) */
   scanlineEffect?: boolean;
+  /** Enable/disable 3D tilt effect on hover (default: true) */
   tiltEffect?: boolean;
 }
 

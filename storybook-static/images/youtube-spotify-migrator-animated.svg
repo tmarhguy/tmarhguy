@@ -1,0 +1,96 @@
+<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="youtubeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff0000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cc0000;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="spotifyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1db954;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1ed760;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dataGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:0" />
+      <stop offset="50%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fbbf24;stop-opacity:0" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="200" fill="#0f0f0f"/>
+  
+  <!-- YouTube Logo (Left) -->
+  <g id="youtube-logo">
+    <rect x="30" y="70" width="80" height="60" rx="8" fill="url(#youtubeGradient)" opacity="0.9"/>
+    <polygon points="60,85 60,115 85,100" fill="#ffffff"/>
+    <text x="70" y="150" font-family="monospace" font-size="10" fill="#ff0000" text-anchor="middle">YouTube</text>
+  </g>
+  
+  <!-- Spotify Logo (Right) -->
+  <g id="spotify-logo">
+    <circle cx="230" cy="100" r="30" fill="url(#spotifyGradient)" opacity="0.9"/>
+    <!-- Spotify curved lines -->
+    <path d="M 215 90 Q 230 85 245 90" stroke="#000000" stroke-width="2" fill="none"/>
+    <path d="M 218 100 Q 230 96 242 100" stroke="#000000" stroke-width="2" fill="none"/>
+    <path d="M 220 110 Q 230 107 240 110" stroke="#000000" stroke-width="2" fill="none"/>
+    <text x="230" y="150" font-family="monospace" font-size="10" fill="#1db954" text-anchor="middle">Spotify</text>
+  </g>
+  
+  <!-- Data Transfer Animation -->
+  <g id="data-flow">
+    <!-- Transfer Arrow -->
+    <path d="M 120 100 L 190 100" stroke="url(#dataGradient)" stroke-width="3" fill="none" marker-end="url(#arrowhead)">
+      <animate attributeName="stroke-dasharray" values="0,200;20,180;0,200" dur="2s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Playlist Items -->
+    <g id="playlist-items">
+      <rect x="130" y="85" width="50" height="4" fill="#fbbf24" opacity="0.8">
+        <animate attributeName="opacity" values="0.8;0.3;0.8" dur="1.5s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="130" y="92" width="45" height="4" fill="#fbbf24" opacity="0.6">
+        <animate attributeName="opacity" values="0.6;0.3;0.6" dur="1.5s" begin="0.2s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="130" y="99" width="55" height="4" fill="#fbbf24" opacity="0.7">
+        <animate attributeName="opacity" values="0.7;0.3;0.7" dur="1.5s" begin="0.4s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="130" y="106" width="48" height="4" fill="#fbbf24" opacity="0.8">
+        <animate attributeName="opacity" values="0.8;0.3;0.8" dur="1.5s" begin="0.6s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="130" y="113" width="52" height="4" fill="#fbbf24" opacity="0.6">
+        <animate attributeName="opacity" values="0.6;0.3;0.6" dur="1.5s" begin="0.8s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+  </g>
+  
+  <!-- CLI Terminal -->
+  <g id="terminal">
+    <rect x="50" y="160" width="200" height="30" rx="4" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+    <text x="55" y="175" font-family="monospace" font-size="8" fill="#00ff00">$ ytmusic-spotify-migrator</text>
+    <text x="55" y="185" font-family="monospace" font-size="6" fill="#888">Migrating playlists...</text>
+    
+    <!-- Blinking cursor -->
+    <rect x="170" y="181" width="6" height="8" fill="#00ff00">
+      <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Progress Indicators -->
+  <g id="progress">
+    <circle cx="40" cy="40" r="3" fill="#fbbf24">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="260" cy="40" r="3" fill="#1db954">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" begin="0.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fbbf24"/>
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="150" y="25" font-family="monospace" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">Music Migration Tool</text>
+</svg>

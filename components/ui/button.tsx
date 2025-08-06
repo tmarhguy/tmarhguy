@@ -33,9 +33,17 @@ const buttonVariants = cva(
   }
 )
 
+/**
+ * Button component props extending HTML button attributes
+ * @interface ButtonProps
+ * @example
+ * <Button variant="primary" size="lg">Click me</Button>
+ * <Button variant="ghost" size="icon"><Icon /></Button>
+ */
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
+  /** Render as child component using Radix Slot (default: false) */
   asChild?: boolean
 }
 

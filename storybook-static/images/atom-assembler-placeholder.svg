@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#1a1a1a"/>
+  <rect x="50" y="50" width="300" height="200" fill="none" stroke="#3b82f6" stroke-width="2" rx="8"/>
+  <circle cx="160" cy="120" r="8" fill="#3b82f6"/>
+  <circle cx="180" cy="120" r="8" fill="#3b82f6"/>
+  <circle cx="200" cy="120" r="8" fill="#3b82f6"/>
+  <circle cx="220" cy="120" r="8" fill="#3b82f6"/>
+  <circle cx="240" cy="120" r="8" fill="#3b82f6"/>
+  <rect x="150" y="160" width="100" height="8" fill="#3b82f6" rx="4"/>
+  <rect x="130" y="180" width="140" height="6" fill="#6b7280" rx="3"/>
+  <text x="200" y="240" font-family="sans-serif" font-size="12" fill="#9ca3af" text-anchor="middle">Atom Assembler</text>
+  <text x="200" y="255" font-family="sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">Project Placeholder</text>
+</svg>

@@ -5,13 +5,24 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Github, ExternalLink, Clock, CheckCircle, Lightbulb, Wrench, X } from "lucide-react";
 
+/**
+ * Props for the ProjectCard component
+ * @interface ProjectCardProps
+ */
 interface ProjectCardProps {
+  /** Project title displayed prominently */
   title: string;
+  /** Detailed project description */
   description: string;
+  /** Optional project image URL for visual representation */
   image?: string;
+  /** GitHub repository URL for source code */
   github: string;
+  /** Live demo or project details URL */
   demo: string;
+  /** Array of technology/skill tags */
   tags: string[];
+  /** Current project development status */
   status: "Complete" | "In Progress" | "Planning" | "Concept";
 }
 

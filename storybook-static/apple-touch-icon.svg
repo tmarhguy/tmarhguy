@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" fill="none">
+  <!-- Background with gradient -->
+  <rect width="180" height="180" rx="32" fill="url(#bgGradient)"/>
+  
+  <!-- Grid pattern overlay for tech feel -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="letterGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e5e7eb;stop-opacity:0.95" />
+    </linearGradient>
+    
+    <pattern id="gridPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="none"/>
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.08"/>
+    </pattern>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Grid overlay -->
+  <rect width="180" height="180" fill="url(#gridPattern)" opacity="0.4"/>
+  
+  <!-- Circuit traces for tech aesthetic -->
+  <g opacity="0.12" stroke="#ffffff" stroke-width="2" fill="none">
+    <path d="M10,40 L30,40 L30,60 L50,60"/>
+    <path d="M170,20 L150,20 L150,40 L130,40"/>
+    <path d="M20,140 L40,140 L40,120 L60,120"/>
+    <path d="M160,120 L140,120 L140,140 L120,140"/>
+    <path d="M80,20 L100,20 L100,40 L120,40"/>
+    <path d="M60,160 L80,160 L80,140 L100,140"/>
+    
+    <!-- Circuit nodes -->
+    <circle cx="30" cy="40" r="2" fill="#ffffff"/>
+    <circle cx="150" cy="40" r="2" fill="#ffffff"/>
+    <circle cx="40" cy="120" r="2" fill="#ffffff"/>
+    <circle cx="140" cy="120" r="2" fill="#ffffff"/>
+    <circle cx="100" cy="40" r="2" fill="#ffffff"/>
+    <circle cx="80" cy="140" r="2" fill="#ffffff"/>
+  </g>
+  
+  <!-- Main "T" letter with enhanced design -->
+  <g fill="url(#letterGradient)" filter="url(#glow)">
+    <!-- Horizontal bar of T -->
+    <rect x="45" y="50" width="90" height="18" rx="9"/>
+    
+    <!-- Vertical bar of T -->
+    <rect x="81" y="50" width="18" height="90" rx="9"/>
+    
+    <!-- Tech accent elements -->
+    <rect x="84" y="115" width="12" height="12" rx="6" fill="#60a5fa" opacity="0.9"/>
+    <rect x="84" y="100" width="12" height="8" rx="4" fill="#93c5fd" opacity="0.7"/>
+  </g>
+  
+  <!-- Subtle inner glow -->
+  <rect width="180" height="180" rx="32" fill="none" stroke="url(#letterGradient)" stroke-width="2" opacity="0.2"/>
+  
+  <!-- Corner accents for modern tech look -->
+  <g opacity="0.3" fill="#60a5fa">
+    <rect x="20" y="20" width="4" height="20" rx="2"/>
+    <rect x="20" y="20" width="20" height="4" rx="2"/>
+    
+    <rect x="156" y="20" width="4" height="20" rx="2"/>
+    <rect x="140" y="20" width="20" height="4" rx="2"/>
+    
+    <rect x="20" y="140" width="4" height="20" rx="2"/>
+    <rect x="20" y="156" width="20" height="4" rx="2"/>
+    
+    <rect x="156" y="140" width="4" height="20" rx="2"/>
+    <rect x="140" y="156" width="20" height="4" rx="2"/>
+  </g>
+</svg>
