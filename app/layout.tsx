@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import CursorIllumination from "@/components/ui/CursorIllumination";
+import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -46,27 +48,43 @@ export const metadata: Metadata = {
   manifest: "/tmarhguy/site.webmanifest",
 };
 
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${spaceGrotesk.variable} ${ibmPlexMono.variable} font-sans antialiased bg-black text-white`}
-        suppressHydrationWarning={true}
+        className={`${spaceGrotesk.variable} ${ibmPlexMono.variable} font-sans antialiased`}
+        suppressHydrationWarning
       >
-        <CursorIllumination />
-        {children}
-        {process.env.NODE_ENV === 'production' && (
-          <script
-            async
-            defer
-            data-domain="tmarhguy.dev"
-            src="https://plausible.io/js/script.js"
-          />
-        )}
+        <ThemeProvider 
+          attribute="class" 
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+          storageKey="tmarhguy-theme"
+        >
+          <CursorIllumination />
+          <ThemeToggle />
+          {children}
+          {process.env.NODE_ENV === 'production' && (
+            <script
+              async
+              defer
+              data-domain="tmarhguy.dev"
+              src="https://plausible.io/js/script.js"
+            />
+          )}
+        </ThemeProvider>
       </body>
     </html>
   );

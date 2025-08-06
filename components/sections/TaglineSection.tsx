@@ -4,7 +4,7 @@ import { openTimeCapsule } from "@/utils/timeCapsuleEvent";
 
 export default function TaglineSection() {
   return (
-    <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+    <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
       I design <span className="text-brand-400 font-semibold">discrete-transistor processors</span> and build{" "}
       <span className="text-brand-400 font-semibold">AI-powered applications</span> that solve real-world problems. 
       From hardware architecture to full-stack development, I bridge the gap between silicon and software.{" "}

@@ -111,7 +111,7 @@ export default function FlagshipCard({
   return (
     <>
       <Card 
-        className="group hover:scale-[1.02] transition-all duration-300 bg-gray-800 border-gray-700 hover:border-brand-600/50 hover:shadow-2xl hover:shadow-brand-600/20 cursor-pointer sm:cursor-default h-full flex flex-col"
+        className="group hover:scale-[1.02] transition-all duration-300 bg-card border-border hover:border-brand-600/50 hover:shadow-2xl hover:shadow-brand-600/20 cursor-pointer sm:cursor-default h-full flex flex-col min-h-0"
         onClick={() => {
           // Only open modal on mobile
           if (window.innerWidth < 640) {
@@ -128,7 +128,7 @@ export default function FlagshipCard({
               className="group-hover:scale-110 transition-transform duration-500"
             />
           </div>
-          <CardTitle className="text-sm sm:text-xl text-white group-hover:text-brand-400 transition-colors line-clamp-2">
+          <CardTitle className="text-sm sm:text-xl text-card-foreground group-hover:text-brand-400 transition-colors line-clamp-2">
             {title}
           </CardTitle>
         </CardHeader>
@@ -140,16 +140,16 @@ export default function FlagshipCard({
           </div>
 
           {/* Desktop: Show all details */}
-          <div className="hidden sm:block space-y-4 flex-1 flex flex-col">
-            <p className="text-gray-300 text-sm leading-relaxed">{description}</p>
+          <div className="hidden sm:flex sm:flex-col sm:space-y-4 sm:flex-1">
+            <p className="text-muted-foreground text-sm leading-relaxed">{description}</p>
             
             <div className="grid grid-cols-2 gap-3">
               {metrics.map((metric, index) => (
-                <div key={index} className="bg-gray-700/50 rounded-lg p-3">
+                <div key={index} className="bg-surface-muted/50 rounded-lg p-3">
                   <div className="text-brand-400 text-lg font-semibold font-mono">
                     {metric.value}
                   </div>
-                  <div className="text-gray-400 text-xs">{metric.label}</div>
+                  <div className="text-surface-muted text-xs">{metric.label}</div>
                 </div>
               ))}
             </div>
@@ -158,7 +158,7 @@ export default function FlagshipCard({
               {tags.map((tag, index) => (
                 <span
                   key={index}
-                  className="px-2 py-1 bg-brand-600/20 text-brand-300 text-xs rounded-full border border-brand-600/30"
+                  className="px-2 py-1 bg-brand-600/20 text-brand-600 dark:text-brand-300 text-xs rounded-full border border-brand-600/30"
                 >
                   {tag}
                 </span>
@@ -224,7 +224,7 @@ export default function FlagshipCard({
       {/* Mobile Modal Overlay */}
       {isModalOpen && (
         <div 
-          className={`fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 sm:hidden transition-all duration-200 ease-out ${
+          className={`fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 sm:hidden transition-all duration-200 ease-out ${
             isAnimating ? 'opacity-0' : 'opacity-100'
           }`}
           onClick={closeModal}
@@ -234,7 +234,7 @@ export default function FlagshipCard({
         >
           <div 
             ref={modalRef}
-            className="bg-gray-800 border border-gray-700 rounded-xl max-w-sm w-full max-h-[85vh] overflow-y-auto will-change-transform"
+            className="bg-card border border-border rounded-xl max-w-sm w-full max-h-[85vh] overflow-y-auto will-change-transform"
             style={{
               transform: `translate(${dragX}px, ${dragY}px) scale(${
                 isAnimating ? 0.9 : isDragging ? Math.max(0.95, 1 - (Math.abs(dragY) + Math.abs(dragX)) / 400) : 1
@@ -270,7 +270,7 @@ export default function FlagshipCard({
                 </div>
                 <button
                   onClick={closeModal}
-                  className="text-gray-400 hover:text-white transition-all duration-150 p-2 rounded-full hover:bg-gray-700/50 active:scale-95"
+                  className="text-surface-muted hover:text-foreground transition-all duration-150 p-2 rounded-full hover:bg-accent/50 active:scale-95"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -278,17 +278,17 @@ export default function FlagshipCard({
 
               {/* Modal Content */}
               <div className="space-y-4">
-                <p className="text-gray-300 text-sm leading-relaxed">
+                <p className="text-surface-secondary text-sm leading-relaxed">
                   {description}
                 </p>
                 
                 <div className="grid grid-cols-2 gap-3">
                   {metrics.map((metric, index) => (
-                    <div key={index} className="bg-gray-700/50 rounded-lg p-3 transition-transform duration-150 hover:scale-[1.02]">
+                    <div key={index} className="bg-surface-muted/50 rounded-lg p-3 transition-transform duration-150 hover:scale-[1.02]">
                       <div className="text-brand-400 text-lg font-semibold font-mono">
                         {metric.value}
                       </div>
-                      <div className="text-gray-400 text-xs">{metric.label}</div>
+                      <div className="text-surface-muted text-xs">{metric.label}</div>
                     </div>
                   ))}
                 </div>
@@ -297,7 +297,7 @@ export default function FlagshipCard({
                   {tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="px-2 py-1 bg-brand-600/20 text-brand-300 text-xs rounded-full border border-brand-600/30 transition-transform duration-150 hover:scale-105"
+                      className="px-2 py-1 bg-brand-600/20 text-brand-600 dark:text-brand-300 text-xs rounded-full border border-brand-600/30 transition-transform duration-150 hover:scale-105"
                     >
                       {tag}
                     </span>

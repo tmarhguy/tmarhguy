@@ -15,7 +15,7 @@ const taglines = [
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
   const [currentTagline, setCurrentTagline] = useState(0);
-  const [displayText, setDisplayText] = useState("Hardware Hacker");
+  const [displayText, setDisplayText] = useState(taglines[0]); // Initialize with full text to prevent mismatch
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
@@ -50,7 +50,7 @@ export default function Hero() {
     <section className="min-h-screen flex items-center justify-center relative">
       {/* Terminal-style background with scanlines */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900" />
+        <div className="absolute inset-0 bg-gradient-to-br dark:from-gray-900 dark:via-black dark:to-gray-900 from-gray-100 via-white to-gray-100" />
         
         {/* Terminal scanlines */}
         <div className="absolute inset-0 opacity-20">
@@ -70,7 +70,7 @@ export default function Hero() {
         </div>
         
         {/* CRT glow effect */}
-        <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-gray-900/20" />
+        <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-gray-900/20 dark:to-gray-900/20 light:to-gray-100/20" />
       </div>
 
       <div className="container mx-auto px-6 text-center relative z-10">
@@ -119,7 +119,7 @@ export default function Hero() {
           </div>
           
           {/* Terminal-style typing effect for taglines */}
-          <div className="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-6 sm:mb-8 h-10 sm:h-12 flex items-center justify-center">
+          <div className="text-xl sm:text-2xl md:text-3xl text-surface-secondary mb-6 sm:mb-8 h-10 sm:h-12 flex items-center justify-center">
             <div className="font-mono flex items-center" suppressHydrationWarning>
               <span className="text-brand-400 mr-2">&gt;</span>
               <span>{displayText}</span>
@@ -132,7 +132,7 @@ export default function Hero() {
             <div className="font-mono text-brand-400/60 text-xs sm:text-sm mb-2">
               {`// Building the future, one transistor at a time`}
             </div>
-            <p className="text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-surface-muted leading-relaxed">
               Building everything from <span className="text-brand-400 font-medium bg-brand-400/10 px-1 rounded">700+ discrete-transistor CPUs</span> to 
               <span className="text-brand-400 font-medium bg-brand-400/10 px-1 rounded"> scalable web platforms serving 350K+ users</span>. 
               Computer Engineering student at UPenn passionate about bridging silicon and software to create impactful solutions.
