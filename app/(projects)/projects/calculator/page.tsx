@@ -43,12 +43,10 @@ export default function CalculatorProjectPage() {
                   View Code
                 </Button>
               </a>
-              <a href="/projects/calculator" target="_blank" rel="noopener noreferrer">
-                <Button className="gap-2">
-                  <ExternalLink className="h-4 w-4" />
-                  Project Details
-                </Button>
-              </a>
+              <Button className="gap-2" onClick={() => router.push('/projects/calculator')}>
+                <ExternalLink className="h-4 w-4" />
+                Project Details
+              </Button>
             </div>
           </div>
         </div>

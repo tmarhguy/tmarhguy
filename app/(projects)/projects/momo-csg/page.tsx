@@ -43,12 +43,10 @@ export default function MoMoCSGProjectPage() {
                   View Code
                 </Button>
               </a>
-              <a href="/projects/momo-csg" target="_blank" rel="noopener noreferrer">
-                <Button className="gap-2">
-                  <ExternalLink className="h-4 w-4" />
-                  Live Demo
-                </Button>
-              </a>
+              <Button className="gap-2" onClick={() => router.push('/projects/momo-csg')}>
+                <ExternalLink className="h-4 w-4" />
+                Live Demo
+              </Button>
             </div>
           </div>
         </div>

@@ -43,12 +43,10 @@ export default function MusicAndYouProjectPage() {
                   View Code
                 </Button>
               </a>
-              <a href="/projects/music-and-you" target="_blank" rel="noopener noreferrer">
-                <Button className="gap-2">
-                  <ExternalLink className="h-4 w-4" />
-                  Live Demo
-                </Button>
-              </a>
+              <Button className="gap-2" onClick={() => router.push('/projects/music-and-you')}>
+                <ExternalLink className="h-4 w-4" />
+                Live Demo
+              </Button>
             </div>
           </div>
         </div>
