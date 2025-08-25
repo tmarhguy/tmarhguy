@@ -3,6 +3,7 @@
 import { ArrowLeft, Code, FileDown } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { getAssetPath } from "@/utils/paths";
 import AnimatedBackground from "@/components/animations/AnimatedBackground";
 import AnimatedCard from "@/components/animations/AnimatedCard";
 import MediaLogos from "@/components/ui/MediaLogos";
@@ -29,7 +30,7 @@ export default function AboutMe() {
               <div className="relative">
                 <div className="w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden border-4 border-brand-500/20 shadow-lg">
                   <Image
-                    src="/images/me.jpg"
+                    src={getAssetPath("images/me.jpg")}
                     alt="Tyrone Marhguy"
                     width={224}
                     height={224}
@@ -67,10 +68,10 @@ export default function AboutMe() {
             </div>
 
             <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-              <a href="/resumes/software-development-resume.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-500 text-white rounded-lg">
+              <a href={getAssetPath("resumes/software-development-resume.pdf")} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-500 text-white rounded-lg">
                 <FileDown className="h-4 w-4" /> Software Resume
               </a>
-              <a href="/resumes/hardware-engineering-resume.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 border border-brand-600 text-brand-400 rounded-lg hover:bg-brand-600/10">
+              <a href={getAssetPath("resumes/hardware-engineering-resume.pdf")} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 border border-brand-600 text-brand-400 rounded-lg hover:bg-brand-600/10">
                 <FileDown className="h-4 w-4" /> Hardware Resume
               </a>
             </div>

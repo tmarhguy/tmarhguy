@@ -25,12 +25,12 @@ export const metadata: Metadata = {
   creator: "Tyrone Marhguy",
   icons: {
     icon: [
-      { url: "/tmarhguy/favicon.svg", type: "image/svg+xml" },
-      { url: "/tmarhguy/favicon-16x16.svg", sizes: "16x16", type: "image/svg+xml" },
-      { url: "/tmarhguy/favicon-32x32.svg", sizes: "32x32", type: "image/svg+xml" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-16x16.svg", sizes: "16x16", type: "image/svg+xml" },
+      { url: "/favicon-32x32.svg", sizes: "32x32", type: "image/svg+xml" },
     ],
     apple: [
-      { url: "/tmarhguy/apple-touch-icon.svg", sizes: "180x180", type: "image/svg+xml" },
+      { url: "/apple-touch-icon.svg", sizes: "180x180", type: "image/svg+xml" },
     ],
   },
   openGraph: {
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     title: "Tyrone Marhguy - Computer Engineering @ UPenn",
     description: "Personal portfolio showcasing hardware projects, CPU design, software development, and research.",
   },
-  // Use a root-relative path so it works in dev and with basePath/assetPrefix in prod
+  // Use root-relative; Next will prefix with basePath in prod
   manifest: "/site.webmanifest",
 };
 

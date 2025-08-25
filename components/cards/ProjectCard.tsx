@@ -2,6 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { getAssetPath } from "@/utils/paths";
+import { useRouter } from "next/navigation";
 import { Card } from "@/components/ui/card";
 import { Github, ExternalLink, Clock, CheckCircle, Lightbulb, Wrench, X } from "lucide-react";
 
@@ -58,6 +60,7 @@ export default function ProjectCard({
   const currentY = useRef(0);
   const currentX = useRef(0);
   const StatusIcon = statusConfig[status].icon;
+  const router = useRouter();
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -142,7 +145,7 @@ export default function ProjectCard({
           } else {
             // On desktop, navigate to project details
             if (demo.startsWith('/projects/')) {
-              window.location.href = demo;
+              router.push(demo);
             } else {
               window.open(demo, '_blank');
             }
@@ -168,7 +171,7 @@ export default function ProjectCard({
           {image && (
             <div className="aspect-video relative overflow-hidden rounded-lg mb-2 sm:mb-3">
               <img
-                src={image}
+                src={image.startsWith('http') ? image : getAssetPath(image)}
                 alt={title}
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 className="group-hover:scale-105 transition-transform duration-300"
@@ -219,7 +222,7 @@ export default function ProjectCard({
                 onClick={(e) => {
                   e.stopPropagation();
                   if (demo.startsWith('/projects/')) {
-                    window.location.href = demo;
+                    router.push(demo);
                   } else {
                     window.open(demo, '_blank');
                   }
@@ -348,7 +351,7 @@ export default function ProjectCard({
                     className="border-surface text-surface-secondary hover:bg-surface-muted flex-1 transition-colors duration-200"
                     onClick={() => {
                       if (demo.startsWith('/projects/')) {
-                        window.location.href = demo;
+                        router.push(demo);
                       } else {
                         window.open(demo, '_blank');
                       }

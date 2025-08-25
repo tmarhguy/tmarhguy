@@ -1,6 +1,7 @@
 "use client";
 
 import { openTimeCapsule } from "@/utils/timeCapsuleEvent";
+import Link from "next/link";
 
 export default function TaglineSection() {
   return (
@@ -15,7 +16,7 @@ export default function TaglineSection() {
       
       Want to see my work? Explore my{" "}
       <a href="#projects" className="text-brand-400 hover:text-brand-300 underline">projects</a>, learn about my{" "}
-      <a href="/academic-details" className="text-brand-400 hover:text-brand-300 underline">academic journey</a>, download my{" "}
+      <Link href="/academic-details" className="text-brand-400 hover:text-brand-300 underline">academic journey</Link>, download my{" "}
       <button onClick={openTimeCapsule} className="text-brand-400 hover:text-brand-300 underline bg-transparent border-none cursor-pointer">resume</button>, or connect with me on{" "}
       <a href="https://linkedin.com/in/tmarhguy" target="_blank" rel="noopener noreferrer" className="text-brand-400 hover:text-brand-300 underline">LinkedIn</a>.
     </p>

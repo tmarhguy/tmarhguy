@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { ChevronRight, Github, Mail, Linkedin, FileText } from "lucide-react";
 import { openTimeCapsule } from "@/utils/timeCapsuleEvent";
 
@@ -117,23 +118,25 @@ export default function Hero() {
                 <ChevronRight className="ml-2 h-4 sm:h-5 w-4 sm:w-5" />
               </Button>
               
-              <Button 
-                size="lg" 
-                variant="outline"
-                className="border-brand-600 text-brand-400 hover:bg-brand-600/10 px-6 sm:px-8 py-3 text-base sm:text-lg w-full sm:w-auto transition-all duration-200"
-                onClick={() => window.open('/academic-details', '_self')}
-              >
-                Academics
-              </Button>
+              <Link href="/academic-details" className="w-full sm:w-auto">
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  className="border-brand-600 text-brand-400 hover:bg-brand-600/10 px-6 sm:px-8 py-3 text-base sm:text-lg w-full sm:w-auto transition-all duration-200"
+                >
+                  Academics
+                </Button>
+              </Link>
 
-              <Button 
-                size="lg" 
-                variant="outline"
-                className="border-brand-600 text-brand-400 hover:bg-brand-600/10 px-6 sm:px-8 py-3 text-base sm:text-lg w-full sm:w-auto transition-all duration-200"
-                onClick={() => window.open('/about-me', '_self')}
-              >
-                About Me
-              </Button>
+              <Link href="/about-me" className="w-full sm:w-auto">
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  className="border-brand-600 text-brand-400 hover:bg-brand-600/10 px-6 sm:px-8 py-3 text-base sm:text-lg w-full sm:w-auto transition-all duration-200"
+                >
+                  About Me
+                </Button>
+              </Link>
             </div>
             
             <div className="grid grid-cols-2 sm:flex gap-2 sm:gap-3 w-full sm:w-auto max-w-sm sm:max-w-none">
