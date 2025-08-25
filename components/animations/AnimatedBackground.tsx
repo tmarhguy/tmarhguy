@@ -8,12 +8,6 @@ interface AnimatedBackgroundProps {
   className?: string;
 }
 
-// Deterministic pseudo-random function based on seed
-const getPseudoRandom = (seed: number, max: number = 1) => {
-  const x = Math.sin(seed) * 10000;
-  return (x - Math.floor(x)) * max;
-};
-
 export default function AnimatedBackground({ 
   variant = 'circuit', 
   intensity = 'medium',
@@ -21,20 +15,22 @@ export default function AnimatedBackground({
 }: AnimatedBackgroundProps = {}) {
   
   const particleCount = useMemo(() => {
-    const baseCount = intensity === 'high' ? 40 : intensity === 'medium' ? 25 : 15;
-    return variant === 'particles' ? baseCount : Math.floor(baseCount * 0.6);
+    // Reduced particle counts for better performance
+    const baseCount = intensity === 'high' ? 15 : intensity === 'medium' ? 8 : 4;
+    return variant === 'particles' ? baseCount : Math.floor(baseCount * 0.5);
   }, [variant, intensity]);
 
   const lineCount = useMemo(() => {
-    return intensity === 'high' ? 10 : intensity === 'medium' ? 7 : 5;
+    // Reduced line counts for cleaner look
+    return intensity === 'high' ? 6 : intensity === 'medium' ? 4 : 2;
   }, [intensity]);
 
   return (
-    <div className={`fixed inset-0 pointer-events-none ${className}`}>
-      {/* Base gradient background */}
+    <div className={`fixed inset-0 pointer-events-none z-0 ${className}`}>
+      {/* Base gradient background - simplified */}
       <div className="absolute inset-0 bg-gradient-to-br dark:from-gray-900 dark:via-black dark:to-gray-900 from-gray-100 via-white to-gray-100" />
       
-      {/* Matrix Rain Effect */}
+      {/* Matrix Rain Effect - simplified and reduced */}
       {variant === 'matrix' && (
         <div className="matrix-container w-full h-full overflow-hidden">
           <style jsx>{`
@@ -42,94 +38,76 @@ export default function AnimatedBackground({
               position: absolute;
               top: -100%;
               font-family: 'Courier New', monospace;
-              font-size: 14px;
-              font-weight: bold;
+              font-size: 12px;
               color: #0f7a5f;
               animation: fall linear infinite;
               white-space: pre;
-              opacity: 0.6;
-              text-shadow: 0 0 8px rgba(15, 122, 95, 0.6);
-              transform: translateZ(0);
-              will-change: transform;
+              opacity: 0.4;
+              text-shadow: 0 0 4px rgba(15, 122, 95, 0.4);
             }
             
             @keyframes fall {
-              0% { transform: translate3d(0, -100vh, 0); opacity: 1; }
-              100% { transform: translate3d(0, 100vh, 0); opacity: 0; }
-            }
-            
-            .matrix-rain:nth-child(odd) { 
-              color: #1db584; 
-              animation-duration: 4s;
-              text-shadow: 0 0 10px rgba(29, 181, 132, 0.7);
-            }
-            .matrix-rain:nth-child(even) { 
-              color: #0f7a5f; 
-              animation-duration: 6s;
-              text-shadow: 0 0 6px rgba(15, 122, 95, 0.5);
+              0% { transform: translateY(-100vh); opacity: 1; }
+              100% { transform: translateY(100vh); opacity: 0; }
             }
           `}</style>
           
-          {Array.from({ length: Math.floor(particleCount * 0.5) }, (_, i) => (
+          {Array.from({ length: Math.floor(particleCount * 0.3) }, (_, i) => (
             <div
               key={i}
               className="matrix-rain"
               style={{
-                left: `${(i * 50) % 100}%`,
-                animationDelay: `${i * 0.8}s`,
-                animationDuration: `${4 + (i % 3)}s`,
+                left: `${(i * 70) % 100}%`,
+                animationDelay: `${i * 1.2}s`,
+                animationDuration: `${6 + (i % 2)}s`,
               }}
             >
-              {Array.from({ length: 8 }, (_, j) => 
-                String.fromCharCode(0x30A0 + Math.floor(getPseudoRandom(i * 100 + j * 10, 96)))
+              {Array.from({ length: 6 }).map(() =>
+                String.fromCharCode(0x30A0 + Math.floor(Math.random() * 96))
               ).join('\n')}
             </div>
           ))}
         </div>
       )}
 
-      {/* Circuit Pattern */}
+      {/* Circuit Pattern - simplified and cleaner */}
       {variant === 'circuit' && (
-        <div className="circuit-grid w-full h-full overflow-hidden opacity-30">
+        <div className="circuit-grid w-full h-full overflow-hidden opacity-20">
           <style jsx>{`
             .circuit-line {
               position: absolute;
               background: linear-gradient(90deg, transparent, #1a7f64, transparent);
-              opacity: 0.6;
-              animation: pulse 3s ease-in-out infinite;
-              transform: translateZ(0);
-              will-change: opacity;
+              opacity: 0.5;
+              animation: pulse 4s ease-in-out infinite;
             }
             
             .circuit-node {
               position: absolute;
-              width: 4px;
-              height: 4px;
+              width: 3px;
+              height: 3px;
               background: #1a7f64;
               border-radius: 50%;
-              animation: glow 2s ease-in-out infinite alternate;
-              transform: translateZ(0);
-              will-change: opacity;
+              animation: glow 3s ease-in-out infinite alternate;
             }
             
             @keyframes pulse {
-              0%, 100% { opacity: 0.3; }
-              50% { opacity: 0.8; }
+              0%, 100% { opacity: 0.2; }
+              50% { opacity: 0.6; }
             }
             
             @keyframes glow {
               0% { 
-                opacity: 0.4;
-                box-shadow: 0 0 4px #1a7f64;
+                opacity: 0.3;
+                box-shadow: 0 0 3px #1a7f64;
               }
               100% { 
-                opacity: 1;
-                box-shadow: 0 0 8px #1a7f64, 0 0 12px #1a7f64;
+                opacity: 0.8;
+                box-shadow: 0 0 6px #1a7f64;
               }
             }
           `}</style>
           
-          {/* Horizontal Lines - Reduced count */}
+          {/* Horizontal Lines - minimal count */}
           {Array.from({ length: lineCount }, (_, i) => (
             <div
               key={`h-${i}`}
@@ -139,12 +117,12 @@ export default function AnimatedBackground({
                 left: 0,
                 right: 0,
                 height: '1px',
-                animationDelay: `${i * 0.5}s`,
+                animationDelay: `${i * 0.8}s`,
               }}
             />
           ))}
           
-          {/* Vertical Lines - Reduced count */}
+          {/* Vertical Lines - minimal count */}
           {Array.from({ length: lineCount }, (_, i) => (
             <div
               key={`v-${i}`}
@@ -154,27 +132,27 @@ export default function AnimatedBackground({
                 top: 0,
                 bottom: 0,
                 width: '1px',
-                animationDelay: `${i * 0.5}s`,
+                animationDelay: `${i * 0.8}s`,
               }}
             />
           ))}
           
-          {/* Circuit Nodes - Reduced count */}
-          {Array.from({ length: Math.floor(lineCount * 0.8) }, (_, i) => (
+          {/* Circuit Nodes - minimal count */}
+          {Array.from({ length: Math.floor(lineCount * 0.6) }, (_, i) => (
             <div
               key={`node-${i}`}
               className="circuit-node"
               style={{
-                left: `${20 + (i * 70) % 60}%`,
-                top: `${20 + (i * 50) % 60}%`,
-                animationDelay: `${i * 0.8}s`,
+                left: `${25 + (i * 60) % 50}%`,
+                top: `${25 + (i * 60) % 50}%`,
+                animationDelay: `${i * 1.2}s`,
               }}
             />
           ))}
         </div>
       )}
 
-      {/* Particles */}
+      {/* Particles - simplified and reduced */}
       {variant === 'particles' && (
         <div className="particles-container w-full h-full overflow-hidden">
           <style jsx>{`
@@ -182,27 +160,25 @@ export default function AnimatedBackground({
               position: absolute;
               border-radius: 50%;
               background: #1a7f64;
-              opacity: 0.6;
+              opacity: 0.4;
               animation: float linear infinite;
-              transform: translateZ(0);
-              will-change: transform;
             }
             
             @keyframes float {
               0% { 
-                transform: translate3d(0, 100vh, 0) scale(0);
+                transform: translateY(100vh) scale(0);
                 opacity: 0;
               }
               10% {
-                opacity: 0.6;
-                transform: translate3d(0, 90vh, 0) scale(1);
+                opacity: 0.4;
+                transform: translateY(90vh) scale(1);
               }
               90% {
-                opacity: 0.6;
-                transform: translate3d(0, -10vh, 0) scale(1);
+                opacity: 0.4;
+                transform: translateY(-10vh) scale(1);
               }
               100% { 
-                transform: translate3d(0, -20vh, 0) scale(0);
+                transform: translateY(-20vh) scale(0);
                 opacity: 0;
               }
             }
@@ -213,18 +189,18 @@ export default function AnimatedBackground({
               key={i}
               className="particle"
               style={{
-                left: `${(i * 37 + 11) % 100}%`,
-                width: `${2 + ((i * 13) % 3)}px`,
-                height: `${2 + ((i * 13) % 3)}px`,
-                animationDuration: `${10 + ((i * 17) % 8)}s`,
-                animationDelay: `${(i * 23) % 10}s`,
+                left: `${(i * 40 + 15) % 100}%`,
+                width: `${2 + ((i * 13) % 2)}px`,
+                height: `${2 + ((i * 13) % 2)}px`,
+                animationDuration: `${12 + ((i * 17) % 6)}s`,
+                animationDelay: `${(i * 25) % 8}s`,
               }}
             />
           ))}
         </div>
       )}
 
-      {/* Terminal Effect */}
+      {/* Terminal Effect - simplified */}
       {variant === 'terminal' && (
         <div className="terminal-container w-full h-full">
           <style jsx>{`
@@ -234,18 +210,16 @@ export default function AnimatedBackground({
               left: 0;
               right: 0;
               height: 100%;
-              background: linear-gradient(transparent 50%, rgba(26, 127, 100, 0.02) 50%);
-              background-size: 100% 4px;
-              animation: scanline 0.1s linear infinite;
+              background: linear-gradient(transparent 50%, rgba(26, 127, 100, 0.015) 50%);
+              background-size: 100% 6px;
+              animation: scanline 0.15s linear infinite;
               pointer-events: none;
-              opacity: 0.8;
-              transform: translateZ(0);
-              will-change: background-position;
+              opacity: 0.6;
             }
             
             @keyframes scanline {
               0% { background-position: 0 0; }
-              100% { background-position: 0 4px; }
+              100% { background-position: 0 6px; }
             }
           `}</style>
           

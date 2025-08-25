@@ -39,3 +39,29 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# editors/OS
+.vscode/
+.idea/
+.history/
+*.code-workspace
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# tooling caches
+.turbo
+.swc
+.cache
+.eslintcache
+
+# package manager/NPM config (may contain auth tokens)
+.npmrc
+
+# generic logs
+logs
+*.log
+
+# local overrides
+*.local

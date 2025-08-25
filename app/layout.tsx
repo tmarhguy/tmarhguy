@@ -4,6 +4,7 @@ import "./globals.css";
 import CursorIllumination from "@/components/ui/CursorIllumination";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
+import TimeCapsuleResume from "@/components/animations/TimeCapsuleResume";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -45,7 +46,8 @@ export const metadata: Metadata = {
     title: "Tyrone Marhguy - Computer Engineering @ UPenn",
     description: "Personal portfolio showcasing hardware projects, CPU design, software development, and research.",
   },
-  manifest: "/tmarhguy/site.webmanifest",
+  // Use a root-relative path so it works in dev and with basePath/assetPrefix in prod
+  manifest: "/site.webmanifest",
 };
 
 export const viewport = {
@@ -75,6 +77,7 @@ export default function RootLayout({
         >
           <CursorIllumination />
           <ThemeToggle />
+          <TimeCapsuleResume />
           {children}
           {process.env.NODE_ENV === 'production' && (
             <script

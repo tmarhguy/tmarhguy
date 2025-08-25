@@ -1,78 +1,91 @@
 "use client";
 
-import { Code, Cpu, Database, Globe, Wrench, Zap } from "lucide-react";
+import { Code, Globe, Cpu, Zap, Wrench, Database, Shield, GitBranch, Brain, CircuitBoard } from "lucide-react";
 
 const skillCategories = [
   {
     icon: Code,
     title: "Programming",
-    skills: ["Python", "C++/C", "TypeScript/JS", "Bash/Shell", "Verilog/VHDL"]
+    skills: ["Python", "C++", "C", "TypeScript/JavaScript", "Java", "Bash/Shell"]
+  },
+  {
+    icon: CircuitBoard,
+    title: "Systems & Embedded",
+    skills: ["Device Drivers", "RTOS", "Integration Testing", "Requirements", "Hardware-Software Co-Design"]
   },
   {
     icon: Globe,
-    title: "Web & APIs",
-    skills: ["FastAPI", "React/Next.js", "Node.js", "GraphQL/REST", "OAuth2/JWT"]
+    title: "Web & Frameworks",
+    skills: ["FastAPI", "React/Next.js", "Node.js", "Tailwind CSS", "Radix UI"]
   },
   {
     icon: Database,
     title: "Data & Cloud",
-    skills: ["PostgreSQL", "Redis", "MongoDB", "AWS (EC2/S3)", "Docker/K8s"]
+    skills: ["PostgreSQL", "Redis", "MongoDB", "Docker"]
+  },
+  {
+    icon: Brain,
+    title: "ML & Analytics",
+    skills: ["scikit-learn", "XGBoost", "pandas", "NumPy", "SHAP"]
+  },
+  {
+    icon: GitBranch,
+    title: "DevOps & Testing",
+    skills: ["Git/GitHub", "Pytest", "Code Reviews"]
   },
   {
     icon: Cpu,
-    title: "Hardware Design",
-    skills: ["RTL (Verilog)", "FPGA (Vivado)", "PCB (KiCad)", "Transistor Logic", "ISA Design"]
+    title: "Hardware & FPGA",
+    skills: ["RTL (Verilog, SystemVerilog, VHDL)", "FPGA Synthesis", "ASIC Prototyping", "Timing Optimization"]
   },
   {
-    icon: Wrench,
-    title: "DevOps & Testing",
-    skills: ["GitHub Actions", "Jenkins", "Pytest/Jest", "LTspice", "Logic Analyzer"]
-  },
-  {
-    icon: Zap,
-    title: "ML & Analytics",
-    skills: ["XGBoost", "scikit-learn", "SHAP", "pandas/NumPy", "Feature Engineering"]
+    icon: Shield,
+    title: "Security & Compliance",
+    skills: ["OAuth2 & JWT", "AES-256 Encryption", "HIPAA Compliance", "Data Standards"]
   }
+];
+
+const additionalTools = [
+  "D3.js", "Documentation", "Compliance Standards", "Oscilloscope", "Logic Analyzer", 
+  "LTspice", "KiCad", "Tcl", "Linux Development Environments"
 ];
 
 export default function Skills() {
   return (
-    <section className="py-1 sm:py-2 px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-2 sm:mb-3">
-          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2 sm:mb-3">
+    <section className="py-3 px-4 sm:px-6">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
             Technical Skills
           </h2>
-          <p className="text-sm sm:text-base text-surface-muted max-w-2xl mx-auto">
-            Core technologies and tools I work with across hardware design, software development, and data science.
-          </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">
+        {/* Compact Skills Grid - 4 columns on larger screens */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mb-4">
           {skillCategories.map((category) => {
             const IconComponent = category.icon;
             return (
               <div 
                 key={category.title}
-                className="bg-surface-dark rounded-lg border border-surface p-2 sm:p-3 hover:border-brand-600/50 transition-all duration-300 group"
+                className="bg-surface-dark/40 rounded-md border border-surface/40 p-2.5 hover:border-brand-500/40 hover:bg-surface-dark/60 transition-all duration-200"
               >
-                <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-brand-600/20 rounded-lg flex items-center justify-center group-hover:bg-brand-600/30 transition-colors">
-                    <IconComponent className="w-3 h-3 sm:w-4 sm:h-4 text-brand-400" />
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-6 h-6 bg-gradient-to-br from-brand-500/20 to-brand-600/20 rounded flex items-center justify-center">
+                    <IconComponent className="w-3 h-3 text-brand-400" />
                   </div>
                   <h3 className="text-sm sm:text-base font-semibold text-foreground">
                     {category.title}
                   </h3>
                 </div>
-
-                <div className="space-y-1 sm:space-y-2">
+                
+                <div className="flex flex-wrap gap-1">
                   {category.skills.map((skill) => (
-                    <div 
+                    <span 
                       key={skill}
-                      className="text-xs sm:text-sm text-surface-secondary py-1 px-2 bg-surface-muted/50 rounded border border-surface/50 hover:border-brand-600/30 hover:text-brand-300 transition-all duration-200"
+                      className="inline-block px-2 py-1 bg-surface-muted/50 text-surface-secondary text-sm rounded border border-surface/30 hover:border-brand-500/40 transition-colors duration-200"
                     >
                       {skill}
-                    </div>
+                    </span>
                   ))}
                 </div>
               </div>
@@ -80,29 +93,36 @@ export default function Skills() {
           })}
         </div>
 
-        {/* Learning Interests - More Compact */}
-        <div className="mt-2 sm:mt-3 bg-surface-dark rounded-lg border border-surface p-3 sm:p-4">
-          <h3 className="text-base sm:text-lg font-semibold text-foreground mb-2 sm:mb-3 flex items-center gap-2">
-            <div className="w-5 h-5 sm:w-6 sm:h-6 bg-brand-600/20 rounded flex items-center justify-center">
-              <Zap className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-brand-400" />
+        {/* Compact Additional Tools */}
+        <div className="bg-surface-dark/30 rounded-md border border-surface/40 p-3">
+          <div className="flex items-center gap-2 mb-2">
+            <div className="w-5 h-5 bg-gradient-to-br from-brand-500/20 to-brand-600/20 rounded flex items-center justify-center">
+              <Wrench className="w-2.5 h-2.5 text-brand-400" />
             </div>
-            Currently Learning
-          </h3>
-          <div className="flex flex-wrap gap-2 sm:gap-3">
-            {[
-              "SystemVerilog/UVM",
-              "Signal Integrity",
-              "Embedded Systems", 
-              "Microcontroller Integration",
-              "Hardware Bring-up"
-            ].map((interest) => (
+            <h3 className="text-sm sm:text-base font-semibold text-foreground">
+              Additional Tools
+            </h3>
+          </div>
+          
+          <div className="flex flex-wrap gap-1.5">
+            {additionalTools.map((tool) => (
               <span 
-                key={interest}
-                className="px-2 sm:px-3 py-1 sm:py-1.5 bg-surface-muted text-surface-secondary text-xs sm:text-sm rounded border border-surface hover:border-brand-600/50 hover:text-brand-400 transition-all duration-200"
+                key={tool}
+                className="px-2 py-1 bg-surface-muted/40 text-surface-secondary text-sm rounded border border-surface/30 hover:border-brand-500/40 transition-colors duration-200"
               >
-                {interest}
+                {tool}
               </span>
             ))}
+          </div>
+        </div>
+
+        {/* Compact Summary Badge */}
+        <div className="mt-3 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-brand-500/10 border border-brand-500/20 rounded-full">
+            <Zap className="w-3 h-3 text-brand-400" />
+            <span className="text-sm font-medium text-brand-400">
+              Full-Stack • Embedded • ML • Hardware
+            </span>
           </div>
         </div>
       </div>

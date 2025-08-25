@@ -7,15 +7,15 @@ import { openTimeCapsule } from "@/utils/timeCapsuleEvent";
 
 const taglines = [
   "Computer Engineering @ UPenn",
-  "Full-Stack Development & Systems Software", 
+  "Olympiad Gold Medalist • 8 A1s in WASSCE", 
   "Discrete Hardware Systems & Embedded Design",
-  "Hardware-Software Bridge Engineer"
+  "Engineering with Math, Rigor & Imagination"
 ];
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
   const [currentTagline, setCurrentTagline] = useState(0);
-  const [displayText, setDisplayText] = useState(taglines[0]); // Initialize with full text to prevent mismatch
+  const [displayText, setDisplayText] = useState(taglines[0]);
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
@@ -48,74 +48,35 @@ export default function Hero() {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative">
-      {/* Terminal-style background with scanlines */}
+      {/* Simplified background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br dark:from-gray-900 dark:via-black dark:to-gray-900 from-gray-100 via-white to-gray-100" />
         
-        {/* Terminal scanlines */}
-        <div className="absolute inset-0 opacity-20">
+        {/* Subtle scanlines */}
+        <div className="absolute inset-0 opacity-10">
           <style jsx>{`
             .scanlines {
-              background: linear-gradient(transparent 50%, rgba(26, 127, 100, 0.03) 50%);
-              background-size: 100% 4px;
-              animation: scanlines 0.1s linear infinite;
+              background: linear-gradient(transparent 50%, rgba(26, 127, 100, 0.02) 50%);
+              background-size: 100% 6px;
+              animation: scanlines 0.2s linear infinite;
             }
             
             @keyframes scanlines {
               0% { background-position: 0 0; }
-              100% { background-position: 0 4px; }
+              100% { background-position: 0 6px; }
             }
           `}</style>
           <div className="scanlines w-full h-full" />
         </div>
-        
-        {/* CRT glow effect */}
-        <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-gray-900/20 dark:to-gray-900/20 light:to-gray-100/20" />
       </div>
 
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="animate-fadeUp">
-          {/* Glitch effect on name */}
-          <div className="relative mb-4 sm:mb-6">
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent relative z-10">
+          {/* Clean name display */}
+          <div className="relative mb-6 sm:mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent">
               I&apos;m Tyrone Marhguy
             </h1>
-            
-            {/* Glitch layers */}
-            <h1 className="absolute top-0 left-0 right-0 text-4xl sm:text-5xl md:text-7xl font-bold text-brand-400 opacity-20 animate-pulse"
-                style={{ 
-                  animation: 'glitch1 2s infinite',
-                  clipPath: 'polygon(0 0, 100% 0, 100% 45%, 0 45%)'
-                }}>
-              I&apos;m Tyrone Marhguy
-            </h1>
-            <h1 className="absolute top-0 left-0 right-0 text-4xl sm:text-5xl md:text-7xl font-bold text-red-400 opacity-20"
-                style={{ 
-                  animation: 'glitch2 2s infinite',
-                  clipPath: 'polygon(0 55%, 100% 55%, 100% 100%, 0 100%)'
-                }}>
-              I&apos;m Tyrone Marhguy
-            </h1>
-            
-            <style jsx>{`
-              @keyframes glitch1 {
-                0%, 100% { transform: translateX(0); }
-                10% { transform: translateX(-2px); }
-                20% { transform: translateX(2px); }
-                30% { transform: translateX(-1px); }
-                40% { transform: translateX(1px); }
-                50% { transform: translateX(0); }
-              }
-              
-              @keyframes glitch2 {
-                0%, 100% { transform: translateX(0); }
-                15% { transform: translateX(2px); }
-                25% { transform: translateX(-2px); }
-                35% { transform: translateX(1px); }
-                45% { transform: translateX(-1px); }
-                55% { transform: translateX(0); }
-              }
-            `}</style>
           </div>
           
           {/* Terminal-style typing effect for taglines */}
@@ -127,24 +88,30 @@ export default function Hero() {
             </div>
           </div>
           
-          {/* Enhanced description with terminal styling */}
+          {/* Clean description */}
           <div className="max-w-3xl mx-auto mb-8 sm:mb-12 px-4">
             <div className="font-mono text-brand-400/60 text-xs sm:text-sm mb-2">
               {`// Building the future, one transistor at a time`}
             </div>
             <p className="text-base sm:text-lg md:text-xl text-surface-muted leading-relaxed">
-              Building everything from <span className="text-brand-400 font-medium bg-brand-400/10 px-1 rounded">700+ discrete-transistor CPUs</span> to 
-              <span className="text-brand-400 font-medium bg-brand-400/10 px-1 rounded"> scalable web platforms serving 350K+ users</span>. 
-              Computer Engineering student at UPenn passionate about bridging silicon and software to create impactful solutions.
-            </p>
+  From 
+  <span className="text-brand-400 font-medium bg-brand-400/10 px-1 rounded"> 700+ transistor-level CPUs </span> 
+  soldered by hand 
+  to 
+  <span className="text-brand-400 font-medium bg-brand-400/10 px-1 rounded"> web platforms scaling to 350K+ users </span>. 
+  UPenn Computer Engineering student and 
+  <span className="text-brand-400 font-medium bg-brand-400/10 px-1 rounded"> Olympiad medalist </span>, 
+  bridging silicon and software to engineer real-world impact.
+</p>
+
           </div>
           
           <div className="flex flex-col gap-6 justify-center items-center px-4">
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
               <Button 
                 size="lg" 
-                className="bg-brand-600 hover:bg-brand-500 text-white px-6 sm:px-8 py-3 text-base sm:text-lg transition-swift w-full sm:w-auto"
-                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-brand-600 hover:bg-brand-500 text-white px-6 sm:px-8 py-3 text-base sm:text-lg transition-all duration-200 w-full sm:w-auto"
+                onClick={() => document.getElementById('software-projects')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Explore Projects
                 <ChevronRight className="ml-2 h-4 sm:h-5 w-4 sm:w-5" />
@@ -153,8 +120,17 @@ export default function Hero() {
               <Button 
                 size="lg" 
                 variant="outline"
-                className="border-brand-600 text-brand-400 hover:bg-brand-600/10 px-6 sm:px-8 py-3 text-base sm:text-lg w-full sm:w-auto"
-                onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+                className="border-brand-600 text-brand-400 hover:bg-brand-600/10 px-6 sm:px-8 py-3 text-base sm:text-lg w-full sm:w-auto transition-all duration-200"
+                onClick={() => window.open('/academic-details', '_self')}
+              >
+                Academics
+              </Button>
+
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="border-brand-600 text-brand-400 hover:bg-brand-600/10 px-6 sm:px-8 py-3 text-base sm:text-lg w-full sm:w-auto transition-all duration-200"
+                onClick={() => window.open('/about-me', '_self')}
               >
                 About Me
               </Button>
@@ -164,45 +140,45 @@ export default function Hero() {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-brand-600 text-brand-400 hover:bg-brand-600/10 text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3"
+                className="border-brand-600 text-brand-400 hover:bg-brand-600/10 text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3 transition-all duration-200"
                 onClick={() => window.open('https://github.com/tmarhguy', '_blank')}
               >
                 <Github className="mr-1 sm:mr-2 h-4 w-4" />
                 <span className="hidden xs:inline">GitHub</span>
-                <span className="xs:hidden">Git</span>
+                <span className="xs:hidden">Github</span>
               </Button>
               
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-brand-600 text-brand-400 hover:bg-brand-600/10 text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3"
-                onClick={() => window.open('https://linkedin.com/in/tmarhguy', '_blank')}
+                className="border-brand-600 text-brand-400 hover:bg-brand-600/10 text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3 transition-all duration-200"
+                onClick={() => window.open('https://www.linkedin.com/in/tmarhguy', '_blank')}
               >
                 <Linkedin className="mr-1 sm:mr-2 h-4 w-4" />
                 <span className="hidden xs:inline">LinkedIn</span>
-                <span className="xs:hidden">In</span>
+                <span className="xs:hidden">Linkedin</span>
               </Button>
               
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-brand-600 text-brand-400 hover:bg-brand-600/10 text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3"
+                className="border-brand-600 text-brand-400 hover:bg-brand-600/10 text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3 transition-all duration-200"
                 onClick={openTimeCapsule}
               >
                 <FileText className="mr-1 sm:mr-2 h-4 w-4" />
                 <span className="hidden xs:inline">Resume</span>
-                <span className="xs:hidden">CV</span>
+                <span className="xs:hidden">Resume</span>
               </Button>
               
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-brand-600 text-brand-400 hover:bg-brand-600/10 text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3"
-                onClick={() => window.open('mailto:tmarhguy@gmail.com?subject=Let\'s Chat', '_blank')}
+                className="border-brand-600 text-brand-400 hover:bg-brand-600/10 text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3 transition-all duration-200"
+                onClick={() => window.open('mailto:tmarhguy@seas.upenn.edu?subject=Let\'s Chat', '_blank')}
               >
                 <Mail className="mr-1 sm:mr-2 h-4 w-4" />
                 <span className="hidden xs:inline">Email</span>
-                <span className="xs:hidden">@</span>
+                <span className="xs:hidden">Email</span>
               </Button>
             </div>
           </div>
