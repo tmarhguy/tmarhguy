@@ -1,0 +1,413 @@
+@import "tailwindcss";
+@theme {
+  /* Colors — Editorial Palette (matching tyrone_about.html) */
+  --color-bg-void: #0a0a08;
+  --color-bg-deep: #111110;
+  --color-bg-elevated: #1a1a16;
+  --color-bg-surface: #1e1e1a;
+  
+  --color-gold-champagne: #c9a84c;
+  --color-gold-bright: #e0c56a;
+  --color-gold-dim: #8a6e2f;
+  
+  --color-cream: #f0e8d5;
+  --color-cream-dim: #9e9282;
+  
+  --color-verify-green: #00ff94;
+  
+  --color-border-subtle: #1e1e1a;
+  --color-border-medium: rgba(201, 168, 76, 0.2);
+  --color-border-active: rgba(201, 168, 76, 0.6);
+  
+  --color-text-primary: #faf9f6;
+  --color-text-secondary: #c0b8a8;
+  --color-text-tertiary: #9e9282;
+
+  /* Fonts — Editorial Typography */
+  --font-sans: "Libre Baskerville", Georgia, serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  /* Shadows */
+  --shadow-glow-gold: 0 0 20px rgba(201, 168, 76, 0.15);
+  --shadow-glow-dot: 0 0 12px rgba(201, 168, 76, 0.4);
+}
+
+/* Base Styles */
+@layer base {
+  html {
+    /* Prevent font size inflation on mobile (iOS) */
+    -webkit-text-size-adjust: 100%;
+    /* Smooth scroll for anchor links */
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg-void min-h-screen text-cream font-sans antialiased overflow-x-hidden;
+    line-height: 1.7;
+    /* Remove tap highlight on mobile for cleaner UX */
+    -webkit-tap-highlight-color: transparent;
+    /* Respect safe area insets (notched devices) */
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-text-primary;
+  }
+
+  /* Focus visible for keyboard accessibility (WCAG 2.2) */
+  :focus-visible {
+    outline: 2px solid var(--color-gold-champagne);
+    outline-offset: 2px;
+  }
+
+  /* Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Component Styles */
+@layer components {
+  .btn-primary {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    min-height: 44px;
+    border: 1px solid var(--color-gold-champagne);
+    color: var(--color-gold-champagne);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { background: var(--color-gold-champagne); color: var(--color-bg-void); }
+
+  .btn-secondary {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    min-height: 44px;
+    border: 1px solid var(--color-border-subtle);
+    color: var(--color-cream-dim);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--color-cream-dim); color: var(--color-cream); }
+  
+  .btn-ghost {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    color: var(--color-gold-champagne);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .btn-ghost:hover { color: var(--color-gold-bright); }
+
+  /* Editorial text gradient */
+  .text-gradient-gold {
+     @apply bg-clip-text text-transparent bg-gradient-to-r from-gold-champagne to-gold-bright;
+  }
+
+  .content-max-width {
+    @apply max-w-7xl mx-auto w-full;
+    padding-left: clamp(1rem, 4vw, 3rem);
+    padding-right: clamp(1rem, 4vw, 3rem);
+  }
+
+  /* Responsive section padding — use for consistent mobile/desktop spacing */
+  .section-padding {
+    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 4vw, 3rem);
+  }
+  
+  /* Typography Utilities */
+  .text-hero {
+    @apply font-display font-black leading-none;
+    /* Slightly smaller global hero sizing so large project titles like
+       "8-bit Discrete Transistor ALU" and "16-bit MAC Unit (Sky130)"
+       feel more balanced across pages. */
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+  }
+  
+  .text-h1 {
+    @apply font-display font-bold text-3xl md:text-4xl;
+  }
+  
+  .text-body {
+    @apply font-sans text-base leading-relaxed;
+  }
+  
+  .text-label {
+    @apply font-mono text-xs font-bold uppercase tracking-widest;
+  }
+  
+  .text-metric {
+    @apply font-display font-bold;
+    font-size: 2.2rem;
+    color: var(--color-gold-champagne);
+    line-height: 1.1;
+  }
+  
+  .text-small {
+    @apply font-sans text-xs md:text-sm;
+  }
+
+  /* Editorial Section Title — gold label with extending lines on both sides */
+  .section-title-editorial {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--color-gold-champagne);
+    text-transform: uppercase;
+    margin-bottom: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+  }
+  .section-title-editorial::before,
+  .section-title-editorial::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--color-border-subtle);
+  }
+
+  /* Editorial eyebrow */
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    color: var(--color-gold-champagne);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--color-gold-champagne);
+  }
+
+  /* Editorial blockquote */
+  .editorial-blockquote {
+    border-left: 2px solid var(--color-gold-champagne);
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--color-cream);
+    line-height: 1.7;
+  }
+
+  /* Stats bar — responsive grid */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+  .stats-bar > div {
+    padding: clamp(1.25rem, 3vw, 2.5rem) clamp(0.75rem, 2vw, 1.5rem);
+    border-right: 1px solid var(--color-border-subtle);
+    text-align: center;
+  }
+  .stats-bar > div:last-child { border-right: none; }
+
+  /* Press grid */
+  .press-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--color-border-subtle);
+    border: 1px solid var(--color-border-subtle);
+  }
+  .press-item {
+    background: var(--color-bg-void);
+    padding: 1.5rem;
+    transition: background 0.2s;
+  }
+  .press-item:hover {
+    background: var(--color-bg-deep);
+  }
+
+  /* Project card — editorial grid */
+  .projects-grid-editorial {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--color-border-subtle);
+    border: 1px solid var(--color-border-subtle);
+  }
+
+  /* Tech table — horizontal scroll on mobile */
+  .tech-table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+  }
+  .tech-table th {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-gold-champagne);
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-border-subtle);
+    background: var(--color-bg-deep);
+  }
+  .tech-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-border-subtle);
+    color: var(--color-cream-dim);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .tech-table td:first-child {
+    color: var(--color-text-primary);
+    font-weight: 700;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+  .tech-table tr:hover td { background: var(--color-bg-deep); }
+}
+
+/* Animations */
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slide-in-from-bottom {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes zoom-in {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+    animation: fadeUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.animate-in {
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+.fade-in {
+    animation-name: fade-in;
+}
+
+.slide-in-from-bottom-4 {
+    animation-name: slide-in-from-bottom;
+}
+
+.zoom-in {
+    animation-name: zoom-in;
+}
+
+/* Utilities */
+.duration-700 { animation-duration: 700ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-void);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-bg-elevated);
+  border-radius: 9999px;
+  border: 1px solid var(--color-border-subtle);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-bg-surface);
+}
+
+/* Page fade-in transition */
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive overrides — industry breakpoints (Tailwind-aligned) */
+@media (max-width: 1024px) {
+  .section-title-editorial { font-size: 0.62rem; margin-bottom: 2.5rem; }
+}
+
+@media (max-width: 900px) {
+  .stats-bar { grid-template-columns: repeat(3, 1fr); }
+  .press-grid { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid-editorial { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    padding: clamp(1rem, 3vw, 1.5rem);
+  }
+  .stats-bar > div {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+  .stats-bar > div:nth-child(odd) { border-right: 1px solid var(--color-border-subtle); }
+  .stats-bar > div:nth-last-child(-n+2) { border-bottom: none; }
+  .section-title-editorial { font-size: 0.55rem; letter-spacing: 0.2em; margin-bottom: 2rem; }
+}
+
+@media (max-width: 480px) {
+  .text-hero { font-size: clamp(2rem, 10vw, 2.75rem); }
+  .stats-bar { grid-template-columns: 1fr; }
+  .stats-bar > div {
+    border-right: none !important;
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+  .stats-bar > div:last-child { border-bottom: none; }
+}
+
+/* Ensure adequate touch targets on touch devices — applied to key controls */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
