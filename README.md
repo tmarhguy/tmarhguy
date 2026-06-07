@@ -129,7 +129,7 @@ Work on both the constitutional case and academic achievements has been covered 
 <a href="mailto:tmarhguy@seas.upenn.edu">
   <img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
 </a>
-<a href="https://tmarhguy.github.io/tmarhguy">
+<a href="https://tmarhguy.com">
   <img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=githubpages&logoColor=white" alt="Portfolio" />
 </a>
 <a href="https://linkedin.com/in/tmarhguy">
