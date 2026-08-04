@@ -5,7 +5,7 @@
 <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&duration=2500&pause=800&color=00D9FF&center=true&vCenter=true&width=800&lines=Computer+Engineering+%40+University+of+Pennsylvania;Hardware+%26+Systems+Engineer;3%2C488+Transistor+ALU+Designer;Silicon+%2B+Software+from+First+Principles" alt="Typing animation banner" />
 
 **Computer Engineering BSE · University of Pennsylvania**
-**RTL · Hardware Verification · ASIC · Physical Design · Hardware Engineering**
+**Software Engineering + Electrical Engineering**
 
 <img src="https://tmarhguy.com/images/tyrone.jpg" alt="Tyrone Marhguy" width="220" />
 
