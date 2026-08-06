@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="5" fill="#1b2fbf"/>
+  <text
+    x="16"
+    y="22"
+    text-anchor="middle"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    font-size="15"
+    font-weight="800"
+    fill="#ffffff"
+    letter-spacing="-0.04em"
+  >TM</text>
+</svg>
