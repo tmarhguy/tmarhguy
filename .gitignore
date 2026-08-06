@@ -1,9 +1,58 @@
-node_modules
-dist
-.DS_Store
-.env
-.env.*
-.cursor
-*.log
-coverage
+# Dependencies
+node_modules/
+yarn.lock
 
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+
+# Environment
+.env
+.env*.local
+
+# Coverage
+coverage/
+lib-cov/
+
+# Build outputs
+build/
+dist/
+tmp/
+out/
+public/dist/
+
+# Next.js
+.next/
+.swc/
+.turbo/
+next-env.d.ts
+tsconfig.tsbuildinfo
+
+# Compiled binary addons
+build/Release/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+.grunt/
+.lock-wscript
+nohup.out
+
+# Previous Vite portfolio (kept locally for reference)
+legacy/
