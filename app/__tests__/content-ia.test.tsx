@@ -1,0 +1,85 @@
+import { render, screen, within } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
+
+import projects from '@/data/projects';
+import { getAllLogs } from '@/lib/logs';
+import HomePage from '../page';
+import ProjectsPage from '../projects/page';
+import WritingPage from '../writing/page';
+
+describe('writing information architecture', () => {
+  it('surfaces featured projects on the homepage', () => {
+    const featured = projects.filter((project) => project.featured);
+
+    render(<HomePage />);
+
+    const section = screen.getByRole('region', { name: 'Projects' });
+
+    expect(section).toBeInTheDocument();
+    expect(within(section).queryAllByRole('link')).toHaveLength(
+      featured.length + 1,
+    );
+    expect(
+      within(section).getByRole('link', { name: 'View all' }),
+    ).toHaveAttribute('href', '/projects/');
+  });
+
+  it('surfaces the three newest writing entries on the homepage', () => {
+    const expected = getAllLogs().slice(0, 3);
+
+    const { container } = render(<HomePage />);
+    const section = screen.getByRole('region', { name: 'Recent writing' });
+    const cards = container.querySelectorAll('.home-writing-item');
+
+    expect(cards).toHaveLength(expected.length);
+    expect(
+      [...cards].map((card) => card.querySelector('h3')?.textContent),
+    ).toEqual(expected.map((entry) => entry.title));
+    expect(
+      within(section).getByRole('link', { name: 'View all' }),
+    ).toHaveAttribute('href', '/writing/');
+  });
+
+  it('groups writing by project on the writing index', () => {
+    const { container } = render(<WritingPage />);
+
+    expect(
+      screen.getByRole('heading', { level: 1, name: 'Writing' }),
+    ).toBeInTheDocument();
+    expect(container.querySelectorAll('.writing-group')).toHaveLength(
+      new Set(getAllLogs().map((entry) => entry.project)).size,
+    );
+    expect(container.querySelectorAll('.writing-list-item')).toHaveLength(
+      getAllLogs().length,
+    );
+  });
+
+  it('shows project labels on writing cards', () => {
+    render(<WritingPage />);
+
+    const first = getAllLogs()[0];
+    expect(screen.getAllByText(first.projectLabel).length).toBeGreaterThan(0);
+  });
+
+  it('lists all projects on the projects index', () => {
+    render(<ProjectsPage />);
+
+    expect(
+      screen.getByRole('heading', { level: 1, name: 'Projects' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { level: 2, name: 'Hardware' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { level: 2, name: 'Tools' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { level: 2, name: 'Software' }),
+    ).toBeInTheDocument();
+    expect(screen.getAllByRole('article')).toHaveLength(projects.length);
+
+    for (const project of projects) {
+      expect(screen.getByText(project.title)).toBeInTheDocument();
+    }
+  });
+});
