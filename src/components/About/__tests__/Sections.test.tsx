@@ -136,18 +136,18 @@ Lead paragraph.
       screen.getByRole('heading', { name: 'Academics' }).closest('section'),
     ).toHaveTextContent('WASSCE');
 
-    const heading = screen.getByRole('heading', { name: 'Now' });
+    const heading = screen.getByRole('heading', { name: 'Now - (Fall 2026)' });
     const permalink = within(heading).getByRole('link', {
-      name: 'Now',
+      name: 'Now - (Fall 2026)',
     });
 
     permalink.click();
 
     await waitFor(() => {
-      expect(window.location.hash).toBe('#now');
+      expect(window.location.hash).toBe('#now-fall-2026');
     });
     expect(
-      screen.getByRole('heading', { name: 'Now' }).closest('section'),
+      screen.getByRole('heading', { name: 'Now - (Fall 2026)' }).closest('section'),
     ).toHaveTextContent('Tomato');
   });
 });
