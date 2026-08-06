@@ -259,12 +259,6 @@
   border-top: none;
 }
 
-.project-list-item--standout {
-  background: color-mix(in srgb, var(--color-accent) 6%, transparent);
-  margin-inline: -0.75rem;
-  padding-inline: 0.75rem;
-}
-
 .project-highlight {
   display: inline-flex;
   align-items: center;

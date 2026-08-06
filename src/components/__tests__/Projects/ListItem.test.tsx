@@ -70,6 +70,6 @@ describe('ListItem', () => {
       <ListItem data={{ ...mockProject, highlight: 'Favorite project' }} />,
     );
     expect(screen.getByText(/Favorite project/i)).toBeInTheDocument();
-    expect(document.querySelector('.project-list-item--standout')).toBeTruthy();
+    expect(document.querySelector('.project-highlight')).toBeTruthy();
   });
 });
