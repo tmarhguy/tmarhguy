@@ -24,7 +24,7 @@ describe('Hero', () => {
     const intro = container.querySelector('.hero-intro');
     expect(intro).toHaveTextContent('discrete transistors to tapeout');
     expect(intro).toHaveTextContent('32-bit CPU');
-    expect(intro).toHaveTextContent('NASDAQ market data parsers');
+    expect(intro).toHaveTextContent('1 GbE UDP/IP stack');
     expect(intro).toHaveTextContent('terminal toolbox');
 
     expect(screen.getByRole('link', { name: /^32-bit CPU$/i })).toHaveAttribute(
@@ -32,11 +32,11 @@ describe('Hero', () => {
       '/projects/#tomato',
     );
     expect(
-      screen.getByRole('link', { name: /^full-custom SRAM$/i }),
+      screen.getByRole('link', { name: /^full-custom 22nm SRAM$/i }),
     ).toHaveAttribute('href', '/projects/#full-custom-sram');
     expect(
-      screen.getByRole('link', { name: /^NASDAQ market data parsers$/i }),
-    ).toHaveAttribute('href', '/projects/#nasdaq-itch');
+      screen.getByRole('link', { name: /^1 GbE UDP\/IP stack$/i }),
+    ).toHaveAttribute('href', '/projects/#1-gbe-udp-ip-stack');
     expect(
       screen.getByRole('link', { name: /^terminal toolbox$/i }),
     ).toHaveAttribute('href', '/projects/#mango-tools');
@@ -45,7 +45,7 @@ describe('Hero', () => {
       'href',
       '/projects/',
     );
-    expect(screen.getByRole('link', { name: /^experience$/i })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: /^experience\.$/i })).toHaveAttribute(
       'href',
       '/resume/',
     );
