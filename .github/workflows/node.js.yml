@@ -1,3 +1,6 @@
+# Publishes the static export in `out/` to GitHub Pages. Requires
+# Settings → Pages → Build and deployment → Source: GitHub Actions.
+# Branch deploy from `/ (root)` serves Jekyll-rendered README.md instead.
 name: CI
 
 on:
@@ -124,10 +127,11 @@ jobs:
     name: Build (${{ matrix.os }}, Node ${{ matrix.node-version }})
     needs: install
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 10
+    timeout-minutes: 20
     permissions:
       contents: read
       pages: write
+      id-token: write
     strategy:
       fail-fast: false
       matrix:
