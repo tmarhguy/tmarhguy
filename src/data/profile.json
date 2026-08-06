@@ -1,0 +1,15 @@
+{
+  "name": "Tyrone Marhguy",
+  "role": "Computer Engineering Student",
+  "employer": "University of Pennsylvania",
+  "focus": "discrete transistors through tapeout",
+  "tagline": "Discrete transistors to tapeout — and the software that ships with them.",
+  "bio": "Building computers from discrete transistors to tapeout — and the software to test, automate, and deploy them. Designing a 32-bit CPU; previously full-custom SRAM, market-data parsers, and a local dev toolbox.",
+  "hardwareTrack": "RTL, FPGA, and ASIC tapeouts — discrete logic through silicon.",
+  "softwareTrack": "Production backends, embedded firmware, and tooling.",
+  "birthDate": "2003-11-24T00:00:00-05:00",
+  "fromCountry": "Ghana",
+  "interests": "Beach, Dogs, Sudoku, Biking",
+  "currentCity": "Philadelphia, PA",
+  "email": "tmarhguy@engineering.upenn.edu"
+}
