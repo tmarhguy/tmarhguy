@@ -10,7 +10,7 @@ project archive, and writing site built with
 
 ## What is here
 
-- A statically exported Next.js 16 site deployed to GitHub Pages.
+- A statically exported Next.js 16 site deployed to [Vercel](https://tmarhguy.com) (production) and mirrored to GitHub Pages at `https://tmarhguy.github.io/tmarhguy/` via the CI workflow.
 - A responsive light/dark design system built from semantic CSS tokens.
 - Markdown writing with drafts, RSS, and page metadata.
 - A filterable résumé that still prints in full.
