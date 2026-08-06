@@ -33,10 +33,12 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 **Hardware**
 
 - **[Tomato](https://github.com/tmarhguy/tomato)** — custom 32-bit CPU · discrete logic through PCB tapeout
+- **[16×4 SRAM — Full-Custom Analog Design](https://github.com/tmarhguy/64b-sram)** — 6T macro in 22 nm HP · StrongARM sense amp · 4.571 GHz fmax
+- **[16-Bit Mac Unit (Sky130)](https://github.com/tmarhguy/mac)** — BFloat16 MAC · OpenLane · TinyTapeout
 - **[NASDAQ ITCH 5.0 Hardware Parser](https://github.com/tmarhguy/itch-hw)** — market-data FPGA on Artix-7 · cocotb
 - **[1 GbE UDP/IP Stack](https://github.com/tmarhguy/udp-stack)** — RGMII/MAC/ARP/IP/UDP · sub-200 ns loopback
 - **[8-Bit Discrete Transistor ALU](https://alu.tmarhguy.com)** — 3,488 MOSFETs · 1.24M+ automated test vectors
-- **[16-Bit Mac Unit (Sky130)](https://github.com/tmarhguy/mac)** — BFloat16 MAC · OpenLane · TinyTapeout
+
 
 **Tools & software**
 
@@ -48,13 +50,12 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 
 ## Experience
 
-**[Penn](https://www.upenn.edu)** — Hardware Research Engineer · FPGA utilization · Fall 2026  
-**[Aragorn AI](https://www.aragorn.ai/)** — Software Engineering Intern · production backends & APIs  
-**[Howard STEM Achievers](https://education.howard.edu/affiliated-programs/stem-summer-camp-verizon-innovative-learning)** — STEM Instructor · AR/VR · Jun–Jul 2026  
-- Verizon Innovative Learning summer program — immersive media, AR, and design thinking for rising 6th–8th graders.  
-**[Vero Electric](https://veroelectric.com/)** — Hardware & Firmware Engineer · battery management infrastructure  
-**[Fife-Penn](https://fife.cis.upenn.edu/)** — Programming & Engineering Instructor · Feb–May 2025  
-**[Penn Engineering](https://www.upenn.edu)** — CIS 1100 Teaching Assistant
+- **[Penn](https://www.upenn.edu)** — Hardware Research Engineer · FPGA utilization · Fall 2026  
+- **[Aragorn AI](https://www.aragorn.ai/)** — Software Engineering Intern · production backends & APIs  
+- **[Howard STEM Achievers](https://education.howard.edu/affiliated-programs/stem-summer-camp-verizon-innovative-learning)** — STEM Instructor · AR/VR · Jun–Jul 2026  
+- **[Vero Electric](https://veroelectric.com/)** — Hardware & Firmware Engineer · battery management infrastructure  
+- **[Fife-Penn](https://fife.cis.upenn.edu/)** — Programming & Engineering Instructor · Feb–May 2025  
+- **[Penn Engineering](https://www.upenn.edu)** — CIS 1100 Teaching Assistant
 
 ## Skills
 
@@ -78,10 +79,11 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 
 Source for **[tmarhguy.com](https://tmarhguy.com)** — Next.js static export, deployed on Vercel.
 
-[`docs/getting-started.md`](./docs/getting-started.md) · [`docs/adapting-guide.md`](./docs/adapting-guide.md) · [`docs/contributing.md`](./docs/contributing.md)
-
+[`docs/getting-started.md`](./docs/getting-started.md)
 ```bash
-nvm install && npm ci && npm run dev
+nvm install
+npm ci
+npm run dev
 ```
 
-Built on **[personal-site](https://github.com/mldangelo/personal-site)** by [Michael D'Angelo](https://mldangelo.com) (MIT). See [LICENSE](./LICENSE).
+Licensed under the [MIT License](./LICENSE). See [credits](./docs/getting-started.md#credits).
