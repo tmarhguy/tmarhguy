@@ -30,9 +30,10 @@ export default function ResumePage() {
           <p className="resume-summary">
             I build computers from discrete transistors to tapeout — and I write
             the software to test, automate, and deploy them. Currently designing
-            a 32-bit CPU that rethinks how FPGAs reconfigure. Joining Pennovation
-            for FPGA research this fall; battery management infrastructure at
-            Vero Electric; backend and documentation at Aragorn AI.
+            a 32-bit CPU that rethinks how FPGAs reconfigure. Joining
+            Pennovation for FPGA research this fall; battery management
+            infrastructure at Vero Electric; backend and documentation at
+            Aragorn AI.
           </p>
           {/* Print-only, but real markup rather than CSS `content`, so it is
               selectable, linkable, and reads from the shared profile. The
