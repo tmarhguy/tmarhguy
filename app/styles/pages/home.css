@@ -239,6 +239,7 @@
   .hero-portrait {
     order: -1;
     width: 180px;
+    justify-self: center;
   }
 
   .hero-name {
