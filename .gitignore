@@ -57,3 +57,5 @@ nohup.out
 # Previous Vite portfolio (kept locally for reference)
 legacy/
 AGENTS.md
+
+.vercel
