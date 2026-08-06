@@ -1,6 +1,6 @@
 # Ready to push
 
-The site is validated and ready. CI will build and deploy to GitHub Pages when you merge to `main`.
+You already have **18 commits** on `main` ahead of `origin/main`. One final commit is needed for the remaining files (including the CI/deploy workflow), then push.
 
 ## One-time GitHub setup (do this once)
 
@@ -9,15 +9,13 @@ The site is validated and ready. CI will build and deploy to GitHub Pages when y
 3. **Custom domain** (`tmarhguy.com`): add under Settings → Pages and configure DNS per [GitHub's guide](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)
 4. **Optional analytics**: add repository variable `NEXT_PUBLIC_GA_TRACKING_ID` with your GA4 measurement ID
 
-## What was prepared
+## What was added in this session
 
 - `.github/workflows/node.js.yml` — CI + GitHub Pages deploy on push to `main`
-- `.github/dependabot.yml` — weekly dependency updates
-- `.gitignore` — excludes `out/`, `legacy/`, `node_modules/`, `.next/`, env files
-- Test fix for the About page "Now - (Fall 2026)" section heading
+- `.gitignore` — `legacy/` excluded (old Vite site kept locally only)
 - Full validation passed: format, lint, type-check, 424 tests, og:check, build, verify-export
 
-## Commit and push
+## Final commit and push
 
 From the repo root:
 
@@ -27,22 +25,17 @@ git reset HEAD out legacy node_modules .next tsconfig.tsbuildinfo next-env.d.ts 
 
 git status   # confirm: no out/, legacy/, or node_modules/
 
-git commit -m "feat: replace Vite portfolio with Next.js static site"
+git commit -m "ci: add GitHub Actions deploy workflow and remaining site assets"
 
 git push origin main
 ```
 
-If you prefer a topic branch and PR (recommended by AGENTS.md):
+## Still to be committed (untracked/modified)
 
-```powershell
-git checkout -b feat/nextjs-site
-git add -A
-git reset HEAD out legacy node_modules .next tsconfig.tsbuildinfo next-env.d.ts 2>$null
-git commit -m "feat: replace Vite portfolio with Next.js static site"
-git push -u origin feat/nextjs-site
-```
-
-Then open a PR on GitHub and merge when CI is green. Deploy runs automatically on merge to `main`.
+- `.github/workflows/node.js.yml` — **required for deploy**
+- `app/projects/`, `public/`, `scripts/`, remaining `src/` components and data
+- Modified: `app/resume/page.tsx`, `docs/getting-started.md`, `tsconfig.json`
+- `PUSH.md`, `AGENTS.md`, `CLAUDE.md`, `.env.example`, `github_push.md`
 
 ## Do not commit
 
@@ -54,9 +47,15 @@ Then open a PR on GitHub and merge when CI is green. Deploy runs automatically o
 | `.next/` | Dev/build cache |
 | `.env` / `.env.local` | Secrets |
 
+## After push
+
+1. Watch the **Actions** tab — CI should pass and deploy automatically
+2. Visit https://tmarhguy.com once deploy completes
+3. Spot-check: home, resume, writing, contact, light/dark theme
+
 ## Local validation (optional)
 
-If `npm ci` fails under OneDrive, pause sync or run from a temp copy:
+If `npm ci` fails under OneDrive, pause sync or clone to a temp folder:
 
 ```powershell
 npm run format
@@ -67,9 +66,3 @@ npm run og:check
 npm run build
 npm run verify-export
 ```
-
-## After push
-
-1. Watch the **Actions** tab — CI should pass and deploy
-2. Visit https://tmarhguy.com (or your Pages URL) once deploy completes
-3. Spot-check: home, resume, writing, contact, light/dark theme
