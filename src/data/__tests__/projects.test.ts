@@ -5,6 +5,7 @@ import projects, {
   getHardwareProjects,
   getMoreHardwareProjects,
   getProjectAnchorHrefByTitle,
+  getFeaturedProjects,
   getProjectSlug,
   getResumeProjects,
   getSoftwareProjects,
@@ -87,7 +88,19 @@ describe('projects data', () => {
   it('has three resume projects matching the hardware resume', () => {
     const resumeProjects = getResumeProjects();
     expect(resumeProjects).toHaveLength(3);
-    expect(resumeProjects.every((project) => project.featured)).toBe(true);
+    expect(resumeProjects.map((project) => project.title).sort()).toEqual(
+      [
+        '1 GbE UDP/IP Stack',
+        'NASDAQ ITCH 5.0 Hardware Parser',
+        'Tomato — Custom 32-Bit CPU',
+      ].sort(),
+    );
+  });
+
+  it('orders featured homepage projects by cracked-hardware rank', () => {
+    expect(getFeaturedProjects().map((project) => getProjectSlug(project))).toEqual(
+      ['1-gbe-udp-ip-stack', 'tomato', 'full-custom-sram'],
+    );
   });
 
   it('includes hardware, tools, and software lanes from resume work', () => {

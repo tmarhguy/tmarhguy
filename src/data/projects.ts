@@ -19,7 +19,7 @@ export interface Project {
   category: ProjectCategory;
   /** Matches the three projects on my hardware resume today */
   onResume?: boolean;
-  /** Homepage highlight — resume projects only */
+  /** Homepage selected work — order via getFeaturedProjects() */
   featured?: boolean;
   /** Short label for a personal standout (e.g. on the projects index) */
   highlight?: string;
@@ -53,7 +53,6 @@ const data: Project[] = [
     tech: ['SystemVerilog', 'Vivado', 'cocotb', 'Python'],
     category: 'hardware',
     onResume: true,
-    featured: true,
   },
   {
     title: '1 GbE UDP/IP Stack',
@@ -105,6 +104,8 @@ const data: Project[] = [
     desc: 'Full-custom 6T SRAM macro in 22 nm HP with clocked StrongARM sense amp; 4.571 GHz f_max with NGSpice functional readback.',
     tech: ['Electric VLSI', 'NGSpice', 'Python'],
     category: 'hardware',
+    featured: true,
+    image: '/images/projects/mac-card.png',
   },
   {
     title: '8-Bit Ripple-Carry Adder — ESE 3700',
@@ -282,6 +283,23 @@ export function getSoftwareProjects(): Project[] {
 
 export function getProjectSlug(project: Project): string {
   return project.slug ?? createHeadingId(project.title);
+}
+
+const FEATURED_PROJECT_SLUGS = [
+  '1-gbe-udp-ip-stack',
+  'tomato',
+  'full-custom-sram',
+] as const;
+
+/** Homepage selected work — explicit cracked-hardware order. */
+export function getFeaturedProjects(): Project[] {
+  return FEATURED_PROJECT_SLUGS.map((slug) => {
+    const project = data.find((entry) => getProjectSlug(entry) === slug);
+    if (!project?.featured) {
+      throw new Error(`Missing featured project: ${slug}`);
+    }
+    return project;
+  });
 }
 
 export function getProjectAnchorHref(project: Project): string {

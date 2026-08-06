@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { SchemaGraph } from '@/components/Schema';
 import Hero from '@/components/Template/Hero';
 import PageWrapper from '@/components/Template/PageWrapper';
-import projects from '@/data/projects';
+import { getFeaturedProjects } from '@/data/projects';
 import { formatDateCompact } from '@/lib/log-content';
 import { getAllLogs } from '@/lib/logs';
 import { HOME_URL, profilePageNode } from '@/lib/schema';
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const featuredProjects = projects.filter((project) => project.featured);
+  const featuredProjects = getFeaturedProjects();
   const recentLogs = getAllLogs().slice(0, 3);
 
   return (

@@ -1,7 +1,7 @@
 import { render, screen, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import projects from '@/data/projects';
+import projects, { getFeaturedProjects } from '@/data/projects';
 import { getAllLogs } from '@/lib/logs';
 import HomePage from '../page';
 import ProjectsPage from '../projects/page';
@@ -9,7 +9,7 @@ import WritingPage from '../writing/page';
 
 describe('writing information architecture', () => {
   it('surfaces featured projects on the homepage', () => {
-    const featured = projects.filter((project) => project.featured);
+    const featured = getFeaturedProjects();
 
     render(<HomePage />);
 
@@ -22,6 +22,11 @@ describe('writing information architecture', () => {
     expect(
       within(section).getByRole('link', { name: 'View all' }),
     ).toHaveAttribute('href', '/projects/');
+    expect(
+      [...section.querySelectorAll('.home-project-item h3')].map(
+        (heading) => heading.textContent,
+      ),
+    ).toEqual(featured.map((project) => project.title));
   });
 
   it('surfaces the three newest writing entries on the homepage', () => {
