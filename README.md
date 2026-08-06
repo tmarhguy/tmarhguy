@@ -2,14 +2,15 @@
 
 # Tyrone Marhguy
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&duration=2500&pause=800&color=00D9FF&center=true&vCenter=true&width=800&lines=Computer+Engineering+%40+University+of+Pennsylvania;Hardware+%26+Systems+Engineer;3%2C488+Transistor+ALU+Designer;Silicon+%2B+Software+from+First+Principles" alt="Typing animation banner" />
+**Computer Engineering · University of Pennsylvania**
 
-**Computer Engineering BSE · University of Pennsylvania**
-**Software Engineering + Electrical Engineering**
+_Discrete transistors to tapeout — and the software that ships with them._
 
-<img src="https://tmarhguy.com/images/tyrone.jpg" alt="Tyrone Marhguy" width="220" />
+<br />
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/tmarhguy) [![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:tmarhguy@seas.upenn.edu) [![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=githubpages&logoColor=white)](https://tmarhguy.com) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/tmarhguy)
+[![tmarhguy.com](https://img.shields.io/badge/tmarhguy.com-visit-1b2fbf?style=flat-square&labelColor=f2f1ec&color=0e1116)](https://tmarhguy.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-profile-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/tmarhguy)
+[![Email](https://img.shields.io/badge/email-tmarhguy%40engineering.upenn.edu-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:tmarhguy@engineering.upenn.edu)
 
 </div>
 
@@ -17,125 +18,80 @@
 
 ## About
 
-I build complete systems that cut across hardware and software — from discrete‑transistor arithmetic units and ASIC tapeouts to full‑stack web applications. I care about first‑principles understanding, verification, and shipping things that actually run on real hardware.
-
-- Computer Engineering at Penn Engineering (UPenn)
-- Focus: digital design, VLSI, RISC‑V, embedded systems, and performance‑sensitive backends
-- Grew up in Ghana; won a constitutional case on religious freedom that is now widely covered and cited
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                                                   |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------: |
+| Ghanaian computer engineering student at **Penn**. I build computers from discrete transistors to tapeout and write the software to test, automate, and deploy them — RTL and FPGA work, discrete-logic CPUs, and production backends.<br><br>• FPGA utilization research @ **[Penn Engineering](https://www.engineering.upenn.edu/)**<br>• Building **[Tomato](https://github.com/tmarhguy/tomato)** — custom 32-bit CPU from logic through PCB tapeout<br>• **[8-bit discrete-transistor ALU](https://alu.tmarhguy.com)** · 3,488 MOSFETs · 1.24M+ test vectors<br><br>• [Wikipedia](https://en.wikipedia.org/wiki/Tyrone_Marhguy) · Philadelphia, PA<br>**→ [tmarhguy.com](https://tmarhguy.com)** — portfolio, résumé, projects & build logs | <img src="public/images/me.jpg" alt="Tyrone Marhguy" width="600"> |
 
 ---
 
-## Flagship Hardware · 8‑Bit Discrete Transistor ALU
+## Projects and Experiences
 
-Live site: [alu.tmarhguy.com](https://alu.tmarhguy.com) · Code: [github.com/tmarhguy/alu](https://github.com/tmarhguy/8bit-discrete-transistor-alu)
+[All projects →](https://tmarhguy.com/projects/) · [Full résumé →](https://tmarhguy.com/resume/)
 
-- 3,488 discrete MOSFETs, hand‑soldered on a 4‑layer PCB
-- 19 operations with status flags (arithmetic and logical)
-- More than 1.24M automatically generated test vectors driven by Python
-- Validated through KiCad schematics, SPICE simulation, and a custom digital testbench
-- Full breakdown and interactive visualization on the companion site
+### Hardware
 
-This project sits at the intersection of circuit design, tooling, and verification at scale.
+|                                                                            |                                                                                              |
+| :------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------- |
+| **[Tomato](https://github.com/tmarhguy/tomato)** — Custom 32-Bit CPU       | Discrete logic through PCB tapeout · SystemVerilog · KiCad                                   |
+| **[Nasdaq Itch 5.0 Hardware Parser](https://github.com/tmarhguy/itch-hw)** | Mold/ITCH FPGA market-data pipeline · Artix-7 · cocotb                                       |
+| **[8-Bit Discrete Transistor ALU](https://alu.tmarhguy.com)**              | 3,488 MOSFETs · 1.24M+ automated test vectors · [alu.tmarhguy.com](https://alu.tmarhguy.com) |
+| **[16-Bit Mac Unit (Sky130)](https://github.com/tmarhguy/mac)**            | BFloat16 MAC · OpenLane RTL-to-GDS · TinyTapeout                                             |
 
----
+### Software
 
-## Selected Projects
+|                                                                     |                                                                           |
+| :------------------------------------------------------------------ | :------------------------------------------------------------------------ |
+| **[Mango Tools](https://github.com/tmarhguy/tools)**                | Offline CLI for PDF, media & images · `mango` terminal menu               |
+| **[QueuePaste](https://github.com/tmarhguy/QueuePaste)**            | macOS clipboard queue · paste list items with ⌥ Space                     |
+| **[Hardware Metrics API](https://github.com/tmarhguy/metrics-api)** | Vivado & OpenLane PPA ingestion · FastAPI · PostgreSQL · Docker           |
+| **[Music & You](https://github.com/tmarhguy/music-and-you)**        | Personality from Spotify listening · Next.js · scikit-learn               |
+| **[UniBridge Ghana](https://github.com/tmarhguy/unibridgeGhana)**   | University admissions platform · React · FastAPI · PostgreSQL             |
+| **[SVD Compression Engine](https://svd.tmarhguy.com)**              | Cache-optimized matrix ops · [svd.tmarhguy.com](https://svd.tmarhguy.com) |
 
-### Silicon and Systems
+### Experience
 
-- 16‑bit MAC Unit (Sky130 ASIC) · Repo: [github.com/tmarhguy/mac](https://github.com/tmarhguy/mac)
-
-  - BFloat16 MAC designed for ML‑style workloads, targeting the SkyWater 130 nm node
-  - Full OpenLane RTL‑to‑GDS flow (synthesis, floorplan, CTS, routing)
-  - Closed timing at 50 MHz with zero DRC/LVS violations in a 0.11 mm² die
-- 64‑bit RISC‑V CPU (RV64IM) · Repo: [github.com/tmarhguy/riscv](https://github.com/tmarhguy/riscv)
-
-  - Custom 5‑stage pipelined core (RV64IM) on an Artix‑7 FPGA
-  - Verified against the official riscv‑tests suite with 96 percent ISA coverage
-  - Runs bare‑metal C via a UART bootloader, with custom peripheral controllers
-
-### Software and Data Systems
-
-- UniBridge Ghana – Admissions Platform · Repo: [github.com/tmarhguy/unibridgeGhana](https://github.com/tmarhguy/unibridgeGhana)
-
-  - Centralized university admissions and placement platform
-  - React and TypeScript frontend with a FastAPI and PostgreSQL backend
-  - Designed to handle result‑release traffic spikes with predictable latency
-- MoMo Credit Score Generator · Repo: [github.com/tmarhguy/momo-credit-score](https://github.com/tmarhguy/momo-credit-score)
-
-  - Credit‑scoring engine built on mobile money transaction data
-  - XGBoost model with an AUC around 0.82 on internal evaluation
-  - FastAPI backend and React dashboard, with feature‑level explanations
-- SVD Compression Engine · Demo: [svd.tmarhguy.com](https://svd.tmarhguy.com) · Repo: [github.com/tmarhguy/svd](https://github.com/tmarhguy/svd)
-
-  - Singular Value Decomposition based image compression
-  - Implementation tuned for cache behaviour and matrix‑math performance
-  - Achieves a measured speedup of roughly 45 percent over a naive baseline
-
-For a fuller, visually rich overview of these and more projects, see the portfolio site: [tmarhguy.github.io/tmarhguy](https://tmarhguy.com).
+|                                                                               |                                                       |
+| :---------------------------------------------------------------------------- | :---------------------------------------------------- |
+| **[Penn](https://www.upenn.edu)** — Hardware Research Engineer                | Starting Fall 2026 · FPGA utilization research        |
+| **[Aragorn AI](https://www.aragorn.ai/)** — Software Engineering Intern       | Production backends · API integration · documentation |
+| **[Vero Electric](https://veroelectric.com/)** — Hardware & Firmware Engineer | Battery management infrastructure · embedded bring-up |
 
 ---
 
 ## Skills
 
-**Hardware and Digital Design**
+**Hardware** · Verilog / SystemVerilog · FPGA (Vivado, Quartus) · KiCad · OpenLane / Sky130 · embedded C/C++
 
-- Verilog and SystemVerilog, RTL design, timing closure
-- ASIC flow with OpenLane and the Sky130 process, Magic, KiCad PCB layout
-- FPGA bring‑up on Artix‑7, basic signal‑integrity and power analysis
+**Software** · TypeScript · Python · C/C++ · React · Next.js · FastAPI · Node.js
 
-**Software and Backend**
-
-- Languages: TypeScript, Python, C and C++
-- Frameworks: React, FastAPI, Node.js
-- Data and ML: NumPy, pandas, scikit‑learn, XGBoost
-
-**Practices**
-
-- Test‑driven development for both RTL and software
-- Automated verification with Python harnesses and simulation tools
-- Continuous integration, containerisation, and reproducible environments
+**Practice** · RTL verification · automated test harnesses · CI · timing closure · first-principles debug
 
 ---
 
 ## Recognition
 
-Work on both the constitutional case and academic achievements has been covered or cited by outlets including:
-
-- [BBC](https://www.bbc.com/pidgin/world-57306291)
-- [Associated Press](https://apnews.com/article/africa-religion-education-ghana-186c67bd473f892c054e5d1f9368b555)
-- [Voice of America](https://www.voanews.com/a/rastafarian-teen-fights-to-keep-dreadlocks/6276979.html)
-- [Deutsche Welle](https://www.dw.com/en/ghana-rastafarians-start-school-after-court-victory/video-57864466)
-- [Wikipedia and academic / legal publications](https://en.wikipedia.org/wiki/Tyrone_Marhguy)
+[AP](https://apnews.com/article/africa-religion-education-ghana-186c67bd473f892c054e5d1f9368b555) · [VOA](https://www.voanews.com/a/rastafarian-teen-fights-to-keep-dreadlocks/6276979.html) · [DW](https://www.dw.com/en/ghana-rastafarians-start-school-after-court-victory/video-57864466) · [BBC](https://www.bbc.com/pidgin/world-57306291) · [Wikipedia](https://en.wikipedia.org/wiki/Tyrone_Marhguy)
 
 ---
 
-## GitHub stats
-
 <div align="center">
 
-![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=tmarhguy&theme=tokyo-night&hide_border=true)
+![GitHub activity](https://github-readme-activity-graph.vercel.app/graph?username=tmarhguy&theme=tokyo-night&hide_border=true&area=true)
 
-[![Profile views](https://komarev.com/ghpvc/?username=tmarhguy&label=Profile%20views&color=brightgreen&style=flat-square)](https://github.com/tmarhguy)
+![Profile views](https://komarev.com/ghpvc/?username=tmarhguy&label=profile%20views&color=6e7681&style=flat-square)
 
 </div>
 
 ---
 
-## Contact
+## This repository
 
-<div align="center">
+Source for **[tmarhguy.com](https://tmarhguy.com)** — Next.js static export on GitHub Pages.
 
-<a href="mailto:tmarhguy@seas.upenn.edu">
-  <img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
-</a>
-<a href="https://tmarhguy.com">
-  <img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=githubpages&logoColor=white" alt="Portfolio" />
-</a>
-<a href="https://linkedin.com/in/tmarhguy">
-  <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-</a>
+[`docs/getting-started.md`](./docs/getting-started.md) · [`docs/adapting-guide.md`](./docs/adapting-guide.md) · [`docs/contributing.md`](./docs/contributing.md)
 
-</div>
+```bash
+nvm install && npm ci && npm run dev
+```
 
-Building bridges between silicon and software, one verified system at a time.
+Built on **[personal-site](https://github.com/mldangelo/personal-site)** by [Michael D'Angelo](https://mldangelo.com) (MIT). See [LICENSE](./LICENSE).
