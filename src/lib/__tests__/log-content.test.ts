@@ -34,6 +34,20 @@ Body text here.`;
       'See `wb_mux.kicad_sch`.',
     );
   });
+
+  it('demotes a leading h1 that differs from the frontmatter title', () => {
+    const input = `# First clean Vivado build — synthesis, implementation, bitstream
+
+**Date:** 2026-08-02
+
+## Context
+
+Body text here.`;
+
+    expect(
+      smoothLogContent(input, 'Successful Synthesis - Implementation - Bitstream'),
+    ).toBe('## First clean Vivado build — synthesis, implementation, bitstream\n\n## Context\n\nBody text here.');
+  });
 });
 
 describe('smoothLogDescription', () => {

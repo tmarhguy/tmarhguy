@@ -220,6 +220,17 @@
   color: var(--color-fg);
 }
 
+/* Post headers own the page h1. Any h1 left in markdown should read as prose,
+   not as a second page title. */
+.prose h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-tight);
+  margin: 2rem 0 0.75rem;
+  color: var(--color-fg-bold);
+}
+
 .prose h2 {
   font-family: var(--font-display);
   font-size: var(--text-xl);

@@ -73,6 +73,11 @@ export function smoothLogContent(content: string, title: string): string {
   );
   body = body.replace(titleHeading, '');
 
+  // Post pages already render frontmatter title in the header. Any remaining
+  // leading markdown h1 is note chrome — demote it so it does not compete
+  // with the page title at base h1 size.
+  body = body.replace(/^#\s+(.+)\n+/, '## $1\n\n');
+
   while (METADATA_LINE.test(body)) {
     body = body.replace(METADATA_LINE, '').trimStart();
   }
