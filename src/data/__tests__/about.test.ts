@@ -46,6 +46,8 @@ describe('about data', () => {
     expect(aboutMarkdown).toContain('# Now');
     expect(aboutMarkdown).toContain('Tomato');
     expect(aboutMarkdown).toContain('Aragorn AI');
+    expect(aboutMarkdown).toContain('Fife-Penn');
+    expect(aboutMarkdown).toContain('STEM Achievers');
     expect(aboutMarkdown).toContain('Professionally');
     expect(aboutMarkdown).toContain('battery management infrastructure');
   });

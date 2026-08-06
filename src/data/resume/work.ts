@@ -50,6 +50,18 @@ const work: Position[] = [
     ],
   },
   {
+    name: 'Howard University STEM Achievers',
+    position: 'STEM Instructor — AR/VR',
+    url: 'https://education.howard.edu/affiliated-programs/stem-summer-camp-verizon-innovative-learning',
+    startDate: '2026-06-01',
+    endDate: '2026-07-31',
+    highlights: [
+      'Verizon Innovative Learning summer program — immersive media, AR, and design thinking for rising 6th–8th graders.',
+      'Taught augmented reality, 3D printing, and digital product modules in Howard’s three-week STEM Achievers camp.',
+      'Mentored middle school students through design-thinking projects and hands-on technology labs.',
+    ],
+  },
+  {
     name: 'University of Pennsylvania',
     position: 'Teaching Assistant — CIS 1100: Intro to Programming',
     url: 'https://www.upenn.edu',
@@ -59,6 +71,19 @@ const work: Position[] = [
       'Authored 50+ Pytest autograding suites for 300+ students; designed edge-case, boundary, and regression coverage for weekly assignment releases.',
     ],
   },
+  
+  {
+    name: 'Fife-Penn STEM & CS Academy',
+    position: 'Programming & Engineering Instructor',
+    url: 'https://fife.cis.upenn.edu/',
+    startDate: '2025-02-01',
+    endDate: '2025-05-31',
+    highlights: [
+      'Taught Python, Scratch, and introductory engineering concepts in free after-school coding clubs for Philadelphia K-8 students.',
+      'Designed weekly lesson plans and debugging exercises across partner schools with Penn Engineering peers.',
+    ],
+  },
+  
 ];
 
 export default work;

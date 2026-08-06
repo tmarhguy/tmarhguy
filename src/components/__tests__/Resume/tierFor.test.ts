@@ -37,7 +37,7 @@ describe('tierFor', () => {
       startDate: '2027-01-01',
     });
 
-    expect(tierFor(internship, [internship])).toBe('early');
+    expect(tierFor(internship, [internship])).toBe('primary');
   });
 
   it('reads the year from the ISO string rather than parsing to local time', () => {
@@ -52,19 +52,31 @@ describe('tierFor', () => {
     ).toBe('early');
   });
 
-  it('steps internships down to the tail of the timeline', () => {
+  it('keeps recent internships at primary weight', () => {
     expect(tierFor(position({ position: 'Avionics Intern' }), [])).toBe(
-      'early',
+      'primary',
     );
     expect(
       tierFor(position({ position: 'Software Engineering Intern' }), []),
+    ).toBe('primary');
+  });
+
+  it('steps only student-era internships down to the tail', () => {
+    expect(
+      tierFor(
+        position({
+          position: 'Software Engineering Intern',
+          endDate: '2012-05-01',
+        }),
+        [],
+      ),
     ).toBe('early');
   });
 
-  it('matches the intern rule case-insensitively', () => {
-    expect(tierFor(position({ position: 'Research INTERN' }), [])).toBe(
-      'early',
-    );
+  it('matches the intern rule case-insensitively for lead suppression', () => {
+    expect(
+      tierFor(position({ position: 'Research INTERN', startDate: '2027-01-01' }), []),
+    ).toBe('primary');
   });
 
   it('steps student-era roles down even when not titled intern', () => {

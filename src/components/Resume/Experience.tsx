@@ -20,11 +20,11 @@ function isoYear(date: string): number {
   return Number.parseInt(date.slice(0, 4), 10);
 }
 
-function isEarlyCareer(job: Position): boolean {
-  if (/intern/i.test(job.position)) {
-    return true;
-  }
+function isInternship(job: Position): boolean {
+  return /intern/i.test(job.position);
+}
 
+function isEarlyCareer(job: Position): boolean {
   return Boolean(job.endDate && isoYear(job.endDate) < STUDENT_ERA_BEFORE);
 }
 
@@ -43,7 +43,7 @@ export function tierFor(job: Position, positions: Position[]): JobTier {
     .map((position) => position.startDate)
     .sort((a, b) => b.localeCompare(a))[0];
 
-  if (job.startDate === newestStartDate) {
+  if (job.startDate === newestStartDate && !isInternship(job)) {
     return 'lead';
   }
 
