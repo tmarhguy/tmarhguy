@@ -1,25 +1,67 @@
-import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
+import { CONTACT_PERSONAL_EMAIL } from '@/data/contact';
 import profile from '../../../data/profile.json';
 import EmailLink from '../../Contact/EmailLink';
 
-const [localPart, domain] = profile.email.split('@');
+const [localPart, pennDomain] = profile.email.split('@');
 
 describe('EmailLink', () => {
-  it('renders the Penn engineering email address', () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: {
+        writeText: vi.fn().mockResolvedValue(undefined),
+      },
+    });
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+    vi.restoreAllMocks();
+  });
+
+  it('renders the Penn engineering email by default', () => {
     render(<EmailLink />);
 
     expect(screen.getByText(localPart)).toBeInTheDocument();
-    expect(screen.getByText(`@${domain}`)).toBeInTheDocument();
-    expect(profile.email).toBe('tmarhguy@engineering.upenn.edu');
+    expect(screen.getByText(pennDomain)).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', {
+        name: `Copy ${profile.email} to clipboard`,
+      }),
+    ).toBeInTheDocument();
   });
 
-  it('links to the Penn engineering mailto address', () => {
+  it('auto-rotates between Penn and Gmail', () => {
     render(<EmailLink />);
 
+    act(() => {
+      vi.advanceTimersByTime(3_500);
+    });
+
+    expect(screen.getByText('gmail.com')).toBeInTheDocument();
     expect(
-      screen.getByRole('link', { name: `Email ${profile.email}` }),
-    ).toHaveAttribute('href', `mailto:${profile.email}`);
+      screen.getByRole('button', {
+        name: `Copy ${CONTACT_PERSONAL_EMAIL} to clipboard`,
+      }),
+    ).toBeInTheDocument();
+  });
+
+  it('copies the active email when clicked', async () => {
+    render(<EmailLink />);
+
+    await act(async () => {
+      fireEvent.click(
+        screen.getByRole('button', {
+          name: `Copy ${profile.email} to clipboard`,
+        }),
+      );
+    });
+
+    expect(navigator.clipboard.writeText).toHaveBeenCalledWith(profile.email);
+    expect(screen.getByText('Copied to clipboard')).toBeInTheDocument();
   });
 });
