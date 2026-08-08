@@ -2,7 +2,6 @@ import Link from 'next/link';
 
 import { formatWritingDate } from '@/lib/log-content';
 import type { LogEntry } from '@/lib/logs';
-import { externalAnchorProps } from '@/lib/external-link';
 
 interface ListItemProps {
   entry: LogEntry;
@@ -21,7 +20,8 @@ export default function ListItem({ entry }: ListItemProps) {
           <a
             href={projectLink}
             className="writing-item-project-link"
-            {...externalAnchorProps(projectLink)}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Project ↗
           </a>

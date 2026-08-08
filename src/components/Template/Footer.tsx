@@ -4,7 +4,6 @@ import ContactIcons from '@/components/Contact/ContactIcons';
 import work from '@/data/resume/work';
 import routes from '@/data/routes';
 import { AUTHOR_NAME } from '@/lib/utils';
-import { externalAnchorProps } from '@/lib/external-link';
 
 import ThemePortrait from './ThemePortrait';
 
@@ -25,7 +24,8 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} ·{' '}
               <a
                 href="https://github.com/tmarhguy/tmarhguy"
-                {...externalAnchorProps('https://github.com/tmarhguy/tmarhguy')}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Source
                 <span className="sr-only"> (opens in new tab)</span>

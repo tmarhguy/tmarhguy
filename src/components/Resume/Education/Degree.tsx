@@ -1,5 +1,4 @@
 import type { Degree as DegreeType } from '@/data/resume/degrees';
-import { externalAnchorProps } from '@/lib/external-link';
 
 interface DegreeProps {
   data: DegreeType;
@@ -11,7 +10,7 @@ export default function Degree({ data }: DegreeProps) {
       <header>
         <h3 className="degree">{data.degree}</h3>
         <p className="school">
-          <a href={data.link} {...externalAnchorProps(data.link)}>{data.school}</a>,{' '}
+          <a href={data.link}>{data.school}</a>,{' '}
           <time dateTime={String(data.year)}>{data.year}</time>
         </p>
       </header>

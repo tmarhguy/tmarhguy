@@ -17,19 +17,6 @@ describe('PostContent', () => {
     expect(html).toContain('height="630"');
   });
 
-  it('opens external markdown links in a new tab', () => {
-    const html = renderToStaticMarkup(
-      <PostContent
-        content="[Wikipedia](https://en.wikipedia.org/wiki/Tyrone_Marhguy) and [writing](/writing/)"
-        imageSizes={{}}
-      />,
-    );
-
-    expect(html).toContain('target="_blank"');
-    expect(html).toContain('https://en.wikipedia.org/wiki/Tyrone_Marhguy');
-    expect(html).not.toContain('href="/writing/" target="_blank"');
-  });
-
   it('refuses to invent dimensions for a local image', () => {
     expect(() =>
       renderToStaticMarkup(<PostContent content="![Missing](/missing.png)" />),

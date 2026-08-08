@@ -1,5 +1,4 @@
 import type { StatItem } from './types';
-import { externalAnchorProps } from '@/lib/external-link';
 
 interface StatGridProps {
   items: StatItem[];
@@ -13,11 +12,7 @@ export default function StatGrid({ items }: StatGridProps) {
           <dt className="stat-card-label">{item.label}</dt>
           <dd className="stat-card-value">
             {item.link ? (
-              <a
-                href={item.link}
-                className="stat-card-link"
-                {...externalAnchorProps(item.link)}
-              >
+              <a href={item.link} className="stat-card-link">
                 {item.value}
               </a>
             ) : (

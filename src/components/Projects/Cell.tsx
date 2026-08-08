@@ -2,7 +2,6 @@ import Image from 'next/image';
 
 import type { Project } from '@/data/projects';
 import { PROJECT_IMAGE } from '@/lib/utils';
-import { externalAnchorProps } from '@/lib/external-link';
 
 interface CellProps {
   data: Project;
@@ -80,12 +79,7 @@ export default function Cell({ data }: CellProps) {
       className={`project-card ${featured ? 'project-card--featured' : ''} ${hasLink ? 'project-card--linked' : 'project-card--static'}`}
     >
       {hasLink ? (
-        <a
-          href={link}
-          className="project-card-link"
-          aria-label={title}
-          {...externalAnchorProps(link)}
-        >
+        <a href={link} className="project-card-link" aria-label={title}>
           {cardContent}
         </a>
       ) : (

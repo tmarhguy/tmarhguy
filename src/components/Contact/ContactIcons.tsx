@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import data from '@/data/contact';
-import { externalAnchorProps } from '@/lib/external-link';
 
 interface ContactIconsProps {
   includeEmail?: boolean;
@@ -26,7 +25,9 @@ export default function ContactIcons({
                 aria-label={
                   isMailto ? s.label : `${s.label} (opens in new tab)`
                 }
-                {...externalAnchorProps(s.link)}
+                {...(isMailto
+                  ? {}
+                  : { target: '_blank', rel: 'noopener noreferrer' })}
               >
                 <FontAwesomeIcon icon={s.icon} className="size-5" />
               </a>

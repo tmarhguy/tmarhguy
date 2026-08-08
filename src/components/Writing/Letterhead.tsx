@@ -1,5 +1,4 @@
 import { formatWritingDate } from '@/lib/log-content';
-import { externalAnchorProps } from '@/lib/external-link';
 
 interface LetterheadProps {
   date: string;
@@ -30,7 +29,8 @@ export default function Letterhead({
     <a
       href={projectLink}
       className="writing-letterhead-link"
-      {...externalAnchorProps(projectLink)}
+      target="_blank"
+      rel="noopener noreferrer"
     >
       {isPost ? (
         <>
