@@ -12,6 +12,7 @@
   },
   "scripts": {
     "dev": "next dev --turbopack",
+    "prebuild": "node scripts/sync-writing-media.mjs",
     "build": "next build --webpack",
     "start": "next start",
     "lint": "biome check .",
@@ -28,6 +29,7 @@
     "og:check": "node scripts/check-og.mjs",
     "favicon": "node scripts/generate-favicon.mjs",
     "import-logs": "node scripts/import-logs.mjs",
+    "sync-writing-media": "node scripts/sync-writing-media.mjs",
     "verify-export": "node scripts/verify-export.mjs"
   },
   "dependencies": {

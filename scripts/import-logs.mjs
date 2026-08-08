@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Import Obsidian build notes from ../../logs/log into content/writing/.
- * Run once after adding new source files: node scripts/import-logs.mjs
+ * Import Obsidian build notes from ../tomato/docs/log into content/writing/.
+ * Run after adding new Tomato log files: npm run import-logs
  */
 import {
   existsSync,
@@ -12,8 +12,10 @@ import {
 } from 'node:fs';
 import { basename, join, resolve } from 'node:path';
 
+import { syncWritingMedia } from './sync-writing-media.mjs';
+
 const ROOT = resolve(import.meta.dirname, '..');
-const SOURCE = resolve(ROOT, '../logs/log');
+const SOURCE = resolve(ROOT, '../tomato/docs/log');
 const TARGET = resolve(ROOT, 'content/writing');
 
 const PROJECT_BY_FILE = {
@@ -37,6 +39,7 @@ const PROJECT_BY_FILE = {
   '2026-08-01-shell-ui-mango.md': 'mango',
   '2026-08-01-tools.md': 'mango',
   '2026-08-02-designing-additional-boards.md': 'tomato',
+  '2026-08-07-ordered-tomato.md': 'tomato',
   '2026-08-01-itch-ethernet-lab-bring-up.md': 'itch-hw',
   '2026-08-02-successful-synthesis-implementation-bitstream.md': 'itch-hw',
   '2026-08-03-reassessing-mac-for-optimization.md': 'mac',
@@ -94,10 +97,29 @@ function inferProject(slug, title, body) {
   return 'tomato';
 }
 
+function normalizeMedia(markdown) {
+  let text = markdown.replace(/\r\n/g, '\n');
+
+  text = text.replace(/<p align="center">([\s\S]*?)<\/p>\s*/gi, '$1\n\n');
+
+  text = text.replace(
+    /<img\b[^>]*\bsrc=["']([^"']+)["'][^>]*\balt=["']([^"']*)["'][^>]*\/?>/gi,
+    '![$2]($1)',
+  );
+  text = text.replace(
+    /<img\b[^>]*\balt=["']([^"']*)["'][^>]*\bsrc=["']([^"']+)["'][^>]*\/?>/gi,
+    '![$1]($2)',
+  );
+
+  text = text.replace(/\]\(\.\.\/\.\.\/media\//g, '](/images/');
+  text = text.replace(/\bsrc=["']\.\.\/\.\.\/media\//g, 'src="/images/');
+
+  return text;
+}
+
 function stripBrokenMedia(markdown) {
   return markdown
-    .replace(/<p align="center">[\s\S]*?<\/p>\s*/gi, '')
-    .replace(/!\[[^\]]*]\([^)]+\)/g, (match, offset, source) => {
+    .replace(/!\[[^\]]*]\([^)]+\)/g, (match) => {
       const href = /\(([^)]+)\)/.exec(match)?.[1] ?? '';
       if (href.startsWith('/') || /^https?:\/\//i.test(href)) {
         return match;
@@ -201,6 +223,18 @@ function descriptionFrom(body, title) {
   return excerpt.length > 180 ? `${excerpt.slice(0, 177)}...` : excerpt;
 }
 
+function firstArticleImage(body) {
+  const match = /!\[([^\]]*)]\((\/images\/[^)]+)\)/.exec(body);
+  if (!match) {
+    return null;
+  }
+
+  return {
+    image: match[2],
+    imageAlt: match[1]?.trim() || 'Illustration',
+  };
+}
+
 function yamlEscape(value) {
   return value.replace(/"/g, '\\"');
 }
@@ -219,16 +253,25 @@ for (const filename of files) {
   const sourcePath = join(SOURCE, filename);
   const raw = readFileSync(sourcePath, 'utf8');
   const { date, title, slug } = parseFilename(filename);
-  const sanitized = sanitizeMarkdown(stripBrokenMedia(raw), files);
+  const sanitized = sanitizeMarkdown(
+    stripBrokenMedia(normalizeMedia(raw)),
+    files,
+  );
   const body = smoothImportedBody(sanitized, title);
   const project = inferProject(slug, title, body);
   const description = descriptionFrom(body, title);
+  const hero = firstArticleImage(body);
+  const imageFields = hero
+    ? `image: '${hero.image}'
+imageAlt: "${yamlEscape(hero.imageAlt)}"
+`
+    : '';
   const output = `---
 title: "${yamlEscape(title)}"
 date: '${date}'
 description: "${yamlEscape(description)}"
 project: ${project}
----
+${imageFields}---
 
 ${body}
 `;
@@ -238,4 +281,6 @@ ${body}
   console.log(`imported ${slug} → ${project}`);
 }
 
+const synced = syncWritingMedia();
 console.log(`\nWrote ${written} entries to content/writing/`);
+console.log(`Synced ${synced} image(s) to public/images/`);
