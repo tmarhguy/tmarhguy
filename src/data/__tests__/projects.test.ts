@@ -143,6 +143,7 @@ describe('projects data', () => {
 
     expect(byTitle['Tomato — Custom 32-Bit CPU']).toBe('tomato');
     expect(byTitle['NASDAQ ITCH 5.0 Hardware Parser']).toBe('itch-hw');
+    expect(byTitle['1 GbE UDP/IP Stack']).toBe('udp-stack');
     expect(byTitle['16-bit MAC Unit (Sky130)']).toBe('mac');
     expect(byTitle['8-bit Discrete Transistor ALU']).toBe('alu');
     expect(byTitle['Mango Tools']).toBe('mango');
