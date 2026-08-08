@@ -124,10 +124,10 @@ describe('readImageSize', () => {
     });
   });
 
-  it('reads a real project card image', () => {
-    expect(readImageSize('/images/projects/alu-card.png')).toEqual({
-      width: 3136,
-      height: 1256,
+  it('reads a real portrait image', () => {
+    expect(readImageSize('/images/me.jpg')).toEqual({
+      width: 2226,
+      height: 2300,
     });
   });
 

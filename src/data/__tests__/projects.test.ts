@@ -2,10 +2,10 @@ import { describe, expect, it } from 'vitest';
 
 import projects, {
   findProjectByTitle,
+  getFeaturedProjects,
   getHardwareProjects,
   getMoreHardwareProjects,
   getProjectAnchorHrefByTitle,
-  getFeaturedProjects,
   getProjectSlug,
   getResumeProjects,
   getSoftwareProjects,
@@ -98,9 +98,9 @@ describe('projects data', () => {
   });
 
   it('orders featured homepage projects by cracked-hardware rank', () => {
-    expect(getFeaturedProjects().map((project) => getProjectSlug(project))).toEqual(
-      ['1-gbe-udp-ip-stack', 'tomato', 'full-custom-sram'],
-    );
+    expect(
+      getFeaturedProjects().map((project) => getProjectSlug(project)),
+    ).toEqual(['1-gbe-udp-ip-stack', 'tomato', 'full-custom-sram']);
   });
 
   it('includes hardware, tools, and software lanes from resume work', () => {

@@ -45,8 +45,13 @@ Body text here.`;
 Body text here.`;
 
     expect(
-      smoothLogContent(input, 'Successful Synthesis - Implementation - Bitstream'),
-    ).toBe('## First clean Vivado build — synthesis, implementation, bitstream\n\n## Context\n\nBody text here.');
+      smoothLogContent(
+        input,
+        'Successful Synthesis - Implementation - Bitstream',
+      ),
+    ).toBe(
+      '## First clean Vivado build — synthesis, implementation, bitstream\n\n## Context\n\nBody text here.',
+    );
   });
 });
 

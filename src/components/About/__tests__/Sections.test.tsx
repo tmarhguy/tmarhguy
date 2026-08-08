@@ -156,7 +156,9 @@ Lead paragraph.
       expect(window.location.hash).toBe('#now-fall-2026');
     });
     expect(
-      screen.getByRole('heading', { name: 'Now - (Fall 2026)' }).closest('section'),
+      screen
+        .getByRole('heading', { name: 'Now - (Fall 2026)' })
+        .closest('section'),
     ).toHaveTextContent('Tomato');
   });
 });

@@ -71,7 +71,7 @@ const work: Position[] = [
       'Authored 50+ Pytest autograding suites for 300+ students; designed edge-case, boundary, and regression coverage for weekly assignment releases.',
     ],
   },
-  
+
   {
     name: 'Fife-Penn STEM & CS Academy',
     position: 'Programming & Engineering Instructor',
@@ -83,7 +83,6 @@ const work: Position[] = [
       'Designed weekly lesson plans and debugging exercises across partner schools with Penn Engineering peers.',
     ],
   },
-  
 ];
 
 export default work;

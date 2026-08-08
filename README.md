@@ -39,7 +39,6 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 - **[1 GbE UDP/IP Stack](https://github.com/tmarhguy/udp-stack)** — RGMII/MAC/ARP/IP/UDP · sub-200 ns loopback
 - **[8-Bit Discrete Transistor ALU](https://alu.tmarhguy.com)** — 3,488 MOSFETs · 1.24M+ automated test vectors
 
-
 **Tools & software**
 
 - **[Mango Tools](https://github.com/tmarhguy/tools)** — offline CLI for PDF, media & images
@@ -50,11 +49,11 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 
 ## Experience
 
-- **[Penn](https://www.upenn.edu)** — Hardware Research Engineer · FPGA utilization · Fall 2026  
-- **[Aragorn AI](https://www.aragorn.ai/)** — Software Engineering Intern · production backends & APIs  
-- **[Howard STEM Achievers](https://education.howard.edu/affiliated-programs/stem-summer-camp-verizon-innovative-learning)** — STEM Instructor · AR/VR · Jun–Jul 2026  
-- **[Vero Electric](https://veroelectric.com/)** — Hardware & Firmware Engineer · battery management infrastructure  
-- **[Fife-Penn](https://fife.cis.upenn.edu/)** — Programming & Engineering Instructor · Feb–May 2025  
+- **[Penn](https://www.upenn.edu)** — Hardware Research Engineer · FPGA utilization · Fall 2026
+- **[Aragorn AI](https://www.aragorn.ai/)** — Software Engineering Intern · production backends & APIs
+- **[Howard STEM Achievers](https://education.howard.edu/affiliated-programs/stem-summer-camp-verizon-innovative-learning)** — STEM Instructor · AR/VR · Jun–Jul 2026
+- **[Vero Electric](https://veroelectric.com/)** — Hardware & Firmware Engineer · battery management infrastructure
+- **[Fife-Penn](https://fife.cis.upenn.edu/)** — Programming & Engineering Instructor · Feb–May 2025
 - **[Penn Engineering](https://www.upenn.edu)** — CIS 1100 Teaching Assistant
 
 ## Skills
@@ -80,6 +79,7 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 Source for **[tmarhguy.com](https://tmarhguy.com)** — Next.js static export, deployed on Vercel.
 
 [`docs/getting-started.md`](./docs/getting-started.md)
+
 ```bash
 nvm install
 npm ci

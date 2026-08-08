@@ -9,6 +9,8 @@ describe('contact page', () => {
 
     expect(screen.getByRole('main')).toHaveClass('page-main--contact');
     expect(screen.queryByRole('contentinfo')).not.toBeInTheDocument();
-    expect(screen.getAllByRole('link', { name: /^Email/ })).toHaveLength(1);
+    expect(
+      screen.getByRole('button', { name: /copy .+@.+ to clipboard/i }),
+    ).toBeInTheDocument();
   });
 });

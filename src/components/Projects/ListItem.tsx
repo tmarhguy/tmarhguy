@@ -16,10 +16,7 @@ export default function ListItem({ data }: ListItemProps) {
       : null;
 
   return (
-    <article
-      id={getProjectSlug(data)}
-      className="project-list-item"
-    >
+    <article id={getProjectSlug(data)} className="project-list-item">
       <div className="project-list-meta">
         <time className="project-list-date" dateTime={date}>
           {period}

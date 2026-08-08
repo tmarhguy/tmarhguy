@@ -37,7 +37,6 @@ describe('createHeadingId', () => {
       ['Academics', 'academics'],
       ['Now - (Fall 2026)', 'now-fall-2026'],
       ['Hobbies and Interests', 'hobbies-and-interests'],
-      ['Fun Facts', 'fun-facts'],
     ]);
   });
 });

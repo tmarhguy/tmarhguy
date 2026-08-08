@@ -6,8 +6,8 @@ import PageWrapper from '@/components/Template/PageWrapper';
 import { aboutMarkdown } from '@/data/about';
 import { WIKIPEDIA_URL } from '@/data/contact';
 import profile from '@/data/profile.json';
-import { createPageMetadata } from '@/lib/metadata';
 import { externalAnchorProps } from '@/lib/external-link';
+import { createPageMetadata } from '@/lib/metadata';
 import {
   breadcrumbNode,
   HOME_URL,

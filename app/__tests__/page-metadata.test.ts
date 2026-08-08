@@ -90,10 +90,9 @@ describe('page metadata', () => {
     expect(metadata.alternates?.canonical).toBe(`${SITE_URL}/writing/${slug}/`);
   });
 
-  it('declares the share card on writing entries', async () => {
-    const [slug] = getLogSlugs();
+  it('declares the share card on writing entries without an article image', async () => {
     const metadata = await generateWritingMetadata({
-      params: Promise.resolve({ slug }),
+      params: Promise.resolve({ slug: 'welcome-to-tomato-32' }),
     });
 
     expect(JSON.stringify(metadata.openGraph?.images)).toContain(
@@ -101,6 +100,16 @@ describe('page metadata', () => {
     );
     expect(JSON.stringify(metadata.twitter?.images)).toContain(
       SHARE_IMAGE_PATH,
+    );
+  });
+
+  it('uses the article image on writing entries that declare one', async () => {
+    const metadata = await generateWritingMetadata({
+      params: Promise.resolve({ slug: '2026-08-07-ordered-tomato' }),
+    });
+
+    expect(JSON.stringify(metadata.openGraph?.images)).toContain(
+      '/images/kicad/07_alu/pcb/alu_8b_board.png',
     );
   });
 

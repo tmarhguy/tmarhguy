@@ -31,10 +31,10 @@ export default function ResumePage() {
             I build computers from discrete transistors to tapeout — and I write
             the software to test, automate, and deploy them. Currently designing
             a 32-bit CPU that rethinks how FPGAs reconfigure. Joining
-            Pennovation for FPGA research this fall; battery management at
-            Vero Electric; backends at Aragorn AI; AR/VR STEM instruction at
-            Howard University STEM Achievers; and CIS 1100 TA plus Fife-Penn coding clubs at
-            Penn.
+            Pennovation for FPGA research this fall; battery management at Vero
+            Electric; backends at Aragorn AI; AR/VR STEM instruction at Howard
+            University STEM Achievers; and CIS 1100 TA plus Fife-Penn coding
+            clubs at Penn.
           </p>
           {/* Print-only, but real markup rather than CSS `content`, so it is
               selectable, linkable, and reads from the shared profile. The

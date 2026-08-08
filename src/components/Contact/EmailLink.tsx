@@ -3,9 +3,9 @@
 import { useEffect, useState } from 'react';
 
 import { CONTACT_PERSONAL_EMAIL } from '@/data/contact';
+import profile from '@/data/profile.json';
 import usePrefersReducedMotion from '@/hooks/usePrefersReducedMotion';
 import { copyText } from '@/lib/copy-to-clipboard';
-import profile from '@/data/profile.json';
 
 const PENN_EMAIL = profile.email;
 const [CONTACT_LOCAL_PART] = PENN_EMAIL.split('@');

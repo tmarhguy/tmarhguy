@@ -75,7 +75,10 @@ describe('tierFor', () => {
 
   it('matches the intern rule case-insensitively for lead suppression', () => {
     expect(
-      tierFor(position({ position: 'Research INTERN', startDate: '2027-01-01' }), []),
+      tierFor(
+        position({ position: 'Research INTERN', startDate: '2027-01-01' }),
+        [],
+      ),
     ).toBe('primary');
   });
 

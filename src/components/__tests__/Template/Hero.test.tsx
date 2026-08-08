@@ -45,10 +45,9 @@ describe('Hero', () => {
       'href',
       '/projects/',
     );
-    expect(screen.getByRole('link', { name: /^experience\.$/i })).toHaveAttribute(
-      'href',
-      '/resume/',
-    );
+    expect(
+      screen.getByRole('link', { name: /^experience\.$/i }),
+    ).toHaveAttribute('href', '/resume/');
   });
 
   it('keeps personal stats and incomplete credential lists off the homepage', () => {
