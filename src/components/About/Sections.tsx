@@ -3,7 +3,9 @@
 import Markdown from 'markdown-to-jsx';
 import { Children, type ReactNode } from 'react';
 import { createUniqueHeadingIds } from '@/lib/anchors';
+import { linkAuthorNameInMarkdown } from '@/lib/author-links';
 import { extractLogMarker } from '@/lib/logEntry';
+import { withMarkdownLinks } from '@/lib/markdown-options';
 
 interface AboutContentProps {
   markdown: string;
@@ -45,7 +47,11 @@ function LogEntry({ children }: { children?: ReactNode }) {
 }
 
 const LOG_MARKDOWN_OPTIONS = {
-  overrides: { li: { component: LogEntry } },
+  overrides: withMarkdownLinks({ li: { component: LogEntry } }),
+};
+
+const ABOUT_MARKDOWN_OPTIONS = {
+  overrides: withMarkdownLinks(),
 };
 
 interface AboutSection {
@@ -67,7 +73,6 @@ interface ParsedAboutSection {
 const sectionVariants: Record<string, string> = {
   Academics: 'about-section--log',
   'Hobbies and Interests': 'about-section--compact',
-  'Fun Facts': 'about-section--compact',
   'Travel / Geography': 'about-section--log',
   'I Dream Of': 'about-section--compact',
   'Websites from People I Admire': 'about-section--links',
@@ -136,13 +141,14 @@ function isLogSection(title: string) {
 }
 
 export default function AboutContent({ markdown }: AboutContentProps) {
-  const { intro, sections } = splitAboutMarkdown(markdown);
+  const linkedMarkdown = linkAuthorNameInMarkdown(markdown);
+  const { intro, sections } = splitAboutMarkdown(linkedMarkdown);
 
   return (
     <article className="about-content">
       {intro ? (
         <div className="about-intro">
-          <Markdown>{intro}</Markdown>
+          <Markdown options={ABOUT_MARKDOWN_OPTIONS}>{intro}</Markdown>
         </div>
       ) : null}
       {sections.length > 0 ? (
@@ -174,7 +180,7 @@ export default function AboutContent({ markdown }: AboutContentProps) {
           {isLogSection(section.title) ? (
             <Markdown options={LOG_MARKDOWN_OPTIONS}>{section.body}</Markdown>
           ) : (
-            <Markdown>{section.body}</Markdown>
+            <Markdown options={ABOUT_MARKDOWN_OPTIONS}>{section.body}</Markdown>
           )}
         </section>
       ))}

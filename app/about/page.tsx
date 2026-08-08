@@ -4,8 +4,10 @@ import AboutContent from '@/components/About/Sections';
 import { SchemaGraph } from '@/components/Schema';
 import PageWrapper from '@/components/Template/PageWrapper';
 import { aboutMarkdown } from '@/data/about';
+import { WIKIPEDIA_URL } from '@/data/contact';
 import profile from '@/data/profile.json';
 import { createPageMetadata } from '@/lib/metadata';
+import { externalAnchorProps } from '@/lib/external-link';
 import {
   breadcrumbNode,
   HOME_URL,
@@ -43,7 +45,22 @@ export default function AboutPage() {
       />
       <section className="about-page">
         <header className="about-header">
-          <h1 className="page-title">About</h1>
+          <h1 className="page-title">
+            <a
+              href={WIKIPEDIA_URL}
+              className="page-title-link"
+              {...externalAnchorProps(WIKIPEDIA_URL)}
+            >
+              About
+            </a>
+          </h1>
+          <p className="about-wikipedia-note">
+            Read more on{' '}
+            <a href={WIKIPEDIA_URL} {...externalAnchorProps(WIKIPEDIA_URL)}>
+              Wikipedia
+              <span aria-hidden="true"> ↗</span>
+            </a>
+          </p>
         </header>
         <AboutContent markdown={aboutMarkdown} />
       </section>

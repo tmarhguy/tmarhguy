@@ -10,6 +10,10 @@ import { faEnvelope } from '@fortawesome/free-regular-svg-icons/faEnvelope';
 
 import profile from './profile.json';
 
+export const WIKIPEDIA_URL = 'https://en.wikipedia.org/wiki/Tyrone_Marhguy';
+
+export const CONTACT_PERSONAL_EMAIL = 'tmarhguy@gmail.com';
+
 export interface ContactItem {
   link: string;
   label: string;
@@ -48,7 +52,7 @@ const data: ContactItem[] = [
     icon: faFacebookF,
   },
   {
-    link: 'https://en.wikipedia.org/wiki/Tyrone_Marhguy',
+    link: WIKIPEDIA_URL,
     label: 'Wikipedia',
     icon: faWikipediaW,
   },

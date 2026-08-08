@@ -3,6 +3,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 
 import { aboutMarkdown } from '@/data/about';
+import { WIKIPEDIA_URL } from '@/data/contact';
 import { createHeadingId } from '@/lib/anchors';
 import AboutContent from '../Sections';
 
@@ -13,6 +14,14 @@ function getActualSectionTitles(markdown: string) {
 }
 
 describe('AboutContent', () => {
+  it('links the intro author name to Wikipedia', () => {
+    render(<AboutContent markdown={aboutMarkdown} />);
+
+    expect(
+      screen.getByRole('link', { name: 'Tyrone Iras Marhguy' }),
+    ).toHaveAttribute('href', WIKIPEDIA_URL);
+  });
+
   it('renders intro copy without an Intro heading', () => {
     render(
       <AboutContent

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { aboutMarkdown } from '../about';
+import { WIKIPEDIA_URL } from '../contact';
 
 describe('about data', () => {
   it('exports aboutMarkdown as a string', () => {
@@ -12,6 +13,9 @@ describe('about data', () => {
     expect(aboutMarkdown).toContain('# Intro');
     expect(aboutMarkdown).toContain('University of Pennsylvania');
     expect(aboutMarkdown).toContain('discrete transistors to tapeout');
+    expect(aboutMarkdown).toContain(
+      `[Tyrone Iras Marhguy](${WIKIPEDIA_URL})`,
+    );
   });
 
   it('contains early life and family background', () => {
@@ -34,12 +38,10 @@ describe('about data', () => {
     expect(aboutMarkdown).toContain('American Mathematics Olympiad');
   });
 
-  it('contains hobbies, interests, and fun facts', () => {
+  it('contains hobbies and interests', () => {
     expect(aboutMarkdown).toContain('# Hobbies and Interests');
     expect(aboutMarkdown).toContain('Sudoku');
     expect(aboutMarkdown).toContain('Biking');
-    expect(aboutMarkdown).toContain('# Fun Facts');
-    expect(aboutMarkdown).toContain('Triplet');
   });
 
   it('contains the now section', () => {

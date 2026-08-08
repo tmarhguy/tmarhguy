@@ -6,6 +6,7 @@ import Hero from '@/components/Template/Hero';
 import PageWrapper from '@/components/Template/PageWrapper';
 import { getFeaturedProjects } from '@/data/projects';
 import { formatDateCompact } from '@/lib/log-content';
+import { externalAnchorProps } from '@/lib/external-link';
 import { getAllLogs } from '@/lib/logs';
 import { HOME_URL, profilePageNode } from '@/lib/schema';
 import { AUTHOR_NAME, SITE_DESCRIPTION, SITE_URL } from '@/lib/utils';
@@ -52,8 +53,7 @@ export default function HomePage() {
                   key={project.title}
                   href={project.link}
                   className={className}
-                  rel="noopener noreferrer"
-                  target="_blank"
+                  {...externalAnchorProps(project.link)}
                 >
                   {content}
                 </a>
