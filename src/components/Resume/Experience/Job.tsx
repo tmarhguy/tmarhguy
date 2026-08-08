@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 
 import type { Position } from '@/data/resume/work';
+import { externalAnchorProps } from '@/lib/external-link';
 
 import JobSummary from './JobSummary';
 
@@ -66,7 +67,7 @@ export default function Job({ data, tier = 'primary' }: JobProps) {
       <div className="job-body">
         <header>
           <h3>
-            <a href={url} className="job-company">
+            <a href={url} className="job-company" {...externalAnchorProps(url)}>
               {name}
             </a>
             <span className="job-position">{position}</span>

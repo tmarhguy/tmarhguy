@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import type { Project } from '@/data/projects';
 import { getProjectSlug } from '@/data/projects';
+import { externalAnchorProps } from '@/lib/external-link';
 import { getWritingSectionHref, projectHasWriting } from '@/lib/logs';
 
 interface ListItemProps {
@@ -33,7 +34,7 @@ export default function ListItem({ data }: ListItemProps) {
       <div className="project-list-body">
         <h3 className="project-list-title">
           {link ? (
-            <a href={link} className="project-list-link">
+            <a href={link} className="project-list-link" {...externalAnchorProps(link)}>
               {title}
               <span className="project-list-affordance" aria-hidden="true">
                 ↗

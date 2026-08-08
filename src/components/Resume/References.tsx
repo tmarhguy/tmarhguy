@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
-const WIKIPEDIA_URL = 'https://en.wikipedia.org/wiki/Tyrone_Marhguy';
+import { WIKIPEDIA_URL } from '@/data/contact';
+import { externalAnchorProps } from '@/lib/external-link';
 
 export default function References() {
   return (
@@ -17,8 +18,7 @@ export default function References() {
           <a
             href={WIKIPEDIA_URL}
             className="references-link"
-            target="_blank"
-            rel="noopener noreferrer"
+            {...externalAnchorProps(WIKIPEDIA_URL)}
           >
             Wikipedia article
           </a>

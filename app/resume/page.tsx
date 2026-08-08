@@ -13,6 +13,7 @@ import degrees from '@/data/resume/degrees';
 import { categories, skills } from '@/data/resume/skills';
 import work from '@/data/resume/work';
 import { createPageMetadata } from '@/lib/metadata';
+import { externalAnchorProps } from '@/lib/external-link';
 import { AUTHOR_NAME, SITE_URL } from '@/lib/utils';
 
 export const metadata: Metadata = createPageMetadata({
@@ -44,7 +45,12 @@ export default function ResumePage() {
             <span aria-hidden="true"> · </span>
             <a href={`mailto:${profile.email}`}>{profile.email}</a>
             <span aria-hidden="true"> · </span>
-            <a href="https://github.com/tmarhguy">github.com/tmarhguy</a>
+            <a
+              href="https://github.com/tmarhguy"
+              {...externalAnchorProps('https://github.com/tmarhguy')}
+            >
+              github.com/tmarhguy
+            </a>
           </address>
         </header>
 
