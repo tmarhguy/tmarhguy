@@ -57,6 +57,8 @@ const data: Project[] = [
   {
     title: '1 GbE UDP/IP Stack',
     subtitle: 'Low-latency datapath',
+    slug: '1-gbe-udp-ip-stack',
+    logProject: 'udp-stack',
     link: 'https://github.com/tmarhguy/udp-stack',
     image: '/images/projects/riscv-card.png',
     date: '2026-08-01',

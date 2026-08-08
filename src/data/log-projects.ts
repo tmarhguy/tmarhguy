@@ -13,6 +13,11 @@ const logProjects: LogProject[] = [
     link: 'https://github.com/tmarhguy/itch-hw',
   },
   {
+    id: 'udp-stack',
+    label: '1 GbE UDP/IP Stack',
+    link: 'https://github.com/tmarhguy/udp-stack',
+  },
+  {
     id: 'mac',
     label: '16-bit MAC Unit (Sky130)',
     link: 'https://github.com/tmarhguy/mac',

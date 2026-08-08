@@ -42,6 +42,7 @@ const PROJECT_BY_FILE = {
   '2026-08-07-ordered-tomato.md': 'tomato',
   '2026-08-01-itch-ethernet-lab-bring-up.md': 'itch-hw',
   '2026-08-02-successful-synthesis-implementation-bitstream.md': 'itch-hw',
+  '2026-08-08-understanding-udp-stack-and-connecting-to-itch.md': 'udp-stack',
   '2026-08-03-reassessing-mac-for-optimization.md': 'mac',
 };
 
