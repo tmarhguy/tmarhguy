@@ -368,6 +368,47 @@
   margin: 1.5rem 0;
 }
 
+.prose-image-pair {
+  margin: 1.5rem 0;
+}
+
+/* Markdown often merges consecutive images into one paragraph. */
+.prose-image-pair > p:only-child {
+  display: grid;
+  grid-template-columns: minmax(0, 48.5fr) minmax(0, 51.5fr);
+  gap: 1rem;
+  margin: 0;
+}
+
+/* When each image lands in its own paragraph instead. */
+.prose-image-pair:has(> p + p) {
+  display: grid;
+  grid-template-columns: minmax(0, 48.5fr) minmax(0, 51.5fr);
+  gap: 1rem;
+}
+
+.prose-image-pair:has(> p + p) > p {
+  margin: 0;
+}
+
+.prose-image-pair img {
+  margin: 0;
+  width: 100%;
+  height: auto;
+}
+
+.prose-image-pair span {
+  display: block;
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .prose-image-pair > p:only-child,
+  .prose-image-pair:has(> p + p) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .post-nav {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
