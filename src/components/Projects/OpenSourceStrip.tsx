@@ -51,7 +51,11 @@ export default function OpenSourceStrip({
                 {contribution.pulls.map((pull, index) => (
                   <span key={pull.href}>
                     {index === 0 ? ' · ' : ' · '}
-                    <a href={pull.href} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={pull.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       {pull.label}
                     </a>
                   </span>
