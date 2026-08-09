@@ -1,6 +1,6 @@
 import { render, screen, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-
+import { getOpenSourceContributions } from '@/data/open-source';
 import projects, { getFeaturedProjects } from '@/data/projects';
 import { getAllLogs } from '@/lib/logs';
 import HomePage from '../page';
@@ -73,6 +73,9 @@ describe('writing information architecture', () => {
       screen.getByRole('heading', { level: 1, name: 'Projects' }),
     ).toBeInTheDocument();
     expect(
+      screen.getByRole('heading', { level: 2, name: 'Open source' }),
+    ).toBeInTheDocument();
+    expect(
       screen.getByRole('heading', { level: 2, name: 'Hardware' }),
     ).toBeInTheDocument();
     expect(
@@ -85,6 +88,12 @@ describe('writing information architecture', () => {
 
     for (const project of projects) {
       expect(screen.getByText(project.title)).toBeInTheDocument();
+    }
+
+    for (const contribution of getOpenSourceContributions()) {
+      expect(
+        screen.getByRole('link', { name: contribution.title }),
+      ).toBeInTheDocument();
     }
   });
 });

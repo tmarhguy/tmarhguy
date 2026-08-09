@@ -29,6 +29,10 @@ describe('ResumeSummary', () => {
       'href',
       'https://github.com/lnis-uofu/OpenFPGA',
     );
-    expect(screen.getAllByRole('link')).toHaveLength(6);
+    expect(screen.getByRole('link', { name: /verilator/i })).toHaveAttribute(
+      'href',
+      'https://github.com/verilator/verilator/pull/8070',
+    );
+    expect(screen.getAllByRole('link')).toHaveLength(7);
   });
 });

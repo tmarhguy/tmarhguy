@@ -33,6 +33,11 @@ const logProjects: LogProject[] = [
     link: 'https://github.com/lnis-uofu/OpenFPGA',
   },
   {
+    id: 'verilator',
+    label: 'Verilator',
+    link: 'https://github.com/verilator/verilator',
+  },
+  {
     id: 'spice-automation',
     label: 'SPICE Automation Framework',
     link: 'https://github.com/tmarhguy/spice-automation',

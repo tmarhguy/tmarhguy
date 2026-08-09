@@ -45,6 +45,7 @@ describe('about data', () => {
   it('contains the now section', () => {
     expect(aboutMarkdown).toContain('# Now');
     expect(aboutMarkdown).toContain('Tomato');
+    expect(aboutMarkdown).toContain('Verilator');
     expect(aboutMarkdown).toContain('Aragorn AI');
     expect(aboutMarkdown).toContain('Fife-Penn');
     expect(aboutMarkdown).toContain('STEM Achievers');
