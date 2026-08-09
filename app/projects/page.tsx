@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 
 import ListItem from '@/components/Projects/ListItem';
+import OpenSourceStrip from '@/components/Projects/OpenSourceStrip';
 import { SchemaGraph } from '@/components/Schema';
 import PageWrapper from '@/components/Template/PageWrapper';
+import { getOpenSourceContributions } from '@/data/open-source';
 import {
   getHardwareProjects,
   getSoftwareProjects,
@@ -31,6 +33,7 @@ export default function ProjectsPage() {
   const hardwareProjects = getHardwareProjects();
   const toolsProjects = getToolsProjects();
   const softwareProjects = getSoftwareProjects();
+  const openSourceContributions = getOpenSourceContributions();
 
   return (
     <PageWrapper>
@@ -56,6 +59,10 @@ export default function ProjectsPage() {
             build log.
           </p>
         </header>
+
+        {openSourceContributions.length > 0 && (
+          <OpenSourceStrip contributions={openSourceContributions} />
+        )}
 
         <section
           className="projects-list-section"

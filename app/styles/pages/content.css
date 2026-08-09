@@ -13,7 +13,7 @@
 }
 
 .about-header {
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--spacing-6);
 }
 
 .about-header .page-title {
@@ -37,7 +37,7 @@
 }
 
 .about-wikipedia-note {
-  margin: 0.75rem 0 0;
+  margin: 0.5rem 0 0;
   font-family: var(--font-mono);
   font-size: var(--text-sm);
   font-weight: var(--font-weight-medium);
@@ -73,8 +73,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1.5rem;
-  margin: var(--spacing-10) 0 var(--spacing-6);
-  padding: 0.75rem 0;
+  margin: var(--spacing-6) 0 var(--spacing-4);
+  padding: 0.625rem 0;
   border-top: var(--rule) solid var(--color-border);
   border-bottom: var(--rule) solid var(--color-border);
   border-radius: 0;
@@ -112,13 +112,17 @@
 }
 
 .about-section {
-  margin-top: var(--spacing-12);
+  margin-top: var(--spacing-8);
+}
+
+.about-section-nav + .about-section {
+  margin-top: var(--spacing-5);
 }
 
 .about-section h2 {
   scroll-margin-top: calc(var(--header-height) + 5.5rem);
-  margin: 0 0 var(--spacing-5);
-  padding-top: var(--spacing-5);
+  margin: 0 0 var(--spacing-4);
+  padding-top: var(--spacing-4);
   border-top: var(--rule) solid var(--color-fg-bold);
   font-family: var(--font-display);
   font-size: var(--text-xl);
@@ -126,6 +130,10 @@
   line-height: 1.15;
   letter-spacing: var(--tracking-display);
   color: var(--color-fg-bold);
+}
+
+.about-section-nav + .about-section h2 {
+  padding-top: var(--spacing-3);
 }
 
 .about-content .about-section-heading-link {
@@ -506,7 +514,7 @@
     top: var(--header-height-mobile);
     flex-wrap: nowrap;
     overflow-x: auto;
-    margin: var(--spacing-6) 0 var(--spacing-5);
+    margin: var(--spacing-5) 0 var(--spacing-3);
     padding: var(--spacing-3) 0;
     border-radius: 0;
     scrollbar-width: thin;
@@ -549,15 +557,19 @@
 
 @media (min-width: 980px) {
   .about-header {
-    margin-bottom: var(--spacing-12);
+    margin-bottom: var(--spacing-8);
   }
 
   .about-section {
-    margin-top: var(--spacing-16);
+    margin-top: var(--spacing-10);
+  }
+
+  .about-section-nav + .about-section {
+    margin-top: var(--spacing-6);
   }
 
   .about-section h2 {
-    margin-bottom: var(--spacing-5);
+    margin-bottom: var(--spacing-4);
   }
 }
 

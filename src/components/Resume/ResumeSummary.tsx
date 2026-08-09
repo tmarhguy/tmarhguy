@@ -59,6 +59,13 @@ export default function ResumeSummary() {
       that rethinks how FPGAs reconfigure. Contributor to{' '}
       <InlineLink href="https://github.com/lnis-uofu/OpenFPGA" external>
         OpenFPGA
+      </InlineLink>{' '}
+      and{' '}
+      <InlineLink
+        href="https://github.com/verilator/verilator/pull/8070"
+        external
+      >
+        Verilator
       </InlineLink>
       ; joining Penn for FPGA research this fall; backends at{' '}
       <InlineLink href={workUrl('Aragorn')} external>

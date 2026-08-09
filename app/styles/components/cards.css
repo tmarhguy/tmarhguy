@@ -235,6 +235,64 @@
   color: inherit;
 }
 
+.projects-open-source {
+  max-width: var(--measure-prose-wide, var(--measure-prose));
+}
+
+.projects-open-source-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: var(--rule) solid var(--color-fg-bold);
+  padding-top: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.projects-open-source-head .projects-section-title {
+  border-top: none;
+  padding-top: 0;
+  margin-bottom: 0;
+}
+
+.projects-open-source-log {
+  font-family: var(--font-mono);
+  font-size: var(--text-ui);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-fg-light);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+  white-space: nowrap;
+}
+
+.projects-open-source-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-fg-light);
+}
+
+.projects-open-source-list li + li {
+  margin-top: 0.5rem;
+}
+
+.projects-open-source-link {
+  color: var(--color-fg);
+  font-weight: var(--font-weight-medium);
+}
+
+.projects-open-source-desc {
+  color: var(--color-fg-light);
+}
+
+.projects-open-source-pulls a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
 .project-list {
   display: flex;
   flex-direction: column;
