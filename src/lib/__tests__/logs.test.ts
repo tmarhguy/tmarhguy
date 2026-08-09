@@ -23,10 +23,10 @@ describe('getAllLogs', () => {
     }
   });
 
-  it('lists Understanding the UDP Stack as the newest writing entry', () => {
+  it('lists First Open Source Contributions as the newest writing entry', () => {
     const logs = getAllLogs();
     expect(logs[0]?.slug).toBe(
-      '2026-08-08-understanding-udp-stack-and-connecting-to-itch',
+      '2026-08-09-first-open-source-contributions',
     );
   });
 

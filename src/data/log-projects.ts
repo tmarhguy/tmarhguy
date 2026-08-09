@@ -28,6 +28,11 @@ const logProjects: LogProject[] = [
     link: 'https://github.com/tmarhguy/metrics-api',
   },
   {
+    id: 'openfpga',
+    label: 'OpenFPGA',
+    link: 'https://github.com/lnis-uofu/OpenFPGA',
+  },
+  {
     id: 'spice-automation',
     label: 'SPICE Automation Framework',
     link: 'https://github.com/tmarhguy/spice-automation',
