@@ -56,8 +56,11 @@ export default function ResumeSummary() {
       <InlineLink href={getProjectAnchorHrefByTitle('Tomato')}>
         32-bit CPU
       </InlineLink>{' '}
-      that rethinks how FPGAs reconfigure. Joining Penn for FPGA research this
-      fall; backends at{' '}
+      that rethinks how FPGAs reconfigure. Contributor to{' '}
+      <InlineLink href="https://github.com/lnis-uofu/OpenFPGA" external>
+        OpenFPGA
+      </InlineLink>
+      ; joining Penn for FPGA research this fall; backends at{' '}
       <InlineLink href={workUrl('Aragorn')} external>
         Aragorn AI
       </InlineLink>

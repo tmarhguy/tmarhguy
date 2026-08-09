@@ -25,6 +25,10 @@ describe('ResumeSummary', () => {
       'href',
       'https://education.howard.edu/affiliated-programs/stem-summer-camp-verizon-innovative-learning',
     );
-    expect(screen.getAllByRole('link')).toHaveLength(5);
+    expect(screen.getByRole('link', { name: /openfpga/i })).toHaveAttribute(
+      'href',
+      'https://github.com/lnis-uofu/OpenFPGA',
+    );
+    expect(screen.getAllByRole('link')).toHaveLength(6);
   });
 });

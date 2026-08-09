@@ -22,6 +22,7 @@ Ghanaian computer engineering student at **Penn**. I build computers from discre
 **→ [Wikipedia](https://en.wikipedia.org/wiki/Tyrone_Marhguy)** for the cool stories.
 
 - FPGA utilization research @ **Penn** (starting Fall 2026)
+- Contributor to **[OpenFPGA](https://github.com/lnis-uofu/OpenFPGA)** — open-source FPGA IP generator
 - **[Tomato](https://github.com/tmarhguy/tomato)** — custom 32-bit CPU from logic through PCB tapeout
 - **[8-bit discrete-transistor ALU](https://alu.tmarhguy.com)** · 3,488 MOSFETs · 1.24M+ test vectors
 - Philadelphia, PA
