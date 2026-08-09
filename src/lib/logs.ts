@@ -190,8 +190,7 @@ function readPublishedLogs(): LogEntry[] {
     .filter((entry): entry is LogEntry => entry !== null)
     .filter(isPublished)
     .sort((a, b) => {
-      const dateDiff =
-        new Date(b.date).getTime() - new Date(a.date).getTime();
+      const dateDiff = new Date(b.date).getTime() - new Date(a.date).getTime();
       if (dateDiff !== 0) {
         return dateDiff;
       }
