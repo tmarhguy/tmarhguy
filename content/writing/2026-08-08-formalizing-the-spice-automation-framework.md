@@ -13,15 +13,15 @@ When I first worked on the [16×4 full-custom 6T SRAM](/projects/#full-custom-sr
 
 ### SRAM results (proof circuit)
 
-| Metric | Value | Notes |
-| --- | --- | --- |
-| Sustained f<sub>max</sub> | **4.571 GHz** | Binary search on CLK period, W/W/R/R pattern |
-| Spec margin | **9.14×** vs 500 MHz | f<sub>max</sub> / 0.5 GHz |
-| Min CLK period | **218.75 ps** | At sustained closure |
-| CLK → DOUT delay | **110.65 ps** | @ 0.5 V functional readback |
-| Avg power | **21.37 µW** | Over 0.984 ns measurement window |
-| FOM (access sweep) | **≈ 1.26×10<sup>−22</sup>** | `60 × Area × Power × Delay²` |
-| Steady-state verify | **PASS** | 32 macros, 128 CLK cycles, 64 readback checks |
+| Metric                    | Value                       | Notes                                         |
+| ------------------------- | --------------------------- | --------------------------------------------- |
+| Sustained f<sub>max</sub> | **4.571 GHz**               | Binary search on CLK period, W/W/R/R pattern  |
+| Spec margin               | **9.14×** vs 500 MHz        | f<sub>max</sub> / 0.5 GHz                     |
+| Min CLK period            | **218.75 ps**               | At sustained closure                          |
+| CLK → DOUT delay          | **110.65 ps**               | @ 0.5 V functional readback                   |
+| Avg power                 | **21.37 µW**                | Over 0.984 ns measurement window              |
+| FOM (access sweep)        | **≈ 1.26×10<sup>−22</sup>** | `60 × Area × Power × Delay²`                  |
+| Steady-state verify       | **PASS**                    | 32 macros, 128 CLK cycles, 64 readback checks |
 
 Pattern: **W/W/R/R** with `addr0=0x5`, `addr1=0xA` @ **0.5 V** VDD. Width-scale sweeps (0.50–1.00) all reproduced the same ~4.57 GHz closure — the limiter is the shared cycle envelope, not a single cell tweak.
 

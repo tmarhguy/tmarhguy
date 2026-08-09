@@ -50,7 +50,7 @@ One word type everywhere: fetch, IR, registers, ALU, memory, and writeback.
 ### Canonical word layout
 
 | Field      | Bits   | Role                                       |
-| --- | --- | --- |
+| ---------- | ------ | ------------------------------------------ |
 | `INS`      | 12     | Control index → microcode ROMs (4096 rows) |
 | `ADDR_W`   | 6      | Destination (write port)                   |
 | `ADDR_A`   | 6      | ALU operand A                              |
@@ -83,7 +83,7 @@ INS  d, a, b, c    ; rd = f(a,b,c) + g(a,b,c) + cin
 Forty bits sounds odd until you account for what was already odd in Tomato32:
 
 | Quirk                        | 32-bit world            | 40-bit world                         |
-| --- | --- | --- |
+| ---------------------------- | ----------------------- | ------------------------------------ |
 | Dual-LUT ALU (`f + g + cin`) | Hidden behind microcode | Same hardware, honest 4-operand      |
 | Immediate / offset overlay   | Fights register fields  | `INS` picks field repacking          |
 | Byte lane decoder            | 4 bytes per word        | 5 bytes per word (or word-only v1)   |

@@ -50,18 +50,18 @@ Same night, different kind of commitment: **34× 74ACT151** muxes do not lie. Th
 
 I sized the cart for **two boards** — a full **16-bit** datapath from day one. One board proves the slice; two boards is the actual Tomato width on the bench. The marginal cost of the second slice (~$20 in parts on top of ~$40 for one) was too good to skip.
 
-| Line | Part | Qty | Role |
-| --- | --- | --- | --- |
-| 1 | CD74ACT151M96 | **34** | 8:1 LUT muxes — the heart of the dual-LUT plane |
-| 2 | CD74ACT283M | **4** | 4-bit ripple adders |
-| 3 | SN74ACT00DR | **4** | Quad NAND (glue) |
-| 4 | SN74ACT86DR | **2** | Quad XOR |
-| 5 | MC74ACT377DWR2G | **2** | Octal D-FF / flag latch |
-| 6 | CD74ACT541M96 | **2** | Octal bus buffer |
-| 7 | CD74HCT688M96 | **2** | 8-bit identity comparator (zero detect) |
-| 8 | CC0603 100nF | **54** | Decoupling (50 + spares) |
-| 9 | LTST-C170KRKT red LED | **130** | Debug wall (126 + spares) |
-| 10 | 4610X-101-471LF SIP-9 | **14** | Bussed 470Ω LED limiters |
+| Line | Part                  | Qty     | Role                                            |
+| ---- | --------------------- | ------- | ----------------------------------------------- |
+| 1    | CD74ACT151M96         | **34**  | 8:1 LUT muxes — the heart of the dual-LUT plane |
+| 2    | CD74ACT283M           | **4**   | 4-bit ripple adders                             |
+| 3    | SN74ACT00DR           | **4**   | Quad NAND (glue)                                |
+| 4    | SN74ACT86DR           | **2**   | Quad XOR                                        |
+| 5    | MC74ACT377DWR2G       | **2**   | Octal D-FF / flag latch                         |
+| 6    | CD74ACT541M96         | **2**   | Octal bus buffer                                |
+| 7    | CD74HCT688M96         | **2**   | 8-bit identity comparator (zero detect)         |
+| 8    | CC0603 100nF          | **54**  | Decoupling (50 + spares)                        |
+| 9    | LTST-C170KRKT red LED | **130** | Debug wall (126 + spares)                       |
+| 10   | 4610X-101-471LF SIP-9 | **14**  | Bussed 470Ω LED limiters                        |
 
 - **Subtotal:** $48.93
 - **Total (ship + tariff + tax):** **~$61**
@@ -80,11 +80,11 @@ _Figure 3 — DigiKey order `100884560` — 10 line items, two boards worth of s
 
 DigiKey does not have the SIP-4 networks without a 2,000-piece reel trap, and I already have headers in the lab:
 
-| Item | Qty (2 boards) | Refs |
-| --- | --- | --- |
-| SIP-4 bussed 470Ω (`4604X-101-471LF` or equiv.) | **4** | RN9, RN10 |
-| 4-pin headers | **4** | J10, J11 |
-| 8-pin headers | **14** | J5–J7, J12, J15–J17 |
+| Item                                            | Qty (2 boards) | Refs                |
+| ----------------------------------------------- | -------------- | ------------------- |
+| SIP-4 bussed 470Ω (`4604X-101-471LF` or equiv.) | **4**          | RN9, RN10           |
+| 4-pin headers                                   | **4**          | J10, J11            |
+| 8-pin headers                                   | **14**         | J5–J7, J12, J15–J17 |
 
 Fallback for RN9/RN10: discrete 470Ω resistors, common on one side.
 

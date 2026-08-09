@@ -49,14 +49,14 @@ Heat from brief overlap at these speeds should be ok. Production hygiene still m
 
 ## Board queue (after ALU)
 
-| Board | KiCad | Digital anchor | Notes |
-| --- | --- | --- | --- |
-| **06** data bus | `06_data_bus/` | `wb_mux`, `bus-arbitration` | **Current focus** — mux + drivers |
-| 04 register | `04_register/` | `register.dig`, `ir.dig` | 3R1W, 32 GPR × 8 banks |
-| 05 PC / SP | `05_program_counter/` | `program-counter.dig`, `sp.dig` | Fetch address source |
-| 03 memory | `03_memory/` | `memory.dig`, `byte-lane-decoder` | Load/store path |
-| 02 shift / mul-div | `02_shift_encoder/` | — | Shift / mul-div slice |
-| 08 display / FSM | `08_display/`, `08_alu_fsm` | `alu-display-control` | Bench debug |
+| Board              | KiCad                       | Digital anchor                    | Notes                             |
+| ------------------ | --------------------------- | --------------------------------- | --------------------------------- |
+| **06** data bus    | `06_data_bus/`              | `wb_mux`, `bus-arbitration`       | **Current focus** — mux + drivers |
+| 04 register        | `04_register/`              | `register.dig`, `ir.dig`          | 3R1W, 32 GPR × 8 banks            |
+| 05 PC / SP         | `05_program_counter/`       | `program-counter.dig`, `sp.dig`   | Fetch address source              |
+| 03 memory          | `03_memory/`                | `memory.dig`, `byte-lane-decoder` | Load/store path                   |
+| 02 shift / mul-div | `02_shift_encoder/`         | —                                 | Shift / mul-div slice             |
+| 08 display / FSM   | `08_display/`, `08_alu_fsm` | `alu-display-control`             | Bench debug                       |
 
 Control ROM boards ([microcode modularization](/writing/2026-06-16-microcode-control-modularization/)) ride with their datapath slices — not a separate queue item.
 

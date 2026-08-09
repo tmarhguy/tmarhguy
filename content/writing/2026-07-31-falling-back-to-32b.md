@@ -46,7 +46,7 @@ The persisting **dark silicon** — the address space and LUT catalog we did not
 ## What changes in practice
 
 | Area                       | 40b experiment (set aside)          | 32b (current)                                 |
-| --- | --- | --- |
+| -------------------------- | ----------------------------------- | --------------------------------------------- |
 | Instruction / machine word | 40 bits, unified                    | 32 bits                                       |
 | Opcode ROM                 | 4096-row INS table                  | **512 rows**                                  |
 | Register file              | 4 read ports, 6-bit addr            | 3R1W, 32 GPR × 8 banks                        |

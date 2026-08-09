@@ -37,10 +37,10 @@ How does **[itch-hw](https://github.com/tmarhguy/itch-hw)**, for instance, recei
 
 Additionally, 100 computers communicating via **`TCP`** with a server means the server needs to acknowledge each of them, and that overhead grows exponentially for **1000s of computers**.
 
-| **Protocol** | **Priority** | **Notes** |
-| --- | --- | --- |
-| **TCP** | Reliability | Three-way handshake — ensures order and completeness; interruptions pause, never drop data. |
-| **UDP** | Speed & recency | No handshake — drops lagging frames and always pushes the latest data. |
+| **Protocol** | **Priority**    | **Notes**                                                                                   |
+| ------------ | --------------- | ------------------------------------------------------------------------------------------- |
+| **TCP**      | Reliability     | Three-way handshake — ensures order and completeness; interruptions pause, never drop data. |
+| **UDP**      | Speed & recency | No handshake — drops lagging frames and always pushes the latest data.                      |
 
 ### The Goal
 
