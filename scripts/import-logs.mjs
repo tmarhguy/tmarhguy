@@ -44,6 +44,7 @@ const PROJECT_BY_FILE = {
   '2026-08-02-successful-synthesis-implementation-bitstream.md': 'itch-hw',
   '2026-08-08-understanding-udp-stack-and-connecting-to-itch.md': 'udp-stack',
   '2026-08-08-automating-vivado-openlane-ppa-extraction.md': 'orange',
+  '2026-08-09-first-open-source-contributions.md': 'openfpga',
   '2026-08-03-reassessing-mac-for-optimization.md': 'mac',
 };
 
