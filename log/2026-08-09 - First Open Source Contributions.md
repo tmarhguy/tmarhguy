@@ -1,6 +1,6 @@
 # First Open Source Contributions
 
-*August 9, 2026*
+_August 9, 2026_
 
 ---
 
