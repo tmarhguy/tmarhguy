@@ -143,6 +143,8 @@ const data: Project[] = [
   {
     title: 'SPICE Automation Framework',
     subtitle: 'Parametric analog optimization',
+    slug: 'spice-automation',
+    logProject: 'spice-automation',
     link: 'https://github.com/tmarhguy/spice-automation',
     date: '2026-01-01',
     period: 'Jan. 2026 — May. 2026',
@@ -203,10 +205,10 @@ const data: Project[] = [
     category: 'software',
   },
   {
-    title: 'Hardware Metrics API',
+    title: 'Orange Metrics API',
     subtitle: 'PPA benchmarking backend',
-    slug: 'hardware-metrics-api',
-    logProject: 'metrics-api',
+    slug: 'orange',
+    logProject: 'orange',
     link: 'https://github.com/tmarhguy/metrics-api',
     date: '2026-03-01',
     period: 'In progress',

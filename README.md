@@ -34,6 +34,7 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 
 - **[Tomato](https://github.com/tmarhguy/tomato)** — custom 32-bit CPU · discrete logic through PCB tapeout
 - **[16×4 SRAM — Full-Custom Analog Design](https://github.com/tmarhguy/64b-sram)** — 6T macro in 22 nm HP · StrongARM sense amp · 4.571 GHz fmax
+- **[SPICE Automation Framework](https://github.com/tmarhguy/spice-automation)** — NGSpice fmax binary search · parametric PPA sweeps · JSON/CSV/Markdown reports
 - **[16-Bit Mac Unit (Sky130)](https://github.com/tmarhguy/mac)** — BFloat16 MAC · OpenLane · TinyTapeout
 - **[NASDAQ ITCH 5.0 Hardware Parser](https://github.com/tmarhguy/itch-hw)** — market-data FPGA on Artix-7 · cocotb
 - **[100 Mbps UDP/IP Stack](https://github.com/tmarhguy/udp-stack)** — RMII/MAC/ARP/IP/UDP · sub-200 ns loopback
@@ -42,7 +43,7 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 **Tools & software**
 
 - **[Mango Tools](https://github.com/tmarhguy/tools)** — offline CLI for PDF, media & images
-- **[Hardware Metrics API](https://github.com/tmarhguy/metrics-api)** — Vivado & OpenLane PPA ingestion · FastAPI · PostgreSQL · Docker
+- **[Orange Metrics API](https://github.com/tmarhguy/metrics-api)** — Vivado & OpenLane PPA ingestion · FastAPI · PostgreSQL · Docker
 - **[QueuePaste](https://github.com/tmarhguy/QueuePaste)** — macOS clipboard queue · ⌥ Space to paste
 - **[Music & You](https://github.com/tmarhguy/music-and-you)** — personality from Spotify listening · Next.js · scikit-learn
 - **[UniBridge Ghana](https://github.com/tmarhguy/unibridgeGhana)** — university admissions platform · FastAPI · PostgreSQL

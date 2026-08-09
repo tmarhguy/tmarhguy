@@ -2,6 +2,7 @@
 
 import Markdown from 'markdown-to-jsx';
 import Image from 'next/image';
+import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 
 interface PostContentProps {
   content: string;
@@ -20,6 +21,17 @@ function isRootLocalImage(src: string): boolean {
   return src.startsWith('/') && !src.startsWith('//');
 }
 
+function ProseTable({
+  children,
+  ...props
+}: ComponentPropsWithoutRef<'table'> & { children?: ReactNode }) {
+  return (
+    <div className="prose-table-wrap">
+      <table {...props}>{children}</table>
+    </div>
+  );
+}
+
 export default function PostContent({
   content,
   imageSizes = {},
@@ -28,6 +40,9 @@ export default function PostContent({
     <Markdown
       options={{
         overrides: {
+          table: {
+            component: ProseTable,
+          },
           img: {
             component: ({ alt, src }: { alt?: string; src?: string }) => {
               if (!src) {

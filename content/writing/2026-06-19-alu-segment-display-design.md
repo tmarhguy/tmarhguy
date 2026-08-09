@@ -10,7 +10,7 @@ Four 32-bit values on screen at once—the three LUT3 operand buses plus the ALU
 #### The goal
 
 | Row | Input    | Registers       | LUT3 role               |
-| --- | -------- | --------------- | ----------------------- |
+| --- | --- | --- | --- |
 | 1   | `Data_A` | `regA0`–`regA7` | Operand A               |
 | 2   | `Data_B` | `regB0`–`regB7` | Operand B               |
 | 3   | `Data_C` | `regC0`–`regC7` | Operand C               |
@@ -41,7 +41,7 @@ Derive segment drive equations from first principles. Karnaugh maps, pure gate l
 Truth table for nibble `D3:D0` → segments `a`–`g`:
 
 | Nibble | D3 D2 D1 D0 | a b c d e f g | Char |
-| ------ | ----------- | ------------- | ---- |
+| --- | --- | --- | --- |
 | 0      | 0 0 0 0     | 1 1 1 1 1 1 0 | 0    |
 | 1      | 0 0 0 1     | 0 1 1 0 0 0 0 | 1    |
 | 2      | 0 0 1 0     | 1 1 0 1 1 0 1 | 2    |
@@ -74,7 +74,7 @@ g = (D3.D1) + (D3.D0) + (~D2.D1) + (~D3.D2.~D0) + (D3.~D2) + (D2.~D1.D0)
 Shared product terms (compute once, reuse):
 
 | Term        | Segments | Gate   |
-| ----------- | -------- | ------ |
+| --- | --- | --- |
 | `~D2.~D0`   | a, b, e  | 74HC08 |
 | `D3.~D2`    | c, f, g  | 74HC08 |
 | `D3.D1`     | e, f, g  | 74HC08 |
@@ -170,7 +170,7 @@ ROM image: `microcode/alu-display-control.hex` (Digital `v2.0 raw`). Mode bits o
 **Chip list (32-digit, matches schematic)**
 
 | Chip              | Function                           | Count  |
-| ----------------- | ---------------------------------- | ------ |
+| --- | --- | --- |
 | 74HC163           | 5-bit counter (0–31)               | 2      |
 | 74HC154           | 5→32 digit strobe decoder          | 2      |
 | 74AC125           | Nibble bus drivers (one per digit) | 32     |
@@ -222,7 +222,7 @@ Full-word hex-to-decimal (`0xDEADBEEF` → ten decimal digits) is not here. The 
 #### Summary
 
 | Attempt | Approach                    | ICs (32-digit) | Result            |
-| ------- | --------------------------- | -------------- | ----------------- |
+| --- | --- | --- | --- |
 | 1       | 74HC4511 BCD                | 32             | No hex A–F        |
 | 2       | 74HC4543                    | 32             | BCD only          |
 | 3       | K-map gates                 | 448            | Too many chips    |

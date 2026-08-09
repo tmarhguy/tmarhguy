@@ -23,9 +23,14 @@ const logProjects: LogProject[] = [
     link: 'https://github.com/tmarhguy/mac',
   },
   {
-    id: 'metrics-api',
-    label: 'Hardware Metrics API',
+    id: 'orange',
+    label: 'Orange Metrics API',
     link: 'https://github.com/tmarhguy/metrics-api',
+  },
+  {
+    id: 'spice-automation',
+    label: 'SPICE Automation Framework',
+    link: 'https://github.com/tmarhguy/spice-automation',
   },
   {
     id: 'tomato',

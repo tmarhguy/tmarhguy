@@ -187,8 +187,8 @@
 }
 
 .post-header {
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
   border-bottom: var(--rule) solid var(--color-border);
 }
 
@@ -275,6 +275,22 @@
   margin: 1rem 0;
 }
 
+.post-content.prose > :first-child {
+  margin-top: 0;
+}
+
+.post-content.prose > p:first-child:has(strong) {
+  margin-bottom: 0.5rem;
+  font-size: var(--text-sm);
+  color: var(--color-fg-light);
+}
+
+.post-content.prose > h2:first-child,
+.post-content.prose > p:first-child:has(strong) + h2,
+.post-content.prose > p:first-child:has(strong) + p:has(strong) + h2 {
+  margin-top: 1.25rem;
+}
+
 .prose a,
 .prose p a,
 .prose li a {
@@ -359,6 +375,54 @@
   border: none;
   border-top: 1px solid var(--color-border);
   margin: 2rem 0;
+}
+
+.prose-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0.75rem 0 1rem;
+}
+
+.prose-table-wrap table,
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.prose th,
+.prose td {
+  padding: 0.45rem 0.5rem;
+  border-bottom: var(--rule) solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose thead th {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-fg-light);
+}
+
+.prose tbody th {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+}
+
+/* 3+ columns: trailing detail column (Notes, Role, etc.) */
+.prose table:has(tr > :nth-child(3)) td:last-child {
+  color: var(--color-fg-light);
+  font-size: var(--text-xs);
+}
+
+/* 2-column metric tables: keep values at full weight */
+.prose table:not(:has(tr > :nth-child(3))) td:last-child {
+  font-variant-numeric: tabular-nums;
 }
 
 .prose img {

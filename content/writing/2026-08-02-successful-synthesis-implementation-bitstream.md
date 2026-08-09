@@ -19,27 +19,27 @@ After several RTL iterations — Ethernet ingress, MoldUDP64 unwrap, streaming I
 
 `synth_1` and `impl_1` both completed with green checkmarks. Post-route timing is clean:
 
-| Metric             | Value         |
-| ------------------ | ------------- |
-| WNS                | **+1.552 ns** |
-| TNS                | 0.000 ns      |
-| WHS                | **+0.033 ns** |
-| THS                | 0.000 ns      |
-| Failed routes      | 0             |
-| Total power (est.) | 0.117 W       |
+| Metric | Value |
+| --- | --- |
+| WNS | **+1.552 ns** |
+| TNS | 0.000 ns |
+| WHS | **+0.033 ns** |
+| THS | 0.000 ns |
+| Failed routes | 0 |
+| Total power (est.) | 0.117 W |
 
 ## Project summary
 
 Dashboard at a glance: timing closed, light utilization on the 100T fabric.
 
 | Resource | Utilization |
-| -------- | ----------- |
-| I/O      | 20%         |
-| BUFG     | 6%          |
-| LUT      | 2%          |
-| FF       | 1%          |
-| BRAM     | 1%          |
-| LUTRAM   | 1%          |
+| --- | --- |
+| I/O | 20% |
+| BUFG | 6% |
+| LUT | 2% |
+| FF | 1% |
+| BRAM | 1% |
+| LUTRAM | 1% |
 
 ## Synthesized design
 

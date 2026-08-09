@@ -12,7 +12,7 @@ project: tomato
 Every opcode indexes a **48-bit word** in the microcode ROM (`DIG_ROM_256X48_microcodeeeprom`). The fields, confirmed from `main.v:2087–2106`:
 
 | Bits        | Field             | Notes                                                                                   |
-| ----------- | ----------------- | --------------------------------------------------------------------------------------- |
+| --- | --- | --- |
 | [7:0]       | `alu-op`          | 8-bit truth-table opcode for the ALU                                                    |
 | [12:8]      | `alu-pre`         | 5-bit operand-source & inversion control (see §3)                                       |
 | [13]        | `cin-sel`         | Carry-in select (0=FLAG_C, 1=constant 1)                                                |
@@ -41,7 +41,7 @@ Every opcode indexes a **48-bit word** in the microcode ROM (`DIG_ROM_256X48_mic
 The sequencer counter (74163, clocked on **falling** CLK edge) determines the phase. Data registers (IR, register file, flags) are clocked on the **rising** CLK edge.
 
 | `cycles` value | Phases                     | Counter states used               |
-| -------------- | -------------------------- | --------------------------------- |
+| --- | --- | --- |
 | `0b01` = 1     | FETCH + EXECUTE            | Q=00, Q=01 (resets at Q=01)       |
 | `0b10` = 2     | FETCH + EXECUTE + MEM_WAIT | Q=00, Q=01, Q=10 (resets at Q=10) |
 
@@ -56,7 +56,7 @@ During **MEM_WAIT** (`Q=10`, `seq_exec=0`): no register write.
 The 5-bit `control` field maps directly to operand selection:
 
 | Bit | Name   | Effect when 1                                |
-| --- | ------ | -------------------------------------------- |
+| --- | --- | --- |
 | [0] | `Asel` | Enable A input (A_eff = A); if 0, A_eff = 0  |
 | [1] | `ainv` | Invert A_eff                                 |
 | [2] | `Bsel` | Enable B input (B_eff = B); if 0, B_eff = 0  |
@@ -106,7 +106,7 @@ The store data source is **hardwired** to `reg_b_temp` (`main.v:5045`). There is
 ## 6. Decoded ROM Entries — Load Instructions (opcodes 0x30–0x35)
 
 | Opcode     | ROM entry        | wb-sel | reg-we | mem-rd | mem-sel    | `ctrl-bussel` | `alu-op`   | `alu-pre`  | `cycles` |
-| ---------- | ---------------- | ------ | ------ | ------ | ---------- | ------------- | ---------- | ---------- | -------- |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | `0x30` LW  | `48'h3005630000` | 3 ✓    | 1 ✓    | 1 ✓    | 0 (word)   | 1 (ALU)       | **0x00 ⚠** | **0x00 ⚠** | 2        |
 | `0x31` LH  | `48'h3035630000` | 3 ✓    | 1 ✓    | 1 ✓    | 3 (half)   | 1 (ALU)       | **0x00 ⚠** | **0x00 ⚠** | 2        |
 | `0x32` LHU | `48'h3025630000` | 3 ✓    | 1 ✓    | 1 ✓    | 2 (byte_u) | 1 (ALU)       | **0x00 ⚠** | **0x00 ⚠** | 2        |
@@ -122,7 +122,7 @@ The store data source is **hardwired** to `reg_b_temp` (`main.v:5045`). There is
 ## 7. Decoded ROM Entries — Store Instructions (opcodes 0x40–0x43)
 
 | Opcode    | ROM entry        | reg-we | mem-wr | mem-rd | `ctrl-bussel` | `alu-op`   | `alu-pre`  | `cycles` |
-| --------- | ---------------- | ------ | ------ | ------ | ------------- | ---------- | ---------- | -------- |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | `0x40` SW | `48'h3008030000` | 0 ✓    | 1 ✓    | 0 ✓    | 1 (ALU)       | **0x00 ⚠** | **0x00 ⚠** | 2        |
 | `0x41` SH | `48'h3038030000` | 0 ✓    | 1 ✓    | 0 ✓    | 1 (ALU)       | **0x00 ⚠** | **0x00 ⚠** | 2        |
 | `0x42` SB | `48'h3018030000` | 0 ✓    | 1 ✓    | 0 ✓    | 1 (ALU)       | **0x00 ⚠** | **0x00 ⚠** | 2        |
@@ -167,7 +167,7 @@ A conventional `SW rA, [rB + imm]` (data=rA, address=rB+imm) is not directly rep
 ## 9. What Currently Works
 
 | Instruction                                         | Opcode      | Status                                                                   |
-| --------------------------------------------------- | ----------- | ------------------------------------------------------------------------ |
+| --- | --- | --- |
 | LW rd, [rB]                                         | `0x35`      | ✅ Correct (reg_b address, direct combinatorial path in exported .v)     |
 | SW [rB], rB                                         | `0x43`      | ✅ Correct (reg_b address and data, writes value of rB to address in rB) |
 | LW/LH/LHU/LB/LBU rd, [rA + imm12]                   | `0x30–0x34` | ❌ Bug #1: always accesses address 0                                     |

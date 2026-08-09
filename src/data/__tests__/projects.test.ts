@@ -144,10 +144,11 @@ describe('projects data', () => {
     expect(byTitle['Tomato — Custom 32-Bit CPU']).toBe('tomato');
     expect(byTitle['NASDAQ ITCH 5.0 Hardware Parser']).toBe('itch-hw');
     expect(byTitle['100 Mbps UDP/IP Stack']).toBe('udp-stack');
-    expect(byTitle['Hardware Metrics API']).toBe('metrics-api');
+    expect(byTitle['Orange Metrics API']).toBe('orange');
     expect(byTitle['16-bit MAC Unit (Sky130)']).toBe('mac');
     expect(byTitle['8-bit Discrete Transistor ALU']).toBe('alu');
     expect(byTitle['Mango Tools']).toBe('mango');
+    expect(byTitle['SPICE Automation Framework']).toBe('spice-automation');
     expect(byTitle['QueuePaste']).toBeUndefined();
   });
 

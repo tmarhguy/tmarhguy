@@ -5,6 +5,7 @@ import Education from '@/components/Resume/Education';
 import Experience from '@/components/Resume/Experience';
 import References from '@/components/Resume/References';
 import ResumeNav from '@/components/Resume/ResumeNav';
+import ResumeSummary from '@/components/Resume/ResumeSummary';
 import Skills from '@/components/Resume/Skills';
 import PageWrapper from '@/components/Template/PageWrapper';
 import profile from '@/data/profile.json';
@@ -27,15 +28,7 @@ export default function ResumePage() {
       <section className="resume-page">
         <header className="resume-header">
           <h1 className="resume-title">Resume</h1>
-          <p className="resume-summary">
-            I build computers from discrete transistors to tapeout — and I write
-            the software to test, automate, and deploy them. Currently designing
-            a 32-bit CPU that rethinks how FPGAs reconfigure. Joining
-            Pennovation for FPGA research this fall; battery management at Vero
-            Electric; backends at Aragorn AI; AR/VR STEM instruction at Howard
-            University STEM Achievers; and CIS 1100 TA plus Fife-Penn coding
-            clubs at Penn.
-          </p>
+          <ResumeSummary />
           {/* Print-only, but real markup rather than CSS `content`, so it is
               selectable, linkable, and reads from the shared profile. The
               screen layout carries these in the footer, which print hides. */}

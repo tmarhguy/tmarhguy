@@ -2,12 +2,12 @@
 title: 'Automating Vivado + OpenLane PPA Extraction'
 date: '2026-08-08'
 description: 'Why manual Vivado and OpenLane report scraping does not scale — and building a FastAPI + PostgreSQL pipeline to ingest PPA metrics automatically.'
-project: metrics-api
+project: orange
 ---
 
 **Date:** 2026-08-08
 
-**See also:** [First clean Vivado bitstream](/writing/2026-08-02-successful-synthesis-implementation-bitstream/) · [Hardware Metrics API](/projects/#hardware-metrics-api) · [repo](https://github.com/tmarhguy/metrics-api)
+**See also:** [First clean Vivado bitstream](/writing/2026-08-02-successful-synthesis-implementation-bitstream/) · [Orange Metrics API](/projects/#orange) · [repo](https://github.com/tmarhguy/metrics-api)
 
 This summer has been a massive exploration across multiple domains: analog layouts, ASIC MAC units, and building entire computers from scratch with discrete transistors (see [Tomato](/projects/#tomato)). Perhaps the most exciting leap of them all was finally buying an FPGA — a Nexys A7 that cost an arm and a leg — and diving headfirst into Vivado for the very first time.
 
@@ -25,7 +25,7 @@ I couldn't keep doing this for every single iteration. Manually scraping logs ki
 
 ## API to Resolve the Impatience
 
-To fix this, I decided to build a [Hardware Metrics API](/projects/#hardware-metrics-api). If I'm going to iterate fast, I need the data structured and handed to me automatically.
+To fix this, I decided to build [Orange Metrics API](/projects/#orange). If I'm going to iterate fast, I need the data structured and handed to me automatically.
 
 This project uses a FastAPI REST service backed by PostgreSQL to ingest, store, and query these PPA metrics. It is fully containerized via Docker. Instead of me digging for numbers, an automated pipeline now parses the Vivado and OpenLane synthesis reports directly, writing structured records into a database schema designed specifically for multi-project, multi-iteration benchmarking with indexed time-series queries. I also wrapped it in a Pytest integration suite to ensure the API endpoints and data integrity are bulletproof.
 
@@ -34,7 +34,7 @@ This project uses a FastAPI REST service backed by PostgreSQL to ingest, store, 
 - **Deploy — Docker Compose.** Postgres and API, Alembic on boot.
 - **Verify — pytest.** Parsers, discovery, ingest, and HTTP — no Vivado required.
 
-Entry points today: `metrics ingest` CLI, `POST /ingest/vivado`, `POST /ingest/openlane`, `GET /runs`.
+Entry points today: `orange ingest` CLI, `POST /ingest/vivado`, `POST /ingest/openlane`, `GET /runs`.
 
 ---
 
@@ -44,6 +44,6 @@ There's a recurring theme in my workflow: when a process introduces friction, I 
 
 I like to say that a well-structured computer engineering program like [Penn's](https://cmpe.engineering.upenn.edu/) means you have the flexibility to pull from both software and hardware toolkits to solve the problem in front of you.
 
-The [Metrics API](/projects/#hardware-metrics-api) was always going to come into the picture because I want to optimize the journey of figuring out how things work. Now, while I focus on learning taping out my custom chips and iterating on the Nexys A7, I can rest assured the PPA metrics will be brought directly to me like a waiter at a bar.
+[Orange Metrics API](/projects/#orange) was always going to come into the picture because I want to optimize the journey of figuring out how things work. Now, while I focus on learning taping out my custom chips and iterating on the Nexys A7, I can rest assured the PPA metrics will be brought directly to me like a waiter at a bar.
 
 Exciting builds and learning ahead :)

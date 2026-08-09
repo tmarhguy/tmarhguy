@@ -33,4 +33,16 @@ describe('PostContent', () => {
     expect(html).toContain('width="1200"');
     expect(html).toContain('height="675"');
   });
+
+  it('wraps markdown tables for shared prose styling', () => {
+    const html = renderToStaticMarkup(
+      <PostContent
+        content={`| Metric | Value |\n| --- | --- |\n| WNS | **+1.552 ns** |`}
+      />,
+    );
+
+    expect(html).toContain('class="prose-table-wrap"');
+    expect(html).toContain('<table');
+    expect(html).toContain('WNS');
+  });
 });
