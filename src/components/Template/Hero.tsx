@@ -38,7 +38,7 @@ export default function Hero() {
             a <ProjectLink titleMatch="Tomato">32-bit CPU</ProjectLink> with a
             focus on flexible datapath control. Previously:{' '}
             <ProjectLink titleMatch="SRAM">full-custom 22nm SRAM</ProjectLink>,
-            a <ProjectLink titleMatch="1 GbE">1 GbE UDP/IP stack</ProjectLink>{' '}
+            a <ProjectLink titleMatch="UDP">100 Mbps UDP/IP stack</ProjectLink>{' '}
             on Artix-7,{' '}
             <ProjectLink titleMatch="Mango">terminal toolbox</ProjectLink> so I
             never upload a PDF to a random website again. The builds are in my{' '}

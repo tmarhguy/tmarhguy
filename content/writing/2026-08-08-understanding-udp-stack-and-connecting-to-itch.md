@@ -1,15 +1,15 @@
 ---
 title: 'Understanding the UDP Stack and Connecting to ITCH'
 date: '2026-08-08'
-description: 'Why market-data pipelines need UDP over TCP — from ITCH ingestion on the FPGA to building a custom 1 GbE stack.'
+description: 'Why market-data pipelines need UDP over TCP — from ITCH ingestion on the FPGA to building a custom 100 Mbps stack.'
 project: udp-stack
 ---
 
 **Date:** 2026-08-08
 
-**See also:** [ITCH Ethernet lab bring-up](/writing/2026-08-01-itch-ethernet-lab-bring-up/) · [1 GbE UDP/IP Stack](/projects/#1-gbe-udp-ip-stack)
+**See also:** [ITCH Ethernet lab bring-up](/writing/2026-08-01-itch-ethernet-lab-bring-up/) · [100 Mbps UDP/IP Stack](/projects/#100mbps-udp-ip-stack)
 
-In my personal exploration (shoutouts to my Wharton folks), I have learned the need for both the **ITCH protocol** and a **[UDP stack](/projects/#1-gbe-udp-ip-stack)**. **`TCP`** is not your friend if speed is your goal. **`TCP`** has the three-way handshake protocol, which, for its own good, severely limits rapid data transmission.
+In my personal exploration (shoutouts to my Wharton folks), I have learned the need for both the **ITCH protocol** and a **[UDP stack](/projects/#100mbps-udp-ip-stack)**. **`TCP`** is not your friend if speed is your goal. **`TCP`** has the three-way handshake protocol, which, for its own good, severely limits rapid data transmission.
 
 **`UDP`**, however, couldn't care less if you received the full data or not; it serves to inject real-time data with the least latency. For first-time engineers in the trading field, the goal is to fire the latest open book data and make live decisions on buying low and selling high.
 
@@ -46,4 +46,4 @@ Additionally, 100 computers communicating via **`TCP`** with a server means the 
 
 **`UDP` multicast** is the answer. If the network lags, we don't want an old frame loaded again. We always want the **absolute latest data**. But someone's got to build that hardware parser, and that's exactly what this project is for:
 
-> **A [custom UDP stack](/projects/#1-gbe-udp-ip-stack) on my FPGA board!**
+> **A [custom UDP stack](/projects/#100mbps-udp-ip-stack) on my FPGA board!**

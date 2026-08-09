@@ -24,7 +24,7 @@ describe('Hero', () => {
     const intro = container.querySelector('.hero-intro');
     expect(intro).toHaveTextContent('discrete transistors to tapeout');
     expect(intro).toHaveTextContent('32-bit CPU');
-    expect(intro).toHaveTextContent('1 GbE UDP/IP stack');
+    expect(intro).toHaveTextContent('100 Mbps UDP/IP stack');
     expect(intro).toHaveTextContent('terminal toolbox');
 
     expect(screen.getByRole('link', { name: /^32-bit CPU$/i })).toHaveAttribute(
@@ -35,8 +35,8 @@ describe('Hero', () => {
       screen.getByRole('link', { name: /^full-custom 22nm SRAM$/i }),
     ).toHaveAttribute('href', '/projects/#full-custom-sram');
     expect(
-      screen.getByRole('link', { name: /^1 GbE UDP\/IP stack$/i }),
-    ).toHaveAttribute('href', '/projects/#1-gbe-udp-ip-stack');
+      screen.getByRole('link', { name: /^100 Mbps UDP\/IP stack$/i }),
+    ).toHaveAttribute('href', '/projects/#100mbps-udp-ip-stack');
     expect(
       screen.getByRole('link', { name: /^terminal toolbox$/i }),
     ).toHaveAttribute('href', '/projects/#mango-tools');

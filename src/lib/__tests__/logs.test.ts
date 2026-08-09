@@ -98,20 +98,27 @@ describe('getLogsByProject', () => {
     expect(groups[0].project).toBe('itch-hw');
   });
 
-  it('orders writing sections NASDAQ, MAC, Tomato, then the rest', () => {
+  it('orders writing sections NASDAQ, MAC, Metrics API, Tomato, then the rest', () => {
     const groups = getLogsByProject();
     const order = groups.map((group) => group.project);
 
     const itchIndex = order.indexOf('itch-hw');
     const macIndex = order.indexOf('mac');
+    const metricsIndex = order.indexOf('metrics-api');
     const tomatoIndex = order.indexOf('tomato');
 
-    if (itchIndex === -1 || macIndex === -1 || tomatoIndex === -1) {
+    if (
+      itchIndex === -1 ||
+      macIndex === -1 ||
+      metricsIndex === -1 ||
+      tomatoIndex === -1
+    ) {
       return;
     }
 
     expect(itchIndex).toBeLessThan(macIndex);
-    expect(macIndex).toBeLessThan(tomatoIndex);
+    expect(macIndex).toBeLessThan(metricsIndex);
+    expect(metricsIndex).toBeLessThan(tomatoIndex);
   });
 });
 

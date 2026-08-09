@@ -189,7 +189,15 @@ function readPublishedLogs(): LogEntry[] {
     .map(readLog)
     .filter((entry): entry is LogEntry => entry !== null)
     .filter(isPublished)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .sort((a, b) => {
+      const dateDiff =
+        new Date(b.date).getTime() - new Date(a.date).getTime();
+      if (dateDiff !== 0) {
+        return dateDiff;
+      }
+
+      return b.slug.localeCompare(a.slug);
+    });
 }
 
 let cachedLogs: LogEntry[] | undefined;

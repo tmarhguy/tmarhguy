@@ -36,12 +36,13 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 - **[16×4 SRAM — Full-Custom Analog Design](https://github.com/tmarhguy/64b-sram)** — 6T macro in 22 nm HP · StrongARM sense amp · 4.571 GHz fmax
 - **[16-Bit Mac Unit (Sky130)](https://github.com/tmarhguy/mac)** — BFloat16 MAC · OpenLane · TinyTapeout
 - **[NASDAQ ITCH 5.0 Hardware Parser](https://github.com/tmarhguy/itch-hw)** — market-data FPGA on Artix-7 · cocotb
-- **[1 GbE UDP/IP Stack](https://github.com/tmarhguy/udp-stack)** — RGMII/MAC/ARP/IP/UDP · sub-200 ns loopback
+- **[100 Mbps UDP/IP Stack](https://github.com/tmarhguy/udp-stack)** — RMII/MAC/ARP/IP/UDP · sub-200 ns loopback
 - **[8-Bit Discrete Transistor ALU](https://alu.tmarhguy.com)** — 3,488 MOSFETs · 1.24M+ automated test vectors
 
 **Tools & software**
 
 - **[Mango Tools](https://github.com/tmarhguy/tools)** — offline CLI for PDF, media & images
+- **[Hardware Metrics API](https://github.com/tmarhguy/metrics-api)** — Vivado & OpenLane PPA ingestion · FastAPI · PostgreSQL · Docker
 - **[QueuePaste](https://github.com/tmarhguy/QueuePaste)** — macOS clipboard queue · ⌥ Space to paste
 - **[Music & You](https://github.com/tmarhguy/music-and-you)** — personality from Spotify listening · Next.js · scikit-learn
 - **[UniBridge Ghana](https://github.com/tmarhguy/unibridgeGhana)** — university admissions platform · FastAPI · PostgreSQL

@@ -14,13 +14,18 @@ const logProjects: LogProject[] = [
   },
   {
     id: 'udp-stack',
-    label: '1 GbE UDP/IP Stack',
+    label: '100 Mbps UDP/IP Stack',
     link: 'https://github.com/tmarhguy/udp-stack',
   },
   {
     id: 'mac',
     label: '16-bit MAC Unit (Sky130)',
     link: 'https://github.com/tmarhguy/mac',
+  },
+  {
+    id: 'metrics-api',
+    label: 'Hardware Metrics API',
+    link: 'https://github.com/tmarhguy/metrics-api',
   },
   {
     id: 'tomato',

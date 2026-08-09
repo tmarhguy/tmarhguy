@@ -90,7 +90,7 @@ describe('projects data', () => {
     expect(resumeProjects).toHaveLength(3);
     expect(resumeProjects.map((project) => project.title).sort()).toEqual(
       [
-        '1 GbE UDP/IP Stack',
+        '100 Mbps UDP/IP Stack',
         'NASDAQ ITCH 5.0 Hardware Parser',
         'Tomato — Custom 32-Bit CPU',
       ].sort(),
@@ -100,7 +100,7 @@ describe('projects data', () => {
   it('orders featured homepage projects by cracked-hardware rank', () => {
     expect(
       getFeaturedProjects().map((project) => getProjectSlug(project)),
-    ).toEqual(['1-gbe-udp-ip-stack', 'tomato', 'full-custom-sram']);
+    ).toEqual(['100mbps-udp-ip-stack', 'tomato', 'full-custom-sram']);
   });
 
   it('includes hardware, tools, and software lanes from resume work', () => {
@@ -143,7 +143,8 @@ describe('projects data', () => {
 
     expect(byTitle['Tomato — Custom 32-Bit CPU']).toBe('tomato');
     expect(byTitle['NASDAQ ITCH 5.0 Hardware Parser']).toBe('itch-hw');
-    expect(byTitle['1 GbE UDP/IP Stack']).toBe('udp-stack');
+    expect(byTitle['100 Mbps UDP/IP Stack']).toBe('udp-stack');
+    expect(byTitle['Hardware Metrics API']).toBe('metrics-api');
     expect(byTitle['16-bit MAC Unit (Sky130)']).toBe('mac');
     expect(byTitle['8-bit Discrete Transistor ALU']).toBe('alu');
     expect(byTitle['Mango Tools']).toBe('mango');

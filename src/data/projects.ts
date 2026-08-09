@@ -55,15 +55,15 @@ const data: Project[] = [
     onResume: true,
   },
   {
-    title: '1 GbE UDP/IP Stack',
+    title: '100 Mbps UDP/IP Stack',
     subtitle: 'Low-latency datapath',
-    slug: '1-gbe-udp-ip-stack',
+    slug: '100mbps-udp-ip-stack',
     logProject: 'udp-stack',
     link: 'https://github.com/tmarhguy/udp-stack',
     image: '/images/projects/riscv-card.png',
     date: '2026-08-01',
     period: 'Jul. 2026 — Aug. 2026',
-    desc: 'Deterministic 1 GbE pipeline — RGMII PHY, MAC, ARP/IP/UDP on Artix-7; sub-200 ns RX-to-TX loopback with 100% cocotb coverage.',
+    desc: 'Deterministic 100 Mbps RMII pipeline — MAC, ARP/IP/UDP on Nexys A7 Artix-7; sub-200 ns RX-to-TX loopback with 100% cocotb coverage.',
     tech: ['SystemVerilog', 'Vivado', 'cocotb', 'AXI4-Stream'],
     category: 'hardware',
     onResume: true,
@@ -205,6 +205,8 @@ const data: Project[] = [
   {
     title: 'Hardware Metrics API',
     subtitle: 'PPA benchmarking backend',
+    slug: 'hardware-metrics-api',
+    logProject: 'metrics-api',
     link: 'https://github.com/tmarhguy/metrics-api',
     date: '2026-03-01',
     period: 'In progress',
@@ -288,7 +290,7 @@ export function getProjectSlug(project: Project): string {
 }
 
 const FEATURED_PROJECT_SLUGS = [
-  '1-gbe-udp-ip-stack',
+  '100mbps-udp-ip-stack',
   'tomato',
   'full-custom-sram',
 ] as const;
