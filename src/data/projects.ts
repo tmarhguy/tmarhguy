@@ -217,16 +217,6 @@ const data: Project[] = [
     category: 'software',
   },
   {
-    title: 'CUDA Matrix Kernel & Inference Server',
-    subtitle: 'GPU inference',
-    link: 'https://github.com/tmarhguy/cuda',
-    date: '2026-02-01',
-    period: 'In progress',
-    desc: 'CUDA C++ kernels for matrix multiply and batched BFloat16 inference with shared-memory tiling on Ampere; FastAPI server with PostgreSQL latency logging.',
-    tech: ['CUDA C++', 'Python', 'FastAPI', 'PostgreSQL'],
-    category: 'software',
-  },
-  {
     title: 'UniBridge Ghana',
     subtitle: 'Admissions platform',
     link: 'https://github.com/tmarhguy/unibridgeGhana',
@@ -292,9 +282,9 @@ export function getProjectSlug(project: Project): string {
 }
 
 const FEATURED_PROJECT_SLUGS = [
-  '100mbps-udp-ip-stack',
   'tomato',
   'full-custom-sram',
+  '100mbps-udp-ip-stack',
 ] as const;
 
 /** Homepage selected work — explicit cracked-hardware order. */
