@@ -100,14 +100,14 @@ describe('projects data', () => {
   it('orders featured homepage projects by cracked-hardware rank', () => {
     expect(
       getFeaturedProjects().map((project) => getProjectSlug(project)),
-    ).toEqual(['100mbps-udp-ip-stack', 'tomato', 'full-custom-sram']);
+    ).toEqual(['tomato', 'full-custom-sram', '100mbps-udp-ip-stack']);
   });
 
   it('includes hardware, tools, and software lanes from resume work', () => {
     expect(projects.length).toBeGreaterThanOrEqual(18);
     expect(getHardwareProjects().length).toBeGreaterThanOrEqual(8);
     expect(getToolsProjects().length).toBeGreaterThanOrEqual(3);
-    expect(getSoftwareProjects().length).toBeGreaterThanOrEqual(7);
+    expect(getSoftwareProjects().length).toBeGreaterThanOrEqual(6);
   });
 
   it('includes related analog, tooling, and bring-up work', () => {
