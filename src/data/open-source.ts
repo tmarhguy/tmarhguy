@@ -15,9 +15,23 @@ export interface OpenSourceContribution {
 }
 
 export const OPEN_SOURCE_BUILD_LOG_HREF =
-  '/writing/2026-08-09-first-open-source-contributions/';
+  '/writing/2026-08-11-librelane-verilator-openfpga/';
 
 const contributions: OpenSourceContribution[] = [
+  {
+    title: 'LibreLane',
+    slug: 'librelane',
+    link: 'https://github.com/librelane/librelane',
+    date: '2026-08-11',
+    period: 'Aug. 2026',
+    desc: 'Yosys ≥ 0.68 abc -fast and slang plugin gating',
+    pulls: [
+      {
+        label: '#1015',
+        href: 'https://github.com/librelane/librelane/pull/1015',
+      },
+    ],
+  },
   {
     title: 'Verilator',
     slug: 'verilator',

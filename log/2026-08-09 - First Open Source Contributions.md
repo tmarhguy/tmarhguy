@@ -1,8 +1,6 @@
 # Open Source Contributions
 
-_August 9, 2026_
-
----
+Date: 2026-08-09
 
 Published: [/writing/2026-08-09-first-open-source-contributions/](/writing/2026-08-09-first-open-source-contributions/)
 

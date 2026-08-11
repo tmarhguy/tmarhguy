@@ -25,7 +25,7 @@ const work: Position[] = [
     highlights: [
       'Characterize FPGA RTL workloads across logic, memory, and DSP blocks; automate Vivado/Quartus place-and-route and timing/area extraction in Python/C++.',
       'Develop Python/C++ tooling to parse synthesis reports for reproducible FPGA benchmarking and RTL regression.',
-      'Contributor to OpenFPGA — open-source FPGA IP generator with silicon proofs.',
+      'Contributor to LibreLane, OpenFPGA, and Verilator — merged fixes to ASIC flow tooling and FPGA IP infrastructure.',
     ],
   },
   {

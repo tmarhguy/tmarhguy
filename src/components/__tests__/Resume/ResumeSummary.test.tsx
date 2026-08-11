@@ -25,6 +25,10 @@ describe('ResumeSummary', () => {
       'href',
       'https://education.howard.edu/affiliated-programs/stem-summer-camp-verizon-innovative-learning',
     );
+    expect(screen.getByRole('link', { name: /librelane/i })).toHaveAttribute(
+      'href',
+      'https://github.com/librelane/librelane/pull/1015',
+    );
     expect(screen.getByRole('link', { name: /openfpga/i })).toHaveAttribute(
       'href',
       'https://github.com/lnis-uofu/OpenFPGA',
@@ -33,6 +37,6 @@ describe('ResumeSummary', () => {
       'href',
       'https://github.com/verilator/verilator/pull/8070',
     );
-    expect(screen.getAllByRole('link')).toHaveLength(7);
+    expect(screen.getAllByRole('link')).toHaveLength(8);
   });
 });

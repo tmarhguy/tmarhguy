@@ -66,7 +66,8 @@ export default function WritingPage() {
             </a>
           </div>
           <p className="page-subtitle">
-            Build notes from the bench — grouped by project, newest first.
+            Build notes from the bench — grouped by project; the freshest
+            section rises to the top.
           </p>
         </header>
 

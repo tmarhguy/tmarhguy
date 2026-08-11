@@ -4,7 +4,7 @@
   "employer": "University of Pennsylvania",
   "focus": "discrete transistors through tapeout",
   "tagline": "Discrete transistors to tapeout — and the software that ships with them.",
-  "bio": "Building computers from discrete transistors to tapeout — and the software to test, automate, and deploy them. Designing a 32-bit CPU; contributor to OpenFPGA and Verilator; previously full-custom SRAM, market-data parsers, and a local dev toolbox.",
+  "bio": "Building computers from discrete transistors to tapeout — and the software to test, automate, and deploy them. Designing a 32-bit CPU; contributor to LibreLane, OpenFPGA, and Verilator; previously full-custom SRAM, market-data parsers, and a local dev toolbox.",
   "hardwareTrack": "RTL, FPGA, and ASIC tapeouts — discrete logic through silicon.",
   "softwareTrack": "Production backends, embedded firmware, and tooling.",
   "birthDate": "2003-11-24T00:00:00-05:00",
