@@ -28,10 +28,11 @@ Ghanaian computer engineering student at **Penn**. I build computers from discre
 
 ## Open source
 
+- **[LibreLane](https://github.com/librelane/librelane)** — Yosys ≥ 0.68 `abc -fast` and slang plugin gating ([#1015](https://github.com/librelane/librelane/pull/1015))
 - **[Verilator](https://github.com/verilator/verilator)** — Linux peak memory reporting ([#8070](https://github.com/verilator/verilator/pull/8070))
 - **[OpenFPGA](https://github.com/lnis-uofu/OpenFPGA)** — contribution guide and interconnect docs ([#2682](https://github.com/lnis-uofu/OpenFPGA/pull/2682), [#2683](https://github.com/lnis-uofu/OpenFPGA/pull/2683))
 
-**[Build log →](https://tmarhguy.com/writing/2026-08-09-first-open-source-contributions/)**
+**[Build log →](https://tmarhguy.com/projects/#open-source-title)**
 
 ## Working on
 

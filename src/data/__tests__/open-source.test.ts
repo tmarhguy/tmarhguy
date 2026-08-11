@@ -17,18 +17,20 @@ describe('open-source data', () => {
     }
   });
 
-  it('includes Verilator and OpenFPGA with pull links', () => {
+  it('includes LibreLane, Verilator, and OpenFPGA with pull links', () => {
     const entries = getOpenSourceContributions();
+    const librelane = entries.find((entry) => entry.slug === 'librelane');
     const verilator = entries.find((entry) => entry.slug === 'verilator');
     const openfpga = entries.find((entry) => entry.slug === 'openfpga');
 
+    expect(librelane?.pulls[0]?.href).toContain('/pull/1015');
     expect(verilator?.pulls[0]?.href).toContain('/pull/8070');
     expect(openfpga?.pulls).toHaveLength(2);
   });
 
   it('exposes the shared build log href', () => {
     expect(OPEN_SOURCE_BUILD_LOG_HREF).toBe(
-      '/writing/2026-08-09-first-open-source-contributions/',
+      '/writing/2026-08-11-librelane-verilator-openfpga/',
     );
   });
 });

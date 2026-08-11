@@ -45,7 +45,8 @@ const PROJECT_BY_FILE = {
   '2026-08-02-successful-synthesis-implementation-bitstream.md': 'itch-hw',
   '2026-08-08-understanding-udp-stack-and-connecting-to-itch.md': 'udp-stack',
   '2026-08-08-automating-vivado-openlane-ppa-extraction.md': 'orange',
-  '2026-08-09-first-open-source-contributions.md': 'openfpga',
+  '2026-08-09-first-open-source-contributions.md': 'open-source',
+  '2026-08-11-librelane-verilator-openfpga.md': 'open-source',
   '2026-08-03-reassessing-mac-for-optimization.md': 'mac',
 };
 
@@ -83,6 +84,12 @@ function inferProject(slug, title, body) {
   }
 
   const haystack = `${title} ${body}`.toLowerCase();
+  if (
+    /open.?source|verilator|openfpga/.test(haystack) ||
+    (/librelane/.test(haystack) && !/\bmac\b|tapeout|sky130/.test(haystack))
+  ) {
+    return 'open-source';
+  }
   if (
     /\bmac\b|librelane/.test(haystack) &&
     !/tomato/.test(title.toLowerCase())

@@ -57,10 +57,17 @@ export default function ResumeSummary() {
         32-bit CPU
       </InlineLink>{' '}
       that rethinks how FPGAs reconfigure. Contributor to{' '}
+      <InlineLink
+        href="https://github.com/librelane/librelane/pull/1015"
+        external
+      >
+        LibreLane
+      </InlineLink>
+      ,{' '}
       <InlineLink href="https://github.com/lnis-uofu/OpenFPGA" external>
         OpenFPGA
-      </InlineLink>{' '}
-      and{' '}
+      </InlineLink>
+      , and{' '}
       <InlineLink
         href="https://github.com/verilator/verilator/pull/8070"
         external

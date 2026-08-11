@@ -25,12 +25,17 @@ export default function Letterhead({
     .filter(Boolean)
     .join(' ');
 
+  const isExternalProjectLink = Boolean(
+    projectLink && /^https?:\/\//i.test(projectLink),
+  );
+
   const projectNode = projectLink ? (
     <a
       href={projectLink}
       className="writing-letterhead-link"
-      target="_blank"
-      rel="noopener noreferrer"
+      {...(isExternalProjectLink
+        ? { target: '_blank', rel: 'noopener noreferrer' }
+        : {})}
     >
       {isPost ? (
         <>

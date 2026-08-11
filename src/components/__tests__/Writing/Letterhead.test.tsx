@@ -31,7 +31,23 @@ describe('Letterhead', () => {
 
     const link = screen.getByRole('link', { name: /Tomato CPU/i });
     expect(link).toBeInTheDocument();
+    expect(link).toHaveAttribute('target', '_blank');
     expect(screen.getByText('Aug 02, 2026')).toBeInTheDocument();
     expect(link.closest('.writing-letterhead--row')).toBeTruthy();
+  });
+
+  it('keeps on-site project links in the same tab', () => {
+    render(
+      <Letterhead
+        date="2026-08-11"
+        projectLabel="Open Source"
+        projectLink="/projects/#open-source-title"
+        variant="post"
+      />,
+    );
+
+    const link = screen.getByRole('link', { name: /Open Source/i });
+    expect(link).toHaveAttribute('href', '/projects/#open-source-title');
+    expect(link).not.toHaveAttribute('target');
   });
 });

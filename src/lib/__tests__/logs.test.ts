@@ -86,37 +86,58 @@ describe('getLogsByProject', () => {
     }
   });
 
-  it('lists NASDAQ ITCH first on the writing index', () => {
+  it('lists the section with the newest log first on the writing index', () => {
     const groups = getLogsByProject();
-    const itchGroup = groups.find((group) => group.project === 'itch-hw');
-    if (!itchGroup) {
+    expect(groups.length).toBeGreaterThan(1);
+
+    for (let index = 1; index < groups.length; index += 1) {
+      const previous = new Date(
+        groups[index - 1].entries[0]?.date ?? 0,
+      ).getTime();
+      const current = new Date(groups[index].entries[0]?.date ?? 0).getTime();
+      expect(previous).toBeGreaterThanOrEqual(current);
+    }
+
+    const openSourceGroup = groups.find(
+      (group) => group.project === 'open-source',
+    );
+    if (!openSourceGroup) {
       return;
     }
 
-    expect(groups[0].project).toBe('itch-hw');
+    // Open Source and Mango both have 2026-08-11 entries; catalog order keeps Open Source first.
+    expect(groups[0].project).toBe('open-source');
+    expect(openSourceGroup.entries[0]?.slug).toBe(
+      '2026-08-11-librelane-verilator-openfpga',
+    );
+    expect(openSourceGroup.entries.map((entry) => entry.slug)).toEqual([
+      '2026-08-11-librelane-verilator-openfpga',
+      '2026-08-09-first-open-source-contributions',
+    ]);
   });
 
-  it('orders writing sections NASDAQ, MAC, Orange Metrics API, Tomato, then the rest', () => {
+  it('keeps older sections below any project with a newer log', () => {
     const groups = getLogsByProject();
     const order = groups.map((group) => group.project);
 
-    const itchIndex = order.indexOf('itch-hw');
-    const macIndex = order.indexOf('mac');
-    const orangeIndex = order.indexOf('orange');
+    const openSourceIndex = order.indexOf('open-source');
+    const mangoIndex = order.indexOf('mango');
     const tomatoIndex = order.indexOf('tomato');
+    const itchIndex = order.indexOf('itch-hw');
 
     if (
-      itchIndex === -1 ||
-      macIndex === -1 ||
-      orangeIndex === -1 ||
-      tomatoIndex === -1
+      openSourceIndex === -1 ||
+      mangoIndex === -1 ||
+      tomatoIndex === -1 ||
+      itchIndex === -1
     ) {
       return;
     }
 
-    expect(itchIndex).toBeLessThan(macIndex);
-    expect(macIndex).toBeLessThan(orangeIndex);
-    expect(orangeIndex).toBeLessThan(tomatoIndex);
+    // Open Source / Mango (Aug 11) above Tomato (Aug 7) above ITCH (Aug 2).
+    expect(openSourceIndex).toBeLessThan(tomatoIndex);
+    expect(mangoIndex).toBeLessThan(tomatoIndex);
+    expect(tomatoIndex).toBeLessThan(itchIndex);
   });
 });
 

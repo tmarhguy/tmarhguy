@@ -9,6 +9,9 @@ interface ListItemProps {
 
 export default function ListItem({ entry }: ListItemProps) {
   const { slug, title, description, date, projectLabel, projectLink } = entry;
+  const isExternalProjectLink = Boolean(
+    projectLink && /^https?:\/\//i.test(projectLink),
+  );
 
   return (
     <article className="project-list-item writing-list-item">
@@ -20,8 +23,9 @@ export default function ListItem({ entry }: ListItemProps) {
           <a
             href={projectLink}
             className="writing-item-project-link"
-            target="_blank"
-            rel="noopener noreferrer"
+            {...(isExternalProjectLink
+              ? { target: '_blank', rel: 'noopener noreferrer' }
+              : {})}
           >
             Project ↗
           </a>

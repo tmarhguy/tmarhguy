@@ -16,6 +16,14 @@ describe('OpenSourceStrip', () => {
       'href',
       'https://github.com/verilator/verilator',
     );
+    expect(screen.getByRole('link', { name: 'LibreLane' })).toHaveAttribute(
+      'href',
+      'https://github.com/librelane/librelane',
+    );
+    expect(screen.getByRole('link', { name: '#1015' })).toHaveAttribute(
+      'href',
+      'https://github.com/librelane/librelane/pull/1015',
+    );
     expect(screen.getByRole('link', { name: 'Verilator' })).toHaveAttribute(
       'target',
       '_blank',
@@ -30,7 +38,7 @@ describe('OpenSourceStrip', () => {
     );
     expect(screen.getByRole('link', { name: 'Build log' })).toHaveAttribute(
       'href',
-      '/writing/2026-08-09-first-open-source-contributions/',
+      '/writing/2026-08-11-librelane-verilator-openfpga/',
     );
     expect(screen.getByRole('link', { name: 'Build log' })).not.toHaveAttribute(
       'target',
@@ -40,6 +48,7 @@ describe('OpenSourceStrip', () => {
 
   it('exposes stable anchor ids for deep links', () => {
     render(<OpenSourceStrip contributions={getOpenSourceContributions()} />);
+    expect(document.getElementById('librelane')).toBeTruthy();
     expect(document.getElementById('verilator')).toBeTruthy();
     expect(document.getElementById('openfpga')).toBeTruthy();
   });

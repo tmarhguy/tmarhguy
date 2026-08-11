@@ -251,7 +251,7 @@ export interface LogProjectGroup {
   entries: LogEntry[];
 }
 
-/** Logs grouped by project, newest first within each group. */
+/** Logs grouped by project. Sections float by newest entry; entries newest-first within each. */
 export function getLogsByProject(): LogProjectGroup[] {
   const groups = new Map<string, LogProjectGroup>();
 
@@ -271,15 +271,14 @@ export function getLogsByProject(): LogProjectGroup[] {
   }
 
   return [...groups.values()].sort((a, b) => {
-    const orderDiff =
-      getLogProjectOrder(a.project) - getLogProjectOrder(b.project);
-    if (orderDiff !== 0) {
-      return orderDiff;
-    }
-
     const aLatest = new Date(a.entries[0]?.date ?? 0).getTime();
     const bLatest = new Date(b.entries[0]?.date ?? 0).getTime();
-    return bLatest - aLatest;
+    if (aLatest !== bLatest) {
+      return bLatest - aLatest;
+    }
+
+    // Same calendar day: keep a stable catalog order as the tiebreaker.
+    return getLogProjectOrder(a.project) - getLogProjectOrder(b.project);
   });
 }
 

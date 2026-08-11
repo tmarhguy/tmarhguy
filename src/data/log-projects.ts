@@ -5,8 +5,14 @@ export interface LogProject {
   link?: string;
 }
 
-/** Projects referenced by build logs — ids match frontmatter `project`. Order is the writing index. */
+/** Projects referenced by build logs — ids match frontmatter `project`.
+ *  Catalog order is only a same-day tiebreaker; writing sections float by newest entry. */
 const logProjects: LogProject[] = [
+  {
+    id: 'open-source',
+    label: 'Open Source',
+    link: '/projects/#open-source-title',
+  },
   {
     id: 'itch-hw',
     label: 'NASDAQ ITCH Hardware Parser',
@@ -26,16 +32,6 @@ const logProjects: LogProject[] = [
     id: 'orange',
     label: 'Orange Metrics API',
     link: 'https://github.com/tmarhguy/metrics-api',
-  },
-  {
-    id: 'openfpga',
-    label: 'OpenFPGA',
-    link: 'https://github.com/lnis-uofu/OpenFPGA',
-  },
-  {
-    id: 'verilator',
-    label: 'Verilator',
-    link: 'https://github.com/verilator/verilator',
   },
   {
     id: 'spice-automation',
@@ -63,7 +59,7 @@ export function getLogProject(id: string): LogProject | undefined {
   return logProjects.find((project) => project.id === id);
 }
 
-/** Writing index section order — lower comes first. */
+/** Writing index section tiebreaker when latest entry dates match — lower comes first. */
 export function getLogProjectOrder(id: string): number {
   const index = logProjects.findIndex((project) => project.id === id);
   return index === -1 ? Number.MAX_SAFE_INTEGER : index;
