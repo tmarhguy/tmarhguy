@@ -240,6 +240,10 @@
   color: var(--color-fg-bold);
 }
 
+.post-content.prose h2 {
+  margin-top: 2rem;
+}
+
 .prose h3 {
   font-family: var(--font-display);
   font-size: var(--text-lg);
@@ -287,8 +291,13 @@
 
 .post-content.prose > h2:first-child,
 .post-content.prose > p:first-child:has(strong) + h2,
-.post-content.prose > p:first-child:has(strong) + p:has(strong) + h2 {
+.post-content.prose > p:first-child:has(strong) + p:has(strong) + h2,
+.post-content.prose > p:first-child:has(strong) + p + h2 {
   margin-top: 1.25rem;
+}
+
+.post-content.prose > p:first-child:has(strong) + p {
+  margin-top: 0.75rem;
 }
 
 .prose a,
@@ -375,6 +384,79 @@
   border: none;
   border-top: 1px solid var(--color-border);
   margin: 2rem 0;
+}
+
+.prose-compare {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.75rem;
+  margin: 1rem 0 1.25rem;
+}
+
+.prose-compare__item {
+  min-width: 0;
+  padding: 0.75rem;
+  border: var(--rule) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-subtle);
+}
+
+.prose-compare__item--accent {
+  border-color: color-mix(in srgb, var(--color-accent) 35%, var(--color-border));
+  background: color-mix(in srgb, var(--color-accent) 6%, var(--color-surface-subtle));
+}
+
+.prose-compare__label {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-fg-light);
+}
+
+.prose-compare__tag {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: var(--radius-xs);
+  background: var(--color-surface);
+  color: var(--color-fg);
+  font-size: var(--text-2xs);
+  letter-spacing: var(--tracking-normal);
+  text-transform: none;
+}
+
+.prose-compare__item--accent .prose-compare__tag {
+  background: color-mix(in srgb, var(--color-accent) 12%, var(--color-surface));
+  color: var(--color-accent);
+}
+
+.prose-compare pre {
+  margin: 0.5rem 0 0;
+  padding: 0.65rem 0.75rem;
+  font-size: var(--text-xs);
+  line-height: 1.45;
+}
+
+.prose-compare__note {
+  margin: 0.5rem 0 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  color: var(--color-fg-light);
+}
+
+.prose-compare + p,
+.prose-compare + h2,
+.prose-compare + h3 {
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .prose-compare {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .prose-table-wrap {

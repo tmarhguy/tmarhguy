@@ -142,7 +142,6 @@ export default async function WritingEntryPage({ params }: PageProps) {
             className="writing-letterhead--post"
           />
           <h1 className="post-title">{entry.title}</h1>
-          <p className="post-description">{entry.description}</p>
         </header>
         <div className="post-content prose">
           <PostContent content={entry.content} imageSizes={imageSizes} />

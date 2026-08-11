@@ -38,6 +38,7 @@ const PROJECT_BY_FILE = {
   '2026-07-31-the-lingering-thoughts.md': 'tomato',
   '2026-08-01-shell-ui-mango.md': 'mango',
   '2026-08-01-tools.md': 'mango',
+  '2026-08-11-system-wide-call.md': 'mango',
   '2026-08-02-designing-additional-boards.md': 'tomato',
   '2026-08-07-ordered-tomato.md': 'tomato',
   '2026-08-01-itch-ethernet-lab-bring-up.md': 'itch-hw',
