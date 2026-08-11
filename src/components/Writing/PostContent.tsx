@@ -1,8 +1,8 @@
-'use client';
-
 import Markdown from 'markdown-to-jsx';
 import Image from 'next/image';
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
+
+import { ProseCompare, ProseCompareItem } from './ProseCompare';
 
 interface PostContentProps {
   content: string;
@@ -40,6 +40,12 @@ export default function PostContent({
     <Markdown
       options={{
         overrides: {
+          ProseCompare: {
+            component: ProseCompare,
+          },
+          ProseCompareItem: {
+            component: ProseCompareItem,
+          },
           table: {
             component: ProseTable,
           },

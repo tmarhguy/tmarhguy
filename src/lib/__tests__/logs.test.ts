@@ -25,7 +25,7 @@ describe('getAllLogs', () => {
 
   it('lists Open Source Contributions as the newest writing entry', () => {
     const logs = getAllLogs();
-    expect(logs[0]?.slug).toBe('2026-08-09-first-open-source-contributions');
+    expect(logs[0]?.slug).toBe('2026-08-11-system-wide-call');
   });
 
   it('includes project labels on every entry', () => {

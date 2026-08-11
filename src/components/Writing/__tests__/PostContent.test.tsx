@@ -45,4 +45,18 @@ describe('PostContent', () => {
     expect(html).toContain('<table');
     expect(html).toContain('WNS');
   });
+
+  it('renders prose-compare blocks for before/after terminal snippets', () => {
+    const html = renderToStaticMarkup(
+      <PostContent
+        content={
+          '<ProseCompare><ProseCompareItem label="Before" tag="old">cd ~/projects/mango</ProseCompareItem></ProseCompare>'
+        }
+      />,
+    );
+
+    expect(html).toContain('class="prose-compare"');
+    expect(html).toContain('cd ~/projects/mango');
+    expect(html).not.toContain('dangerouslySetInnerHTML');
+  });
 });
