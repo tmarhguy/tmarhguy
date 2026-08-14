@@ -23,7 +23,9 @@ describe('open-source data', () => {
     const verilator = entries.find((entry) => entry.slug === 'verilator');
     const openfpga = entries.find((entry) => entry.slug === 'openfpga');
 
+    expect(librelane?.desc).toMatch(/abc -fast/);
     expect(librelane?.pulls[0]?.href).toContain('/pull/1015');
+    expect(librelane?.pulls[1]?.href).toContain('/releases/tag/3.0.8');
     expect(verilator?.pulls[0]?.href).toContain('/pull/8070');
     expect(openfpga?.pulls).toHaveLength(2);
   });

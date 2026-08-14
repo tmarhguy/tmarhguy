@@ -24,6 +24,10 @@ describe('OpenSourceStrip', () => {
       'href',
       'https://github.com/librelane/librelane/pull/1015',
     );
+    expect(screen.getByRole('link', { name: '3.0.8' })).toHaveAttribute(
+      'href',
+      'https://github.com/librelane/librelane/releases/tag/3.0.8',
+    );
     expect(screen.getByRole('link', { name: 'Verilator' })).toHaveAttribute(
       'target',
       '_blank',
