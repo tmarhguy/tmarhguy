@@ -8,7 +8,7 @@ priority: 1
 
 **See also:** [Ordered Tomato](/writing/2026-08-07-ordered-tomato/) · [Solder Station Arrives](/writing/2026-08-13-solder-station-arrives/)
 
-The hardest parts of this journey have always been the *non-technical* ones. The name of the project, for example: that's when I begin spinning. **Tomato** is nothing special btw. I just couldn't keep calling it 32b cpu, 40b cpu, and other horribly generic names. I don't like (or dislike) tomatoes, nor do I have any special connection to it.
+The hardest parts of this journey have always been the _non-technical_ ones. The name of the project, for example: that's when I begin spinning. **Tomato** is nothing special btw. I just couldn't keep calling it 32b cpu, 40b cpu, and other horribly generic names. I don't like (or dislike) tomatoes, nor do I have any special connection to it.
 
 The website interface is the same unbounded problem. Should I give it a custom feel like a product page of renowned top companies, or a generic React package with flying colors (no pun intended) like I only had 100 tokens for my starving agent?
 
@@ -32,6 +32,6 @@ A look on the bottom left corner of the board will reveal two logos and a map. P
 
 Ghana flag. We were so close to winning the world cup last year, but jokes aside, it's a reminder of my love for my 69 year old house!
 
-So not to break the lucidity, I want GitHub to also be rendered first-hand in the vintage feel — *the tree*, set in the same type, so you never have to leave the paper to see the forge. And if you want to leave, you can always return to modernity!
+So not to break the lucidity, I want GitHub to also be rendered first-hand in the vintage feel — _the tree_, set in the same type, so you never have to leave the paper to see the forge. And if you want to leave, you can always return to modernity!
 
 I love the freedom to create. Maybe unbounded problems aren't the bad guys like how the DRC/ERC boys frame it lol
