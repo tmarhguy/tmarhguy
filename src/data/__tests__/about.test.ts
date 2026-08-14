@@ -44,7 +44,14 @@ describe('about data', () => {
 
   it('contains the now section', () => {
     expect(aboutMarkdown).toContain('# Now');
+    expect(aboutMarkdown).toContain('Fluid Silicon');
+    expect(aboutMarkdown).toContain(
+      'https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently',
+    );
+    expect(aboutMarkdown).toContain('Pennovation Center');
     expect(aboutMarkdown).toContain('Tomato');
+    expect(aboutMarkdown).toContain('https://tomato.tmarhguy.com');
+    expect(aboutMarkdown).toContain('https://github.com/tmarhguy/tomato');
     expect(aboutMarkdown).toContain('LibreLane');
     expect(aboutMarkdown).toContain('Verilator');
     expect(aboutMarkdown).toContain('Aragorn AI');

@@ -37,6 +37,22 @@ describe('ContactIcons', () => {
       screen.queryByRole('link', { name: /email/i }),
     ).not.toBeInTheDocument();
     expect(screen.getByRole('link', { name: /github/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /hackaday/i })).toHaveAttribute(
+      'href',
+      'https://hackaday.io/tmarhguy',
+    );
+    expect(screen.getByRole('link', { name: /hackster/i })).toHaveAttribute(
+      'href',
+      'https://www.hackster.io/tmarhguy',
+    );
+    expect(screen.getByRole('link', { name: /^dev /i })).toHaveAttribute(
+      'href',
+      'https://dev.to/tmarhguy',
+    );
+    expect(screen.getByRole('link', { name: /threads/i })).toHaveAttribute(
+      'href',
+      'https://www.threads.net/@tmarhguy',
+    );
     expect(screen.getByRole('link', { name: /wikipedia/i })).toHaveAttribute(
       'href',
       'https://en.wikipedia.org/wiki/Tyrone_Marhguy',

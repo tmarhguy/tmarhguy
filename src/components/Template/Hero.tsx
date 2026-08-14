@@ -2,7 +2,11 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 
 import profile from '@/data/profile.json';
-import { getProjectAnchorHrefByTitle } from '@/data/projects';
+import {
+  getProjectAnchorHrefByTitle,
+  TOMATO_REPO_URL,
+  TOMATO_SITE_URL,
+} from '@/data/projects';
 
 import ThemePortrait from './ThemePortrait';
 
@@ -35,8 +39,25 @@ export default function Hero() {
           <p className="hero-intro">
             I build computers from discrete transistors to tapeout — and I write
             the software to test, automate, and deploy them. Currently designing
-            a <ProjectLink titleMatch="Tomato">32-bit CPU</ProjectLink> with a
-            focus on flexible datapath control. Previously:{' '}
+            a{' '}
+            <a
+              href={TOMATO_SITE_URL}
+              className="hero-inline-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              32-bit CPU
+            </a>{' '}
+            (
+            <a
+              href={TOMATO_REPO_URL}
+              className="hero-inline-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+            ) with a focus on flexible datapath control. Previously:{' '}
             <ProjectLink titleMatch="SRAM">full-custom 22nm SRAM</ProjectLink>,
             a <ProjectLink titleMatch="UDP">100 Mbps UDP/IP stack</ProjectLink>{' '}
             on Artix-7,{' '}

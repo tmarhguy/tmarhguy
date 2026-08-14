@@ -1,10 +1,8 @@
----
-title: 'Front-Page News in Ashtown Valley'
-date: '2026-08-13'
-description: 'Tomato is not a product page. It is a 32-bit machine from the 74xx years — so the site is a broadsheet: nameplate, copper plate, and a door back to now.'
-project: tomato
-priority: 1
----
+# Front-Page News in Ashtown Valley
+
+Date: 2026-08-13
+
+Published: [/writing/2026-08-13-front-page-news-in-ashtown-valley/](/writing/2026-08-13-front-page-news-in-ashtown-valley/)
 
 **See also:** [Ordered Tomato](/writing/2026-08-07-ordered-tomato/) · [Solder Station Arrives](/writing/2026-08-13-solder-station-arrives/)
 
@@ -23,6 +21,10 @@ Luckily, I've gotten extremely better at such unbounded graphs. So for the websi
 So, let's take a step back, to the earlier times, the 90s, when Tomato truly lives. Over there, whatever social media you're reading this article on now doesn't exist, but [newspapers](https://en.wikipedia.org/wiki/Newspaper) did!
 
 Let's put Tomato in a newspaper feel to remind of its truest time, but let's add 3D renders and models to connect us back to our own modernity. The front is a broadsheet: nameplate, deck, classifieds for the eight lots. The copper of render of the ALU which took sweat and time and sleep to build casually sits in the plate like a photograph.
+
+![The Tomato, Vol. 32 No. 1 — front page. Ashtown Valley, the Bay Perimeter, 13 August 2026.](./2026-08-13-tomato-magazine-top.png)
+
+_Vol. 32 · No. 1 — the paper, printed. Nameplate, copper plate, the 32-bit word at the fold._
 
 > **Ashtown Valley**, the Bay Perimeter
 

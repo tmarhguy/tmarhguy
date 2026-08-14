@@ -7,11 +7,34 @@ interface ListItemProps {
   entry: LogEntry;
 }
 
-export default function ListItem({ entry }: ListItemProps) {
-  const { slug, title, description, date, projectLabel, projectLink } = entry;
-  const isExternalProjectLink = Boolean(
-    projectLink && /^https?:\/\//i.test(projectLink),
+function ProjectMetaLink({ href, label }: { href: string; label: string }) {
+  const isExternal = /^https?:\/\//i.test(href);
+
+  return (
+    <a
+      href={href}
+      className="writing-item-project-link"
+      {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+    >
+      {label}
+    </a>
   );
+}
+
+export default function ListItem({ entry }: ListItemProps) {
+  const {
+    slug,
+    title,
+    description,
+    date,
+    projectLabel,
+    projectLink,
+    projectSite,
+  } = entry;
+  const hasSiteAndRepo = Boolean(
+    projectSite && projectLink && projectSite !== projectLink,
+  );
+  const primaryHref = projectSite ?? projectLink;
 
   return (
     <article className="project-list-item writing-list-item">
@@ -19,16 +42,13 @@ export default function ListItem({ entry }: ListItemProps) {
         <time className="project-list-date" dateTime={date}>
           {formatWritingDate(date)}
         </time>
-        {projectLink ? (
-          <a
-            href={projectLink}
-            className="writing-item-project-link"
-            {...(isExternalProjectLink
-              ? { target: '_blank', rel: 'noopener noreferrer' }
-              : {})}
-          >
-            Project ↗
-          </a>
+        {hasSiteAndRepo ? (
+          <>
+            <ProjectMetaLink href={projectSite!} label="Site ↗" />
+            <ProjectMetaLink href={projectLink!} label="GitHub ↗" />
+          </>
+        ) : primaryHref ? (
+          <ProjectMetaLink href={primaryHref} label="Project ↗" />
         ) : (
           <span className="writing-item-project-label">{projectLabel}</span>
         )}

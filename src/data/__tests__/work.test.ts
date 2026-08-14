@@ -56,10 +56,20 @@ describe('work data', () => {
     }
   });
 
-  // Resume should show at least one current/active position
-  it('has at least one current position (no endDate)', () => {
-    const currentJobs = work.filter((job) => !job.endDate);
-    expect(currentJobs.length).toBeGreaterThanOrEqual(1);
+  it('has at least one current or upcoming position', () => {
+    const activeJobs = work.filter((job) => !job.endDate || job.upcoming);
+    expect(activeJobs.length).toBeGreaterThanOrEqual(1);
+  });
+
+  it('lists Fluid Silicon Inc. as employer, with Pennovation as the site', () => {
+    const intern = work.find((job) => job.name === 'Fluid Silicon Inc.');
+    expect(intern).toBeDefined();
+    expect(intern?.position).toBe('Hardware Research Engineer Intern');
+    expect(intern?.url).toBe(
+      'https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently',
+    );
+    expect(intern?.summary).toMatch(/Pennovation Center/);
+    expect(intern?.name).not.toMatch(/Pennovation|University of Pennsylvania/);
   });
 
   it('highlights are arrays when present', () => {

@@ -397,9 +397,19 @@
   opacity: 0.65;
 }
 
-.project-list-link:hover .project-list-affordance,
-.project-list-link:focus-visible .project-list-affordance {
-  opacity: 1;
+.project-list-aux-link {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-accent);
+  text-decoration: none;
+  background-image: none;
+  white-space: nowrap;
+}
+
+.project-list-aux-link:hover,
+.project-list-aux-link:focus-visible {
+  color: var(--color-fg-bold);
 }
 
 .project-list-subtitle {

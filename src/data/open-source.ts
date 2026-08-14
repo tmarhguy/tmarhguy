@@ -24,11 +24,15 @@ const contributions: OpenSourceContribution[] = [
     link: 'https://github.com/librelane/librelane',
     date: '2026-08-11',
     period: 'Aug. 2026',
-    desc: 'Yosys ≥ 0.68 abc -fast and slang plugin gating',
+    desc: 'Yosys ≥ 0.68 abc -fast gating',
     pulls: [
       {
         label: '#1015',
         href: 'https://github.com/librelane/librelane/pull/1015',
+      },
+      {
+        label: '3.0.8',
+        href: 'https://github.com/librelane/librelane/releases/tag/3.0.8',
       },
     ],
   },

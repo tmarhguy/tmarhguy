@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 
-import { getProjectAnchorHrefByTitle } from '@/data/projects';
+import { TOMATO_REPO_URL, TOMATO_SITE_URL } from '@/data/projects';
 import work from '@/data/resume/work';
 
 const HOWARD_ACHIEVERS_URL =
@@ -53,10 +53,14 @@ export default function ResumeSummary() {
       </InlineLink>
       — and I write the software to test, automate, and deploy them. Currently
       designing a{' '}
-      <InlineLink href={getProjectAnchorHrefByTitle('Tomato')}>
+      <InlineLink href={TOMATO_SITE_URL} external>
         32-bit CPU
       </InlineLink>{' '}
-      that rethinks how FPGAs reconfigure. Contributor to{' '}
+      (
+      <InlineLink href={TOMATO_REPO_URL} external>
+        GitHub
+      </InlineLink>
+      ) that rethinks how FPGAs reconfigure. Contributor to{' '}
       <InlineLink
         href="https://github.com/librelane/librelane/pull/1015"
         external
@@ -74,7 +78,15 @@ export default function ResumeSummary() {
       >
         Verilator
       </InlineLink>
-      ; joining Penn for FPGA research this fall; backends at{' '}
+      ; intern at{' '}
+      <InlineLink href={workUrl('Fluid Silicon')} external>
+        Fluid Silicon Inc.
+      </InlineLink>{' '}
+      at the{' '}
+      <InlineLink href="https://pennovation.upenn.edu" external>
+        Pennovation Center
+      </InlineLink>{' '}
+      this fall; backends at{' '}
       <InlineLink href={workUrl('Aragorn')} external>
         Aragorn AI
       </InlineLink>

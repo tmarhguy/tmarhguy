@@ -108,15 +108,22 @@ describe('personNode', () => {
     expect(image.height).toBe(SITE_IMAGE_DIMENSIONS.height);
     expect(Array.isArray(node.sameAs)).toBe(true);
     expect((node.sameAs as string[]).length).toBeGreaterThan(0);
+    expect(node.sameAs as string[]).toEqual(
+      expect.arrayContaining([
+        'https://github.com/tmarhguy',
+        'https://hackaday.io/tmarhguy',
+        'https://www.hackster.io/tmarhguy',
+        'https://dev.to/tmarhguy',
+        'https://www.threads.net/@tmarhguy',
+      ]),
+    );
   });
 
   it('includes worksFor and alumniOf', () => {
     const node = personNode();
     const worksFor = node.worksFor as Record<string, unknown>;
     expect(worksFor['@type']).toBe('Organization');
-    expect(worksFor.name).toBe(
-      'Pennovation Center — University of Pennsylvania',
-    );
+    expect(worksFor.name).toBe('Fluid Silicon Inc.');
     const alumniOf = node.alumniOf as Record<string, unknown>[];
     expect(alumniOf[0]['@type']).toBe('CollegeOrUniversity');
   });

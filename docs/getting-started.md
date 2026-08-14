@@ -10,13 +10,13 @@ project archive, and writing site built with
 
 ## What is here
 
-- A statically exported Next.js 16 site deployed to [Vercel](https://tmarhguy.com) (production) and mirrored to GitHub Pages at `https://tmarhguy.github.io/tmarhguy/` via the CI workflow.
+- A statically exported Next.js 16 site, deployed to [Vercel](https://vercel.com) at [tmarhguy.com](https://tmarhguy.com).
 - A responsive light/dark design system built from semantic CSS tokens.
 - Markdown writing with drafts, RSS, and page metadata.
 - A filterable résumé that still prints in full.
 - Tests for components, content, metadata, and the final static export.
 
-## Manual setup
+## Setup
 
 With [nvm](https://github.com/nvm-sh/nvm) installed:
 
@@ -30,19 +30,6 @@ Open [http://localhost:3000](http://localhost:3000).
 
 If you use another version manager, choose a release accepted by `engines.node`
 in `package.json`.
-
-## With a coding agent
-
-Open the repository in your agent and ask:
-
-```text
-Read AGENTS.md, use the Node version in .nvmrc, install the locked
-dependencies, and start the development server. Do not change the site yet.
-Tell me the local URL and report any setup failure with its exact output.
-```
-
-For a full rebrand or content pass, see
-[adapting-guide.md](./adapting-guide.md) and the prompt in that document.
 
 ## Commands
 
@@ -72,9 +59,8 @@ npm run build
 npm run verify-export
 ```
 
-CI runs the same checks on every pull request. Pushes to `main` deploy the
-static export that CI validates. See [adapting-guide.md](./adapting-guide.md)
-for URL and domain setup.
+CI runs the same checks on every pull request. Pushes to `main` deploy to
+[tmarhguy.com](https://tmarhguy.com).
 
 ## Credits
 

@@ -61,6 +61,9 @@ describe('projects data', () => {
       if (project.link) {
         expect(project.link).toMatch(urlRegex);
       }
+      if (project.site) {
+        expect(project.site).toMatch(urlRegex);
+      }
     }
   });
 
@@ -134,6 +137,12 @@ describe('projects data', () => {
     );
     expect(getProjectAnchorHrefByTitle('Mango')).toBe('/projects/#mango-tools');
     expect(getProjectSlug(findProjectByTitle('Tomato')!)).toBe('tomato');
+  });
+
+  it('lists Tomato with both the live site and the GitHub repo', () => {
+    const tomato = findProjectByTitle('Tomato')!;
+    expect(tomato.site).toBe('https://tomato.tmarhguy.com');
+    expect(tomato.link).toBe('https://github.com/tmarhguy/tomato');
   });
 
   it('maps portfolio projects with writing to log project ids', () => {

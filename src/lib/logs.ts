@@ -14,6 +14,8 @@ export interface LogFrontmatter {
   draft?: boolean;
   image?: string;
   imageAlt?: string;
+  /** Same-day tiebreaker — higher sorts first. */
+  priority?: number;
 }
 
 export interface LogEntry {
@@ -24,10 +26,12 @@ export interface LogEntry {
   project: string;
   projectLabel: string;
   projectLink?: string;
+  projectSite?: string;
   content: string;
   draft?: boolean;
   image?: string;
   imageAlt?: string;
+  priority?: number;
 }
 
 const logsDirectory = path.join(process.cwd(), 'content/writing');
@@ -134,6 +138,17 @@ export function validateLogFrontmatter(
     );
   }
 
+  if (value.priority !== undefined) {
+    if (
+      typeof value.priority !== 'number' ||
+      !Number.isInteger(value.priority)
+    ) {
+      throw new TypeError(
+        `Invalid frontmatter in ${source}: "priority" must be an integer when provided`,
+      );
+    }
+  }
+
   return {
     title,
     date,
@@ -142,6 +157,7 @@ export function validateLogFrontmatter(
     ...(value.draft === undefined ? {} : { draft: value.draft }),
     ...(image === undefined ? {} : { image }),
     ...(imageAlt === undefined ? {} : { imageAlt }),
+    ...(value.priority === undefined ? {} : { priority: value.priority }),
   };
 }
 
@@ -177,10 +193,12 @@ function readLog(slug: string): LogEntry | null {
     project: frontmatter.project,
     projectLabel: projectMeta?.label ?? frontmatter.project,
     projectLink: projectMeta?.link,
+    projectSite: projectMeta?.site,
     content: smoothedContent,
     draft: frontmatter.draft,
     image: frontmatter.image,
     imageAlt: frontmatter.imageAlt,
+    priority: frontmatter.priority,
   };
 }
 
@@ -193,6 +211,11 @@ function readPublishedLogs(): LogEntry[] {
       const dateDiff = new Date(b.date).getTime() - new Date(a.date).getTime();
       if (dateDiff !== 0) {
         return dateDiff;
+      }
+
+      const priorityDiff = (b.priority ?? 0) - (a.priority ?? 0);
+      if (priorityDiff !== 0) {
+        return priorityDiff;
       }
 
       return b.slug.localeCompare(a.slug);
