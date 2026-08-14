@@ -23,9 +23,10 @@ describe('getAllLogs', () => {
     }
   });
 
-  it('lists Open Source Contributions as the newest writing entry', () => {
+  it('lists Front-Page News in Ashtown Valley as the newest writing entry', () => {
     const logs = getAllLogs();
-    expect(logs[0]?.slug).toBe('2026-08-11-system-wide-call');
+    expect(logs[0]?.slug).toBe('2026-08-13-front-page-news-in-ashtown-valley');
+    expect(logs[1]?.slug).toBe('2026-08-13-solder-station-arrives');
   });
 
   it('includes project labels on every entry', () => {
@@ -33,6 +34,12 @@ describe('getAllLogs', () => {
       expect(entry.projectLabel).toBeTruthy();
       expect(entry.project).toBeTruthy();
     }
+  });
+
+  it('attaches the Tomato site next to the GitHub repo on tomato logs', () => {
+    const tomato = getAllLogs().find((entry) => entry.project === 'tomato');
+    expect(tomato?.projectSite).toBe('https://tomato.tmarhguy.com');
+    expect(tomato?.projectLink).toBe('https://github.com/tmarhguy/tomato');
   });
 });
 
@@ -98,21 +105,20 @@ describe('getLogsByProject', () => {
       expect(previous).toBeGreaterThanOrEqual(current);
     }
 
-    const openSourceGroup = groups.find(
-      (group) => group.project === 'open-source',
-    );
-    if (!openSourceGroup) {
+    const tomatoGroup = groups.find((group) => group.project === 'tomato');
+    if (!tomatoGroup) {
       return;
     }
 
-    // Open Source and Mango both have 2026-08-11 entries; catalog order keeps Open Source first.
-    expect(groups[0].project).toBe('open-source');
-    expect(openSourceGroup.entries[0]?.slug).toBe(
-      '2026-08-11-librelane-verilator-openfpga',
+    // Tomato has the newest logs (2026-08-13); Ashtown is pinned above the solder station on the same day.
+    expect(groups[0].project).toBe('tomato');
+    expect(tomatoGroup.entries[0]?.slug).toBe(
+      '2026-08-13-front-page-news-in-ashtown-valley',
     );
-    expect(openSourceGroup.entries.map((entry) => entry.slug)).toEqual([
-      '2026-08-11-librelane-verilator-openfpga',
-      '2026-08-09-first-open-source-contributions',
+    expect(tomatoGroup.entries.map((entry) => entry.slug).slice(0, 3)).toEqual([
+      '2026-08-13-front-page-news-in-ashtown-valley',
+      '2026-08-13-solder-station-arrives',
+      '2026-08-07-ordered-tomato',
     ]);
   });
 
@@ -134,10 +140,10 @@ describe('getLogsByProject', () => {
       return;
     }
 
-    // Open Source / Mango (Aug 11) above Tomato (Aug 7) above ITCH (Aug 2).
-    expect(openSourceIndex).toBeLessThan(tomatoIndex);
-    expect(mangoIndex).toBeLessThan(tomatoIndex);
-    expect(tomatoIndex).toBeLessThan(itchIndex);
+    // Tomato (Aug 13) above Open Source / Mango (Aug 11) above ITCH (Aug 2).
+    expect(tomatoIndex).toBeLessThan(openSourceIndex);
+    expect(openSourceIndex).toBeLessThan(itchIndex);
+    expect(mangoIndex).toBeLessThan(itchIndex);
   });
 });
 

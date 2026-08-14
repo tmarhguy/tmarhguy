@@ -1,18 +1,42 @@
+import type { ReactNode } from 'react';
+
 import { formatWritingDate } from '@/lib/log-content';
 
 interface LetterheadProps {
   date: string;
   projectLabel: string;
   projectLink?: string;
+  projectSite?: string;
   /** Index rows show a short project link; post pages show the full label. */
   variant?: 'index' | 'post';
   className?: string;
+}
+
+function ProjectAnchor({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) {
+  const isExternal = /^https?:\/\//i.test(href);
+
+  return (
+    <a
+      href={href}
+      className="writing-letterhead-link"
+      {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+    >
+      {children}
+    </a>
+  );
 }
 
 export default function Letterhead({
   date,
   projectLabel,
   projectLink,
+  projectSite,
   variant = 'index',
   className,
 }: LetterheadProps) {
@@ -25,27 +49,35 @@ export default function Letterhead({
     .filter(Boolean)
     .join(' ');
 
-  const isExternalProjectLink = Boolean(
-    projectLink && /^https?:\/\//i.test(projectLink),
+  const hasSiteAndRepo = Boolean(
+    projectSite && projectLink && projectSite !== projectLink,
   );
+  const primaryHref = projectSite ?? projectLink;
 
-  const projectNode = projectLink ? (
-    <a
-      href={projectLink}
-      className="writing-letterhead-link"
-      {...(isExternalProjectLink
-        ? { target: '_blank', rel: 'noopener noreferrer' }
-        : {})}
-    >
-      {isPost ? (
+  const projectNode = primaryHref ? (
+    <>
+      <ProjectAnchor href={primaryHref}>
+        {isPost ? (
+          <>
+            {projectLabel}
+            <span aria-hidden="true"> ↗</span>
+          </>
+        ) : (
+          'Project ↗'
+        )}
+      </ProjectAnchor>
+      {hasSiteAndRepo ? (
         <>
-          {projectLabel}
-          <span aria-hidden="true"> ↗</span>
+          <span className="writing-letterhead-separator" aria-hidden="true">
+            ·
+          </span>
+          <ProjectAnchor href={projectLink!}>
+            GitHub
+            <span aria-hidden="true"> ↗</span>
+          </ProjectAnchor>
         </>
-      ) : (
-        'Project ↗'
-      )}
-    </a>
+      ) : null}
+    </>
   ) : (
     <span className="writing-letterhead-label">
       {isPost ? projectLabel : 'Project'}

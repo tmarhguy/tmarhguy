@@ -138,6 +138,7 @@ export default async function WritingEntryPage({ params }: PageProps) {
             date={entry.date}
             projectLabel={entry.projectLabel}
             projectLink={entry.projectLink}
+            projectSite={entry.projectSite}
             variant="post"
             className="writing-letterhead--post"
           />

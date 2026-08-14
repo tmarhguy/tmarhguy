@@ -15,17 +15,17 @@ export interface Position {
 
 const work: Position[] = [
   {
-    name: 'Pennovation Center — University of Pennsylvania',
-    position: 'Hardware Research Engineer',
-    url: 'https://www.upenn.edu',
-    startDate: '2026-08-01',
+    name: 'Fluid Silicon Inc.',
+    position: 'Hardware Research Engineer Intern',
+    url: 'https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently',
+    startDate: '2026-08-25',
+    endDate: '2026-12-07',
     upcoming: true,
     summary:
-      'Starting Fall 2026. FPGA utilization research — RTL workload characterization and synthesis-flow automation.',
+      'Fall 2026 term at [Pennovation Center](https://pennovation.upenn.edu), Philadelphia.',
     highlights: [
-      'Characterize FPGA RTL workloads across logic, memory, and DSP blocks; automate Vivado/Quartus place-and-route and timing/area extraction in Python/C++.',
-      'Develop Python/C++ tooling to parse synthesis reports for reproducible FPGA benchmarking and RTL regression.',
-      'Contributor to LibreLane, OpenFPGA, and Verilator — merged fixes to ASIC flow tooling and FPGA IP infrastructure.',
+      'Design digital hardware at RTL in HDL — write the circuits themselves, not a software stand-in.',
+      'Verify that RTL in emulation and simulation before the design moves further in the flow.',
     ],
   },
   {

@@ -47,13 +47,14 @@ export default function HomePage() {
               </>
             );
 
-            if (project.link) {
+            const href = project.site ?? project.link;
+            if (href) {
               return (
                 <a
                   key={project.title}
-                  href={project.link}
+                  href={href}
                   className={className}
-                  {...externalAnchorProps(project.link)}
+                  {...externalAnchorProps(href)}
                 >
                   {content}
                 </a>

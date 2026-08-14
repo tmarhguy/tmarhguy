@@ -19,6 +19,27 @@ describe('Letterhead', () => {
     expect(link).toHaveAttribute('href', 'https://github.com/tmarhguy/tomato');
   });
 
+  it('keeps the live Tomato site next to GitHub on post pages', () => {
+    render(
+      <Letterhead
+        date="2026-08-02"
+        projectLabel="Tomato CPU"
+        projectLink="https://github.com/tmarhguy/tomato"
+        projectSite="https://tomato.tmarhguy.com"
+        variant="post"
+      />,
+    );
+
+    expect(screen.getByRole('link', { name: /Tomato CPU/i })).toHaveAttribute(
+      'href',
+      'https://tomato.tmarhguy.com',
+    );
+    expect(screen.getByRole('link', { name: /github/i })).toHaveAttribute(
+      'href',
+      'https://github.com/tmarhguy/tomato',
+    );
+  });
+
   it('shows the project label on post pages in a meta row with the date', () => {
     render(
       <Letterhead

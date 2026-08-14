@@ -29,7 +29,11 @@ describe('Hero', () => {
 
     expect(screen.getByRole('link', { name: /^32-bit CPU$/i })).toHaveAttribute(
       'href',
-      '/projects/#tomato',
+      'https://tomato.tmarhguy.com',
+    );
+    expect(screen.getByRole('link', { name: /^github$/i })).toHaveAttribute(
+      'href',
+      'https://github.com/tmarhguy/tomato',
     );
     expect(
       screen.getByRole('link', { name: /^full-custom 22nm SRAM$/i }),

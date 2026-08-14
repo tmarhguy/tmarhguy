@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import type { Project } from '@/data/projects';
 import { getProjectSlug } from '@/data/projects';
+import { externalAnchorProps } from '@/lib/external-link';
 import { getWritingSectionHref, projectHasWriting } from '@/lib/logs';
 
 interface ListItemProps {
@@ -9,11 +10,14 @@ interface ListItemProps {
 }
 
 export default function ListItem({ data }: ListItemProps) {
-  const { title, link, period, date, desc, tech, highlight, logProject } = data;
+  const { title, link, site, period, date, desc, tech, highlight, logProject } =
+    data;
   const writingHref =
     logProject && projectHasWriting(logProject)
       ? getWritingSectionHref(logProject)
       : null;
+  const hasSiteAndRepo = Boolean(site && link && site !== link);
+  const titleHref = site ?? link;
 
   return (
     <article id={getProjectSlug(data)} className="project-list-item">
@@ -29,8 +33,12 @@ export default function ListItem({ data }: ListItemProps) {
       </div>
       <div className="project-list-body">
         <h3 className="project-list-title">
-          {link ? (
-            <a href={link} className="project-list-link">
+          {titleHref ? (
+            <a
+              href={titleHref}
+              className="project-list-link"
+              {...externalAnchorProps(titleHref)}
+            >
               {title}
               <span className="project-list-affordance" aria-hidden="true">
                 ↗
@@ -39,6 +47,16 @@ export default function ListItem({ data }: ListItemProps) {
           ) : (
             title
           )}
+          {hasSiteAndRepo ? (
+            <a
+              href={link}
+              className="project-list-aux-link"
+              {...externalAnchorProps(link)}
+            >
+              GitHub
+              <span aria-hidden="true"> ↗</span>
+            </a>
+          ) : null}
           {highlight && (
             <span className="project-highlight" title={highlight}>
               <span aria-hidden="true">★</span> {highlight}
