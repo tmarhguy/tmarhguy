@@ -4,8 +4,8 @@
    ======================================== */
 
 @layer components {
-  /* Icon list — wraps, because seven 44px targets plus gaps is 400px and
-     will not fit a 320px viewport on one line. */
+  /* Icon list — wraps, because twelve 44px targets plus gaps will not fit
+     a 320px viewport on one line. */
   .icons {
     cursor: default;
     display: flex;

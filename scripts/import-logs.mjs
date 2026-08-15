@@ -85,7 +85,7 @@ function inferProject(slug, title, body) {
 
   const haystack = `${title} ${body}`.toLowerCase();
   if (
-    /open.?source|verilator|openfpga/.test(haystack) ||
+    /open.?source|verilator|openfpga|openroad/.test(haystack) ||
     (/librelane/.test(haystack) && !/\bmac\b|tapeout|sky130/.test(haystack))
   ) {
     return 'open-source';
