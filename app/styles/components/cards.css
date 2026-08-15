@@ -283,8 +283,47 @@
   font-weight: var(--font-weight-medium);
 }
 
+.projects-open-source-name {
+  white-space: nowrap;
+}
+
+.projects-open-source-stars {
+  display: inline-block;
+  margin-left: 0.4em;
+  line-height: 0;
+  vertical-align: middle;
+}
+
+.projects-open-source-stars img {
+  height: 1.15em;
+  width: auto;
+  vertical-align: middle;
+}
+
 .projects-open-source-desc {
   color: var(--color-fg-light);
+}
+
+.projects-open-source-desc strong {
+  color: var(--color-fg);
+  font-weight: var(--font-weight-medium);
+}
+
+.projects-open-source-highlight {
+  background: color-mix(in srgb, var(--color-accent) 18%, var(--color-bg));
+  color: var(--color-accent);
+  font-weight: var(--font-weight-medium);
+  padding: 0.08em 0.35em;
+  margin: 0 0.08em;
+  border-radius: 0.2em;
+  text-decoration: none;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+a.projects-open-source-highlight:hover {
+  background: color-mix(in srgb, var(--color-accent) 26%, var(--color-bg));
+  color: var(--color-accent-hover);
 }
 
 .projects-open-source-pulls a {

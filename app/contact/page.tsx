@@ -29,7 +29,7 @@ export default function ContactPage() {
             <span>or find me on</span>
           </div>
 
-          <ContactIcons includeEmail={false} />
+          <ContactIcons includeEmail={false} grouped />
         </div>
       </section>
     </PageWrapper>
