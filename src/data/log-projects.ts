@@ -1,8 +1,12 @@
+import { TOMATO_REPO_URL, TOMATO_SITE_URL } from '@/data/projects';
+
 export interface LogProject {
   id: string;
   label: string;
   /** Optional link to the live repo or project page */
   link?: string;
+  /** Live project page when GitHub is not the only public URL. */
+  site?: string;
 }
 
 /** Projects referenced by build logs — ids match frontmatter `project`.
@@ -41,7 +45,8 @@ const logProjects: LogProject[] = [
   {
     id: 'tomato',
     label: 'Tomato CPU',
-    link: 'https://github.com/tmarhguy/tomato',
+    site: TOMATO_SITE_URL,
+    link: TOMATO_REPO_URL,
   },
   {
     id: 'alu',

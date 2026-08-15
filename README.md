@@ -4,7 +4,7 @@
 
 **Computer Engineering · University of Pennsylvania**
 
-_Discrete transistors to tapeout — and the software that ships with them._
+_RTL · FPGA · ASIC tapeout · verification_
 
 <br />
 
@@ -16,17 +16,17 @@ _Discrete transistors to tapeout — and the software that ships with them._
 
 <img src="public/images/me.jpg" alt="Tyrone Marhguy" width="220" align="right" />
 
-Ghanaian computer engineering student at **Penn**. I build computers from discrete transistors to tapeout and write the software to test, automate, and deploy them.
+Ghanaian computer engineering student at **Penn**. I design digital hardware from discrete transistors through FPGA and ASIC tapeout — RTL in SystemVerilog, simulation and emulation, board bring-up — and I write the verification that proves the design. Targeting hardware roles in **RTL design**, **FPGA**, **verification**, and **silicon implementation**.
 
 **→ [tmarhguy.com](https://tmarhguy.com)** for the full portfolio, résumé, projects, and build logs.  
 **→ [Wikipedia](https://en.wikipedia.org/wiki/Tyrone_Marhguy)** for the cool stories.
 
-- FPGA utilization research @ **Penn** (starting Fall 2026)
-- **[Tomato](https://github.com/tmarhguy/tomato)** — custom 32-bit CPU from logic through PCB tapeout
+- Hardware research intern @ **[Fluid Silicon Inc.](https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently)**, [Pennovation Center](https://pennovation.upenn.edu)
+- **[Tomato](https://tomato.tmarhguy.com)** ([GitHub](https://github.com/tmarhguy/tomato)) — custom 32-bit CPU from logic through PCB tapeout
 - **[8-bit discrete-transistor ALU](https://alu.tmarhguy.com)** · 3,488 MOSFETs · 1.24M+ test vectors
 - Philadelphia, PA
 
-## Open source
+## Open Source Contributions
 
 - **[Verilator](https://github.com/verilator/verilator)** [![GitHub stars](https://img.shields.io/github/stars/verilator/verilator?style=flat-square)](https://github.com/verilator/verilator/stargazers) — Fixes Linux peak-memory stats so **`--stats` matches real RSS** · [#8070](https://github.com/verilator/verilator/pull/8070)
 - **[LibreLane](https://github.com/librelane/librelane)** [![GitHub stars](https://img.shields.io/github/stars/librelane/librelane?style=flat-square)](https://github.com/librelane/librelane/stargazers) — Fixes Yosys ≥ 0.68 `abc -fast` so **synthesis does not die**; [![shipped as 3.0.8](https://img.shields.io/badge/shipped%20as%203.0.8-d6dcfa?style=flat-square)](https://github.com/librelane/librelane/releases/tag/3.0.8) · [#1015](https://github.com/librelane/librelane/pull/1015)
@@ -41,7 +41,7 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 
 **Hardware**
 
-- **[Tomato](https://github.com/tmarhguy/tomato)** — custom 32-bit CPU · discrete logic through PCB tapeout
+- **[Tomato](https://tomato.tmarhguy.com)** ([GitHub](https://github.com/tmarhguy/tomato)) — custom 32-bit CPU · discrete logic through PCB tapeout
 - **[16×4 SRAM — Full-Custom Analog Design](https://github.com/tmarhguy/64b-sram)** — 6T macro in 22 nm HP · StrongARM sense amp · 4.571 GHz fmax
 - **[SPICE Automation Framework](https://github.com/tmarhguy/spice-automation)** — NGSpice fmax binary search · parametric PPA sweeps · JSON/CSV/Markdown reports
 - **[16-Bit Mac Unit (Sky130)](https://github.com/tmarhguy/mac)** — BFloat16 MAC · OpenLane · TinyTapeout
@@ -60,7 +60,7 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 
 ## Experience
 
-- **[Penn](https://www.upenn.edu)** — Hardware Research Engineer · FPGA utilization · Fall 2026
+- **[Fluid Silicon Inc.](https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently)** — Hardware Research Engineer Intern · [Pennovation Center](https://pennovation.upenn.edu) · Fall 2026
 - **[Aragorn AI](https://www.aragorn.ai/)** — Software Engineering Intern · production backends & APIs
 - **[Howard STEM Achievers](https://education.howard.edu/affiliated-programs/stem-summer-camp-verizon-innovative-learning)** — STEM Instructor · AR/VR · Jun–Jul 2026
 - **[Vero Electric](https://veroelectric.com/)** — Hardware & Firmware Engineer · battery management infrastructure
@@ -75,7 +75,17 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 
 ## Press
 
-[AP](https://apnews.com/article/africa-religion-education-ghana-186c67bd473f892c054e5d1f9368b555) · [VOA](https://www.voanews.com/a/rastafarian-teen-fights-to-keep-dreadlocks/6276979.html) · [DW](https://www.dw.com/en/ghana-rastafarians-start-school-after-court-victory/video-57864466) · [BBC](https://www.bbc.com/pidgin/world-57306291) · [Wikipedia](https://en.wikipedia.org/wiki/Tyrone_Marhguy)
+<p align="center">
+  <a href="https://apnews.com/article/africa-religion-education-ghana-186c67bd473f892c054e5d1f9368b555"><img src="https://img.shields.io/badge/AP-FF322E?style=flat-square&logo=apnews&logoColor=white" alt="Associated Press" height="24" /></a>
+  &nbsp;
+  <a href="https://www.voanews.com/a/rastafarian-teen-fights-to-keep-dreadlocks/6276979.html"><img src="https://img.shields.io/badge/VOA-0033A0?style=flat-square&logo=voiceofamerica&logoColor=white" alt="Voice of America" height="24" /></a>
+  &nbsp;
+  <a href="https://www.dw.com/en/ghana-rastafarians-start-school-after-court-victory/video-57864466"><img src="https://img.shields.io/badge/DW-00A5E5?style=flat-square&logo=deutschewelle&logoColor=white" alt="Deutsche Welle" height="24" /></a>
+  &nbsp;
+  <a href="https://www.bbc.com/pidgin/world-57306291"><img src="https://img.shields.io/badge/BBC-000000?style=flat-square&logo=bbc&logoColor=white" alt="BBC" height="24" /></a>
+  &nbsp;
+  <a href="https://en.wikipedia.org/wiki/Tyrone_Marhguy"><img src="https://img.shields.io/badge/Wikipedia-000000?style=flat-square&logo=wikipedia&logoColor=white" alt="Wikipedia" height="24" /></a>
+</p>
 
 <div align="center">
 
@@ -87,6 +97,6 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 
 ## This repository
 
-Source for **[tmarhguy.com](https://tmarhguy.com)** — Next.js static export, deployed on Vercel.
+Source for **[tmarhguy.com](https://tmarhguy.com)**. Setup, commands, and credits: [`docs/getting-started.md`](./docs/getting-started.md).
 
-Licensed under the [MIT License](./LICENSE). See [credits](./docs/getting-started.md#credits).
+Licensed under the [MIT License](./LICENSE).

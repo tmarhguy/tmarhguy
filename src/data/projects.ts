@@ -2,10 +2,15 @@ import { createHeadingId } from '@/lib/anchors';
 
 export type ProjectCategory = 'hardware' | 'software' | 'tools';
 
+export const TOMATO_SITE_URL = 'https://tomato.tmarhguy.com';
+export const TOMATO_REPO_URL = 'https://github.com/tmarhguy/tomato';
+
 export interface Project {
   title: string;
   subtitle?: string;
   link?: string;
+  /** Live project page when the repo is not the only public URL. */
+  site?: string;
   /** Stable anchor on /projects/ — defaults from title when omitted */
   slug?: string;
   /** log-projects id when this project has build notes on /writing/ */
@@ -74,7 +79,8 @@ const data: Project[] = [
     subtitle: 'First-principles computer',
     slug: 'tomato',
     logProject: 'tomato',
-    link: 'https://github.com/tmarhguy/tomato',
+    site: TOMATO_SITE_URL,
+    link: TOMATO_REPO_URL,
     image: '/images/projects/alu-card.png',
     date: '2025-08-01',
     period: 'Aug. 2025 — Present',

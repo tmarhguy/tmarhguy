@@ -17,6 +17,7 @@ describe('isExternalHref', () => {
     expect(isExternalHref('mailto:hello@example.com')).toBe(false);
     expect(isExternalHref('tel:+15551234567')).toBe(false);
     expect(isExternalHref('https://tmarhguy.com/about/')).toBe(false);
+    expect(isExternalHref('https://tomato.tmarhguy.com')).toBe(true);
   });
 });
 

@@ -34,6 +34,27 @@ describe('ListItem', () => {
     expect(link).toHaveAttribute('href', mockProject.link);
   });
 
+  it('keeps the live site and GitHub as sibling links', () => {
+    render(
+      <ListItem
+        data={{
+          ...mockProject,
+          title: 'Tomato — Custom 32-Bit CPU',
+          site: 'https://tomato.tmarhguy.com',
+          link: 'https://github.com/tmarhguy/tomato',
+        }}
+      />,
+    );
+
+    expect(
+      screen.getByRole('link', { name: /Tomato — Custom 32-Bit CPU/i }),
+    ).toHaveAttribute('href', 'https://tomato.tmarhguy.com');
+    expect(screen.getByRole('link', { name: /github/i })).toHaveAttribute(
+      'href',
+      'https://github.com/tmarhguy/tomato',
+    );
+  });
+
   it('exposes a stable anchor id for deep links from the homepage', () => {
     render(<ListItem data={{ ...mockProject, slug: 'test-project' }} />);
     expect(document.getElementById('test-project')).toBeTruthy();
