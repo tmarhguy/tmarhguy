@@ -58,4 +58,38 @@ describe('ContactIcons', () => {
       'https://en.wikipedia.org/wiki/Tyrone_Marhguy',
     );
   });
+
+  it('splits professional profiles from the rest when grouped', () => {
+    render(<ContactIcons includeEmail={false} grouped />);
+
+    const lists = document.querySelectorAll('.contact-icon-groups .icons');
+    expect(lists).toHaveLength(2);
+
+    const work = lists[0];
+    const elsewhere = lists[1];
+
+    expect(
+      work.querySelector('a[href="https://github.com/tmarhguy"]'),
+    ).toBeTruthy();
+    expect(
+      work.querySelector('a[href="https://x.com/marhguy_tyrone"]'),
+    ).toBeTruthy();
+    expect(
+      work.querySelector(
+        'a[href="https://en.wikipedia.org/wiki/Tyrone_Marhguy"]',
+      ),
+    ).toBeTruthy();
+    expect(work.querySelector('a[href="https://dev.to/tmarhguy"]')).toBeNull();
+
+    expect(
+      elsewhere.querySelector('a[href="https://dev.to/tmarhguy"]'),
+    ).toBeTruthy();
+    expect(
+      elsewhere.querySelector('a[href="https://www.instagram.com/tmarhguy/"]'),
+    ).toBeTruthy();
+    expect(
+      elsewhere.querySelector('a[href="https://github.com/tmarhguy"]'),
+    ).toBeNull();
+    expect(screen.getByText('and')).toBeInTheDocument();
+  });
 });

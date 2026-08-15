@@ -33,6 +33,10 @@ describe('ResumeSummary', () => {
       'href',
       'https://github.com/librelane/librelane/pull/1015',
     );
+    expect(screen.getByRole('link', { name: /openroad/i })).toHaveAttribute(
+      'href',
+      'https://github.com/The-OpenROAD-Project/OpenROAD/pull/11107',
+    );
     expect(screen.getByRole('link', { name: /openfpga/i })).toHaveAttribute(
       'href',
       'https://github.com/lnis-uofu/OpenFPGA',
@@ -50,6 +54,6 @@ describe('ResumeSummary', () => {
     expect(
       screen.getByRole('link', { name: /pennovation center/i }),
     ).toHaveAttribute('href', 'https://pennovation.upenn.edu');
-    expect(screen.getAllByRole('link')).toHaveLength(11);
+    expect(screen.getAllByRole('link')).toHaveLength(12);
   });
 });

@@ -28,9 +28,10 @@ Ghanaian computer engineering student at **Penn**. I design digital hardware fro
 
 ## Open Source Contributions
 
-- **[LibreLane](https://github.com/librelane/librelane)** — Yosys ≥ 0.68 `abc -fast` gating, shipped in [3.0.8](https://github.com/librelane/librelane/releases/tag/3.0.8) ([#1015](https://github.com/librelane/librelane/pull/1015))
-- **[Verilator](https://github.com/verilator/verilator)** — Linux peak memory reporting ([#8070](https://github.com/verilator/verilator/pull/8070))
-- **[OpenFPGA](https://github.com/lnis-uofu/OpenFPGA)** — contribution guide and interconnect docs ([#2682](https://github.com/lnis-uofu/OpenFPGA/pull/2682), [#2683](https://github.com/lnis-uofu/OpenFPGA/pull/2683))
+- **[Verilator](https://github.com/verilator/verilator)** [![GitHub stars](https://img.shields.io/github/stars/verilator/verilator?style=flat-square)](https://github.com/verilator/verilator/stargazers) — Fixes Linux peak-memory stats so **`--stats` matches real RSS** · [#8070](https://github.com/verilator/verilator/pull/8070)
+- **[LibreLane](https://github.com/librelane/librelane)** [![GitHub stars](https://img.shields.io/github/stars/librelane/librelane?style=flat-square)](https://github.com/librelane/librelane/stargazers) — Fixes Yosys ≥ 0.68 `abc -fast` so **synthesis does not die**; [![shipped as 3.0.8](https://img.shields.io/badge/shipped%20as%203.0.8-d6dcfa?style=flat-square)](https://github.com/librelane/librelane/releases/tag/3.0.8) · [#1015](https://github.com/librelane/librelane/pull/1015)
+- **[OpenROAD](https://github.com/The-OpenROAD-Project/OpenROAD)** [![GitHub stars](https://img.shields.io/github/stars/The-OpenROAD-Project/OpenROAD?style=flat-square)](https://github.com/The-OpenROAD-Project/OpenROAD/stargazers) — Fixes `MINWIDTH WRONGDIRECTION` so **production LEF files load** · [#11107](https://github.com/The-OpenROAD-Project/OpenROAD/pull/11107)
+- **[OpenFPGA](https://github.com/lnis-uofu/OpenFPGA)** [![GitHub stars](https://img.shields.io/github/stars/lnis-uofu/OpenFPGA?style=flat-square)](https://github.com/lnis-uofu/OpenFPGA/stargazers) — Fixes contribution and interconnect docs so **syntax matches the parser** · [#2682](https://github.com/lnis-uofu/OpenFPGA/pull/2682) · [#2683](https://github.com/lnis-uofu/OpenFPGA/pull/2683)
 
 **[Build log →](https://tmarhguy.com/projects/#open-source-title)**
 
@@ -68,9 +69,9 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 
 ## Skills
 
-**Hardware** · Verilog / SystemVerilog · FPGA (Vivado, Quartus) · KiCad · OpenLane / Sky130 · embedded C/C++  
-**Software** · TypeScript · Python · C/C++ · React · Next.js · FastAPI · Node.js  
-**Practice** · RTL verification · automated test harnesses · CI · timing closure · first-principles debug
+**Hardware** · SystemVerilog · UVM / SVA · cocotb · Verilator · SymbiYosys · Questa · Vivado · RISC-V · KiCad · LibreLane / OpenROAD / Yosys / Sky130 · NGSpice · embedded C/C++ · SPI/I²C  
+**Software** · Python · C/C++ · TypeScript · FastAPI · PostgreSQL · Pytest · Docker  
+**Practice** · constrained-random + golden-model scoreboards · formal (SymbiYosys) · timing closure · board bring-up
 
 ## Press
 

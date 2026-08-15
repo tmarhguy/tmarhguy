@@ -68,6 +68,13 @@ export default function ResumeSummary() {
         LibreLane
       </InlineLink>
       ,{' '}
+      <InlineLink
+        href="https://github.com/The-OpenROAD-Project/OpenROAD/pull/11107"
+        external
+      >
+        OpenROAD
+      </InlineLink>
+      ,{' '}
       <InlineLink href="https://github.com/lnis-uofu/OpenFPGA" external>
         OpenFPGA
       </InlineLink>

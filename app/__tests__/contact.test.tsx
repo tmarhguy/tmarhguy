@@ -12,5 +12,9 @@ describe('contact page', () => {
     expect(
       screen.getByRole('button', { name: /copy .+@.+ to clipboard/i }),
     ).toBeInTheDocument();
+    expect(document.querySelectorAll('.contact-content .icons')).toHaveLength(
+      2,
+    );
+    expect(screen.getByText('and')).toBeInTheDocument();
   });
 });

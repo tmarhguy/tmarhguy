@@ -26,6 +26,7 @@ const work: Position[] = [
     highlights: [
       'Design digital hardware at RTL in HDL — write the circuits themselves, not a software stand-in.',
       'Verify that RTL in emulation and simulation before the design moves further in the flow.',
+      'Contributor to LibreLane (3.0.8), OpenROAD, OpenFPGA, and Verilator — merged fixes to ASIC flow tooling and FPGA IP infrastructure.',
     ],
   },
   {

@@ -53,6 +53,8 @@ describe('about data', () => {
     expect(aboutMarkdown).toContain('https://tomato.tmarhguy.com');
     expect(aboutMarkdown).toContain('https://github.com/tmarhguy/tomato');
     expect(aboutMarkdown).toContain('LibreLane');
+    expect(aboutMarkdown).toContain('3.0.8');
+    expect(aboutMarkdown).toContain('OpenROAD');
     expect(aboutMarkdown).toContain('Verilator');
     expect(aboutMarkdown).toContain('Aragorn AI');
     expect(aboutMarkdown).toContain('Fife-Penn');

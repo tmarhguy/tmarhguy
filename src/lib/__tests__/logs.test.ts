@@ -23,10 +23,9 @@ describe('getAllLogs', () => {
     }
   });
 
-  it('lists Front-Page News in Ashtown Valley as the newest writing entry', () => {
+  it('lists the combined open-source log as the newest writing entry', () => {
     const logs = getAllLogs();
-    expect(logs[0]?.slug).toBe('2026-08-13-front-page-news-in-ashtown-valley');
-    expect(logs[1]?.slug).toBe('2026-08-13-solder-station-arrives');
+    expect(logs[0]?.slug).toBe('2026-08-11-librelane-verilator-openfpga');
   });
 
   it('includes project labels on every entry', () => {
@@ -105,13 +104,23 @@ describe('getLogsByProject', () => {
       expect(previous).toBeGreaterThanOrEqual(current);
     }
 
+    const openSourceGroup = groups.find(
+      (group) => group.project === 'open-source',
+    );
     const tomatoGroup = groups.find((group) => group.project === 'tomato');
-    if (!tomatoGroup) {
+    if (!openSourceGroup || !tomatoGroup) {
       return;
     }
 
-    // Tomato has the newest logs (2026-08-13); Ashtown is pinned above the solder station on the same day.
-    expect(groups[0].project).toBe('tomato');
+    // Open Source (Aug 15) above Tomato (Aug 13); catalog order is only a same-day tiebreaker.
+    expect(groups[0].project).toBe('open-source');
+    expect(openSourceGroup.entries[0]?.slug).toBe(
+      '2026-08-11-librelane-verilator-openfpga',
+    );
+    expect(openSourceGroup.entries.map((entry) => entry.slug)).toEqual([
+      '2026-08-11-librelane-verilator-openfpga',
+      '2026-08-09-first-open-source-contributions',
+    ]);
     expect(tomatoGroup.entries[0]?.slug).toBe(
       '2026-08-13-front-page-news-in-ashtown-valley',
     );
@@ -140,9 +149,9 @@ describe('getLogsByProject', () => {
       return;
     }
 
-    // Tomato (Aug 13) above Open Source / Mango (Aug 11) above ITCH (Aug 2).
-    expect(tomatoIndex).toBeLessThan(openSourceIndex);
-    expect(openSourceIndex).toBeLessThan(itchIndex);
+    // Open Source (Aug 15) above Tomato (Aug 13) above Mango (Aug 11) above ITCH (Aug 2).
+    expect(openSourceIndex).toBeLessThan(tomatoIndex);
+    expect(tomatoIndex).toBeLessThan(mangoIndex);
     expect(mangoIndex).toBeLessThan(itchIndex);
   });
 });
