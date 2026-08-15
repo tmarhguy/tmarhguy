@@ -46,6 +46,8 @@ describe('about data', () => {
     expect(aboutMarkdown).toContain('# Now');
     expect(aboutMarkdown).toContain('Tomato');
     expect(aboutMarkdown).toContain('LibreLane');
+    expect(aboutMarkdown).toContain('3.0.8');
+    expect(aboutMarkdown).toContain('OpenROAD');
     expect(aboutMarkdown).toContain('Verilator');
     expect(aboutMarkdown).toContain('Aragorn AI');
     expect(aboutMarkdown).toContain('Fife-Penn');

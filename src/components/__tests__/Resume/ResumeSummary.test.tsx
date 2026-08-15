@@ -29,6 +29,10 @@ describe('ResumeSummary', () => {
       'href',
       'https://github.com/librelane/librelane/pull/1015',
     );
+    expect(screen.getByRole('link', { name: /openroad/i })).toHaveAttribute(
+      'href',
+      'https://github.com/The-OpenROAD-Project/OpenROAD/pull/11107',
+    );
     expect(screen.getByRole('link', { name: /openfpga/i })).toHaveAttribute(
       'href',
       'https://github.com/lnis-uofu/OpenFPGA',
@@ -37,6 +41,6 @@ describe('ResumeSummary', () => {
       'href',
       'https://github.com/verilator/verilator/pull/8070',
     );
-    expect(screen.getAllByRole('link')).toHaveLength(8);
+    expect(screen.getAllByRole('link')).toHaveLength(9);
   });
 });

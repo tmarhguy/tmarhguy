@@ -103,3 +103,46 @@ describe('categories data', () => {
     expect(uniqueNames.size).toBe(names.length);
   });
 });
+
+describe('project-backed hardware skills', () => {
+  const titles = skills.map((skill) => skill.title);
+
+  it('lists unique skill titles', () => {
+    expect(new Set(titles).size).toBe(titles.length);
+  });
+
+  it('includes verification, EDA, and board skills from shipped projects', () => {
+    expect(titles).toEqual(
+      expect.arrayContaining([
+        'UVM',
+        'SVA',
+        'Questa',
+        'cocotb',
+        'Verilator',
+        'SymbiYosys',
+        'Icarus Verilog',
+        'Functional Coverage',
+        'Constrained-Random',
+        'LibreLane',
+        'OpenLane',
+        'OpenROAD',
+        'OpenFPGA',
+        'Yosys',
+        'Sky130',
+        'KiCad',
+        'NGSpice',
+        'Electric VLSI',
+        'RISC-V (RV64IM)',
+        'Wishbone B4',
+        'RMII / 100 Mbps MAC',
+        'SPI/I²C',
+      ]),
+    );
+  });
+
+  it('does not list unverified catalog fillers', () => {
+    expect(titles).not.toContain('VHDL');
+    expect(titles).not.toContain('Data Structures & Algorithms');
+    expect(titles).not.toContain('1 GbE MAC / RGMII');
+  });
+});

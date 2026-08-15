@@ -23,9 +23,9 @@ describe('getAllLogs', () => {
     }
   });
 
-  it('lists Open Source Contributions as the newest writing entry', () => {
+  it('lists the combined open-source log as the newest writing entry', () => {
     const logs = getAllLogs();
-    expect(logs[0]?.slug).toBe('2026-08-11-system-wide-call');
+    expect(logs[0]?.slug).toBe('2026-08-11-librelane-verilator-openfpga');
   });
 
   it('includes project labels on every entry', () => {
@@ -105,7 +105,7 @@ describe('getLogsByProject', () => {
       return;
     }
 
-    // Open Source and Mango both have 2026-08-11 entries; catalog order keeps Open Source first.
+    // Open Source (Aug 15) above Mango (Aug 11); catalog order is only a same-day tiebreaker.
     expect(groups[0].project).toBe('open-source');
     expect(openSourceGroup.entries[0]?.slug).toBe(
       '2026-08-11-librelane-verilator-openfpga',
@@ -134,7 +134,7 @@ describe('getLogsByProject', () => {
       return;
     }
 
-    // Open Source / Mango (Aug 11) above Tomato (Aug 7) above ITCH (Aug 2).
+    // Open Source (Aug 15) above Mango (Aug 11) above Tomato (Aug 7) above ITCH (Aug 2).
     expect(openSourceIndex).toBeLessThan(tomatoIndex);
     expect(mangoIndex).toBeLessThan(tomatoIndex);
     expect(tomatoIndex).toBeLessThan(itchIndex);

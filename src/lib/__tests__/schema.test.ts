@@ -108,6 +108,15 @@ describe('personNode', () => {
     expect(image.height).toBe(SITE_IMAGE_DIMENSIONS.height);
     expect(Array.isArray(node.sameAs)).toBe(true);
     expect((node.sameAs as string[]).length).toBeGreaterThan(0);
+    expect(node.sameAs as string[]).toEqual(
+      expect.arrayContaining([
+        'https://github.com/tmarhguy',
+        'https://hackaday.io/tmarhguy',
+        'https://www.hackster.io/tmarhguy',
+        'https://dev.to/tmarhguy',
+        'https://www.threads.net/@tmarhguy',
+      ]),
+    );
   });
 
   it('includes worksFor and alumniOf', () => {
