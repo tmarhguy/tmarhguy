@@ -508,10 +508,14 @@
 }
 
 .prose img {
+  display: block;
   max-width: 100%;
   height: auto;
+  margin: 1.5rem 0 0.5rem;
   border-radius: var(--radius-sm);
-  margin: 1.5rem 0;
+  background: var(--color-bg);
+  box-shadow: 0 0 0 var(--rule) var(--color-border-alt);
+  color: var(--color-fg-light);
 }
 
 .prose-image-pair {
