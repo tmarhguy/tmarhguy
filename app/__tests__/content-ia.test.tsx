@@ -92,8 +92,8 @@ describe('writing information architecture', () => {
 
     for (const contribution of getOpenSourceContributions()) {
       expect(
-        screen.getByRole('link', { name: contribution.title }),
-      ).toBeInTheDocument();
+        screen.getAllByRole('link', { name: contribution.title }).length,
+      ).toBeGreaterThan(0);
     }
   });
 });

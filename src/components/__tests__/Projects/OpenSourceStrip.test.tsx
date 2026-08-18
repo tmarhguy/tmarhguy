@@ -24,9 +24,12 @@ describe('OpenSourceStrip', () => {
       'href',
       'https://github.com/verilator/verilator',
     );
-    expect(screen.getByRole('link', { name: 'LibreLane' })).toHaveAttribute(
+    expect(
+      screen.getAllByRole('link', { name: 'LibreLane' })[0],
+    ).toHaveAttribute('href', 'https://github.com/librelane/librelane');
+    expect(screen.getByRole('link', { name: '#1016' })).toHaveAttribute(
       'href',
-      'https://github.com/librelane/librelane',
+      'https://github.com/librelane/librelane/pull/1016',
     );
     expect(screen.getByRole('link', { name: '#1015' })).toHaveAttribute(
       'href',
@@ -37,6 +40,12 @@ describe('OpenSourceStrip', () => {
     ).toHaveAttribute(
       'href',
       'https://github.com/librelane/librelane/releases/tag/3.0.8',
+    );
+    expect(
+      screen.getByRole('link', { name: 'shipped as 3.0.10' }),
+    ).toHaveAttribute(
+      'href',
+      'https://github.com/librelane/librelane/releases/tag/3.0.10',
     );
     expect(screen.getByRole('link', { name: 'Verilator' })).toHaveAttribute(
       'target',
@@ -63,6 +72,10 @@ describe('OpenSourceStrip', () => {
     );
     expect(screen.getByText('synthesis does not die').tagName).toBe('STRONG');
     expect(screen.getByText('shipped as 3.0.8').tagName).toBe('A');
+    expect(screen.getByText('shipped as 3.0.10').tagName).toBe('A');
+    expect(
+      screen.getByText('pre- and post-synth errors both count').tagName,
+    ).toBe('STRONG');
     expect(screen.getByText('--stats matches real RSS').tagName).toBe('STRONG');
     expect(screen.getByText('syntax matches the parser').tagName).toBe(
       'STRONG',
@@ -74,7 +87,7 @@ describe('OpenSourceStrip', () => {
       'https://img.shields.io/github/stars/The-OpenROAD-Project/OpenROAD?style=flat-square',
     );
     expect(
-      screen.getByRole('img', { name: 'LibreLane GitHub stars' }),
+      screen.getAllByRole('img', { name: 'LibreLane GitHub stars' })[0],
     ).toHaveAttribute(
       'src',
       'https://img.shields.io/github/stars/librelane/librelane?style=flat-square',
@@ -85,6 +98,7 @@ describe('OpenSourceStrip', () => {
     render(<OpenSourceStrip contributions={getOpenSourceContributions()} />);
     expect(document.getElementById('openroad')).toBeTruthy();
     expect(document.getElementById('librelane')).toBeTruthy();
+    expect(document.getElementById('librelane-1016')).toBeTruthy();
     expect(document.getElementById('verilator')).toBeTruthy();
     expect(document.getElementById('openfpga')).toBeTruthy();
   });

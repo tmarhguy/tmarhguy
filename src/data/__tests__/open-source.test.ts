@@ -24,15 +24,21 @@ describe('open-source data', () => {
     const entries = getOpenSourceContributions();
     const openroad = entries.find((entry) => entry.slug === 'openroad');
     const librelane = entries.find((entry) => entry.slug === 'librelane');
+    const librelaneChk = entries.find(
+      (entry) => entry.slug === 'librelane-1016',
+    );
     const verilator = entries.find((entry) => entry.slug === 'verilator');
     const openfpga = entries.find((entry) => entry.slug === 'openfpga');
 
-    expect(entries[0]?.slug).toBe('openroad');
+    expect(entries[0]?.slug).toBe('librelane-1016');
     expect(openroad?.desc).toMatch(/\*\*production LEF files load\*\*/);
     expect(openroad?.pulls[0]?.href).toContain('/pull/11107');
     expect(librelane?.desc).toMatch(/==shipped as 3\.0\.8==/);
     expect(librelane?.pulls[0]?.href).toContain('/pull/1015');
     expect(librelane?.pulls[1]?.href).toContain('/releases/tag/3.0.8');
+    expect(librelaneChk?.desc).toMatch(/==shipped as 3\.0\.10==/);
+    expect(librelaneChk?.pulls[0]?.href).toContain('/pull/1016');
+    expect(librelaneChk?.pulls[1]?.href).toContain('/releases/tag/3.0.10');
     expect(verilator?.desc).toMatch(/Fixes Linux peak-memory/);
     expect(verilator?.pulls[0]?.href).toContain('/pull/8070');
     expect(openfpga?.desc).toMatch(/Fixes contribution/);
