@@ -44,24 +44,10 @@ export function githubStargazersHref(link: string): string | null {
 
 const contributions: OpenSourceContribution[] = [
   {
-    title: 'OpenROAD',
-    slug: 'openroad',
-    link: 'https://github.com/The-OpenROAD-Project/OpenROAD',
-    date: '2026-08-15',
-    period: 'Aug. 2026',
-    desc: 'Fixes MINWIDTH WRONGDIRECTION so **production LEF files load**',
-    pulls: [
-      {
-        label: '#11107',
-        href: 'https://github.com/The-OpenROAD-Project/OpenROAD/pull/11107',
-      },
-    ],
-  },
-  {
     title: 'LibreLane',
     slug: 'librelane',
     link: 'https://github.com/librelane/librelane',
-    date: '2026-08-11',
+    date: '2026-08-15',
     period: 'Aug. 2026',
     desc: 'Fixes Yosys ≥ 0.68 abc -fast so **synthesis does not die**; ==shipped as 3.0.8==',
     pulls: [
@@ -72,6 +58,38 @@ const contributions: OpenSourceContribution[] = [
       {
         label: '3.0.8',
         href: 'https://github.com/librelane/librelane/releases/tag/3.0.8',
+      },
+    ],
+  },
+  {
+    title: 'LibreLane',
+    slug: 'librelane-1016',
+    link: 'https://github.com/librelane/librelane',
+    date: '2026-08-17',
+    period: 'Aug. 2026',
+    desc: 'Fixes chk.rpt so **pre- and post-synth errors both count**; ==shipped as 3.0.10==',
+    pulls: [
+      {
+        label: '#1016',
+        href: 'https://github.com/librelane/librelane/pull/1016',
+      },
+      {
+        label: '3.0.10',
+        href: 'https://github.com/librelane/librelane/releases/tag/3.0.10',
+      },
+    ],
+  },
+  {
+    title: 'OpenROAD',
+    slug: 'openroad',
+    link: 'https://github.com/The-OpenROAD-Project/OpenROAD',
+    date: '2026-08-15',
+    period: 'Aug. 2026',
+    desc: 'Fixes MINWIDTH WRONGDIRECTION so **production LEF files load**',
+    pulls: [
+      {
+        label: '#11107',
+        href: 'https://github.com/The-OpenROAD-Project/OpenROAD/pull/11107',
       },
     ],
   },
