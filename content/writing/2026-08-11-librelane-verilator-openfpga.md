@@ -1,7 +1,7 @@
 ---
 title: 'LibreLane, Verilator, OpenFPGA, OpenROAD'
 date: '2026-08-15'
-description: 'OpenROAD merged today — production LEF files with trailing whitespace now load — plus LibreLane 3.0.8, Verilator, and OpenFPGA.'
+description: 'LibreLane #1016 shipped as 3.0.10 — pre- and post-synth check errors both count — plus OpenROAD, LibreLane 3.0.8, Verilator, and OpenFPGA.'
 project: open-source
 image: '/images/open-source/openroad-contribution-activity.png'
 imageAlt: 'GitHub contribution activity for The-OpenROAD-Project in August 2026 — four commits and merged pull request #11107.'
@@ -19,6 +19,7 @@ I started small, focusing on documentation just to understand the mechanics of o
 | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | **[OpenROAD](https://github.com/The-OpenROAD-Project/OpenROAD)** | Production LEF files with trailing whitespace now load                                                   | [#11107](https://github.com/The-OpenROAD-Project/OpenROAD/pull/11107)                                              |
 | **[LibreLane](https://github.com/librelane/librelane)**          | Yosys ≥ 0.68 `abc -fast` gating — **[3.0.8](https://github.com/librelane/librelane/releases/tag/3.0.8)** | [#1015](https://github.com/librelane/librelane/pull/1015)                                                          |
+| **[LibreLane](https://github.com/librelane/librelane)**          | Pre- and post-synth check errors both count — **[3.0.10](https://github.com/librelane/librelane/releases/tag/3.0.10)** | [#1016](https://github.com/librelane/librelane/pull/1016)                                                          |
 | **[Verilator](https://github.com/verilator/verilator)**          | Linux peak memory reporting                                                                              | [#8070](https://github.com/verilator/verilator/pull/8070)                                                          |
 | **[OpenFPGA](https://github.com/lnis-uofu/OpenFPGA)**            | Contribution guide & interconnect documentation                                                          | [#2682](https://github.com/lnis-uofu/OpenFPGA/pull/2682), [#2683](https://github.com/lnis-uofu/OpenFPGA/pull/2683) |
 
@@ -33,6 +34,8 @@ That LibreLane row closed the loop. [PR #1015](https://github.com/librelane/libr
 ![LibreLane 3.0.8 — #1015 is the change that shipped.](/images/open-source/librelane-3.0.8.png)
 
 _LibreLane 3.0.8 — #1015 is the change that shipped._
+
+And today, [PR #1016](https://github.com/librelane/librelane/pull/1016). Yosys was only counting pre-synthesis check errors, so the metric didn't match `chk.rpt` — the report people actually open. It now sums both reports. That landed in [LibreLane 3.0.10](https://github.com/librelane/librelane/releases/tag/3.0.10).
 
 I get to sit here at Penn, building my own low-level architecture projects, learning exciting new things, and finding better ways to contribute back to the community. There's a profound satisfaction in knowing that while I'm routing my own boards and working on my own designs, I've had a hand in making someone else's beautiful engineering narrative a reality.
 
