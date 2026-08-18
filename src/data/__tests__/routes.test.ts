@@ -43,8 +43,8 @@ describe('routes', () => {
     expect(paths).toContain('/contact');
   });
 
-  it('has unique paths', () => {
-    const paths = routes.map((r) => r.path);
+  it('has unique paths for non-index routes', () => {
+    const paths = routes.filter((r) => !r.index).map((r) => r.path);
     const uniquePaths = new Set(paths);
 
     expect(uniquePaths.size).toBe(paths.length);

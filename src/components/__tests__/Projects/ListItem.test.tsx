@@ -39,7 +39,7 @@ describe('ListItem', () => {
       <ListItem
         data={{
           ...mockProject,
-          title: 'Tomato — Custom 32-Bit CPU',
+          title: 'Tomato — Discrete 32-bit Polymorphic Dual-LUT3 CPU',
           site: 'https://tomato.tmarhguy.com',
           link: 'https://github.com/tmarhguy/tomato',
         }}
@@ -47,7 +47,9 @@ describe('ListItem', () => {
     );
 
     expect(
-      screen.getByRole('link', { name: /Tomato — Custom 32-Bit CPU/i }),
+      screen.getByRole('link', {
+        name: /Tomato — Discrete 32-bit Polymorphic Dual-LUT3 CPU/i,
+      }),
     ).toHaveAttribute('href', 'https://tomato.tmarhguy.com');
     expect(screen.getByRole('link', { name: /github/i })).toHaveAttribute(
       'href',
@@ -71,7 +73,7 @@ describe('ListItem', () => {
     );
 
     const logLink = screen.getByRole('link', { name: /^log$/i });
-    expect(logLink).toHaveAttribute('href', '/writing/#writing-tomato');
+    expect(logLink).toHaveAttribute('href', '/writing/#writing-tomato-aug');
   });
 
   it('omits the log link when the project has no build notes', () => {

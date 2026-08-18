@@ -1,10 +1,10 @@
 {
   "name": "Tyrone Marhguy",
-  "role": "Computer Engineering Student",
+  "role": "Computer Engineering Junior",
   "employer": "University of Pennsylvania",
-  "focus": "discrete transistors through tapeout",
+  "focus": "physical hardware implementation and verification",
   "tagline": "Discrete transistors to tapeout — and the software that ships with them.",
-  "bio": "Building computers from discrete transistors to tapeout — and the software to test, automate, and deploy them. Designing a 32-bit CPU; contributor to LibreLane, OpenROAD, OpenFPGA, and Verilator; previously full-custom SRAM, market-data parsers, and a local dev toolbox.",
+  "bio": "Computer Engineering Junior at Penn specializing in physical hardware implementation and verification — RTL through Sky130 ASIC flow, open-source EDA contributions (Verilator, LibreLane, OpenROAD, OpenFPGA), and builds from a 32-bit CPU and 3,488-MOSFET ALU to a 22nm SRAM macro.",
   "hardwareTrack": "RTL, FPGA, and ASIC tapeouts — discrete logic through silicon.",
   "softwareTrack": "Production backends, embedded firmware, and tooling.",
   "birthDate": "2003-11-24T00:00:00-05:00",

@@ -4,6 +4,7 @@ import {
   getAdjacentLogs,
   getAllLogs,
   getLogBySlug,
+  getLogProjectGroupKey,
   getLogSlugs,
   getLogsByProject,
   getWritingSectionHref,
@@ -23,9 +24,9 @@ describe('getAllLogs', () => {
     }
   });
 
-  it('lists the combined open-source log as the newest writing entry', () => {
+  it('lists the newest Tomato log as the lead writing entry', () => {
     const logs = getAllLogs();
-    expect(logs[0]?.slug).toBe('2026-08-11-librelane-verilator-openfpga');
+    expect(logs[0]?.slug).toBe('2026-08-16-tomato-web-optimization');
   });
 
   it('includes project labels on every entry', () => {
@@ -107,13 +108,18 @@ describe('getLogsByProject', () => {
     const openSourceGroup = groups.find(
       (group) => group.project === 'open-source',
     );
-    const tomatoGroup = groups.find((group) => group.project === 'tomato');
-    if (!openSourceGroup || !tomatoGroup) {
+    const tomatoAugGroup = groups.find(
+      (group) => group.project === 'tomato-aug',
+    );
+    const tomatoJulGroup = groups.find(
+      (group) => group.project === 'tomato-jul',
+    );
+    if (!openSourceGroup || !tomatoAugGroup || !tomatoJulGroup) {
       return;
     }
 
-    // Open Source (Aug 15) above Tomato (Aug 13); catalog order is only a same-day tiebreaker.
-    expect(groups[0].project).toBe('open-source');
+    // Tomato August (Aug 16) above Open Source (Aug 11); July and Earlier fold below fresher projects.
+    expect(groups[0].project).toBe('tomato-aug');
     expect(openSourceGroup.entries[0]?.slug).toBe(
       '2026-08-11-librelane-verilator-openfpga',
     );
@@ -121,14 +127,47 @@ describe('getLogsByProject', () => {
       '2026-08-11-librelane-verilator-openfpga',
       '2026-08-09-first-open-source-contributions',
     ]);
-    expect(tomatoGroup.entries[0]?.slug).toBe(
-      '2026-08-13-front-page-news-in-ashtown-valley',
+    expect(tomatoAugGroup.projectLabel).toBe('Tomato CPU — August');
+    expect(tomatoAugGroup.entries[0]?.slug).toBe(
+      '2026-08-16-tomato-web-optimization',
     );
-    expect(tomatoGroup.entries.map((entry) => entry.slug).slice(0, 3)).toEqual([
+    expect(
+      tomatoAugGroup.entries.map((entry) => entry.slug).slice(0, 4),
+    ).toEqual([
+      '2026-08-16-tomato-web-optimization',
+      '2026-08-15-pcbs-arrive',
+      '2026-08-15-isa-as-a-wire',
       '2026-08-13-front-page-news-in-ashtown-valley',
-      '2026-08-13-solder-station-arrives',
-      '2026-08-07-ordered-tomato',
     ]);
+    expect(tomatoJulGroup.projectLabel).toBe('Tomato CPU — July');
+    expect(tomatoJulGroup.entries[0]?.date).toBe('2026-07-31');
+  });
+
+  it('splits Tomato into August, July, and Earlier folds', () => {
+    const groups = getLogsByProject();
+    const tomatoGroups = groups.filter((group) =>
+      group.project.startsWith('tomato-'),
+    );
+
+    expect(tomatoGroups.map((group) => group.project)).toEqual([
+      'tomato-aug',
+      'tomato-jul',
+      'tomato-earlier',
+    ]);
+    expect(
+      getAllLogs()
+        .filter((entry) => entry.project === 'tomato')
+        .every((entry) =>
+          ['tomato-aug', 'tomato-jul', 'tomato-earlier'].includes(
+            getLogProjectGroupKey(entry),
+          ),
+        ),
+    ).toBe(true);
+    expect(
+      groups
+        .find((group) => group.project === 'tomato-earlier')
+        ?.entries.some((entry) => entry.slug === 'welcome-to-tomato-32'),
+    ).toBe(true);
   });
 
   it('keeps older sections below any project with a newer log', () => {
@@ -137,28 +176,33 @@ describe('getLogsByProject', () => {
 
     const openSourceIndex = order.indexOf('open-source');
     const mangoIndex = order.indexOf('mango');
-    const tomatoIndex = order.indexOf('tomato');
+    const tomatoAugIndex = order.indexOf('tomato-aug');
+    const tomatoJulIndex = order.indexOf('tomato-jul');
     const itchIndex = order.indexOf('itch-hw');
 
     if (
       openSourceIndex === -1 ||
       mangoIndex === -1 ||
-      tomatoIndex === -1 ||
+      tomatoAugIndex === -1 ||
+      tomatoJulIndex === -1 ||
       itchIndex === -1
     ) {
       return;
     }
 
-    // Open Source (Aug 15) above Tomato (Aug 13) above Mango (Aug 11) above ITCH (Aug 2).
-    expect(openSourceIndex).toBeLessThan(tomatoIndex);
-    expect(tomatoIndex).toBeLessThan(mangoIndex);
+    // Tomato August above Open Source above Mango above ITCH above Tomato July.
+    expect(tomatoAugIndex).toBeLessThan(openSourceIndex);
+    expect(openSourceIndex).toBeLessThan(mangoIndex);
     expect(mangoIndex).toBeLessThan(itchIndex);
+    expect(itchIndex).toBeLessThan(tomatoJulIndex);
   });
 });
 
 describe('writing section anchors', () => {
   it('builds section hrefs that match the writing index headings', () => {
-    expect(getWritingSectionHref('tomato')).toBe('/writing/#writing-tomato');
+    expect(getWritingSectionHref('tomato')).toBe(
+      '/writing/#writing-tomato-aug',
+    );
     expect(getWritingSectionHref('itch-hw')).toBe('/writing/#writing-itch-hw');
   });
 

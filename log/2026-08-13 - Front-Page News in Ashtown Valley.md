@@ -1,11 +1,3 @@
-# Front-Page News in Ashtown Valley
-
-Date: 2026-08-13
-
-Published: [/writing/2026-08-13-front-page-news-in-ashtown-valley/](/writing/2026-08-13-front-page-news-in-ashtown-valley/)
-
-**See also:** [Ordered Tomato](/writing/2026-08-07-ordered-tomato/) · [Solder Station Arrives](/writing/2026-08-13-solder-station-arrives/)
-
 The hardest parts of this journey have always been the _non-technical_ ones. The name of the project, for example: that's when I begin spinning. **Tomato** is nothing special btw. I just couldn't keep calling it 32b cpu, 40b cpu, and other horribly generic names. I don't like (or dislike) tomatoes, nor do I have any special connection to it.
 
 The website interface is the same unbounded problem. Should I give it a custom feel like a product page of renowned top companies, or a generic React package with flying colors (no pun intended) like I only had 100 tokens for my starving agent?
@@ -22,9 +14,9 @@ So, let's take a step back, to the earlier times, the 90s, when Tomato truly liv
 
 Let's put Tomato in a newspaper feel to remind of its truest time, but let's add 3D renders and models to connect us back to our own modernity. The front is a broadsheet: nameplate, deck, classifieds for the eight lots. The copper of render of the ALU which took sweat and time and sleep to build casually sits in the plate like a photograph.
 
-![The Tomato, Vol. 32 No. 1 — front page. Ashtown Valley, the Bay Perimeter, 13 August 2026.](./2026-08-13-tomato-magazine-top.png)
+<p align="center">
 
-_Vol. 32 · No. 1 — the paper, printed. Nameplate, copper plate, the 32-bit word at the fold._
+</p>
 
 > **Ashtown Valley**, the Bay Perimeter
 

@@ -45,15 +45,28 @@
 }
 
 /* Intro — conversational, measure-constrained body copy. */
-.hero-intro {
+.hero-intro.professional-summary-list,
+.professional-summary-list.hero-intro {
   font-family: var(--font-body);
   font-size: var(--text-lg);
   color: var(--color-fg);
-  max-width: 58ch;
+  max-width: 62ch;
   margin: 0 0 1.75rem;
   line-height: var(--leading-normal);
   font-weight: var(--font-weight-normal);
   text-wrap: pretty;
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.hero-intro.professional-summary-list li,
+.professional-summary-list.hero-intro li {
+  margin-bottom: 0.85rem;
+}
+
+.hero-intro.professional-summary-list li:last-child,
+.professional-summary-list.hero-intro li:last-child {
+  margin-bottom: 0;
 }
 
 .hero-inline-link {

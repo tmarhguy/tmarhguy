@@ -3,9 +3,11 @@ title: 'Shell UI - Mango'
 date: '2026-08-01'
 description: 'As the toolkit expands, remembering individual script paths, names, and arguments becomes cumbersome. To solve this, I am introducing Mango—a centralized, interactive shell inte...'
 project: mango
+image: '/images/mango/title_screen_mango.png'
+imageAlt: 'Mango title screen'
 ---
 
-# Mango - The Interactive Terminal UI
+**See also:** [Tools](/writing/2026-08-01-tools/) · [Mango — Arrow Navigation & Video Pipeline](/writing/2026-08-03-mango-arrow-navigation-video-pipeline/) · [System-Wide Call](/writing/2026-08-11-system-wide-call/)
 
 As the toolkit expands, remembering individual script paths, names, and arguments becomes cumbersome. To solve this, I am introducing **Mango**—a centralized, interactive shell interface.
 
@@ -28,6 +30,10 @@ As the toolkit expands, remembering individual script paths, names, and argument
 
 ## Screenshots
 
-Captured in `media/`:
+![Title screen](/images/mango/title_screen_mango.png)
 
-See also docs/install.md for setup and docs/mango-ui.md for the full interface guide.
+![Main menu](/images/mango/main_menu.png)
+
+![Folder browser](/images/mango/dir_navig.png)
+
+![Compress image flow](/images/mango/img_comp_window.png)

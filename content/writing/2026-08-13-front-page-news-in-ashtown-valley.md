@@ -4,9 +4,11 @@ date: '2026-08-13'
 description: 'Tomato is not a product page. It is a 32-bit machine from the 74xx years — so the site is a broadsheet: nameplate, copper plate, and a door back to now.'
 project: tomato
 priority: 1
+image: '/images/logs/tomato_home_white.png'
+imageAlt: 'Tomato site — paper theme'
 ---
 
-**See also:** [Ordered Tomato](/writing/2026-08-07-ordered-tomato/) · [Solder Station Arrives](/writing/2026-08-13-solder-station-arrives/)
+**See also:** [Ordered Tomato](/writing/2026-08-07-ordered-tomato/) · [Solder Station Arrives](/writing/2026-08-13-solder-station-arrives/) · [Tomato Web Optimization](/writing/2026-08-16-tomato-web-optimization/)
 
 The hardest parts of this journey have always been the _non-technical_ ones. The name of the project, for example: that's when I begin spinning. **Tomato** is nothing special btw. I just couldn't keep calling it 32b cpu, 40b cpu, and other horribly generic names. I don't like (or dislike) tomatoes, nor do I have any special connection to it.
 
@@ -17,6 +19,15 @@ The website interface is the same unbounded problem. Should I give it a custom f
 | Product page | Stripe / Apple polish, 2026         | Tomato is not a product. It is a machine you can probe.   |
 | React        | Flying colors, hungry-agent special | No connection to the chips, or the decade they come from. |
 | Broadsheet   | 90s newsprint + 3D KiCad            | This one. Tomato's actual time, with a door back to now.  |
+
+<div class="prose-image-pair prose-image-pair--locked">
+
+![Tomato site — black theme](/images/logs/tomato_home_black.png)
+![Tomato site — paper theme](/images/logs/tomato_home_white.png)
+
+</div>
+
+_Tomato black theme, white theme._
 
 Luckily, I've gotten extremely better at such unbounded graphs. So for the website interface, I asked what this really is. Tomato is a 32b computer made with chips in a PCB form, dissimilar from modern tool chains, but rather that of the [70s](https://en.wikipedia.org/wiki/7400-series_integrated_circuits), 80s, 90s!
 

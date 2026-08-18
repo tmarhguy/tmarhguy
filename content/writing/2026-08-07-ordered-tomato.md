@@ -11,7 +11,7 @@ imageAlt: 'Tomato ALU — board render'
 
 After months of schematic churn, opcode tables, and the occasional 40b detour, Tomato has left the screen.
 
-**See also:** [Designing additional boards](/writing/2026-08-02-designing-additional-boards/) · [Falling back to 32b](/writing/2026-07-31-falling-back-to-32b/)
+**See also:** [Designing additional boards](/writing/2026-08-02-designing-additional-boards/) · [Falling back to 32b](/writing/2026-07-31-falling-back-to-32b/) · [PCBs Arrive!](/writing/2026-08-15-pcbs-arrive/)
 
 **Yesterday:** bare boards on JLCPCB.  
 **Tonight:** every IC, cap, LED, and SIP resistor network on DigiKey — enough for **two** `07_alu` slices.

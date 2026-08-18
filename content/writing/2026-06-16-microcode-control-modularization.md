@@ -45,6 +45,8 @@ HALT stays on `main`—opcode `0x3FF` plus execute phase. One comparator, not wo
 
 All six control boards are in the Control Unit block on `main`—decode sits with the datapath it drives instead of one central microcode blob.
 
+![Modular main layout in Digital](/images/logs/2026-06-16-microcode-control-modularization-main.png)
+
 #### Status
 
 `main` wired with `alu-control`, `ir-reg-control`, `mem-io-control`, `mem-bus-control`, `pc-control`, and `shift-mul-control`. ROM data in the boards still needs proper per-board hex from the catalog.

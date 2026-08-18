@@ -11,7 +11,9 @@ export default function Degree({ data }: DegreeProps) {
         <h3 className="degree">{data.degree}</h3>
         <p className="school">
           <a href={data.link}>{data.school}</a>,{' '}
-          <time dateTime={String(data.year)}>{data.year}</time>
+          <time dateTime={data.startDate}>{data.startLabel}</time>
+          {' – '}
+          <time dateTime={data.endDate}>{data.endLabel}</time>
         </p>
       </header>
     </article>

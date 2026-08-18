@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * Import Obsidian build notes from ../tomato/docs/log into content/writing/.
- * Run after adding new Tomato log files: npm run import-logs
+ * Import Obsidian build notes from tomato/docs/log and tools/log into
+ * content/writing/. Prefers in-repo clones, then sibling checkouts.
+ * Run after adding new log files: npm run import-logs
  */
 import {
   existsSync,
@@ -15,8 +16,15 @@ import { basename, join, resolve } from 'node:path';
 import { syncWritingMedia } from './sync-writing-media.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
-const SOURCE = resolve(ROOT, '../tomato/docs/log');
 const TARGET = resolve(ROOT, 'content/writing');
+
+/** Prefer in-repo clones, then sibling checkouts next to this website. */
+const SOURCE_DIRS = [
+  resolve(ROOT, 'tomato/docs/log'),
+  resolve(ROOT, 'tools/log'),
+  resolve(ROOT, '../tomato/docs/log'),
+  resolve(ROOT, '../tools/log'),
+].filter((dir) => existsSync(dir));
 
 const PROJECT_BY_FILE = {
   'welcome-to-tomato-32.md': 'tomato',
@@ -38,9 +46,15 @@ const PROJECT_BY_FILE = {
   '2026-07-31-the-lingering-thoughts.md': 'tomato',
   '2026-08-01-shell-ui-mango.md': 'mango',
   '2026-08-01-tools.md': 'mango',
+  '2026-08-03-mango-arrow-navigation-video-pipeline.md': 'mango',
   '2026-08-11-system-wide-call.md': 'mango',
   '2026-08-02-designing-additional-boards.md': 'tomato',
   '2026-08-07-ordered-tomato.md': 'tomato',
+  '2026-08-13-front-page-news-in-ashtown-valley.md': 'tomato',
+  '2026-08-13-solder-station-arrives.md': 'tomato',
+  '2026-08-15-pcbs-arrive.md': 'tomato',
+  '2026-08-15-isa-as-a-wire.md': 'tomato',
+  '2026-08-16-tomato-web-optimization.md': 'tomato',
   '2026-08-01-itch-ethernet-lab-bring-up.md': 'itch-hw',
   '2026-08-02-successful-synthesis-implementation-bitstream.md': 'itch-hw',
   '2026-08-08-understanding-udp-stack-and-connecting-to-itch.md': 'udp-stack',
@@ -123,7 +137,18 @@ function normalizeMedia(markdown) {
   );
 
   text = text.replace(/\]\(\.\.\/\.\.\/media\//g, '](/images/');
+  text = text.replace(/\]\(\.\.\/\.\.\/\.\.\/media\//g, '](/images/');
   text = text.replace(/\bsrc=["']\.\.\/\.\.\/media\//g, 'src="/images/');
+  text = text.replace(/\bsrc=["']\.\.\/\.\.\/\.\.\/media\//g, 'src="/images/');
+  // tools/log → ../media/foo.png
+  text = text.replace(/\]\(\.\.\/media\//g, '](/images/mango/');
+  text = text.replace(/\bsrc=["']\.\.\/media\//g, 'src="/images/mango/');
+
+  text = text.replace(
+    /<video\b([^>]*)\bsrc=["']([^"']+)["']([^>]*)>/gi,
+    (_m, pre, src, post) =>
+      `<video${pre}src="${src.replace(/^\.\.\/\.\.\/media\//, '/images/').replace(/^\.\.\/media\//, '/images/mango/')}"${post}>`,
+  );
 
   return text;
 }
@@ -250,18 +275,31 @@ function yamlEscape(value) {
   return value.replace(/"/g, '\\"');
 }
 
-if (!existsSync(SOURCE)) {
-  console.error(`Source directory not found: ${SOURCE}`);
+if (SOURCE_DIRS.length === 0) {
+  console.error(
+    'No log sources found (tomato/docs/log, tools/log, or sibling clones).',
+  );
   process.exit(1);
 }
 
 mkdirSync(TARGET, { recursive: true });
 
-const files = readdirSync(SOURCE).filter((name) => name.endsWith('.md'));
+const seen = new Map();
+for (const sourceDir of SOURCE_DIRS) {
+  for (const filename of readdirSync(sourceDir).filter((name) =>
+    name.endsWith('.md'),
+  )) {
+    if (!seen.has(filename)) {
+      seen.set(filename, join(sourceDir, filename));
+    }
+  }
+}
+
+const files = [...seen.keys()];
 let written = 0;
 
 for (const filename of files) {
-  const sourcePath = join(SOURCE, filename);
+  const sourcePath = seen.get(filename);
   const raw = readFileSync(sourcePath, 'utf8');
   const { date, title, slug } = parseFilename(filename);
   const sanitized = sanitizeMarkdown(

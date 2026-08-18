@@ -117,6 +117,8 @@ export default function OpenSourceStrip({
                     target="_blank"
                     rel="noopener noreferrer"
                   >
+                    {/* GitHub shields are remote SVGs; next/image cannot size them. */}
+                    {/* biome-ignore lint/performance/noImgElement: shields.io badge */}
                     <img
                       src={starsSrc}
                       alt={`${contribution.title} GitHub stars`}

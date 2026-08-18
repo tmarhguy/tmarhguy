@@ -23,7 +23,7 @@ describe('writing entry metadata', () => {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: 'Tyrone Marhguy — Computer Engineering Student at University of Pennsylvania',
+        alt: 'Tyrone Marhguy — Computer Engineering Junior at University of Pennsylvania',
       },
     ]);
     expect(metadata.twitter?.images).toEqual(['/og.png']);

@@ -5,7 +5,7 @@ description: 'System-wide `mango` invocation — call the toolbox from any worki
 project: mango
 ---
 
-**See also:** [Shell UI — Mango](/writing/2026-08-01-shell-ui-mango/) · [Tools](/writing/2026-08-01-tools/) · [Mango Tools](/projects/#mango-tools)
+**See also:** [Shell UI — Mango](/writing/2026-08-01-shell-ui-mango/) · [Mango — Arrow Navigation & Video Pipeline](/writing/2026-08-03-mango-arrow-navigation-video-pipeline/) · [Tools](/writing/2026-08-01-tools/) · [Mango Tools](/projects/#mango-tools)
 
 _A tool is useful when it offers the least friction for the most work done._
 

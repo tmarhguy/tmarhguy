@@ -34,13 +34,17 @@ describe('ResumeNav', () => {
       'href',
       '#references',
     );
+    expect(screen.getByRole('link', { name: /open source/i })).toHaveAttribute(
+      'href',
+      '#open-source',
+    );
   });
 
-  it('renders 5 navigation links', () => {
+  it('renders 6 navigation links', () => {
     render(<ResumeNav />);
 
     const links = screen.getAllByRole('link');
-    expect(links.length).toBe(5);
+    expect(links.length).toBe(6);
   });
 
   it('has correct CSS class', () => {
@@ -50,10 +54,10 @@ describe('ResumeNav', () => {
     expect(nav).toBeInTheDocument();
   });
 
-  it('experience link is active by default', () => {
+  it('education link is active by default', () => {
     render(<ResumeNav />);
 
-    const experienceLink = screen.getByRole('link', { name: /experience/i });
-    expect(experienceLink).toHaveClass('active');
+    const educationLink = screen.getByRole('link', { name: /education/i });
+    expect(educationLink).toHaveClass('active');
   });
 });

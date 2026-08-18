@@ -3,7 +3,9 @@ import type { Metadata } from 'next';
 import Courses from '@/components/Resume/Courses';
 import Education from '@/components/Resume/Education';
 import Experience from '@/components/Resume/Experience';
+import OpenSource from '@/components/Resume/OpenSource';
 import References from '@/components/Resume/References';
+import ResumeEducationHeadline from '@/components/Resume/ResumeEducationHeadline';
 import ResumeNav from '@/components/Resume/ResumeNav';
 import ResumeSummary from '@/components/Resume/ResumeSummary';
 import Skills from '@/components/Resume/Skills';
@@ -11,6 +13,7 @@ import PageWrapper from '@/components/Template/PageWrapper';
 import profile from '@/data/profile.json';
 import courses from '@/data/resume/courses';
 import degrees from '@/data/resume/degrees';
+import resumeOpenSource from '@/data/resume/open-source';
 import { categories, skills } from '@/data/resume/skills';
 import work from '@/data/resume/work';
 import { createPageMetadata } from '@/lib/metadata';
@@ -28,6 +31,7 @@ export default function ResumePage() {
       <section className="resume-page">
         <header className="resume-header">
           <h1 className="resume-title">Resume</h1>
+          <ResumeEducationHeadline />
           <ResumeSummary />
           {/* Print-only, but real markup rather than CSS `content`, so it is
               selectable, linkable, and reads from the shared profile. The
@@ -44,12 +48,16 @@ export default function ResumePage() {
         <ResumeNav />
 
         <div className="resume-content">
+          <section id="education" className="resume-section">
+            <Education data={degrees} />
+          </section>
+
           <section id="experience" className="resume-section">
             <Experience data={work} />
           </section>
 
-          <section id="education" className="resume-section">
-            <Education data={degrees} />
+          <section id="open-source" className="resume-section">
+            <OpenSource data={resumeOpenSource} />
           </section>
 
           <section id="skills" className="resume-section">

@@ -107,6 +107,11 @@
     max-width: none;
   }
 
+  .resume-education-headline {
+    font-size: 10pt;
+    margin-bottom: 0.5rem;
+  }
+
   .resume-content {
     gap: 1.5rem;
     padding-top: 1rem;

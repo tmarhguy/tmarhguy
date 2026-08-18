@@ -2,8 +2,11 @@
 node_modules/
 yarn.lock
 
-# Logs
-logs/
+# Logs (repo-root npm/tooling output — not public/images/logs)
+/logs/
+
+# Generated writing media (copied from log/ at prebuild)
+public/images/logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
