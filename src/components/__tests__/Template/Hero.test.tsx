@@ -70,10 +70,9 @@ describe('Hero', () => {
       'href',
       'https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently',
     );
-    expect(screen.getByRole('link', { name: /vero electric/i })).toHaveAttribute(
-      'href',
-      'https://veroelectric.com/',
-    );
+    expect(
+      screen.getByRole('link', { name: /vero electric/i }),
+    ).toHaveAttribute('href', 'https://veroelectric.com/');
     expect(screen.getByRole('link', { name: /aragorn ai/i })).toHaveAttribute(
       'href',
       'https://www.aragorn.ai',

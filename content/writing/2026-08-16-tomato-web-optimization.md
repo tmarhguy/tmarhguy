@@ -20,12 +20,12 @@ _Tomato black theme, white theme._
 
 ### Before & After Metrics
 
-|                | Before (raw KiCad in the tab)    | After (what ships)                           |
-| -------------- | -------------------------------- | -------------------------------------------- |
-| **GLB**        | ~31.0 MB                         | 1.26 MB (Draco)                              |
-| **Draw**       | ~41k meshes (pad/trace)          | 9 meshes / 13 primitives                     |
-| **Copper**     | Palette welded it under mask     | Separate copper/mask/silk/FR4/pad            |
-| **Merge**      | Ran on every mesh on main thread | Still in `pcb-look.js`; skips if < 32 meshes |
+|            | Before (raw KiCad in the tab)    | After (what ships)                           |
+| ---------- | -------------------------------- | -------------------------------------------- |
+| **GLB**    | ~31.0 MB                         | 1.26 MB (Draco)                              |
+| **Draw**   | ~41k meshes (pad/trace)          | 9 meshes / 13 primitives                     |
+| **Copper** | Palette welded it under mask     | Separate copper/mask/silk/FR4/pad            |
+| **Merge**  | Ran on every mesh on main thread | Still in `pcb-look.js`; skips if < 32 meshes |
 
 ### The GLB Export Pivot
 

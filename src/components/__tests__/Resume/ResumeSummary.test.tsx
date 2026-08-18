@@ -7,7 +7,9 @@ describe('ResumeSummary', () => {
   it('renders the professional summary with key links', () => {
     render(<ResumeSummary />);
 
-    expect(screen.getByText(/Computer Engineering Junior/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Computer Engineering Junior/i),
+    ).toBeInTheDocument();
     expect(screen.getByText(/Open Source Contributions:/)).toBeInTheDocument();
     expect(screen.getByText(/The Builds:/)).toBeInTheDocument();
     expect(screen.getByText(/The Work:/)).toBeInTheDocument();

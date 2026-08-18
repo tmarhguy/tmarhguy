@@ -2,7 +2,7 @@
 
 **Date:** 2026-07-31  
 **Status:** Decision in progress — bring-up strategy  
-**Related:** [Redesign into 40b](2026-07-30%20-%20Redesign%20into%2040b%20(Old%20design%20=%2032b).md)
+**Related:** [Redesign into 40b](<2026-07-30%20-%20Redesign%20into%2040b%20(Old%20design%20=%2032b).md>)
 
 ---
 

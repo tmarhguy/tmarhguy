@@ -33,10 +33,10 @@ Every opcode indexes a **48-bit word** in the microcode ROM (`DIG_ROM_256X48_mic
 
 The sequencer counter (74163, clocked on **falling** CLK edge) determines the phase. Data registers (IR, register file, flags) are clocked on the **rising** CLK edge.
 
-| `cycles` value | Phases | Counter states used |
-|---|---|---|
-| `0b01` = 1 | FETCH + EXECUTE | Q=00, Q=01 (resets at Q=01) |
-| `0b10` = 2 | FETCH + EXECUTE + MEM_WAIT | Q=00, Q=01, Q=10 (resets at Q=10) |
+| `cycles` value | Phases                     | Counter states used               |
+| -------------- | -------------------------- | --------------------------------- |
+| `0b01` = 1     | FETCH + EXECUTE            | Q=00, Q=01 (resets at Q=01)       |
+| `0b10` = 2     | FETCH + EXECUTE + MEM_WAIT | Q=00, Q=01, Q=10 (resets at Q=10) |
 
 During **FETCH** (`Q=00`, `seq_fetch=1`): PC drives the address bus regardless of `ctrl-bussel`. IR latches the instruction from memory.  
 During **EXECUTE** (`Q=01`, `seq_exec=1`): microcode controls are active, ALU runs, register writes happen.  
@@ -48,12 +48,12 @@ During **MEM_WAIT** (`Q=10`, `seq_exec=0`): no register write.
 
 The 5-bit `control` field maps directly to operand selection:
 
-| Bit | Name | Effect when 1 |
-|-----|------|--------------|
-| [0] | `Asel` | Enable A input (A_eff = A); if 0, A_eff = 0 |
-| [1] | `ainv` | Invert A_eff |
-| [2] | `Bsel` | Enable B input (B_eff = B); if 0, B_eff = 0 |
-| [3] | `binv` | Invert B_eff |
+| Bit | Name   | Effect when 1                                |
+| --- | ------ | -------------------------------------------- |
+| [0] | `Asel` | Enable A input (A_eff = A); if 0, A_eff = 0  |
+| [1] | `ainv` | Invert A_eff                                 |
+| [2] | `Bsel` | Enable B input (B_eff = B); if 0, B_eff = 0  |
+| [3] | `binv` | Invert B_eff                                 |
 | [4] | `csel` | Use REG_C as carry operand instead of FLAG_C |
 
 `alu-op=0x96` with `Asel=1, Bsel=1` → standard **full adder** (A + B + cin).  
@@ -70,6 +70,7 @@ EXECUTE(Q=01):  ctrl-bussel → address → RAM (combinatorial) → byte_lane_de
 ```
 
 Signal chain for `wb_mux` sel=3 (memory writeback):
+
 ```
 ALU/reg_b/IR_ADDR
   → bus_arbitration (ctrl-bussel) → CPU_ADDR_OUT
@@ -97,14 +98,14 @@ The store data source is **hardwired** to `reg_b_temp` (`main.v:5045`). There is
 
 ## 6. Decoded ROM Entries — Load Instructions (opcodes 0x30–0x35)
 
-| Opcode | ROM entry | wb-sel | reg-we | mem-rd | mem-sel | `ctrl-bussel` | `alu-op` | `alu-pre` | `cycles` |
-|--------|-----------|--------|--------|--------|---------|---------------|----------|-----------|---------|
-| `0x30` LW  | `48'h3005630000` | 3 ✓ | 1 ✓ | 1 ✓ | 0 (word) | 1 (ALU) | **0x00 ⚠** | **0x00 ⚠** | 2 |
-| `0x31` LH  | `48'h3035630000` | 3 ✓ | 1 ✓ | 1 ✓ | 3 (half) | 1 (ALU) | **0x00 ⚠** | **0x00 ⚠** | 2 |
-| `0x32` LHU | `48'h3025630000` | 3 ✓ | 1 ✓ | 1 ✓ | 2 (byte_u) | 1 (ALU) | **0x00 ⚠** | **0x00 ⚠** | 2 |
-| `0x33` LB  | `48'h3015630000` | 3 ✓ | 1 ✓ | 1 ✓ | 1 (byte_s) | 1 (ALU) | **0x00 ⚠** | **0x00 ⚠** | 2 |
-| `0x34` LBU | `48'h3005630000` | 3 ✓ | 1 ✓ | 1 ✓ | 0 (word)  | 1 (ALU) | **0x00 ⚠** | **0x00 ⚠** | 2 |
-| `0x35` LW  | `48'h4805600000` | 3 ✓ | 1 ✓ | 1 ✓ | 0 (word) | 2 (Reg_B) ✓ | 0x00 | 0x00 | 1 |
+| Opcode     | ROM entry        | wb-sel | reg-we | mem-rd | mem-sel    | `ctrl-bussel` | `alu-op`   | `alu-pre`  | `cycles` |
+| ---------- | ---------------- | ------ | ------ | ------ | ---------- | ------------- | ---------- | ---------- | -------- |
+| `0x30` LW  | `48'h3005630000` | 3 ✓    | 1 ✓    | 1 ✓    | 0 (word)   | 1 (ALU)       | **0x00 ⚠** | **0x00 ⚠** | 2        |
+| `0x31` LH  | `48'h3035630000` | 3 ✓    | 1 ✓    | 1 ✓    | 3 (half)   | 1 (ALU)       | **0x00 ⚠** | **0x00 ⚠** | 2        |
+| `0x32` LHU | `48'h3025630000` | 3 ✓    | 1 ✓    | 1 ✓    | 2 (byte_u) | 1 (ALU)       | **0x00 ⚠** | **0x00 ⚠** | 2        |
+| `0x33` LB  | `48'h3015630000` | 3 ✓    | 1 ✓    | 1 ✓    | 1 (byte_s) | 1 (ALU)       | **0x00 ⚠** | **0x00 ⚠** | 2        |
+| `0x34` LBU | `48'h3005630000` | 3 ✓    | 1 ✓    | 1 ✓    | 0 (word)   | 1 (ALU)       | **0x00 ⚠** | **0x00 ⚠** | 2        |
+| `0x35` LW  | `48'h4805600000` | 3 ✓    | 1 ✓    | 1 ✓    | 0 (word)   | 2 (Reg_B) ✓   | 0x00       | 0x00       | 1        |
 
 `0x35` works because `ctrl-bussel=2` uses `reg_b[23:0]` directly as the address — the ALU is not involved.  
 `0x30–0x34` are broken (see Bug #1 below).
@@ -113,12 +114,12 @@ The store data source is **hardwired** to `reg_b_temp` (`main.v:5045`). There is
 
 ## 7. Decoded ROM Entries — Store Instructions (opcodes 0x40–0x43)
 
-| Opcode | ROM entry | reg-we | mem-wr | mem-rd | `ctrl-bussel` | `alu-op` | `alu-pre` | `cycles` |
-|--------|-----------|--------|--------|--------|---------------|----------|-----------|---------|
-| `0x40` SW  | `48'h3008030000` | 0 ✓ | 1 ✓ | 0 ✓ | 1 (ALU) | **0x00 ⚠** | **0x00 ⚠** | 2 |
-| `0x41` SH  | `48'h3038030000` | 0 ✓ | 1 ✓ | 0 ✓ | 1 (ALU) | **0x00 ⚠** | **0x00 ⚠** | 2 |
-| `0x42` SB  | `48'h3018030000` | 0 ✓ | 1 ✓ | 0 ✓ | 1 (ALU) | **0x00 ⚠** | **0x00 ⚠** | 2 |
-| `0x43` SW  | `48'h4808000000` | 0 ✓ | 1 ✓ | 0 ✓ | 2 (Reg_B) ✓ | 0x00 | 0x00 | 1 |
+| Opcode    | ROM entry        | reg-we | mem-wr | mem-rd | `ctrl-bussel` | `alu-op`   | `alu-pre`  | `cycles` |
+| --------- | ---------------- | ------ | ------ | ------ | ------------- | ---------- | ---------- | -------- |
+| `0x40` SW | `48'h3008030000` | 0 ✓    | 1 ✓    | 0 ✓    | 1 (ALU)       | **0x00 ⚠** | **0x00 ⚠** | 2        |
+| `0x41` SH | `48'h3038030000` | 0 ✓    | 1 ✓    | 0 ✓    | 1 (ALU)       | **0x00 ⚠** | **0x00 ⚠** | 2        |
+| `0x42` SB | `48'h3018030000` | 0 ✓    | 1 ✓    | 0 ✓    | 1 (ALU)       | **0x00 ⚠** | **0x00 ⚠** | 2        |
+| `0x43` SW | `48'h4808000000` | 0 ✓    | 1 ✓    | 0 ✓    | 2 (Reg_B) ✓   | 0x00       | 0x00       | 1        |
 
 `0x43` works: address = `reg_b[23:0]`, data written = `reg_b` (full 32-bit). So `SW [r1], r1` stores the VALUE of r1 to the ADDRESS in r1. Both source and destination are reg_b.  
 `0x40–0x42` are broken (see Bug #1 below).
@@ -139,7 +140,7 @@ Correct entry shape for `0x30` would be `48'h3005630796` instead of `48'h3005630
 
 ### Bug #2 — Extra memory latch in `modules/main.v` (NOT in exported version)
 
-`hardware/digital/modules/main.v` inserts a `DIG_Register_BUS_i20` between the RAM output and the byte_lane_decoder. This latches the memory data at the EXECUTE rising edge — the same edge that writes to the register file. The register write therefore uses the *previous* cycle's memory data (the instruction word), not the actual loaded value.
+`hardware/digital/modules/main.v` inserts a `DIG_Register_BUS_i20` between the RAM output and the byte_lane_decoder. This latches the memory data at the EXECUTE rising edge — the same edge that writes to the register file. The register write therefore uses the _previous_ cycle's memory data (the instruction word), not the actual loaded value.
 
 `hardware/digital/modules/verilog-exports/main.v` does **not** have this latch. The RAM output goes directly to byte_lane_decoder, so the data settles combinatorially before the EXECUTE register write. **This version is correct.**
 
@@ -148,7 +149,8 @@ Action: regenerate `modules/main.v` from the Digital simulator (`.dig` file), or
 ### Design note — Store data source
 
 All store instructions write `reg_b_temp` to memory (hardwired at `main.v:5045`). This means `SW [addr], data` must have:
-- Base address register in the **ADDR_B** field (instruction[15:8])  
+
+- Base address register in the **ADDR_B** field (instruction[15:8])
 - Data register also sourced from **ADDR_B** (the same register)
 
 A conventional `SW rA, [rB + imm]` (data=rA, address=rB+imm) is not directly representable with the current data path. If that ISA encoding is desired, the RAM `.Din` would need to be changed from `reg_b_temp` to `reg_a_temp`.
@@ -157,13 +159,13 @@ A conventional `SW rA, [rB + imm]` (data=rA, address=rB+imm) is not directly rep
 
 ## 9. What Currently Works
 
-| Instruction | Opcode | Status |
-|-------------|--------|--------|
-| LW rd, [rB] | `0x35` | ✅ Correct (reg_b address, direct combinatorial path in exported .v) |
-| SW [rB], rB | `0x43` | ✅ Correct (reg_b address and data, writes value of rB to address in rB) |
-| LW/LH/LHU/LB/LBU rd, [rA + imm12] | `0x30–0x34` | ❌ Bug #1: always accesses address 0 |
-| SW/SH/SB [rA + imm12], rB | `0x40–0x42` | ❌ Bug #1: always writes to address 0 |
-| All instructions in `modules/main.v` (non-exported) | — | ❌ Bug #2: load writeback uses wrong data |
+| Instruction                                         | Opcode      | Status                                                                   |
+| --------------------------------------------------- | ----------- | ------------------------------------------------------------------------ |
+| LW rd, [rB]                                         | `0x35`      | ✅ Correct (reg_b address, direct combinatorial path in exported .v)     |
+| SW [rB], rB                                         | `0x43`      | ✅ Correct (reg_b address and data, writes value of rB to address in rB) |
+| LW/LH/LHU/LB/LBU rd, [rA + imm12]                   | `0x30–0x34` | ❌ Bug #1: always accesses address 0                                     |
+| SW/SH/SB [rA + imm12], rB                           | `0x40–0x42` | ❌ Bug #1: always writes to address 0                                    |
+| All instructions in `modules/main.v` (non-exported) | —           | ❌ Bug #2: load writeback uses wrong data                                |
 
 ---
 

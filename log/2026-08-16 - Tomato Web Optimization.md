@@ -2,18 +2,18 @@ I decided to keep the web stack strictly Vanilla: static HTML, CSS, JavaScript, 
 
 ### Before & After Metrics
 
-|                | Before (raw KiCad in the tab)    | After (what ships)                           |
-| -------------- | -------------------------------- | -------------------------------------------- |
-| **GLB**        | ~31.0 MB                         | 1.26 MB (Draco)                              |
-| **Draw**       | ~41k meshes (pad/trace)          | 9 meshes / 13 primitives                     |
-| **Copper**     | Palette welded it under mask     | Separate copper/mask/silk/FR4/pad            |
-| **Merge**      | Ran on every mesh on main thread | Still in `pcb-look.js`; skips if < 32 meshes |
+|            | Before (raw KiCad in the tab)    | After (what ships)                           |
+| ---------- | -------------------------------- | -------------------------------------------- |
+| **GLB**    | ~31.0 MB                         | 1.26 MB (Draco)                              |
+| **Draw**   | ~41k meshes (pad/trace)          | 9 meshes / 13 primitives                     |
+| **Copper** | Palette welded it under mask     | Separate copper/mask/silk/FR4/pad            |
+| **Merge**  | Ran on every mesh on main thread | Still in `pcb-look.js`; skips if < 32 meshes |
 
 ### The GLB Export Pivot
 
 Originally, the 3D model of the ALU was a monolithic ~31MB `.glb` file straight out of KiCad 10.0.4, carrying roughly 41k pad/trace meshes. To shrink this, I pushed it through glTF-Transform v4.4.2.
 
-The shipped file (`web/assets/pcb/alu.glb`) is now 1.26 MB on disk, consisting of exactly 9 meshes, 13 primitives, 13 materials, and 9 nodes. The only extension used is `KHR_draco_mesh_compression`. 
+The shipped file (`web/assets/pcb/alu.glb`) is now 1.26 MB on disk, consisting of exactly 9 meshes, 13 primitives, 13 materials, and 9 nodes. The only extension used is `KHR_draco_mesh_compression`.
 
 Crucially, KiCad's "Texture Atlas / Palette" option was **turned off**. This is true and load-bearing. If we ran a `palette()` then `join()`, it welded the copper under an opaque mask—traces stayed in the buffer and didn't show. The pipeline that actually ran in `optimize-pcb.mjs` does not `palette()` or `simplify()`. Instead, it was:
 `dedup → join(keepMeshes) → flatten → join → weld → prune → sparse → draco`.
@@ -22,7 +22,7 @@ This keeps the layers separate (`*_copper`, `*_pad`, `*_silkscreen`, `*_solderma
 
 ### The ~3.5-Second Main Thread Freeze
 
-Before this optimization, the ~31MB model had thousands of un-instanced meshes, which choked Three.js draw calls. To compensate, we were running a custom `mergeByMaterial` script on the client side that iterated through every mesh and merged their geometries before rendering. 
+Before this optimization, the ~31MB model had thousands of un-instanced meshes, which choked Three.js draw calls. To compensate, we were running a custom `mergeByMaterial` script on the client side that iterated through every mesh and merged their geometries before rendering.
 
 Running this on the browser caused a massive main-thread freeze. A checked-in Lighthouse run (13.4.0, Chrome extensions on) recorded a Total Blocking Time (TBT) of **3,130 ms**, a Max Potential FID of **3,530 ms**, and an overall Performance score of **43** (though Accessibility and SEO both hit 100, and Best Practices 96).
 
@@ -31,8 +31,9 @@ Because the new export is already joined by material in glTF-Transform, the clie
 ### Lighting & Material Contrast
 
 For the materials:
+
 - Dropped ambient `hemiIntensity` to `0.6` to introduce deep, realistic shadows.
-- Set the soldermask clearcoat to `1` and opacity to `0.86`, with a deep green color (`#1a9a48`). 
+- Set the soldermask clearcoat to `1` and opacity to `0.86`, with a deep green color (`#1a9a48`).
 - Copper is `#c4a020` and FR4 is `#0c3320`, allowing the bright, metallic copper traces underneath to physically shine through the deep green gloss.
 
 ### Media & Assets

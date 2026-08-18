@@ -4,8 +4,8 @@ import {
   getAdjacentLogs,
   getAllLogs,
   getLogBySlug,
-  getLogSlugs,
   getLogProjectGroupKey,
+  getLogSlugs,
   getLogsByProject,
   getWritingSectionHref,
   projectHasWriting,
@@ -108,8 +108,12 @@ describe('getLogsByProject', () => {
     const openSourceGroup = groups.find(
       (group) => group.project === 'open-source',
     );
-    const tomatoAugGroup = groups.find((group) => group.project === 'tomato-aug');
-    const tomatoJulGroup = groups.find((group) => group.project === 'tomato-jul');
+    const tomatoAugGroup = groups.find(
+      (group) => group.project === 'tomato-aug',
+    );
+    const tomatoJulGroup = groups.find(
+      (group) => group.project === 'tomato-jul',
+    );
     if (!openSourceGroup || !tomatoAugGroup || !tomatoJulGroup) {
       return;
     }
@@ -127,7 +131,9 @@ describe('getLogsByProject', () => {
     expect(tomatoAugGroup.entries[0]?.slug).toBe(
       '2026-08-16-tomato-web-optimization',
     );
-    expect(tomatoAugGroup.entries.map((entry) => entry.slug).slice(0, 4)).toEqual([
+    expect(
+      tomatoAugGroup.entries.map((entry) => entry.slug).slice(0, 4),
+    ).toEqual([
       '2026-08-16-tomato-web-optimization',
       '2026-08-15-pcbs-arrive',
       '2026-08-15-isa-as-a-wire',
@@ -194,7 +200,9 @@ describe('getLogsByProject', () => {
 
 describe('writing section anchors', () => {
   it('builds section hrefs that match the writing index headings', () => {
-    expect(getWritingSectionHref('tomato')).toBe('/writing/#writing-tomato-aug');
+    expect(getWritingSectionHref('tomato')).toBe(
+      '/writing/#writing-tomato-aug',
+    );
     expect(getWritingSectionHref('itch-hw')).toBe('/writing/#writing-itch-hw');
   });
 

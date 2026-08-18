@@ -48,14 +48,16 @@ export default function ProfessionalSummary({
   className,
 }: ProfessionalSummaryProps) {
   return (
-    <ul className={`professional-summary-list${className ? ` ${className}` : ''}`}>
+    <ul
+      className={`professional-summary-list${className ? ` ${className}` : ''}`}
+    >
       <li>
         Computer Engineering Junior at the{' '}
         <InlineLink href="https://www.upenn.edu" external>
           University of Pennsylvania
         </InlineLink>
-        . I build and verify hardware—routing complex discrete-MOSFET PCBs
-        and hardening RTL via the Sky130 ASIC flow.
+        . I build and verify hardware—routing complex discrete-MOSFET PCBs and
+        hardening RTL via the Sky130 ASIC flow.
       </li>
       <li>
         <strong>Open Source Contributions:</strong> Writing core C++/Python

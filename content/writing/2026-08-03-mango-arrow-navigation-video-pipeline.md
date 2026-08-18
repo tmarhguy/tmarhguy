@@ -11,7 +11,7 @@ The Mango shell UI was up and running, but it still felt like a form with number
 
 ## The Problem
 
-Typing `1`–`6` (or memorizing tool names) works, but it breaks the illusion Mango is going for. The menus looked polished, yet every screen still dumped you into a line prompt: *Enter choice*. Worse, several tools in the registry — including **Video → GIF** and **Extract Audio** — showed as "coming soon" because the underlying `bin/` scripts did not exist yet. The UI promised a toolkit; the filesystem had not caught up.
+Typing `1`–`6` (or memorizing tool names) works, but it breaks the illusion Mango is going for. The menus looked polished, yet every screen still dumped you into a line prompt: _Enter choice_. Worse, several tools in the registry — including **Video → GIF** and **Extract Audio** — showed as "coming soon" because the underlying `bin/` scripts did not exist yet. The UI promised a toolkit; the filesystem had not caught up.
 
 ### Video & Audio pipeline
 
@@ -39,4 +39,4 @@ macOS still ships Bash 3.2. Two gotchas surfaced immediately while building the 
 - **`local -n` namerefs** — not available; refactored to stdout-returning helpers.
 - **`read -t 0.05`** — fractional timeouts are rejected; escape sequences are now read one character at a time with integer `-t 1`.
 
-*Mango should feel like navigating an app, not filling out a survey. Arrows first; typing only when you actually need a path.*
+_Mango should feel like navigating an app, not filling out a survey. Arrows first; typing only when you actually need a path._

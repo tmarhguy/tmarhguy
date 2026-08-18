@@ -65,7 +65,9 @@ describe('writing information architecture', () => {
     expect(
       screen.getByRole('heading', { name: 'Tomato CPU — August' }),
     ).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Tomato CPU — July' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'Tomato CPU — July' }),
+    ).toBeInTheDocument();
     expect(
       screen.getByRole('heading', { name: 'Tomato CPU — Earlier' }),
     ).toBeInTheDocument();

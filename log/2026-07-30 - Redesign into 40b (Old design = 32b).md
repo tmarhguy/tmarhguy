@@ -42,15 +42,15 @@ One word type everywhere: fetch, IR, registers, ALU, memory, and writeback.
 
 ### Canonical word layout
 
-| Field      | Bits   | Role                                      |
-|------------|--------|-------------------------------------------|
+| Field      | Bits   | Role                                       |
+| ---------- | ------ | ------------------------------------------ |
 | `INS`      | 12     | Control index → microcode ROMs (4096 rows) |
-| `ADDR_W`   | 6      | Destination (write port)                  |
-| `ADDR_A`   | 6      | ALU operand A                             |
-| `ADDR_B`   | 6      | ALU operand B                             |
-| `ADDR_C`   | 6      | ALU operand C (independent third source)  |
-| `BANK_SEL` | 4      | Register bank select                      |
-| **Total**  | **40** |                                           |
+| `ADDR_W`   | 6      | Destination (write port)                   |
+| `ADDR_A`   | 6      | ALU operand A                              |
+| `ADDR_B`   | 6      | ALU operand B                              |
+| `ADDR_C`   | 6      | ALU operand C (independent third source)   |
+| `BANK_SEL` | 4      | Register bank select                       |
+| **Total**  | **40** |                                            |
 
 ```
 [39:28]  INS
@@ -75,13 +75,13 @@ INS  d, a, b, c    ; rd = f(a,b,c) + g(a,b,c) + cin
 
 Forty bits sounds odd until you account for what was already odd in Tomato32:
 
-| Quirk                         | 32-bit world              | 40-bit world                    |
-|-------------------------------|---------------------------|---------------------------------|
-| Dual-LUT ALU (`f + g + cin`)  | Hidden behind microcode   | Same hardware, honest 4-operand |
-| Immediate / offset overlay    | Fights register fields    | `INS` picks field repacking     |
-| Byte lane decoder             | 4 bytes per word          | 5 bytes per word (or word-only v1) |
-| 3R1W register file            | C tied to W readback      | Fourth read port for `ADDR_C`   |
-| Physical reg RAM capacity     | 8k locations per slice    | 6-bit addr × bank — not capped at 16 |
+| Quirk                        | 32-bit world            | 40-bit world                         |
+| ---------------------------- | ----------------------- | ------------------------------------ |
+| Dual-LUT ALU (`f + g + cin`) | Hidden behind microcode | Same hardware, honest 4-operand      |
+| Immediate / offset overlay   | Fights register fields  | `INS` picks field repacking          |
+| Byte lane decoder            | 4 bytes per word        | 5 bytes per word (or word-only v1)   |
+| 3R1W register file           | C tied to W readback    | Fourth read port for `ADDR_C`        |
+| Physical reg RAM capacity    | 8k locations per slice  | 6-bit addr × bank — not capped at 16 |
 
 The oddity was never the word width. It was hiding non-conventional structure inside a conventional 32-bit envelope.
 
@@ -117,7 +117,7 @@ With 40 bits, fetch is one memory read → IR. Writeback, literals, and jump-tab
 
 Tomato stops trying to be "a 32-bit RISC with a fancy ALU bolted on." It becomes a **programmable logic + adder machine with registers and memory** — Von Neumann, multi-cycle, single native encoding.
 
-It can still *emulate* other ISAs through profiles, but the ground truth is one 40-bit word and a 12-bit control catalog. The ALU's `f(a,b,c) + g(a,b,c) + carry_in` model is the center; the instruction word is finally wide enough to describe it without compromise.
+It can still _emulate_ other ISAs through profiles, but the ground truth is one 40-bit word and a 12-bit control catalog. The ALU's `f(a,b,c) + g(a,b,c) + carry_in` model is the center; the instruction word is finally wide enough to describe it without compromise.
 
 ---
 

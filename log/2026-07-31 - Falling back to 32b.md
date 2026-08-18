@@ -2,7 +2,7 @@
 
 **Date:** 2026-07-31  
 **Status:** Decision settled — revert to Tomato32  
-**Supersedes:** [Redesign into 40b](2026-07-30%20-%20Redesign%20into%2040b%20(Old%20design%20=%2032b).md)  
+**Supersedes:** [Redesign into 40b](<2026-07-30%20-%20Redesign%20into%2040b%20(Old%20design%20=%2032b).md>)  
 **Related:** [The lingering catch](2026-07-31%20-%20The%20lingering%20thoughts.md)
 
 ---
@@ -11,7 +11,7 @@
 
 In a rather if not seemingly swing between implementations, I have reconsidered and am falling back to the **32b design**.
 
-The [40b redesign](2026-07-30%20-%20Redesign%20into%2040b%20(Old%20design%20=%2032b).md) was intellectually clean — one word type, a fourth operand field, room for a larger INS table. I spent a day on the catalogs and the widening math. But building is the constraint, not the spreadsheet.
+The [40b redesign](<2026-07-30%20-%20Redesign%20into%2040b%20(Old%20design%20=%2032b).md>) was intellectually clean — one word type, a fourth operand field, room for a larger INS table. I spent a day on the catalogs and the widening math. But building is the constraint, not the spreadsheet.
 
 ---
 
@@ -38,13 +38,13 @@ The persisting **dark silicon** — the address space and LUT catalog we did not
 
 ## What changes in practice
 
-| Area | 40b experiment (set aside) | 32b (current) |
-|------|---------------------------|---------------|
-| Instruction / machine word | 40 bits, unified | 32 bits |
-| Opcode ROM | 4096-row INS table | **512 rows** |
-| Register file | 4 read ports, 6-bit addr | 3R1W, 32 GPR × 8 banks |
-| Digital target | `alu-40b-final.dig`, widened `main` | `alu-32b-final.dig`, `main.dig` |
-| ISA authority | `tomato.csv` at 4096 | `opcode-map.csv`, 9-bit opcode + 5-bit fields |
+| Area                       | 40b experiment (set aside)          | 32b (current)                                 |
+| -------------------------- | ----------------------------------- | --------------------------------------------- |
+| Instruction / machine word | 40 bits, unified                    | 32 bits                                       |
+| Opcode ROM                 | 4096-row INS table                  | **512 rows**                                  |
+| Register file              | 4 read ports, 6-bit addr            | 3R1W, 32 GPR × 8 banks                        |
+| Digital target             | `alu-40b-final.dig`, widened `main` | `alu-32b-final.dig`, `main.dig`               |
+| ISA authority              | `tomato.csv` at 4096                | `opcode-map.csv`, 9-bit opcode + 5-bit fields |
 
 No fourth read port. No 40-bit RAM widening on bring-up. The ALU PCB (`07_alu`) stays as built — the slice is still 32-bit wide per lane in the current KiCad tree.
 

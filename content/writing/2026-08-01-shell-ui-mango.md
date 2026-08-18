@@ -37,4 +37,3 @@ As the toolkit expands, remembering individual script paths, names, and argument
 ![Folder browser](/images/mango/dir_navig.png)
 
 ![Compress image flow](/images/mango/img_comp_window.png)
-

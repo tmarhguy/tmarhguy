@@ -10,11 +10,11 @@ Having a proper iron is a hilarious contrast to my early engineering days. When 
 
 My "soldering iron" back then was just a nail heated red-hot in a fire. I’d hold it with pliers—or a makeshift wooden holder that frequently caught fire—to melt thick chunks of salvaged solder.
 
-| Then | Now |
-| ---- | --- |
-| A nail, heated red-hot in a fire | WEP 926LED V3, **480 °C** on the display |
-| Pliers — or a wooden holder that caught fire | Coil stand, brass wool, sponge |
-| Salvaged chunks of solder | A spool on the station |
+| Then                                                               | Now                                       |
+| ------------------------------------------------------------------ | ----------------------------------------- |
+| A nail, heated red-hot in a fire                                   | WEP 926LED V3, **480 °C** on the display  |
+| Pliers — or a wooden holder that caught fire                       | Coil stand, brass wool, sponge            |
+| Salvaged chunks of solder                                          | A spool on the station                    |
 | Hand-crank a wind generator, stay under **5V**, charge to **4.1V** | Campus desk. Waiting on JLCPCB + DigiKey. |
 
 To charge the batteries, I relied on a wind generator I had actually built myself _([See video of me rewinding my first wind generator at 11 years in Ghana](https://docs.google.com/videos/d/1zLeuVECxmtJ6nVa4QfNbt_4gfXpi5gCUJMtCwPADubI/play?usp=sharing))_.

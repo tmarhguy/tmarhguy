@@ -47,7 +47,9 @@ describe('ListItem', () => {
     );
 
     expect(
-      screen.getByRole('link', { name: /Tomato — Discrete 32-bit Polymorphic Dual-LUT3 CPU/i }),
+      screen.getByRole('link', {
+        name: /Tomato — Discrete 32-bit Polymorphic Dual-LUT3 CPU/i,
+      }),
     ).toHaveAttribute('href', 'https://tomato.tmarhguy.com');
     expect(screen.getByRole('link', { name: /github/i })).toHaveAttribute(
       'href',

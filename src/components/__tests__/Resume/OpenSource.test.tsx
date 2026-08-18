@@ -58,11 +58,13 @@ describe('OpenSource', () => {
     );
     expect(screen.getByText(/chk\.rpt/)).toBeInTheDocument();
     expect(
-      document.querySelectorAll('.open-source .jobs-container')[0]
+      document
+        .querySelectorAll('.open-source .jobs-container')[0]
         ?.querySelectorAll('.points li').length,
     ).toBe(2);
     expect(
-      document.querySelectorAll('.open-source .jobs-container')[3]
+      document
+        .querySelectorAll('.open-source .jobs-container')[3]
         ?.querySelectorAll('.points li').length,
     ).toBe(2);
   });

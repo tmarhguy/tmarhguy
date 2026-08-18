@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /**
  * Copy article images referenced in content/writing/ into public/images/.
- * Sources (first hit wins): public (already synced), tomato/media, tools/media
- * (mango paths), and sibling ../tomato/media when clones live next to this repo.
+ * Sources (first hit wins): public (already synced), log/ for /images/logs/,
+ * tomato/media, tools/media (mango paths), and sibling ../tomato/media when
+ * clones live next to this repo.
  */
 import {
   copyFileSync,
@@ -24,14 +25,14 @@ const MEDIA_ROOTS = [
 ];
 
 const IMAGE_REF =
-  /!\[[^\]]*]\((\/images\/[^)\s]+)\)|<img\b[^>]*\bsrc=["'](\/images\/[^"']+)["']|<video\b[^>]*\bsrc=["'](\/images\/[^"']+)["']/gi;
+  /!\[[^\]]*]\((\/images\/[^)\s]+)\)|<img\b[^>]*\bsrc=["'](\/images\/[^"']+)["']|<video\b[^>]*\bsrc=["'](\/images\/[^"']+)["']|^image:\s*['"](\/images\/[^'"]+)['"]/gim;
 
 /** Collect root-relative /images/... paths from Markdown, img, or video tags. */
 export function collectImageRefs(markdown) {
   const refs = new Set();
 
   for (const match of markdown.matchAll(IMAGE_REF)) {
-    const src = match[1] ?? match[2] ?? match[3];
+    const src = match[1] ?? match[2] ?? match[3] ?? match[4];
     if (src?.startsWith('/images/')) {
       refs.add(src);
     }
@@ -44,6 +45,14 @@ function resolveSource(relative) {
   const destination = join(PUBLIC_IMAGES, relative);
   if (existsSync(destination)) {
     return destination;
+  }
+
+  // /images/logs/foo.png ← log/foo.png (Obsidian vault, committed)
+  if (relative.startsWith('logs/')) {
+    const candidate = join(ROOT, 'log', relative.slice('logs/'.length));
+    if (existsSync(candidate)) {
+      return candidate;
+    }
   }
 
   for (const root of MEDIA_ROOTS) {

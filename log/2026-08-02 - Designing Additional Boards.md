@@ -42,14 +42,14 @@ Heat from brief overlap at these speeds should be ok. Production hygiene still m
 
 ## Board queue (after ALU)
 
-| Board | KiCad | Digital anchor | Notes |
-|-------|-------|----------------|-------|
-| **06** data bus | [06_data_bus/](../../hardware/kicad/boards/06_data_bus/) | `wb_mux`, `bus-arbitration` | **Current focus** — mux + drivers |
-| 04 register | [04_register/](../../hardware/kicad/boards/04_register/) | `register.dig`, `ir.dig` | 3R1W, 32 GPR × 8 banks |
-| 05 PC / SP | [05_program_counter/](../../hardware/kicad/boards/05_program_counter/) | `program-counter.dig`, `sp.dig` | Fetch address source |
-| 03 memory | [03_memory/](../../hardware/kicad/boards/03_memory/) | `memory.dig`, `byte-lane-decoder` | Load/store path |
-| 02 shift / mul-div | [02_shift_encoder/](../../hardware/kicad/boards/02_shift_encoder/) | `mul-div.dig`, `shift-mul-control` | [Priority-encoder mul](2026-06-15%20-%20Multiplication%20and%20Division.md) |
-| 08 display / FSM | [08_display/](../../hardware/kicad/boards/08_display/), `08_alu_fsm` | `alu-display-control` | Bench debug |
+| Board              | KiCad                                                                  | Digital anchor                     | Notes                                                                       |
+| ------------------ | ---------------------------------------------------------------------- | ---------------------------------- | --------------------------------------------------------------------------- |
+| **06** data bus    | [06_data_bus/](../../hardware/kicad/boards/06_data_bus/)               | `wb_mux`, `bus-arbitration`        | **Current focus** — mux + drivers                                           |
+| 04 register        | [04_register/](../../hardware/kicad/boards/04_register/)               | `register.dig`, `ir.dig`           | 3R1W, 32 GPR × 8 banks                                                      |
+| 05 PC / SP         | [05_program_counter/](../../hardware/kicad/boards/05_program_counter/) | `program-counter.dig`, `sp.dig`    | Fetch address source                                                        |
+| 03 memory          | [03_memory/](../../hardware/kicad/boards/03_memory/)                   | `memory.dig`, `byte-lane-decoder`  | Load/store path                                                             |
+| 02 shift / mul-div | [02_shift_encoder/](../../hardware/kicad/boards/02_shift_encoder/)     | `mul-div.dig`, `shift-mul-control` | [Priority-encoder mul](2026-06-15%20-%20Multiplication%20and%20Division.md) |
+| 08 display / FSM   | [08_display/](../../hardware/kicad/boards/08_display/), `08_alu_fsm`   | `alu-display-control`              | Bench debug                                                                 |
 
 Control ROM boards ([microcode modularization](2026-06-16%20-%20Microcode%20Control%20Modularization.md)) ride with their datapath slices — not a separate queue item.
 

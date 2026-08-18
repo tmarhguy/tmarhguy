@@ -2,12 +2,12 @@ Four 32-bit values on screen at once—the three LUT3 operand buses plus the ALU
 
 #### The goal
 
-| Row | Input | Registers | LUT3 role |
-|-----|-------|-----------|-----------|
-| 1 | `Data_A` | `regA0`–`regA7` | Operand A |
-| 2 | `Data_B` | `regB0`–`regB7` | Operand B |
-| 3 | `Data_C` | `regC0`–`regC7` | Operand C |
-| 4 | `Data_W` | `regW0`–`regW7` | ALU result / write port |
+| Row | Input    | Registers       | LUT3 role               |
+| --- | -------- | --------------- | ----------------------- |
+| 1   | `Data_A` | `regA0`–`regA7` | Operand A               |
+| 2   | `Data_B` | `regB0`–`regB7` | Operand B               |
+| 3   | `Data_C` | `regC0`–`regC7` | Operand C               |
+| 4   | `Data_W` | `regW0`–`regW7` | ALU result / write port |
 
 128 bits in the pool → thirty-two nibbles → thirty-two digits. Sim defaults baked into the schematic: `0xDEADBEEF`, `0xBAD12345`, `0x12345678`, `0x98432DAD`.
 
@@ -34,23 +34,23 @@ Derive segment drive equations from first principles. Karnaugh maps, pure gate l
 Truth table for nibble `D3:D0` → segments `a`–`g`:
 
 | Nibble | D3 D2 D1 D0 | a b c d e f g | Char |
-|--------|-------------|---------------|------|
-| 0 | 0 0 0 0 | 1 1 1 1 1 1 0 | 0 |
-| 1 | 0 0 0 1 | 0 1 1 0 0 0 0 | 1 |
-| 2 | 0 0 1 0 | 1 1 0 1 1 0 1 | 2 |
-| 3 | 0 0 1 1 | 1 1 1 1 0 0 1 | 3 |
-| 4 | 0 1 0 0 | 0 1 1 0 0 1 1 | 4 |
-| 5 | 0 1 0 1 | 1 0 1 1 0 1 1 | 5 |
-| 6 | 0 1 1 0 | 1 0 1 1 1 1 1 | 6 |
-| 7 | 0 1 1 1 | 1 1 1 0 0 0 0 | 7 |
-| 8 | 1 0 0 0 | 1 1 1 1 1 1 1 | 8 |
-| 9 | 1 0 0 1 | 1 1 1 1 0 1 1 | 9 |
-| A | 1 0 1 0 | 1 1 1 0 1 1 1 | A |
-| B | 1 0 1 1 | 0 0 1 1 1 1 1 | b |
-| C | 1 1 0 0 | 1 0 0 1 1 1 0 | C |
-| D | 1 1 0 1 | 0 1 1 1 1 0 1 | d |
-| E | 1 1 1 0 | 1 0 0 1 1 1 1 | E |
-| F | 1 1 1 1 | 1 0 0 0 1 1 1 | F |
+| ------ | ----------- | ------------- | ---- |
+| 0      | 0 0 0 0     | 1 1 1 1 1 1 0 | 0    |
+| 1      | 0 0 0 1     | 0 1 1 0 0 0 0 | 1    |
+| 2      | 0 0 1 0     | 1 1 0 1 1 0 1 | 2    |
+| 3      | 0 0 1 1     | 1 1 1 1 0 0 1 | 3    |
+| 4      | 0 1 0 0     | 0 1 1 0 0 1 1 | 4    |
+| 5      | 0 1 0 1     | 1 0 1 1 0 1 1 | 5    |
+| 6      | 0 1 1 0     | 1 0 1 1 1 1 1 | 6    |
+| 7      | 0 1 1 1     | 1 1 1 0 0 0 0 | 7    |
+| 8      | 1 0 0 0     | 1 1 1 1 1 1 1 | 8    |
+| 9      | 1 0 0 1     | 1 1 1 1 0 1 1 | 9    |
+| A      | 1 0 1 0     | 1 1 1 0 1 1 1 | A    |
+| B      | 1 0 1 1     | 0 0 1 1 1 1 1 | b    |
+| C      | 1 1 0 0     | 1 0 0 1 1 1 0 | C    |
+| D      | 1 1 0 1     | 0 1 1 1 1 0 1 | d    |
+| E      | 1 1 1 0     | 1 0 0 1 1 1 1 | E    |
+| F      | 1 1 1 1     | 1 0 0 0 1 1 1 | F    |
 
 Minimized equations (verified for all sixteen inputs):
 
@@ -66,13 +66,13 @@ g = (D3.D1) + (D3.D0) + (~D2.D1) + (~D3.D2.~D0) + (D3.~D2) + (D2.~D1.D0)
 
 Shared product terms (compute once, reuse):
 
-| Term | Segments | Gate |
-|------|----------|------|
-| `~D2.~D0` | a, b, e | 74HC08 |
-| `D3.~D2` | c, f, g | 74HC08 |
-| `D3.D1` | e, f, g | 74HC08 |
-| `~D1.~D2` | b, c | 74HC08 |
-| `D0.D2.~D1` | d, g | 74HC11 |
+| Term        | Segments | Gate   |
+| ----------- | -------- | ------ |
+| `~D2.~D0`   | a, b, e  | 74HC08 |
+| `D3.~D2`    | c, f, g  | 74HC08 |
+| `D3.D1`     | e, f, g  | 74HC08 |
+| `~D1.~D2`   | b, c     | 74HC08 |
+| `D0.D2.~D1` | d, g     | 74HC11 |
 
 Chip count per digit with reuse: 1× `04`, 5× `08`, 4× `11`, 4× OR ≈ **14 chips per digit**. Thirty-two digits → **448 chips** for the display alone. Bigger than the ALU.
 
@@ -147,7 +147,7 @@ One `AT28C16` serves all thirty-two digits. A 5-bit counter walks `0`–`31`—o
    32 × 7-segment (4 rows × 8 digits)
 ```
 
-No `153` mux tree on the nibble bus. In silicon the mux *is* thirty-two tri-state drivers—exactly one `74AC125` enabled per cycle. In Digital, a 32:1 mux plus a 5→32 decoder on the latch side; same index `k` selects nibble `k` and strobes `reg*{k}` together. Row identity is wiring: nibbles 0–7 are A, 8–15 are B, 16–23 are C, 24–31 are W.
+No `153` mux tree on the nibble bus. In silicon the mux _is_ thirty-two tri-state drivers—exactly one `74AC125` enabled per cycle. In Digital, a 32:1 mux plus a 5→32 decoder on the latch side; same index `k` selects nibble `k` and strobes `reg*{k}` together. Row identity is wiring: nibbles 0–7 are A, 8–15 are B, 16–23 are C, 24–31 are W.
 
 **Scan chain (one clock tick)**
 
@@ -162,15 +162,15 @@ ROM image: `microcode/alu-display-control.hex` (Digital `v2.0 raw`). Mode bits o
 
 **Chip list (32-digit, matches schematic)**
 
-| Chip | Function | Count |
-|------|----------|-------|
-| 74HC163 | 5-bit counter (0–31) | 2 |
-| 74HC154 | 5→32 digit strobe decoder | 2 |
-| 74AC125 | Nibble bus drivers (one per digit) | 32 |
-| AT28C16 | Hex font ROM | 1 |
-| 74HC373 | Segment latch (one per display) | 32 |
-| 7-segment display | Common cathode | 32 |
-| **Total ICs** | | **69** |
+| Chip              | Function                           | Count  |
+| ----------------- | ---------------------------------- | ------ |
+| 74HC163           | 5-bit counter (0–31)               | 2      |
+| 74HC154           | 5→32 digit strobe decoder          | 2      |
+| 74AC125           | Nibble bus drivers (one per digit) | 32     |
+| AT28C16           | Hex font ROM                       | 1      |
+| 74HC373           | Segment latch (one per display)    | 32     |
+| 7-segment display | Common cathode                     | 32     |
+| **Total ICs**     |                                    | **69** |
 
 Five bits covers exactly thirty-two digits—no `74HC00` reset hack at count 24. That was a leftover from an earlier three-row sketch.
 
@@ -216,13 +216,13 @@ Full-word hex-to-decimal (`0xDEADBEEF` → ten decimal digits) is not here. The 
 
 #### Summary
 
-| Attempt | Approach | ICs (32-digit) | Result |
-|---------|----------|----------------|--------|
-| 1 | 74HC4511 BCD | 32 | No hex A–F |
-| 2 | 74HC4543 | 32 | BCD only |
-| 3 | K-map gates | 448 | Too many chips |
-| 4 | ROM per digit | 32 | Correct, wasteful |
-| 5 | Single ROM + scan + latches | 69 | Working |
+| Attempt | Approach                    | ICs (32-digit) | Result            |
+| ------- | --------------------------- | -------------- | ----------------- |
+| 1       | 74HC4511 BCD                | 32             | No hex A–F        |
+| 2       | 74HC4543                    | 32             | BCD only          |
+| 3       | K-map gates                 | 448            | Too many chips    |
+| 4       | ROM per digit               | 32             | Correct, wasteful |
+| 5       | Single ROM + scan + latches | 69             | Working           |
 
 #### Key insight
 

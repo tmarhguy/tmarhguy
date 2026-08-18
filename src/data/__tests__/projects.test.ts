@@ -150,7 +150,9 @@ describe('projects data', () => {
       projects.map((project) => [project.title, project.logProject]),
     );
 
-    expect(byTitle['Tomato — Discrete 32-bit Polymorphic Dual-LUT3 CPU']).toBe('tomato');
+    expect(byTitle['Tomato — Discrete 32-bit Polymorphic Dual-LUT3 CPU']).toBe(
+      'tomato',
+    );
     expect(byTitle['NASDAQ ITCH 5.0 Hardware Parser']).toBe('itch-hw');
     expect(byTitle['100 Mbps UDP/IP Stack']).toBe('udp-stack');
     expect(byTitle['Orange Metrics API']).toBe('orange');

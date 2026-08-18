@@ -11,23 +11,20 @@ I have completely overhauled the datapath from a parallel race to a highly optim
 Instead, the LUT3 output now feeds _directly_ into the `A` pins of the 74283 adder.
 
 - **For Arithmetic:** The LUT3 is programmed via its opcode to act as a transparent wire, simply passing operand `A` to the adder. The B-mask provides `B` or `~B`.
-    
+
 - **For Logic:** The LUT3 computes the desired logical output (e.g., `A AND B`) and feeds it to the adder. The B-mask forces the `B` input to exactly `0`, and `cin` is held at `0`. The 74283 computes `(A AND B) + 0 + 0`, acting as a transparent exit conduit for the logic result.
-    
 
 **Pros:**
 
 - **Massive Footprint Reduction:** Recovers significant PCB real estate by deleting 8x 74257 ICs and 32x A-mask gates.
-    
+
 - **Routing Competence:** Converts a messy, branching web of copper traces into a clean, linear pipeline.
-    
+
 - **Global Speed Gain:** While locally it adds a serial wait time (Adder waits for LUT3), it removes the MUX delay at the end of the 32-bit chain. This slightly improves the global worst-case timing by ~1.2ns on the FPGA.
-    
 
 **Cons:**
 
 - Sacrifices purely independent parallel execution; logical operations are now inextricably tied to the arithmetic propagation path.
-    
 
 ## 2. The 4-Bit Carry Bypass (Skip) Integration
 
@@ -46,13 +43,11 @@ By utilizing four XOR gates to check if each bit is propagating ($P = A \oplus B
 **Pros:**
 
 - **Physical Speed Multiplier:** Shatters the sequential 32-bit ripple chain. On physical 74AHCT copper, worst-case signals skip across intermediate blocks via high-speed multiplexers (~7ns) instead of deep adders (~12ns). This pushes the physical PCB from ~9 MHz to **~16.5 MHz**, an 80% speed boost with virtually zero added global routing complexity.
-    
 
 **Cons / The FPGA Dichotomy:**
 
 - **The Emulation Penalty:** Vivado timing reports confirmed a severe architectural dichotomy between discrete physics and FPGA synthesis. Modern FPGAs feature hyper-fast, hard-wired `CARRY4` silicon primitives. By injecting custom bypass multiplexers, Vivado was forced to abandon its native `CARRY4` blocks, synthesizing the bypass out of slower, generic programmable LUTs/MUXF7s.
-    
+
 - **The Result:** The "unleashed" FPGA speed (a pure 32-bit `assign sum = a + b`) could exceed 160+ MHz, but the custom Carry Bypass limits the FPGA to **146.5 MHz** (6.8 ns delay per slice).
-    
 
 **Conclusion:** The 146.5 MHz FPGA speed remains exceptionally healthy and perfectly adequate for high-speed emulation. I have willingly traded the highest-tier FPGA bragging rights to engineer a masterpiece for the physical medium: a cleanly routable, beautifully repetitive KiCad board that maximizes discrete 74-series silicon speeds.

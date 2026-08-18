@@ -4,7 +4,7 @@ Tomato is a parametric datapath, not an emulator. An ISA is a first-class input:
 
 ## No interpreter. The opcode hits the muxes.
 
-A conventional CPU that “supports a foreign ISA” translates it. Micro-ops in ROM. A software layer that pretends the datapath is someone else. Tomato does not do that. The 9-bit opcode indexes a control word that *is* the mux select — ALU planes, immediate shape, write-back source, byte lane, PC overlay. One cycle. The EEPROMs on the boards are that table sitting next to the copper they drive. Decode. Not an interpreter, and not a second ISA hiding in firmware.
+A conventional CPU that “supports a foreign ISA” translates it. Micro-ops in ROM. A software layer that pretends the datapath is someone else. Tomato does not do that. The 9-bit opcode indexes a control word that _is_ the mux select — ALU planes, immediate shape, write-back source, byte lane, PC overlay. One cycle. The EEPROMs on the boards are that table sitting next to the copper they drive. Decode. Not an interpreter, and not a second ISA hiding in firmware.
 
 A foreign binary does not get rewritten into Tomato micro-ops. It gets a map: these external bits overlay here, this literal encoding lands in the immediate box, this ALU op loads this LUT pair. Supporting a new ISA is a data-entry problem, not a microarchitecture redesign.
 
@@ -24,12 +24,12 @@ The spreadsheet has more rows than that. RISC-V extensions, ARM cores, SuperH re
 
 That integer is not a ceiling. It is how many maps are defined today. The hardware accepts the family. More burns, tighter overlay packing, another LUT program that eats a literal style Tomato currently traps — the casual count moves. Optimization on Tomato changes it for the better.
 
-| What it is not | What it is |
-| --- | --- |
-| Tomato runs 66 ISAs | The datapath is parameterized by the instruction word |
-| It has an x86 mode | x86 immediates that fit the box land without a shift |
-| Emulation through microcode | The opcode hits the muxes in one cycle |
-| 66 is the limit | ~37 families mapped; the hardware accepts the family |
+| What it is not              | What it is                                            |
+| --------------------------- | ----------------------------------------------------- |
+| Tomato runs 66 ISAs         | The datapath is parameterized by the instruction word |
+| It has an x86 mode          | x86 immediates that fit the box land without a shift  |
+| Emulation through microcode | The opcode hits the muxes in one cycle                |
+| 66 is the limit             | ~37 families mapped; the hardware accepts the family  |
 
 ## The honest edge
 
