@@ -2,7 +2,7 @@ import { render, screen, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { getOpenSourceContributions } from '@/data/open-source';
 import projects, { getFeaturedProjects } from '@/data/projects';
-import { getAllLogs } from '@/lib/logs';
+import { getAllLogs, getLogProjectGroupKey } from '@/lib/logs';
 import HomePage from '../page';
 import ProjectsPage from '../projects/page';
 import WritingPage from '../writing/page';
@@ -52,7 +52,7 @@ describe('writing information architecture', () => {
       screen.getByRole('heading', { level: 1, name: 'Writing' }),
     ).toBeInTheDocument();
     expect(container.querySelectorAll('.writing-group')).toHaveLength(
-      new Set(getAllLogs().map((entry) => entry.project)).size,
+      new Set(getAllLogs().map(getLogProjectGroupKey)).size,
     );
     expect(container.querySelectorAll('.writing-list-item')).toHaveLength(
       getAllLogs().length,
@@ -62,8 +62,13 @@ describe('writing information architecture', () => {
   it('shows project labels on writing cards', () => {
     render(<WritingPage />);
 
-    const first = getAllLogs()[0];
-    expect(screen.getAllByText(first.projectLabel).length).toBeGreaterThan(0);
+    expect(
+      screen.getByRole('heading', { name: 'Tomato CPU — August' }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Tomato CPU — July' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'Tomato CPU — Earlier' }),
+    ).toBeInTheDocument();
   });
 
   it('lists all projects on the projects index', () => {
@@ -92,8 +97,8 @@ describe('writing information architecture', () => {
 
     for (const contribution of getOpenSourceContributions()) {
       expect(
-        screen.getByRole('link', { name: contribution.title }),
-      ).toBeInTheDocument();
+        screen.getAllByRole('link', { name: contribution.title }).length,
+      ).toBeGreaterThan(0);
     }
   });
 });

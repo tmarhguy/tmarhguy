@@ -274,21 +274,68 @@ export interface LogProjectGroup {
   entries: LogEntry[];
 }
 
-/** Logs grouped by project. Sections float by newest entry; entries newest-first within each. */
+/** Writing-index group key — splits Tomato by era so one project does not dominate the page. */
+export function getLogProjectGroupKey(entry: LogEntry): string {
+  if (entry.project !== 'tomato') {
+    return entry.project;
+  }
+
+  if (entry.date.startsWith('2026-08')) {
+    return 'tomato-aug';
+  }
+
+  if (entry.date.startsWith('2026-07')) {
+    return 'tomato-jul';
+  }
+
+  return 'tomato-earlier';
+}
+
+function getLogProjectGroupLabel(groupKey: string, fallback: string): string {
+  switch (groupKey) {
+    case 'tomato-aug':
+      return 'Tomato CPU — August';
+    case 'tomato-jul':
+      return 'Tomato CPU — July';
+    case 'tomato-earlier':
+      return 'Tomato CPU — Earlier';
+    default:
+      return fallback;
+  }
+}
+
+function getLogProjectGroupSortOrder(groupKey: string): number {
+  const baseId = groupKey.startsWith('tomato-') ? 'tomato' : groupKey;
+  const baseOrder = getLogProjectOrder(baseId);
+  const foldOffset =
+    groupKey === 'tomato-aug'
+      ? 0
+      : groupKey === 'tomato-jul'
+        ? 1
+        : groupKey === 'tomato-earlier'
+          ? 2
+          : 0;
+
+  return baseOrder * 10 + foldOffset;
+}
+
+/** Logs grouped by project (Tomato split into August / July / Earlier). Sections float by newest entry. */
 export function getLogsByProject(): LogProjectGroup[] {
   const groups = new Map<string, LogProjectGroup>();
 
   for (const entry of getAllLogs()) {
-    const existing = groups.get(entry.project);
+    const groupKey = getLogProjectGroupKey(entry);
+    const existing = groups.get(groupKey);
     if (existing) {
       existing.entries.push(entry);
       continue;
     }
 
-    groups.set(entry.project, {
-      project: entry.project,
-      projectLabel: entry.projectLabel,
-      link: getLogProject(entry.project)?.link,
+    const baseProject = entry.project;
+    groups.set(groupKey, {
+      project: groupKey,
+      projectLabel: getLogProjectGroupLabel(groupKey, entry.projectLabel),
+      link: getLogProject(baseProject)?.link,
       entries: [entry],
     });
   }
@@ -300,13 +347,22 @@ export function getLogsByProject(): LogProjectGroup[] {
       return bLatest - aLatest;
     }
 
-    // Same calendar day: keep a stable catalog order as the tiebreaker.
-    return getLogProjectOrder(a.project) - getLogProjectOrder(b.project);
+    return (
+      getLogProjectGroupSortOrder(a.project) -
+      getLogProjectGroupSortOrder(b.project)
+    );
   });
 }
 
-/** Section anchor on /writing/ for a log project id (e.g. tomato → #writing-tomato). */
+/** Section anchor on /writing/ for a log project id (e.g. tomato → newest Tomato fold). */
 export function getWritingSectionHref(logProjectId: string): string {
+  if (logProjectId === 'tomato') {
+    const folds = ['tomato-aug', 'tomato-jul', 'tomato-earlier'] as const;
+    const activeFolds = new Set(getAllLogs().map(getLogProjectGroupKey));
+    const target = folds.find((fold) => activeFolds.has(fold)) ?? logProjectId;
+    return `/writing/#writing-${target}`;
+  }
+
   return `/writing/#writing-${logProjectId}`;
 }
 
