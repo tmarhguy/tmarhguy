@@ -75,7 +75,7 @@ const data: Project[] = [
     featured: true,
   },
   {
-    title: 'Tomato — Custom 32-Bit CPU',
+    title: 'Tomato — Discrete 32-bit Polymorphic Dual-LUT3 CPU',
     subtitle: 'First-principles computer',
     slug: 'tomato',
     logProject: 'tomato',
@@ -84,7 +84,7 @@ const data: Project[] = [
     image: '/images/projects/alu-card.png',
     date: '2025-08-01',
     period: 'Aug. 2025 — Present',
-    desc: '8-board custom 32-bit computer from discrete logic through PCB tapeout; FPGA prototype at 58 MHz with SymbiYosys formal verification.',
+    desc: '8-board Discrete 32-bit Polymorphic Dual-LUT3 CPU from discrete logic through PCB tapeout; FPGA prototype at 58 MHz with SymbiYosys formal verification.',
     tech: ['SystemVerilog', 'UVM', 'SymbiYosys', 'KiCad'],
     category: 'hardware',
     onResume: true,
