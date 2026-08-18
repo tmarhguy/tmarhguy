@@ -66,6 +66,30 @@ const courses: Course[] = [
     university: 'Penn',
   },
   {
+    title: 'Power Electronics',
+    number: 'ESE 4800',
+    link: pennCatalogLink('ESE 4800'),
+    university: 'Penn',
+  },
+  {
+    title: 'Digital Integrated Circuits and VLSI-Fundamentals',
+    number: 'ESE 5700',
+    link: pennCatalogLink('ESE 5700'),
+    university: 'Penn',
+  },
+  {
+    title: 'Computer Organization and Design',
+    number: 'CIS 4710',
+    link: pennCatalogLink('CIS 4710'),
+    university: 'Penn',
+  },
+  {
+    title: 'Calculus, Part I',
+    number: 'MATH 1400',
+    link: pennCatalogLink('MATH 1400'),
+    university: 'Penn',
+  },
+  {
     title: 'Calculus Part II',
     number: 'MATH 1410',
     link: pennCatalogLink('MATH 1410'),

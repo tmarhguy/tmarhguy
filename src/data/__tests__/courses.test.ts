@@ -66,8 +66,10 @@ describe('courses data', () => {
     const numbers = courses.map((course) => course.number);
 
     expect(numbers).toContain('CIS 1200');
-    expect(numbers).toContain('ESE 3700');
-    expect(numbers).toContain('MATH 3120');
+    expect(numbers).toContain('CIS 4710');
+    expect(numbers).toContain('ESE 4800');
+    expect(numbers).toContain('ESE 5700');
+    expect(numbers).toContain('MATH 1400');
     expect(numbers).not.toContain('AFRC 0098');
     expect(numbers).not.toContain('EAS 0010');
     expect(numbers).not.toContain('GRMN 0100');

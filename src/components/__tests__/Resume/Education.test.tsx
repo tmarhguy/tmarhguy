@@ -9,12 +9,20 @@ const mockDegrees = [
     school: 'Stanford University',
     degree: 'M.S. Computer Science',
     link: 'https://stanford.edu',
+    startDate: '2018-09',
+    endDate: '2020-06',
+    startLabel: 'Sep 2018',
+    endLabel: 'Jun 2020',
     year: 2020,
   },
   {
     school: 'MIT',
     degree: 'B.S. Computer Science',
     link: 'https://mit.edu',
+    startDate: '2012-09',
+    endDate: '2016-06',
+    startLabel: 'Sep 2012',
+    endLabel: 'Jun 2016',
     year: 2016,
   },
 ];
@@ -51,6 +59,10 @@ describe('Degree', () => {
     school: 'Stanford University',
     degree: 'M.S. Computer Science',
     link: 'https://stanford.edu',
+    startDate: '2018-09',
+    endDate: '2020-06',
+    startLabel: 'Sep 2018',
+    endLabel: 'Jun 2020',
     year: 2020,
   };
 
@@ -69,10 +81,11 @@ describe('Degree', () => {
     expect(link).toHaveAttribute('href', 'https://stanford.edu');
   });
 
-  it('displays year', () => {
+  it('displays the full date range', () => {
     render(<Degree data={mockDegree} />);
 
-    expect(screen.getByText(/2020/)).toBeInTheDocument();
+    expect(screen.getByText('Sep 2018')).toBeInTheDocument();
+    expect(screen.getByText('Jun 2020')).toBeInTheDocument();
   });
 
   it('renders as article element', () => {
