@@ -1,14 +1,8 @@
-# Solder Station Arrives
-
-Date: 2026-08-13
-
-Published: [/writing/2026-08-13-solder-station-arrives/](/writing/2026-08-13-solder-station-arrives/)
-
-**See also:** [Front-Page News in Ashtown Valley](/writing/2026-08-13-front-page-news-in-ashtown-valley/) · [Ordered Tomato](/writing/2026-08-07-ordered-tomato/)
-
 The new solder station arrived on campus from Amazon and works perfectly. Now, I’m just waiting on the custom PCB and DigiKey components to arrive so I can get to work and resume building project "Tomato."
 
-![WEP 926LED V3 on the desk — display at 480, iron over a small Microchip board.](./solder_station.jpeg)
+<p align="center">
+  <img src="../../media/orders/solder_station.jpeg" alt="WEP 926LED V3 on the desk — display at 480, iron over a small Microchip board." width="400" />
+</p>
 
 > **Station in. Boards still inbound.** The iron works. Tomato waits on the custom PCB and DigiKey parts. Then: back to the build.
 
@@ -16,11 +10,11 @@ Having a proper iron is a hilarious contrast to my early engineering days. When 
 
 My "soldering iron" back then was just a nail heated red-hot in a fire. I’d hold it with pliers—or a makeshift wooden holder that frequently caught fire—to melt thick chunks of salvaged solder.
 
-| Then                                                               | Now                                       |
-| ------------------------------------------------------------------ | ----------------------------------------- |
-| A nail, heated red-hot in a fire                                   | WEP 926LED V3, **480 °C** on the display  |
-| Pliers — or a wooden holder that caught fire                       | Coil stand, brass wool, sponge            |
-| Salvaged chunks of solder                                          | A spool on the station                    |
+| Then | Now |
+| ---- | --- |
+| A nail, heated red-hot in a fire | WEP 926LED V3, **480 °C** on the display |
+| Pliers — or a wooden holder that caught fire | Coil stand, brass wool, sponge |
+| Salvaged chunks of solder | A spool on the station |
 | Hand-crank a wind generator, stay under **5V**, charge to **4.1V** | Campus desk. Waiting on JLCPCB + DigiKey. |
 
 To charge the batteries, I relied on a wind generator I had actually built myself _([See video of me rewinding my first wind generator at 11 years in Ghana](https://docs.google.com/videos/d/1zLeuVECxmtJ6nVa4QfNbt_4gfXpi5gCUJMtCwPADubI/play?usp=sharing))_.

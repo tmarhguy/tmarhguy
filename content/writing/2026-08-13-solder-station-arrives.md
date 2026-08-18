@@ -3,11 +3,15 @@ title: 'Solder Station Arrives'
 date: '2026-08-13'
 description: 'The WEP 926LED V3 is on the desk at 480 °C. Tomato waits on the custom PCB and DigiKey parts — a long way from a nail heated in a fire.'
 project: tomato
+image: '/images/orders/solder_station.jpeg'
+imageAlt: 'WEP 926LED V3 on the desk — display at 480, iron over a small Microchip board.'
 ---
 
-**See also:** [Front-Page News in Ashtown Valley](/writing/2026-08-13-front-page-news-in-ashtown-valley/) · [Ordered Tomato](/writing/2026-08-07-ordered-tomato/)
+**See also:** [Front-Page News in Ashtown Valley](/writing/2026-08-13-front-page-news-in-ashtown-valley/) · [Ordered Tomato](/writing/2026-08-07-ordered-tomato/) · [PCBs Arrive!](/writing/2026-08-15-pcbs-arrive/)
 
 The new solder station arrived on campus from Amazon and works perfectly. Now, I’m just waiting on the custom PCB and DigiKey components to arrive so I can get to work and resume building project "Tomato."
+
+![WEP 926LED V3 on the desk — display at 480, iron over a small Microchip board.](/images/orders/solder_station.jpeg)
 
 > **Station in. Boards still inbound.** The iron works. Tomato waits on the custom PCB and DigiKey parts. Then: back to the build.
 

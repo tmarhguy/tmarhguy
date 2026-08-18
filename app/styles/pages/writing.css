@@ -507,7 +507,8 @@
   font-variant-numeric: tabular-nums;
 }
 
-.prose img {
+.prose img,
+.prose video {
   display: block;
   max-width: 100%;
   height: auto;
@@ -552,9 +553,16 @@
   min-width: 0;
 }
 
+/* Stay two-up even on narrow viewports. */
+.prose-image-pair--locked > p:only-child,
+.prose-image-pair--locked:has(> p + p) {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.5rem;
+}
+
 @media (max-width: 640px) {
-  .prose-image-pair > p:only-child,
-  .prose-image-pair:has(> p + p) {
+  .prose-image-pair:not(.prose-image-pair--locked) > p:only-child,
+  .prose-image-pair:not(.prose-image-pair--locked):has(> p + p) {
     grid-template-columns: minmax(0, 1fr);
   }
 }
