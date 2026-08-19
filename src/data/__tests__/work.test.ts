@@ -56,9 +56,13 @@ describe('work data', () => {
     }
   });
 
-  it('has at least one current or upcoming position', () => {
-    const activeJobs = work.filter((job) => !job.endDate || job.upcoming);
-    expect(activeJobs.length).toBeGreaterThanOrEqual(1);
+  it('lists Aragorn AI as current and Vero Electric as past', () => {
+    const aragorn = work.find((job) => job.name.startsWith('Aragorn'));
+    const vero = work.find((job) => job.name === 'Vero Electric');
+
+    expect(aragorn?.endDate).toBeUndefined();
+    expect(aragorn?.upcoming).toBeFalsy();
+    expect(vero?.endDate).toBe('2026-08-01');
   });
 
   it('lists Fluid Silicon Inc. as employer, with Pennovation as the site', () => {
