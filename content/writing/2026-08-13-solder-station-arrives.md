@@ -7,7 +7,7 @@ image: '/images/orders/solder_station.jpeg'
 imageAlt: 'WEP 926LED V3 on the desk — display at 480, iron over a small Microchip board.'
 ---
 
-**See also:** [Front-Page News in Ashtown Valley](/writing/2026-08-13-front-page-news-in-ashtown-valley/) · [Ordered Tomato](/writing/2026-08-07-ordered-tomato/) · [PCBs Arrive!](/writing/2026-08-15-pcbs-arrive/)
+**See also:** [Ordered Tomato](/writing/2026-08-07-ordered-tomato/) · [PCBs Arrive!](/writing/2026-08-15-pcbs-arrive/) · [First Phase of Assembly](/writing/2026-08-18-first-phase-of-assembly/)
 
 The new solder station arrived on campus from Amazon and works perfectly. Now, I’m just waiting on the custom PCB and DigiKey components to arrive so I can get to work and resume building project "Tomato."
 

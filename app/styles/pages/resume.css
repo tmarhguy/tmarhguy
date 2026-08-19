@@ -150,7 +150,7 @@
 
 .resume-summary.professional-summary-list,
 .professional-summary-list.resume-summary {
-  font-size: var(--text-lg);
+  font-size: var(--text-md);
   line-height: var(--leading-normal);
   color: var(--color-fg);
   max-width: 62ch;
@@ -193,6 +193,11 @@
   .resume-nav {
     top: var(--header-height-mobile);
     gap: 0 1rem;
+  }
+
+  .resume-summary.professional-summary-list,
+  .professional-summary-list.resume-summary {
+    font-size: var(--text-base);
   }
 }
 
