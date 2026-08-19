@@ -33,7 +33,6 @@ const work: Position[] = [
     position: 'Software Engineering Intern',
     url: 'https://www.aragorn.ai',
     startDate: '2026-06-01',
-    endDate: '2026-08-01',
     highlights: [
       'Shipped production backend services and REST APIs for AI model-integration workflows, extending platform capabilities used in customer-facing releases.',
       'Diagnosed cross-service integration failures blocking release sprints; contributed to architecture and code reviews to harden service boundaries before deployment.',

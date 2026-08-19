@@ -12,7 +12,9 @@ describe('about data', () => {
   it('contains the intro section', () => {
     expect(aboutMarkdown).toContain('# Intro');
     expect(aboutMarkdown).toContain('University of Pennsylvania');
-    expect(aboutMarkdown).toContain('discrete transistors to tapeout');
+    expect(aboutMarkdown).toContain(
+      'discrete MOSFETs through full ASIC tapeout',
+    );
     expect(aboutMarkdown).toContain(`[Tyrone Iras Marhguy](${WIKIPEDIA_URL})`);
   });
 

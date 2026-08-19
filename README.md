@@ -16,15 +16,12 @@ _RTL · FPGA · ASIC tapeout · verification_
 
 <img src="public/images/me.jpg" alt="Tyrone Marhguy" width="220" align="right" />
 
-Ghanaian computer engineering student at **Penn**. I design digital hardware from discrete transistors through FPGA and ASIC tapeout — RTL in SystemVerilog, simulation and emulation, board bring-up — and I write the verification that proves the design. Targeting hardware roles in **RTL design**, **FPGA**, **verification**, and **silicon implementation**.
+**I build computer systems from discrete MOSFETs through full ASIC tapeout.**
 
-**→ [tmarhguy.com](https://tmarhguy.com)** for the full portfolio, résumé, projects, and build logs.  
-**→ [Wikipedia](https://en.wikipedia.org/wiki/Tyrone_Marhguy)** for the cool stories.
+I am a Computer Engineering junior at the [University of Pennsylvania](https://www.upenn.edu) specializing in computer architecture, RTL design, and hardware verification. I thrive at the intersection of hardware and software—architecting boards, writing SystemVerilog, and building the constrained-random environments that prove them.
 
-- Hardware research intern @ **[Fluid Silicon Inc.](https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently)**, [Pennovation Center](https://pennovation.upenn.edu)
-- **[Tomato](https://tomato.tmarhguy.com)** ([GitHub](https://github.com/tmarhguy/tomato)) — custom 32-bit CPU from logic through PCB tapeout
-- **[8-bit discrete-transistor ALU](https://alu.tmarhguy.com)** · 3,488 MOSFETs · 1.24M+ test vectors
-- Philadelphia, PA
+- **Currently:** Hardware Research Engineer (Fall 2026) at [Fluid Silicon](https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently) (RTL & Emulation) & Software Engineer at [Aragorn AI](https://www.aragorn.ai).
+- **Previously:** Hardware & Firmware Engineer at [Vero Electric](https://veroelectric.com/) (PCB design & Board bring-up).
 
 ## Open Source Contributions
 
@@ -61,10 +58,10 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 
 ## Experience
 
+- **[Aragorn AI](https://www.aragorn.ai/)** — Software Engineering Intern · **Present** · production backends & APIs
 - **[Fluid Silicon Inc.](https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently)** — Hardware Research Engineer Intern · [Pennovation Center](https://pennovation.upenn.edu) · Fall 2026
-- **[Aragorn AI](https://www.aragorn.ai/)** — Software Engineering Intern · production backends & APIs
 - **[Howard STEM Achievers](https://education.howard.edu/affiliated-programs/stem-summer-camp-verizon-innovative-learning)** — STEM Instructor · AR/VR · Jun–Jul 2026
-- **[Vero Electric](https://veroelectric.com/)** — Hardware & Firmware Engineer · battery management infrastructure
+- **[Vero Electric](https://veroelectric.com/)** — Hardware & Firmware Engineer · battery management infrastructure · May–Aug 2026
 - **[Fife-Penn](https://fife.cis.upenn.edu/)** — Programming & Engineering Instructor · Feb–May 2025
 - **[Penn Engineering](https://www.upenn.edu)** — CIS 1100 Teaching Assistant
 

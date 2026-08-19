@@ -2,7 +2,7 @@ import { WIKIPEDIA_URL } from './contact';
 
 export const aboutMarkdown = `# Intro
 
-I'm [Tyrone Iras Marhguy](${WIKIPEDIA_URL}) — a Ghanaian computer engineering student at the [University of Pennsylvania](https://www.upenn.edu) on a full scholarship. I build computers from discrete transistors to tapeout and write the software to test, automate, and deploy them.
+I'm [Tyrone Iras Marhguy](${WIKIPEDIA_URL}) — a Ghanaian Computer Engineering student at the [University of Pennsylvania](https://www.upenn.edu) on a full scholarship. I build computer systems from discrete MOSFETs through full ASIC tapeout—architecting the boards, writing the RTL, and building the verification frameworks that prove them.
 
 # Early Life
 
@@ -38,7 +38,7 @@ The full story is documented on [Wikipedia](${WIKIPEDIA_URL}) and in the court r
   - **[OpenROAD](https://github.com/The-OpenROAD-Project/OpenROAD)**: Parsing fixes for LEF58_MINWIDTH ([PR #11107](https://github.com/The-OpenROAD-Project/OpenROAD/pull/11107)).
   - **[Verilator](https://github.com/verilator/verilator)**: Fixed Linux peak memory reporting ([PR #8070](https://github.com/verilator/verilator/pull/8070)).
   - **[OpenFPGA](https://github.com/lnis-uofu/OpenFPGA)**.
-- **Software & Teaching**: Professionally, I'm interning with [Vero Electric](https://veroelectric.com/) on battery management infrastructure and working with [Aragorn AI](https://www.aragorn.ai/) on production backends and technical documentation. I taught through [Fife-Penn STEM & CS Academy](https://fife.cis.upenn.edu/) and spent Summer 2026 as an AR/VR instructor with [Howard University STEM Achievers](https://education.howard.edu/affiliated-programs/stem-summer-camp-verizon-innovative-learning).
+- **Software & Teaching**: Professionally, I'm interning with [Aragorn AI](https://www.aragorn.ai/) on production backends and technical documentation. Previously hardware at [Vero Electric](https://veroelectric.com/) on battery management infrastructure. I taught through [Fife-Penn STEM & CS Academy](https://fife.cis.upenn.edu/) and spent Summer 2026 as an AR/VR instructor with [Howard University STEM Achievers](https://education.howard.edu/affiliated-programs/stem-summer-camp-verizon-innovative-learning).
 
 *For press coverage and a fuller biography, see my [Wikipedia article](${WIKIPEDIA_URL}).*
 

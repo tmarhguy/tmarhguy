@@ -22,7 +22,7 @@ describe('Hero', () => {
     const { container } = render(<Hero />);
 
     const intro = container.querySelector('.hero-intro');
-    expect(intro).toHaveTextContent('Computer Engineering Junior');
+    expect(intro).toHaveTextContent('Computer Engineering junior');
     expect(intro).toHaveTextContent('University of Pennsylvania');
     expect(intro).toHaveTextContent('The Builds:');
     expect(intro).toHaveTextContent('Open Source Contributions:');

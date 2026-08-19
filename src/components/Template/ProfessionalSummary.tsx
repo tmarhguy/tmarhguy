@@ -52,31 +52,23 @@ export default function ProfessionalSummary({
       className={`professional-summary-list${className ? ` ${className}` : ''}`}
     >
       <li>
-        Computer Engineering Junior at the{' '}
+        <strong>
+          I build computer systems from discrete MOSFETs through full ASIC
+          tapeout.
+        </strong>
+        <br />
+        Computer Engineering junior at the{' '}
         <InlineLink href="https://www.upenn.edu" external>
           University of Pennsylvania
-        </InlineLink>
-        . I build and verify hardware—routing complex discrete-MOSFET PCBs and
-        hardening RTL via the Sky130 ASIC flow.
+        </InlineLink>{' '}
+        specializing in computer architecture, RTL design, and hardware
+        verification. I thrive at the intersection of hardware and
+        software—architecting boards, writing SystemVerilog, and building the
+        constrained-random environments that prove them.
       </li>
       <li>
         <strong>Open Source Contributions:</strong> Writing core C++/Python
-        patches for open-source EDA tools, including code shipped in the latest
-        LibreLane{' '}
-        <InlineLink
-          href="https://github.com/librelane/librelane/releases/tag/3.0.8"
-          external
-        >
-          3.0.8
-        </InlineLink>{' '}
-        and{' '}
-        <InlineLink
-          href="https://github.com/librelane/librelane/releases/tag/3.0.10"
-          external
-        >
-          3.0.10
-        </InlineLink>{' '}
-        releases (
+        patches for open-source EDA tools (
         <InlineLink
           href="https://github.com/verilator/verilator/pull/8070"
           external
@@ -101,7 +93,21 @@ export default function ProfessionalSummary({
         <InlineLink href="https://github.com/lnis-uofu/OpenFPGA" external>
           OpenFPGA
         </InlineLink>
-        ).
+        ), including fixes shipped in the LibreLane{' '}
+        <InlineLink
+          href="https://github.com/librelane/librelane/releases/tag/3.0.8"
+          external
+        >
+          3.0.8
+        </InlineLink>{' '}
+        and{' '}
+        <InlineLink
+          href="https://github.com/librelane/librelane/releases/tag/3.0.10"
+          external
+        >
+          3.0.10
+        </InlineLink>{' '}
+        releases.
       </li>
       <li>
         <strong>The Builds:</strong> Discrete 32-bit Polymorphic Dual-LUT3 CPU (
@@ -128,23 +134,23 @@ export default function ProfessionalSummary({
         <InlineLink href="https://github.com/tmarhguy/64b-sram" external>
           full-custom 22nm SRAM
         </InlineLink>
-        . All proven with UVM, cocotb, and formal verification against millions
-        of test vectors.
+        . All proven with <strong>UVM, cocotb, and formal verification</strong>{' '}
+        against millions of test vectors.
       </li>
       <li>
-        <strong>The Work:</strong> Hardware Research Intern at{' '}
+        <strong>The Work:</strong> Hardware Research Engineer (Fall 2026) at{' '}
         <InlineLink href={workUrl('Fluid Silicon')} external>
           Fluid Silicon
         </InlineLink>{' '}
-        (HDL & FPGA emulation). Past roles spanning hardware at{' '}
-        <InlineLink href={workUrl('Vero')} external>
-          Vero Electric
-        </InlineLink>{' '}
-        and software engineering at{' '}
+        (RTL & Emulation) and Software Engineer at{' '}
         <InlineLink href={workUrl('Aragorn')} external>
           Aragorn AI
         </InlineLink>
-        .
+        . Previously Hardware & Firmware Engineer at{' '}
+        <InlineLink href={workUrl('Vero')} external>
+          Vero Electric
+        </InlineLink>{' '}
+        (PCB design & Board bring-up).
       </li>
     </ul>
   );
