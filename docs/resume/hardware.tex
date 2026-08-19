@@ -1,0 +1,171 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.55in}
+\addtolength{\textheight}{1.1in}
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+\titleformat{\section}{\vspace{-4pt}\scshape\raggedright\large}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{-2pt}}}}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}}
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}}
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Huge \scshape Tyrone Marhguy} \\ \vspace{1pt}
+    \small\textbf{Computer Engineering} $\mid$ University of Pennsylvania $\mid$ Aug. 2024 -- May 2028 \\ \vspace{2pt}
+    \small +1 (267)-320-2734 $|$
+    \href{mailto:tmarhguy@engineering.upenn.edu}{\underline{tmarhguy@engineering.upenn.edu}} $|$
+    \href{https://linkedin.com/in/tmarhguy}{\underline{linkedin.com/in/tmarhguy}} $|$
+    \href{https://github.com/tmarhguy}{\underline{github.com/tmarhguy}}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Pennsylvania}{Philadelphia, PA}
+      {B.S. Computer Engineering; Concurrent M.S. Coursework in E.E.}{Aug. 2024 -- May 2028}
+      \resumeItemListStart
+        \resumeItem{\textbf{Coursework:} VLSI Fundamentals (ESE\,5700), Computer Organization (CIS\,4710), Power Electronics (ESE\,4800), Digital Logic (ESE\,3700), Embedded Systems, Signals \& Systems}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Hardware Research Engineer}{Jul. 2026 -- Present}
+      {Pennovation Center --- University of Pennsylvania}{Philadelphia, PA}
+      \resumeItemListStart
+        \resumeItem{Automated \textbf{P\&R} and \textbf{PPA} extraction in \textbf{Python/C++} across logic, memory, and DSP blocks; Vivado/Quartus parsers improved utilization models by \textbf{15\%}; maintained synthesis-to-layout handoff scripts and constraint templates}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Lead Hardware \& Firmware Engineer}{May 2026 -- Aug. 2026}
+      {Battery Management Startup}{Philadelphia, PA}
+      \resumeItemListStart
+        \resumeItem{Designed \textbf{BQ79616} 16-channel BMS front-end in \textbf{KiCad} (\textbf{0 ERC/DRC}) for a \textbf{240\,kWh} BESS; embedded \textbf{C/C++} firmware with fault FSMs, \textbf{SPI/I\textsuperscript{2}C}, and oscilloscope/logic-analyzer bring-up}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------OPEN SOURCE-----------
+\section{Open Source}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+        {\textbf{LibreLane} --- ASIC RTL-to-GDS $|$
+         \href{https://github.com/librelane/librelane}{\underline{GitHub}}}
+        {Aug. 2026}
+        \resumeItemListStart
+          \resumeItem{Shipped \textbf{3.0.8}: gated deprecated \textbf{abc -fast} for \textbf{Yosys $\geq$ 0.68} (\href{https://github.com/librelane/librelane/pull/1015}{\underline{\#1015}})}
+          \resumeItem{Shipped \textbf{3.0.10}: summed pre/post-synth \textbf{chk.rpt} errors (\href{https://github.com/librelane/librelane/pull/1016}{\underline{\#1016}})}
+        \resumeItemListEnd
+
+      \resumeProjectHeading
+        {\textbf{OpenROAD} --- Physical Design Database $|$
+         \href{https://github.com/The-OpenROAD-Project/OpenROAD}{\underline{GitHub}}}
+        {Aug. 2026}
+        \resumeItemListStart
+          \resumeItem{Fixed ODB \textbf{LEF58} parser so production tech files with trailing whitespace load; C++/Tcl regression tests (\href{https://github.com/The-OpenROAD-Project/OpenROAD/pull/11107}{\underline{\#11107}})}
+        \resumeItemListEnd
+
+      \resumeProjectHeading
+        {\textbf{Verilator} --- Cycle-Accurate SV Simulator $|$
+         \href{https://github.com/verilator/verilator}{\underline{GitHub}}}
+        {Aug. 2026}
+        \resumeItemListStart
+          \resumeItem{Switched Linux peak-memory from \textbf{VmPeak} to \textbf{VmHWM} so \textbf{--stats} matches RSS (\textbf{$\sim$10$\times$} less inflation); jobs=2 regression (\href{https://github.com/verilator/verilator/pull/8070}{\underline{\#8070}})}
+        \resumeItemListEnd
+
+      \resumeProjectHeading
+        {\textbf{OpenFPGA} --- FPGA Architecture Generator $|$
+         \href{https://github.com/lnis-uofu/OpenFPGA}{\underline{GitHub}}}
+        {Aug. 2026}
+        \resumeItemListStart
+          \resumeItem{Aligned \textbf{direct interconnect} docs with XML parser (\href{https://github.com/lnis-uofu/OpenFPGA/pull/2683}{\underline{\#2683}})}
+          \resumeItem{Restored contributor guide (\href{https://github.com/lnis-uofu/OpenFPGA/pull/2682}{\underline{\#2682}})}
+        \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+        {\textbf{BFloat16 MAC Unit} $|$
+         \href{https://github.com/tmarhguy/mac}{\underline{GitHub}}}
+        {Jan. 2026 -- Present}
+        \resumeItemListStart
+          \resumeItem{SkyWater \textbf{130\,nm} BFloat16 MAC with \textbf{FP32 accumulator} and \textbf{4-cycle} streaming I/O on 8-bit bus; \textbf{cocotb} golden model with \textbf{100\% functional coverage} before OpenLane tapeout}
+        \resumeItemListEnd
+
+      \resumeProjectHeading
+        {\textbf{Tomato --- 64-Bit Custom CPU} $|$
+         \href{https://github.com/tmarhguy/tomato}{\underline{GitHub}}}
+        {Aug. 2025 -- Present}
+        \resumeItemListStart
+          \resumeItem{32-bit CPU from discrete logic through PCB tapeout; Board~1 \textbf{KiCad} PCB with \textbf{LUT3} adders and \textbf{3R1W} regfile; \textbf{Artix-7} at \textbf{58\,MHz}; \textbf{SymbiYosys} formal verify (\textbf{130B+} vectors, zero mismatches)}
+        \resumeItemListEnd
+
+      \resumeProjectHeading
+        {\textbf{16$\times$4 SRAM --- Full-Custom Analog} $|$
+         \href{https://github.com/tmarhguy/64b-sram}{\underline{GitHub}}}
+        {Apr. 2026 -- May 2026}
+        \resumeItemListStart
+          \resumeItem{Full-custom \textbf{6T} macro in PTM \textbf{22\,nm HP}: clocked StrongARM SA, $f_{\max}$\,=\,\textbf{4.571\,GHz} (\textbf{9.14$\times$} margin), $P_{avg}$\,=\,\textbf{21.4\,$\mu$W}; NGSpice readback \textbf{PASS}}
+        \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Physical Design \& RTL}{: LibreLane, OpenROAD, OpenLane, Yosys, SymbiYosys, Verilator, OpenFPGA, Vivado, SystemVerilog, STA, PPA, DRC/LVS} \\
+     \textbf{Analog / CMOS}{: NGSpice, Electric VLSI, 22\,nm HP bitcell design, delay and power characterization} \\
+     \textbf{Embedded \& PCB}{: C/C++, Python, KiCad, SPI/I\textsuperscript{2}C, board bring-up, oscilloscope, logic analyzer}
+    }}
+ \end{itemize}
+
+\end{document}
