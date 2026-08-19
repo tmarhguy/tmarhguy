@@ -2,7 +2,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
-import { collectImageRefs } from '../sync-writing-media.mjs';
+import { collectImageRefs, resolveSource } from '../sync-writing-media.mjs';
 
 const ROOT = resolve(process.cwd());
 const WRITING_DIR = join(ROOT, 'content/writing');
@@ -54,9 +54,8 @@ image: '/images/logs/tomato_home_white.png'
     expect(missing).toEqual([]);
   });
 
-  it('has a committed public/ file for every writing media ref', () => {
+  it('resolves a source file for every writing media ref', () => {
     const missing: string[] = [];
-    const publicRoot = join(ROOT, 'public');
 
     for (const filename of readdirSync(WRITING_DIR)) {
       if (!filename.endsWith('.md')) {
@@ -65,8 +64,8 @@ image: '/images/logs/tomato_home_white.png'
 
       const content = readFileSync(join(WRITING_DIR, filename), 'utf8');
       for (const publicPath of collectImageRefs(content)) {
-        const source = join(publicRoot, publicPath.replace(/^\//, ''));
-        if (!existsSync(source)) {
+        const relative = publicPath.slice('/images/'.length);
+        if (!resolveSource(relative)) {
           missing.push(`${filename} → ${publicPath}`);
         }
       }

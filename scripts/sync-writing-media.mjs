@@ -47,7 +47,7 @@ export function collectImageRefs(markdown) {
   return refs;
 }
 
-function resolveSource(relative) {
+export function resolveSource(relative) {
   const destination = join(PUBLIC_IMAGES, relative);
   if (existsSync(destination)) {
     return destination;
