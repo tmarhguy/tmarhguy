@@ -27,7 +27,9 @@ const MEDIA_ROOTS = [
 const IMAGE_REF =
   /!\[[^\]]*]\((\/images\/[^)\s]+)\)|<img\b[^>]*\bsrc=["'](\/images\/[^"']+)["']|<video\b[^>]*\bsrc=["'](\/images\/[^"']+)["']|^image:\s*['"](\/images\/[^'"]+)['"]/gim;
 
-/** Collect root-relative /images/... paths from Markdown, img, or video tags. */
+const POSTER_REF = /\bposter=["'](\/images\/[^"']+)["']/gi;
+
+/** Collect root-relative /images/... paths from Markdown, img, video, or poster. */
 export function collectImageRefs(markdown) {
   const refs = new Set();
 
@@ -36,6 +38,10 @@ export function collectImageRefs(markdown) {
     if (src?.startsWith('/images/')) {
       refs.add(src);
     }
+  }
+
+  for (const match of markdown.matchAll(POSTER_REF)) {
+    refs.add(match[1]);
   }
 
   return refs;

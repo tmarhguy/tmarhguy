@@ -17,7 +17,7 @@ image: '/images/logs/tomato_home_white.png'
 
 ![Black](/images/logs/tomato_home_black.png)
 
-<video src="/images/logs/pcb_arrive.mp4" controls></video>
+<video src="/images/logs/pcb_arrive.mp4" poster="/images/logs/pcb_arrive.webp" controls></video>
 `);
 
     expect([...refs]).toEqual(
@@ -25,6 +25,7 @@ image: '/images/logs/tomato_home_white.png'
         '/images/logs/tomato_home_white.png',
         '/images/logs/tomato_home_black.png',
         '/images/logs/pcb_arrive.mp4',
+        '/images/logs/pcb_arrive.webp',
       ]),
     );
   });
@@ -44,6 +45,27 @@ image: '/images/logs/tomato_home_white.png'
         }
 
         const source = join(LOG_DIR, publicPath.slice('/images/logs/'.length));
+        if (!existsSync(source)) {
+          missing.push(`${filename} → ${publicPath}`);
+        }
+      }
+    }
+
+    expect(missing).toEqual([]);
+  });
+
+  it('has a committed public/ file for every writing media ref', () => {
+    const missing: string[] = [];
+    const publicRoot = join(ROOT, 'public');
+
+    for (const filename of readdirSync(WRITING_DIR)) {
+      if (!filename.endsWith('.md')) {
+        continue;
+      }
+
+      const content = readFileSync(join(WRITING_DIR, filename), 'utf8');
+      for (const publicPath of collectImageRefs(content)) {
+        const source = join(publicRoot, publicPath.replace(/^\//, ''));
         if (!existsSync(source)) {
           missing.push(`${filename} → ${publicPath}`);
         }
