@@ -26,7 +26,7 @@ describe('getAllLogs', () => {
 
   it('lists the newest Tomato log as the lead writing entry', () => {
     const logs = getAllLogs();
-    expect(logs[0]?.slug).toBe('2026-08-16-tomato-web-optimization');
+    expect(logs[0]?.slug).toBe('2026-08-18-first-phase-of-assembly');
   });
 
   it('includes project labels on every entry', () => {
@@ -118,7 +118,7 @@ describe('getLogsByProject', () => {
       return;
     }
 
-    // Tomato August (Aug 16) above Open Source (Aug 11); July and Earlier fold below fresher projects.
+    // Tomato August (Aug 18) above Open Source (Aug 11); July and Earlier fold below fresher projects.
     expect(groups[0].project).toBe('tomato-aug');
     expect(openSourceGroup.entries[0]?.slug).toBe(
       '2026-08-11-librelane-verilator-openfpga',
@@ -129,15 +129,15 @@ describe('getLogsByProject', () => {
     ]);
     expect(tomatoAugGroup.projectLabel).toBe('Tomato CPU — August');
     expect(tomatoAugGroup.entries[0]?.slug).toBe(
-      '2026-08-16-tomato-web-optimization',
+      '2026-08-18-first-phase-of-assembly',
     );
     expect(
       tomatoAugGroup.entries.map((entry) => entry.slug).slice(0, 4),
     ).toEqual([
+      '2026-08-18-first-phase-of-assembly',
       '2026-08-16-tomato-web-optimization',
       '2026-08-15-pcbs-arrive',
       '2026-08-15-isa-as-a-wire',
-      '2026-08-13-front-page-news-in-ashtown-valley',
     ]);
     expect(tomatoJulGroup.projectLabel).toBe('Tomato CPU — July');
     expect(tomatoJulGroup.entries[0]?.date).toBe('2026-07-31');

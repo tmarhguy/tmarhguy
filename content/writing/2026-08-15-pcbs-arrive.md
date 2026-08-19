@@ -8,7 +8,7 @@ image: '/images/logs/pcb_arrive_board_0.jpeg'
 imageAlt: 'Five 07_alu boards on the desk — Tomato ALU 8 bit, July 2026.'
 ---
 
-**See also:** [Ordered Tomato](/writing/2026-08-07-ordered-tomato/) · [Solder Station Arrives](/writing/2026-08-13-solder-station-arrives/) · [ISA as a Wire](/writing/2026-08-15-isa-as-a-wire/)
+**See also:** [Ordered Tomato](/writing/2026-08-07-ordered-tomato/) · [Solder Station Arrives](/writing/2026-08-13-solder-station-arrives/) · [First Phase of Assembly](/writing/2026-08-18-first-phase-of-assembly/)
 
 The PCBs all just arrived! I ordered 5 of them, and I tested them with a continuity meter, particularly for the power connections, and I am happy to log that there are no islands! It is beautiful watching the board of such sophisticated nature, realizing that I remember placing every single trace!
 
@@ -20,7 +20,7 @@ _Five boards. Lot 07, as received._
 
 _Continuity on power. No islands._
 
-<video src="/images/logs/pcb_arrive.mp4" controls playsInline></video>
+<video src="/images/logs/pcb_arrive.mp4" controls muted playsInline preload="metadata"></video>
 
 _The boards, in the round. ([video](/images/logs/pcb_arrive.mp4))_
 

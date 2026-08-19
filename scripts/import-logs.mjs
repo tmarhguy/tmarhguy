@@ -55,6 +55,7 @@ const PROJECT_BY_FILE = {
   '2026-08-15-pcbs-arrive.md': 'tomato',
   '2026-08-15-isa-as-a-wire.md': 'tomato',
   '2026-08-16-tomato-web-optimization.md': 'tomato',
+  '2026-08-18-first-phase-of-assembly.md': 'tomato',
   '2026-08-01-itch-ethernet-lab-bring-up.md': 'itch-hw',
   '2026-08-02-successful-synthesis-implementation-bitstream.md': 'itch-hw',
   '2026-08-08-understanding-udp-stack-and-connecting-to-itch.md': 'udp-stack',

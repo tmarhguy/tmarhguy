@@ -13,7 +13,7 @@ The PCBs all just arrived! I ordered 5 of them, and I tested them with a continu
 <p align="center"><em>Continuity on power. No islands.</em></p>
 
 <p align="center">
-  <video src="../../media/logs/pcb_arrive.mp4" controls width="520"></video>
+  <video src="../../media/logs/pcb_arrive.mp4" controls muted width="520"></video>
 </p>
 <p align="center"><em>The boards, in the round. ([video](../../media/logs/pcb_arrive.mp4))</em></p>
 
