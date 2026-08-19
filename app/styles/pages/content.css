@@ -182,9 +182,15 @@
 
 .about-intro p {
   max-width: var(--measure-read);
-  font-size: clamp(1.04rem, 0.7vw + 0.95rem, 1.1rem);
-  line-height: 1.7;
-  color: var(--color-fg-bold);
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+  color: var(--color-fg);
+}
+
+@media (max-width: 735px) {
+  .about-intro p {
+    font-size: var(--text-base);
+  }
 }
 
 .about-content ul {

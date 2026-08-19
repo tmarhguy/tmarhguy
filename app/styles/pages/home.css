@@ -44,11 +44,12 @@
   text-wrap: balance;
 }
 
-/* Intro — conversational, measure-constrained body copy. */
+/* Intro — same measure as body copy. The older --text-lg size never
+   downshifted on small screens: this selector beat the mobile override. */
 .hero-intro.professional-summary-list,
 .professional-summary-list.hero-intro {
   font-family: var(--font-body);
-  font-size: var(--text-lg);
+  font-size: var(--text-md);
   color: var(--color-fg);
   max-width: 62ch;
   margin: 0 0 1.75rem;
@@ -241,7 +242,7 @@
 /* Stacked — below this the two columns genuinely stop fitting. */
 @media (max-width: 640px) {
   .hero {
-    padding-top: 3rem;
+    padding-top: 1rem;
   }
 
   .hero-grid {
@@ -258,9 +259,12 @@
   .hero-name {
     max-width: none;
   }
+}
 
-  .hero-intro {
-    font-size: var(--text-md);
+@media (max-width: 735px) {
+  .hero-intro.professional-summary-list,
+  .professional-summary-list.hero-intro {
+    font-size: var(--text-base);
   }
 }
 
