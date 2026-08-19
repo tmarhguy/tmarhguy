@@ -32,6 +32,12 @@ function ProseTable({
   );
 }
 
+function ProseVideo(props: ComponentPropsWithoutRef<'video'>) {
+  return (
+    <video {...props} muted playsInline preload={props.preload ?? 'metadata'} />
+  );
+}
+
 export default function PostContent({
   content,
   imageSizes = {},
@@ -48,6 +54,9 @@ export default function PostContent({
           },
           table: {
             component: ProseTable,
+          },
+          video: {
+            component: ProseVideo,
           },
           img: {
             component: ({ alt, src }: { alt?: string; src?: string }) => {
@@ -71,8 +80,10 @@ export default function PostContent({
                   height={height}
                   loading="lazy"
                   style={{
-                    width: '100%',
+                    width: 'auto',
                     height: 'auto',
+                    maxWidth: '70%',
+                    maxHeight: '28rem',
                   }}
                 />
               );

@@ -46,6 +46,18 @@ describe('PostContent', () => {
     expect(html).toContain('WNS');
   });
 
+  it('renders writing videos muted so audio never plays', () => {
+    const html = renderToStaticMarkup(
+      <PostContent
+        content={'<video src="/images/assembly/clip.mp4" controls></video>'}
+      />,
+    );
+
+    expect(html).toContain('<video');
+    expect(html).toContain('muted');
+    expect(html).toMatch(/playsInline/i);
+  });
+
   it('renders prose-compare blocks for before/after terminal snippets', () => {
     const html = renderToStaticMarkup(
       <PostContent

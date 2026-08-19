@@ -220,6 +220,12 @@
   color: var(--color-fg);
 }
 
+@media (max-width: 735px) {
+  .prose {
+    font-size: var(--text-base);
+  }
+}
+
 /* Post headers own the page h1. Any h1 left in markdown should read as prose,
    not as a second page title. */
 .prose h1 {
@@ -510,13 +516,14 @@
 .prose img,
 .prose video {
   display: block;
-  max-width: 100%;
+  max-width: 70%;
+  max-height: 28rem;
+  width: auto;
   height: auto;
-  margin: 1.5rem 0 0.5rem;
+  object-fit: contain;
+  margin: 1.5rem auto 0.5rem;
   border-radius: var(--radius-sm);
-  background: var(--color-bg);
   box-shadow: 0 0 0 var(--rule) var(--color-border-alt);
-  color: var(--color-fg-light);
 }
 
 .prose-image-pair {
@@ -545,6 +552,8 @@
 .prose-image-pair img {
   margin: 0;
   width: 100%;
+  max-width: 100%;
+  max-height: none;
   height: auto;
 }
 
