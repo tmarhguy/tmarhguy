@@ -2,8 +2,8 @@
 /**
  * Copy article images referenced in content/writing/ into public/images/.
  * Sources (first hit wins): public (already synced), log/ for /images/logs/,
- * tomato/media, tools/media (mango paths), and sibling ../tomato/media when
- * clones live next to this repo.
+ * tomato/media + tomato/web/assets, alu/media, tools/media (mango paths),
+ * and sibling checkouts next to this repo.
  */
 import {
   copyFileSync,
@@ -22,6 +22,10 @@ const WRITING_DIR = resolve(ROOT, 'content/writing');
 const MEDIA_ROOTS = [
   resolve(ROOT, 'tomato/media'),
   resolve(ROOT, '../tomato/media'),
+  resolve(ROOT, 'tomato/web/assets'),
+  resolve(ROOT, '../tomato/web/assets'),
+  resolve(ROOT, 'alu/media'),
+  resolve(ROOT, '../alu/media'),
 ];
 
 const IMAGE_REF =
