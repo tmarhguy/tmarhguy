@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   getAdjacentLogs,
   getAllLogs,
+  getHomeRecentLogs,
   getLogBySlug,
   getLogProjectGroupKey,
   getLogSlugs,
@@ -24,9 +25,19 @@ describe('getAllLogs', () => {
     }
   });
 
-  it('lists the newest Tomato log as the lead writing entry', () => {
+  it('lists the newest log as the lead writing entry', () => {
     const logs = getAllLogs();
-    expect(logs[0]?.slug).toBe('2026-08-18-first-phase-of-assembly');
+    expect(logs[0]?.slug).toBe('2026-08-27-images-to-pdf-and-uninstall');
+  });
+
+  it('pins First Lights first on the homepage recent strip', () => {
+    const recent = getHomeRecentLogs(3);
+    expect(recent[0]?.slug).toBe('2026-08-21-first-lights-and-flux');
+    expect(recent.map((entry) => entry.slug)).toEqual([
+      '2026-08-21-first-lights-and-flux',
+      '2026-08-27-images-to-pdf-and-uninstall',
+      '2026-08-26-the-pmod-pivot',
+    ]);
   });
 
   it('includes project labels on every entry', () => {
@@ -93,17 +104,9 @@ describe('getLogsByProject', () => {
     }
   });
 
-  it('lists the section with the newest log first on the writing index', () => {
+  it('lists Tomato August then Mango ahead of date-floated sections', () => {
     const groups = getLogsByProject();
     expect(groups.length).toBeGreaterThan(1);
-
-    for (let index = 1; index < groups.length; index += 1) {
-      const previous = new Date(
-        groups[index - 1].entries[0]?.date ?? 0,
-      ).getTime();
-      const current = new Date(groups[index].entries[0]?.date ?? 0).getTime();
-      expect(previous).toBeGreaterThanOrEqual(current);
-    }
 
     const openSourceGroup = groups.find(
       (group) => group.project === 'open-source',
@@ -118,8 +121,11 @@ describe('getLogsByProject', () => {
       return;
     }
 
-    // Tomato August (Aug 18) above Open Source (Aug 11); July and Earlier fold below fresher projects.
     expect(groups[0].project).toBe('tomato-aug');
+    expect(groups[1].project).toBe('mango');
+    expect(groups[1].entries[0]?.slug).toBe(
+      '2026-08-27-images-to-pdf-and-uninstall',
+    );
     expect(openSourceGroup.entries[0]?.slug).toBe(
       '2026-08-11-librelane-verilator-openfpga',
     );
@@ -128,16 +134,15 @@ describe('getLogsByProject', () => {
       '2026-08-09-first-open-source-contributions',
     ]);
     expect(tomatoAugGroup.projectLabel).toBe('Tomato CPU — August');
-    expect(tomatoAugGroup.entries[0]?.slug).toBe(
-      '2026-08-18-first-phase-of-assembly',
-    );
+    expect(tomatoAugGroup.entries[0]?.slug).toBe('2026-08-26-the-pmod-pivot');
     expect(
-      tomatoAugGroup.entries.map((entry) => entry.slug).slice(0, 4),
+      tomatoAugGroup.entries.map((entry) => entry.slug).slice(0, 5),
     ).toEqual([
+      '2026-08-26-the-pmod-pivot',
+      '2026-08-23-the-invisible-logic',
+      '2026-08-21-first-lights-and-flux',
+      '2026-08-20-the-gallery-paradox',
       '2026-08-18-first-phase-of-assembly',
-      '2026-08-16-tomato-web-optimization',
-      '2026-08-15-pcbs-arrive',
-      '2026-08-15-isa-as-a-wire',
     ]);
     expect(tomatoJulGroup.projectLabel).toBe('Tomato CPU — July');
     expect(tomatoJulGroup.entries[0]?.date).toBe('2026-07-31');
@@ -170,7 +175,7 @@ describe('getLogsByProject', () => {
     ).toBe(true);
   });
 
-  it('keeps older sections below any project with a newer log', () => {
+  it('keeps Tomato August above Mango above remaining date-floated sections', () => {
     const groups = getLogsByProject();
     const order = groups.map((group) => group.project);
 
@@ -179,6 +184,7 @@ describe('getLogsByProject', () => {
     const tomatoAugIndex = order.indexOf('tomato-aug');
     const tomatoJulIndex = order.indexOf('tomato-jul');
     const itchIndex = order.indexOf('itch-hw');
+    const aluIndex = order.indexOf('alu');
 
     if (
       openSourceIndex === -1 ||
@@ -190,10 +196,14 @@ describe('getLogsByProject', () => {
       return;
     }
 
-    // Tomato August above Open Source above Mango above ITCH above Tomato July.
-    expect(tomatoAugIndex).toBeLessThan(openSourceIndex);
-    expect(openSourceIndex).toBeLessThan(mangoIndex);
-    expect(mangoIndex).toBeLessThan(itchIndex);
+    expect(tomatoAugIndex).toBe(0);
+    expect(mangoIndex).toBe(1);
+    expect(mangoIndex).toBeLessThan(openSourceIndex);
+    if (aluIndex !== -1) {
+      expect(mangoIndex).toBeLessThan(aluIndex);
+      expect(aluIndex).toBeLessThan(openSourceIndex);
+    }
+    expect(openSourceIndex).toBeLessThan(itchIndex);
     expect(itchIndex).toBeLessThan(tomatoJulIndex);
   });
 });
