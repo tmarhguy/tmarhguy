@@ -7,7 +7,7 @@ image: '/images/assembly/beside_sim.webp'
 imageAlt: 'Half-soldered 07_alu board in hand, Digital simulation on the monitor behind it.'
 ---
 
-**See also:** [PCBs Arrive!](/writing/2026-08-15-pcbs-arrive/) · [Solder Station Arrives](/writing/2026-08-13-solder-station-arrives/) · [Ordered Tomato](/writing/2026-08-07-ordered-tomato/)
+**See also:** [First Lights and Flux](/writing/2026-08-21-first-lights-and-flux/) · [PCBs Arrive!](/writing/2026-08-15-pcbs-arrive/) · [Solder Station Arrives](/writing/2026-08-13-solder-station-arrives/)
 
 Today is perhaps one of the most important ones of this project. I got the parts from DigiKey. There was an initial delay, but they replaced it when I called. After weeks of staring at digital schematics and KiCad renders, having physical silicon show up at the door is a huge milestone.
 
