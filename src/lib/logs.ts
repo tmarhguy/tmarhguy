@@ -233,6 +233,21 @@ export function getAllLogs(): LogEntry[] {
   return [...cachedLogs];
 }
 
+/** Homepage “Recent writing” strip — pinned lead, then newest. */
+const HOME_RECENT_PIN = '2026-08-21-first-lights-and-flux';
+
+export function getHomeRecentLogs(limit = 3): LogEntry[] {
+  const logs = getAllLogs();
+  const pinned = logs.find((entry) => entry.slug === HOME_RECENT_PIN);
+  const rest = logs.filter((entry) => entry.slug !== HOME_RECENT_PIN);
+
+  if (!pinned) {
+    return rest.slice(0, limit);
+  }
+
+  return [pinned, ...rest.slice(0, Math.max(0, limit - 1))];
+}
+
 export function getLogSlugs(): string[] {
   return getAllLogs().map((entry) => entry.slug);
 }
@@ -319,7 +334,11 @@ function getLogProjectGroupSortOrder(groupKey: string): number {
   return baseOrder * 10 + foldOffset;
 }
 
-/** Logs grouped by project (Tomato split into August / July / Earlier). Sections float by newest entry. */
+/** Preferred writing-index lead sections (before date float). */
+const WRITING_SECTION_LEAD = ['tomato-aug', 'mango'] as const;
+
+/** Logs grouped by project (Tomato split into August / July / Earlier).
+ *  Tomato August, then Mango, then remaining sections by newest entry. */
 export function getLogsByProject(): LogProjectGroup[] {
   const groups = new Map<string, LogProjectGroup>();
 
@@ -341,6 +360,18 @@ export function getLogsByProject(): LogProjectGroup[] {
   }
 
   return [...groups.values()].sort((a, b) => {
+    const aLead = WRITING_SECTION_LEAD.indexOf(
+      a.project as (typeof WRITING_SECTION_LEAD)[number],
+    );
+    const bLead = WRITING_SECTION_LEAD.indexOf(
+      b.project as (typeof WRITING_SECTION_LEAD)[number],
+    );
+    const aPinned = aLead === -1 ? Number.MAX_SAFE_INTEGER : aLead;
+    const bPinned = bLead === -1 ? Number.MAX_SAFE_INTEGER : bLead;
+    if (aPinned !== bPinned) {
+      return aPinned - bPinned;
+    }
+
     const aLatest = new Date(a.entries[0]?.date ?? 0).getTime();
     const bLatest = new Date(b.entries[0]?.date ?? 0).getTime();
     if (aLatest !== bLatest) {

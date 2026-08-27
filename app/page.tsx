@@ -7,7 +7,7 @@ import PageWrapper from '@/components/Template/PageWrapper';
 import { getFeaturedProjects } from '@/data/projects';
 import { externalAnchorProps } from '@/lib/external-link';
 import { formatDateCompact } from '@/lib/log-content';
-import { getAllLogs } from '@/lib/logs';
+import { getHomeRecentLogs } from '@/lib/logs';
 import { HOME_URL, profilePageNode } from '@/lib/schema';
 import { AUTHOR_NAME, SITE_DESCRIPTION, SITE_URL } from '@/lib/utils';
 
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const featuredProjects = getFeaturedProjects();
-  const recentLogs = getAllLogs().slice(0, 3);
+  const recentLogs = getHomeRecentLogs(3);
 
   return (
     <PageWrapper mainClassName="page-main--hero">
