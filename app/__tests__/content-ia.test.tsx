@@ -2,7 +2,11 @@ import { render, screen, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { getOpenSourceContributions } from '@/data/open-source';
 import projects, { getFeaturedProjects } from '@/data/projects';
-import { getAllLogs, getLogProjectGroupKey } from '@/lib/logs';
+import {
+  getAllLogs,
+  getHomeRecentLogs,
+  getLogProjectGroupKey,
+} from '@/lib/logs';
 import HomePage from '../page';
 import ProjectsPage from '../projects/page';
 import WritingPage from '../writing/page';
@@ -29,8 +33,10 @@ describe('writing information architecture', () => {
     ).toEqual(featured.map((project) => project.title));
   });
 
-  it('surfaces the three newest writing entries on the homepage', () => {
-    const expected = getAllLogs().slice(0, 3);
+  it('pins First Lights as the lead recent-writing card on the homepage', () => {
+    const expected = getHomeRecentLogs(3);
+
+    expect(expected[0]?.slug).toBe('2026-08-21-first-lights-and-flux');
 
     const { container } = render(<HomePage />);
     const section = screen.getByRole('region', { name: 'Recent writing' });
@@ -64,6 +70,12 @@ describe('writing information architecture', () => {
 
     expect(
       screen.getByRole('heading', { name: 'Tomato CPU — August' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'Mango Tools' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: '8-bit Discrete Transistor ALU' }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole('heading', { name: 'Tomato CPU — July' }),
