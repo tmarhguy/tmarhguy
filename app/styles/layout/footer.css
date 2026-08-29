@@ -15,7 +15,7 @@
 .footer-content {
   box-sizing: border-box;
   width: 100%;
-  max-width: var(--measure-page);
+  max-width: var(--measure-wide);
   padding-inline: 2rem;
   margin: 0 auto;
   display: flex;

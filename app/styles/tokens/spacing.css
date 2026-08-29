@@ -32,9 +32,8 @@
   --header-height: 4rem;
   --header-height-mobile: 3.5rem;
 
-  /* Three page measures keep routes aligned without forcing component-sized
-     details (portraits, status messages, controls) into page-level tokens. */
-  --measure-wide: 70rem; /* Hero and other split compositions */
-  --measure-page: 56rem; /* Default pages, lists, resume, and footer */
+  /* Shared rail for header, main, and footer. Prose keeps --measure-read. */
+  --measure-wide: 70rem; /* Site chrome and list pages */
+  --measure-page: 56rem; /* Nested panels that still want a tighter column */
   --measure-read: 40rem; /* Continuous prose and compact data views */
 }

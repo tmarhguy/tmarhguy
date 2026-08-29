@@ -19,17 +19,17 @@
   }
 }
 
-/* Main content area */
+/* Main content area — same rail as the header so journal pages
+   and the home hero share one width. */
 .page-main {
   flex: 1;
   width: 100%;
-  max-width: var(--measure-page);
+  max-width: var(--measure-wide);
   margin: 0 auto;
   padding: 2rem 1.5rem;
 }
 
-/* The hero grid needs room for a full-measure readout strip
-   alongside its portrait. */
+/* Kept for home and any split compositions; same measure as page-main. */
 .page-main--hero {
   max-width: var(--measure-wide);
 }
