@@ -1,13 +1,14 @@
 ---
 title: 'Tomato works beautifully!'
 date: '2026-08-29'
+priority: 1
 description: 'HDMI GUI on the TV — 2,300+ lines of TomatoOS. Tetris, Snake, Racer, Fibonacci. Keyboard matrix next; chip tapeout on the horizon.'
 project: tomato
 image: '/images/os/main-menu-screen.webp'
 imageAlt: 'TomatoOS main menu on HDMI — What is Tomato, Fibonacci, Snake, Tetris, Racer, About.'
 ---
 
-**See also:** [One Press, One Key](/writing/2026-08-28-one-press-one-key/) · [Successful Video — FPGA + PMOD](/writing/2026-08-28-successful-video-fpga-pmod/) · [First Lights and Flux](/writing/2026-08-21-first-lights-and-flux/)
+**See also:** [Register Upgrade](/writing/2026-08-29-register-upgrade/) · [One Press, One Key](/writing/2026-08-28-one-press-one-key/) · [Successful Video — FPGA + PMOD](/writing/2026-08-28-successful-video-fpga-pmod/)
 
 For all these months of working, I will say today was the most thrilling, mainly because **I got Tomato to render an HDMI signal and a GUI on my TV (or any screen for that matter)**.
 It gets exciting because it is running on over **2,300 lines of assembly code** as TomatoOS.

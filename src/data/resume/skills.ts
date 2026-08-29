@@ -12,9 +12,11 @@ export interface Category {
 /**
  * Skills a hardware recruiter can map to a project, not a course catalog.
  *
- * FPGA / RTL / verification internships: Tomato UVM+SVA, ITCH/UDP cocotb,
- * RISC-V Wishbone, Vivado P&R. ASIC / EDA: LibreLane, OpenROAD, OpenFPGA,
- * Sky130 MAC. Board / analog: KiCad, NGSpice, Electric. Embedded: Vero SPI/I²C.
+ * FPGA / RTL / verification internships: Tomato UVM+SVA + FOSS FPGA
+ * (Yosys/nextpnr), ITCH/UDP cocotb, RISC-V Wishbone, Vivado P&R.
+ * ASIC / EDA: LibreLane, OpenROAD, OpenFPGA, Sky130 MAC.
+ * Board / analog: KiCad, NGSpice, Electric. Embedded: Vero SPI/I²C, Arduino.
+ * Software: Next.js sites, Swift (QueuePaste), FastAPI/Postgres.
  */
 const skills: Skill[] = [
   // FPGA & HDL
@@ -89,8 +91,18 @@ const skills: Skill[] = [
     category: ['ASIC & EDA', 'FPGA & HDL'],
   },
   {
-    title: 'Quartus',
+    title: 'nextpnr',
+    competency: 4,
+    category: ['FPGA & HDL'],
+  },
+  {
+    title: 'openFPGALoader',
     competency: 3,
+    category: ['FPGA & HDL'],
+  },
+  {
+    title: 'Digital (Hneemann)',
+    competency: 5,
     category: ['FPGA & HDL'],
   },
   // Low-Latency & Networking
@@ -254,6 +266,11 @@ const skills: Skill[] = [
     category: ['Embedded'],
   },
   {
+    title: 'Arduino',
+    competency: 3,
+    category: ['Embedded'],
+  },
+  {
     title: 'FSMs',
     competency: 4,
     category: ['Embedded', 'FPGA & HDL'],
@@ -282,6 +299,16 @@ const skills: Skill[] = [
   {
     title: 'TypeScript',
     competency: 4,
+    category: ['Software'],
+  },
+  {
+    title: 'Next.js',
+    competency: 4,
+    category: ['Software'],
+  },
+  {
+    title: 'Swift',
+    competency: 3,
     category: ['Software'],
   },
   {

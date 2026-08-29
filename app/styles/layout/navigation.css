@@ -27,8 +27,9 @@
    mono, uppercase, wide-tracked, and small. */
 .nav-links {
   display: none;
-  gap: 1.75rem;
+  gap: 1.15rem;
   align-items: center;
+  flex-wrap: nowrap;
 }
 
 @media screen and (min-width: 736px) {
