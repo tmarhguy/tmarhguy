@@ -38,19 +38,21 @@
 }
 
 /* Header — a fixed instrument bezel. Held by a hairline rule
-   rather than by blur and saturation. */
+   rather than by blur and saturation. Full-bleed bar; content
+   sits on the same measure as page-main so nav (incl. GitHub)
+   lines up with the column instead of floating past it. */
 .site-header {
-  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
   background-color: color-mix(in srgb, var(--color-bg-alt) 88%, transparent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: var(--rule) solid var(--color-border);
-  display: flex;
   height: var(--header-height);
-  justify-content: space-between;
   left: 0;
   line-height: 1;
-  padding: 0 1.5rem;
+  padding: 0;
   position: fixed;
   top: 0;
   width: 100%;
@@ -59,11 +61,32 @@
   box-sizing: border-box;
 }
 
+.site-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--measure-wide);
+  height: 100%;
+  padding: 0 1.5rem;
+  gap: 1rem;
+}
+
 @media (max-width: 735px) {
   .site-header {
     height: var(--header-height-mobile);
     line-height: var(--header-height-mobile);
+  }
+
+  .site-header-inner {
     padding: 0 1rem;
+  }
+}
+
+@media screen and (min-width: 736px) {
+  .site-header-inner {
+    padding: 0 2rem;
   }
 }
 
