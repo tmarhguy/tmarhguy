@@ -2,7 +2,12 @@ import Markdown from 'markdown-to-jsx';
 import Image from 'next/image';
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 
+import { ProseAddrPipe } from './ProseAddrPipe';
+import { ProseBitfield, ProseBitseg } from './ProseBitfield';
 import { ProseCompare, ProseCompareItem } from './ProseCompare';
+import { ProseFlow, ProseFlowStep } from './ProseFlow';
+import { ProseMirrors } from './ProseMirrors';
+import { ProseNote } from './ProseNote';
 
 interface PostContentProps {
   content: string;
@@ -51,6 +56,27 @@ export default function PostContent({
           },
           ProseCompareItem: {
             component: ProseCompareItem,
+          },
+          ProseNote: {
+            component: ProseNote,
+          },
+          ProseFlow: {
+            component: ProseFlow,
+          },
+          ProseFlowStep: {
+            component: ProseFlowStep,
+          },
+          ProseBitfield: {
+            component: ProseBitfield,
+          },
+          ProseBitseg: {
+            component: ProseBitseg,
+          },
+          ProseMirrors: {
+            component: ProseMirrors,
+          },
+          ProseAddrPipe: {
+            component: ProseAddrPipe,
           },
           table: {
             component: ProseTable,

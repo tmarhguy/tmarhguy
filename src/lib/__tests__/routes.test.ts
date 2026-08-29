@@ -21,4 +21,9 @@ describe('isActiveRoute', () => {
     expect(isActiveRoute('/about', '/')).toBe(false);
     expect(isActiveRoute(null, '/')).toBe(false);
   });
+
+  it('never marks external destinations as active', () => {
+    expect(isActiveRoute('/', 'https://github.com/tmarhguy')).toBe(false);
+    expect(isActiveRoute('/about', 'https://github.com/tmarhguy')).toBe(false);
+  });
 });
