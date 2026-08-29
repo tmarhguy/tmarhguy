@@ -27,16 +27,16 @@ describe('getAllLogs', () => {
 
   it('lists the newest log as the lead writing entry', () => {
     const logs = getAllLogs();
-    expect(logs[0]?.slug).toBe('2026-08-27-images-to-pdf-and-uninstall');
+    expect(logs[0]?.slug).toBe('2026-08-29-tomato-works-beautifully');
   });
 
-  it('pins First Lights first on the homepage recent strip', () => {
+  it('pins Tomato works beautifully first on the homepage recent strip', () => {
     const recent = getHomeRecentLogs(3);
-    expect(recent[0]?.slug).toBe('2026-08-21-first-lights-and-flux');
+    expect(recent[0]?.slug).toBe('2026-08-29-tomato-works-beautifully');
     expect(recent.map((entry) => entry.slug)).toEqual([
-      '2026-08-21-first-lights-and-flux',
-      '2026-08-27-images-to-pdf-and-uninstall',
-      '2026-08-26-the-pmod-pivot',
+      '2026-08-29-tomato-works-beautifully',
+      '2026-08-28-successful-video-fpga-pmod',
+      '2026-08-28-one-press-one-key',
     ]);
   });
 
@@ -134,15 +134,16 @@ describe('getLogsByProject', () => {
       '2026-08-09-first-open-source-contributions',
     ]);
     expect(tomatoAugGroup.projectLabel).toBe('Tomato CPU — August');
-    expect(tomatoAugGroup.entries[0]?.slug).toBe('2026-08-26-the-pmod-pivot');
+    expect(tomatoAugGroup.entries[0]?.slug).toBe(
+      '2026-08-29-tomato-works-beautifully',
+    );
     expect(
-      tomatoAugGroup.entries.map((entry) => entry.slug).slice(0, 5),
+      tomatoAugGroup.entries.map((entry) => entry.slug).slice(0, 4),
     ).toEqual([
-      '2026-08-26-the-pmod-pivot',
-      '2026-08-23-the-invisible-logic',
-      '2026-08-21-first-lights-and-flux',
-      '2026-08-20-the-gallery-paradox',
-      '2026-08-18-first-phase-of-assembly',
+      '2026-08-29-tomato-works-beautifully',
+      '2026-08-28-successful-video-fpga-pmod',
+      '2026-08-28-one-press-one-key',
+      '2026-08-28-exploring-beyond-vivado-open-source-synthesis-pivot',
     ]);
     expect(tomatoJulGroup.projectLabel).toBe('Tomato CPU — July');
     expect(tomatoJulGroup.entries[0]?.date).toBe('2026-07-31');

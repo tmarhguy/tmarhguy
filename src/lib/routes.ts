@@ -1,3 +1,5 @@
+import { isExternalHref } from '@/lib/external-link';
+
 /**
  * Whether a nav entry represents the page currently being viewed.
  *
@@ -6,6 +8,7 @@
  */
 export function isActiveRoute(pathname: string | null, path: string): boolean {
   if (!pathname) return false;
+  if (isExternalHref(path)) return false;
   if (path === '/') return pathname === '/';
 
   const route = path.replace(/\/+$/, '');

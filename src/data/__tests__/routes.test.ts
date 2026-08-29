@@ -27,8 +27,12 @@ describe('routes', () => {
     expect(indexRoute?.path).toBe('/');
   });
 
-  it('all paths start with /', () => {
+  it('all internal paths start with /', () => {
     for (const route of routes) {
+      if (route.path.startsWith('http')) {
+        expect(route.path).toMatch(/^https:\/\//);
+        continue;
+      }
       expect(route.path.startsWith('/')).toBe(true);
     }
   });
@@ -41,6 +45,7 @@ describe('routes', () => {
     expect(paths).toContain('/resume');
     expect(paths).toContain('/projects');
     expect(paths).toContain('/contact');
+    expect(paths).toContain('https://github.com/tmarhguy');
   });
 
   it('has unique paths for non-index routes', () => {

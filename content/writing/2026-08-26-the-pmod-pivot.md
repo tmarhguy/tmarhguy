@@ -7,7 +7,7 @@ image: '/images/plates/mouser-pmod-1.webp'
 imageAlt: 'Mouser order — Digilent PMOD VGA and headers in transit.'
 ---
 
-**See also:** [The Invisible Logic](/writing/2026-08-23-the-invisible-logic/) · [First Lights and Flux](/writing/2026-08-21-first-lights-and-flux/) · [Ordered Tomato](/writing/2026-08-07-ordered-tomato/)
+**See also:** [Successful Video — FPGA + PMOD](/writing/2026-08-28-successful-video-fpga-pmod/) · [The Invisible Logic](/writing/2026-08-23-the-invisible-logic/) · [First Lights and Flux](/writing/2026-08-21-first-lights-and-flux/)
 
 I tried connecting the VGA to my PC monitor, but the multiple adapter interfaces between the FPGA and HDMI (a VGA to HDMI converter) seem passive and simply won't work, no matter how many times I flashed a basic test pattern.
 

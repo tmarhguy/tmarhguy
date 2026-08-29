@@ -3,6 +3,7 @@ import Link from 'next/link';
 import ContactIcons from '@/components/Contact/ContactIcons';
 import work from '@/data/resume/work';
 import routes from '@/data/routes';
+import { externalAnchorProps, isExternalHref } from '@/lib/external-link';
 import { AUTHOR_NAME } from '@/lib/utils';
 
 import ThemePortrait from './ThemePortrait';
@@ -46,11 +47,22 @@ export default function Footer() {
             <div className="footer-links-grid">
               {routes
                 .filter((route) => !route.index)
-                .map((route) => (
-                  <Link key={route.path} href={route.path}>
-                    {route.label}
-                  </Link>
-                ))}
+                .map((route) =>
+                  isExternalHref(route.path) ? (
+                    <a
+                      key={route.path}
+                      href={route.path}
+                      {...externalAnchorProps(route.path)}
+                    >
+                      {route.label}
+                      <span className="sr-only"> (opens in new tab)</span>
+                    </a>
+                  ) : (
+                    <Link key={route.path} href={route.path}>
+                      {route.label}
+                    </Link>
+                  ),
+                )}
             </div>
           </nav>
 
