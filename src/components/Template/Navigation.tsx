@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import routes from '@/data/routes';
+import { externalAnchorProps, isExternalHref } from '@/lib/external-link';
 import { isActiveRoute } from '@/lib/routes';
 import { AUTHOR_NAME } from '@/lib/utils';
 
@@ -24,12 +25,27 @@ export default function Navigation() {
           .filter((l) => !l.index && l.primary !== false)
           .map((l) => {
             const active = isActiveRoute(pathname, l.path);
+            const className = `nav-link ${active ? 'active' : ''}`;
+
+            if (isExternalHref(l.path)) {
+              return (
+                <a
+                  key={l.label}
+                  href={l.path}
+                  className={className}
+                  {...externalAnchorProps(l.path)}
+                >
+                  {l.label}
+                  <span className="sr-only"> (opens in new tab)</span>
+                </a>
+              );
+            }
 
             return (
               <Link
                 key={l.label}
                 href={l.path}
-                className={`nav-link ${active ? 'active' : ''}`}
+                className={className}
                 aria-current={active ? 'page' : undefined}
               >
                 {l.label}
