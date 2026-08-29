@@ -42,6 +42,10 @@ const routes: Route[] = [
     label: 'Contact',
     path: '/contact',
   },
+  {
+    label: 'GitHub',
+    path: 'https://github.com/tmarhguy',
+  },
 ];
 
 export default routes;

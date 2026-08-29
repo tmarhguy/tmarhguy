@@ -40,24 +40,26 @@ describe('Footer', () => {
   it('renders navigation links', () => {
     render(<Footer />);
 
-    expect(screen.getByRole('link', { name: /about/i })).toHaveAttribute(
-      'href',
-      '/about',
+    const explore = document.querySelector('.footer-links-grid');
+    expect(explore).toBeInTheDocument();
+
+    expect(explore?.querySelector('a[href="/about"]')).toHaveTextContent(
+      /about/i,
     );
-    expect(screen.getByRole('link', { name: /resume/i })).toHaveAttribute(
-      'href',
-      '/resume',
+    expect(explore?.querySelector('a[href="/resume"]')).toHaveTextContent(
+      /resume/i,
     );
     // Labelled "Projects" to match the nav and the page's own heading;
     // the route stays /projects.
-    expect(screen.getByRole('link', { name: /projects/i })).toHaveAttribute(
-      'href',
-      '/projects',
+    expect(explore?.querySelector('a[href="/projects"]')).toHaveTextContent(
+      /projects/i,
     );
-    expect(screen.getByRole('link', { name: /contact/i })).toHaveAttribute(
-      'href',
-      '/contact',
+    expect(explore?.querySelector('a[href="/contact"]')).toHaveTextContent(
+      /contact/i,
     );
+    expect(
+      explore?.querySelector('a[href="https://github.com/tmarhguy"]'),
+    ).toHaveTextContent(/github/i);
   });
 
   it('renders contact icons section', () => {

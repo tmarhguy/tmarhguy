@@ -67,9 +67,9 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 
 ## Skills
 
-**Hardware** · SystemVerilog · UVM / SVA · cocotb · Verilator · SymbiYosys · Questa · Vivado · RISC-V · KiCad · LibreLane / OpenROAD / Yosys / Sky130 · NGSpice · embedded C/C++ · SPI/I²C  
-**Software** · Python · C/C++ · TypeScript · FastAPI · PostgreSQL · Pytest · Docker  
-**Practice** · constrained-random + golden-model scoreboards · formal (SymbiYosys) · timing closure · board bring-up
+**Hardware** · SystemVerilog · UVM / SVA · cocotb · Verilator · SymbiYosys · Questa · Vivado · Yosys / nextpnr · RISC-V · Wishbone · Digital · KiCad · LibreLane / OpenROAD / Sky130 · NGSpice · embedded C/C++ · SPI/I²C · Arduino  
+**Software** · Python · C/C++ · TypeScript · Next.js · Swift · FastAPI · PostgreSQL · Pytest · Docker  
+**Practice** · constrained-random + golden-model scoreboards · formal (SymbiYosys) · timing closure · board bring-up · FOSS FPGA bring-up
 
 ## Press
 
@@ -86,8 +86,6 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 </p>
 
 <div align="center">
-
-![GitHub activity](https://github-readme-activity-graph.vercel.app/graph?username=tmarhguy&theme=tokyo-night&hide_border=true&area=true)
 
 ![Profile views](https://komarev.com/ghpvc/?username=tmarhguy&label=profile%20views&color=6e7681&style=flat-square)
 
