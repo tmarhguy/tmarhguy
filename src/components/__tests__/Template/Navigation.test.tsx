@@ -56,6 +56,10 @@ describe('Navigation', () => {
       screen.getByRole('link', { name: /engineering log/i }),
     ).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /contact/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /github/i })).toHaveAttribute(
+      'href',
+      'https://github.com/tmarhguy',
+    );
     expect(
       screen.queryByRole('link', { name: /archive/i }),
     ).not.toBeInTheDocument();

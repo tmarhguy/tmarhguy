@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import routes from '../../data/routes';
+import { externalAnchorProps, isExternalHref } from '../../lib/external-link';
 import { isActiveRoute } from '../../lib/routes';
 import SlideMenu from './SlideMenu';
 
@@ -41,20 +42,36 @@ export default function Hamburger() {
           .map((l) => {
             const active = isActiveRoute(pathname, l.path);
 
+            const label = (
+              <span className={l.index ? 'index-li' : undefined}>
+                {l.label}
+              </span>
+            );
+
             return (
               <li key={l.label}>
                 {/* Navigation labels, not document sections — these were <h3>,
                   which put six phantom headings into the outline. */}
-                <Link
-                  href={l.path}
-                  onClick={closeMenu}
-                  className={active ? 'active' : undefined}
-                  aria-current={active ? 'page' : undefined}
-                >
-                  <span className={l.index ? 'index-li' : undefined}>
-                    {l.label}
-                  </span>
-                </Link>
+                {isExternalHref(l.path) ? (
+                  <a
+                    href={l.path}
+                    onClick={closeMenu}
+                    className={active ? 'active' : undefined}
+                    {...externalAnchorProps(l.path)}
+                  >
+                    {label}
+                    <span className="sr-only"> (opens in new tab)</span>
+                  </a>
+                ) : (
+                  <Link
+                    href={l.path}
+                    onClick={closeMenu}
+                    className={active ? 'active' : undefined}
+                    aria-current={active ? 'page' : undefined}
+                  >
+                    {label}
+                  </Link>
+                )}
               </li>
             );
           })}

@@ -10,7 +10,7 @@ project: tomato
 **Date:** 2026-07-31  
 **Status:** Decision settled — revert to Tomato32  
 **Supersedes:** [Redesign into 40b](/writing/2026-07-30-redesign-into-40b-old-design-32b/)  
-**Related:** [The lingering catch](/writing/2026-07-31-the-lingering-thoughts/)
+**Related:** [The lingering catch](/writing/2026-07-31-the-lingering-thoughts/) · [Register Upgrade](/writing/2026-08-29-register-upgrade/)
 
 ---
 

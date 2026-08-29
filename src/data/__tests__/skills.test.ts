@@ -128,6 +128,8 @@ describe('project-backed hardware skills', () => {
         'OpenROAD',
         'OpenFPGA',
         'Yosys',
+        'nextpnr',
+        'Digital (Hneemann)',
         'Sky130',
         'KiCad',
         'NGSpice',
@@ -136,12 +138,16 @@ describe('project-backed hardware skills', () => {
         'Wishbone B4',
         'RMII / 100 Mbps MAC',
         'SPI/I²C',
+        'Next.js',
+        'Swift',
+        'Arduino',
       ]),
     );
   });
 
   it('does not list unverified catalog fillers', () => {
     expect(titles).not.toContain('VHDL');
+    expect(titles).not.toContain('Quartus');
     expect(titles).not.toContain('Data Structures & Algorithms');
     expect(titles).not.toContain('1 GbE MAC / RGMII');
   });

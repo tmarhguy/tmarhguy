@@ -234,7 +234,7 @@ export function getAllLogs(): LogEntry[] {
 }
 
 /** Homepage “Recent writing” strip — pinned lead, then newest. */
-const HOME_RECENT_PIN = '2026-08-21-first-lights-and-flux';
+const HOME_RECENT_PIN = '2026-08-29-register-upgrade';
 
 export function getHomeRecentLogs(limit = 3): LogEntry[] {
   const logs = getAllLogs();
