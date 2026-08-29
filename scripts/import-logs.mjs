@@ -73,6 +73,7 @@ const PROJECT_BY_FILE = {
   '2026-08-28-one-press-one-key.md': 'tomato',
   '2026-08-28-successful-video-fpga-pmod.md': 'tomato',
   '2026-08-29-tomato-works-beautifully.md': 'tomato',
+  '2026-08-29-register-upgrade.md': 'tomato',
   '2026-08-25-fab-overhead.md': 'alu',
   '2026-08-01-itch-ethernet-lab-bring-up.md': 'itch-hw',
   '2026-08-02-successful-synthesis-implementation-bitstream.md': 'itch-hw',

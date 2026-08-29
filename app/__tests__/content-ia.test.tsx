@@ -33,10 +33,10 @@ describe('writing information architecture', () => {
     ).toEqual(featured.map((project) => project.title));
   });
 
-  it('pins Tomato works beautifully as the lead recent-writing card on the homepage', () => {
+  it('pins Register Upgrade as the lead recent-writing card on the homepage', () => {
     const expected = getHomeRecentLogs(3);
 
-    expect(expected[0]?.slug).toBe('2026-08-29-tomato-works-beautifully');
+    expect(expected[0]?.slug).toBe('2026-08-29-register-upgrade');
 
     const { container } = render(<HomePage />);
     const section = screen.getByRole('region', { name: 'Recent writing' });

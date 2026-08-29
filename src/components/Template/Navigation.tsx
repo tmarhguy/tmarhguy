@@ -16,47 +16,53 @@ export default function Navigation() {
 
   return (
     <header className="site-header">
-      <Link href="/" className="site-logo" aria-label={`${AUTHOR_NAME} — home`}>
-        <span className="logo-text">TM</span>
-      </Link>
+      <div className="site-header-inner">
+        <Link
+          href="/"
+          className="site-logo"
+          aria-label={`${AUTHOR_NAME} — home`}
+        >
+          <span className="logo-text">TM</span>
+        </Link>
 
-      <nav className="nav-links" aria-label="Primary">
-        {routes
-          .filter((l) => !l.index && l.primary !== false)
-          .map((l) => {
-            const active = isActiveRoute(pathname, l.path);
-            const className = `nav-link ${active ? 'active' : ''}`;
+        <nav className="nav-links" aria-label="Primary">
+          {routes
+            .filter((l) => !l.index && l.primary !== false)
+            .map((l) => {
+              const active = isActiveRoute(pathname, l.path);
+              const className = `nav-link ${active ? 'active' : ''}`;
 
-            if (isExternalHref(l.path)) {
+              if (isExternalHref(l.path)) {
+                return (
+                  <a
+                    key={l.label}
+                    href={l.path}
+                    className={className}
+                    {...externalAnchorProps(l.path)}
+                  >
+                    {l.label}
+                    <span className="sr-only"> (opens in new tab)</span>
+                  </a>
+                );
+              }
+
               return (
-                <a
+                <Link
                   key={l.label}
                   href={l.path}
                   className={className}
-                  {...externalAnchorProps(l.path)}
+                  aria-current={active ? 'page' : undefined}
                 >
                   {l.label}
-                  <span className="sr-only"> (opens in new tab)</span>
-                </a>
+                </Link>
               );
-            }
+            })}
+        </nav>
 
-            return (
-              <Link
-                key={l.label}
-                href={l.path}
-                className={className}
-                aria-current={active ? 'page' : undefined}
-              >
-                {l.label}
-              </Link>
-            );
-          })}
-      </nav>
-
-      <div className="nav-actions">
-        <ThemeToggle />
-        <Hamburger />
+        <div className="nav-actions">
+          <ThemeToggle />
+          <Hamburger />
+        </div>
       </div>
     </header>
   );
