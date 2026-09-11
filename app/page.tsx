@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { SchemaGraph } from '@/components/Schema';
 import Hero from '@/components/Template/Hero';
+import HomeContributions from '@/components/Template/HomeContributions';
 import PageWrapper from '@/components/Template/PageWrapper';
-import { getFeaturedProjects } from '@/data/projects';
+import TomatoFeature from '@/components/Template/TomatoFeature';
+import { getHomeFeaturedItems } from '@/data/projects';
 import { externalAnchorProps } from '@/lib/external-link';
 import { formatDateCompact } from '@/lib/log-content';
 import { getHomeRecentLogs } from '@/lib/logs';
@@ -17,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const featuredProjects = getFeaturedProjects();
+  const featuredItems = getHomeFeaturedItems();
   const recentLogs = getHomeRecentLogs(3);
 
   return (
@@ -26,10 +29,14 @@ export default function HomePage() {
         nodes={[profilePageNode({ url: HOME_URL, name: AUTHOR_NAME })]}
       />
       <Hero />
+      <TomatoFeature />
+      <HomeContributions />
       <section className="home-projects" aria-labelledby="home-projects-title">
         <div className="home-section-header">
           <div>
-            <span className="home-section-kicker">Selected work</span>
+            <span className="home-section-kicker">
+              03 / More from the workbench
+            </span>
             <h2 id="home-projects-title">Projects</h2>
           </div>
           <Link href="/projects/" className="home-section-all">
@@ -37,24 +44,29 @@ export default function HomePage() {
           </Link>
         </div>
         <div className="home-projects-list">
-          {featuredProjects.map((project) => {
-            const className = 'home-project-item';
+          {featuredItems.map((item) => {
             const content = (
               <>
-                <span className="home-project-meta">{project.period}</span>
-                <h3>{project.title}</h3>
-                <p>{project.desc}</p>
+                <Image
+                  className="home-project-image"
+                  src={item.image}
+                  alt={item.imageAlt}
+                  width={640}
+                  height={400}
+                />
+                <span className="home-project-meta">{item.period}</span>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
               </>
             );
 
-            const href = project.site ?? project.link;
-            if (href) {
+            if (item.external) {
               return (
                 <a
-                  key={project.title}
-                  href={href}
-                  className={className}
-                  {...externalAnchorProps(href)}
+                  key={item.title}
+                  href={item.href}
+                  className="home-project-item"
+                  {...externalAnchorProps(item.href)}
                 >
                   {content}
                 </a>
@@ -62,9 +74,13 @@ export default function HomePage() {
             }
 
             return (
-              <div key={project.title} className={className}>
+              <Link
+                key={item.title}
+                href={item.href}
+                className="home-project-item"
+              >
                 {content}
-              </div>
+              </Link>
             );
           })}
         </div>

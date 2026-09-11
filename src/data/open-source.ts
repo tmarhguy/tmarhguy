@@ -133,4 +133,15 @@ export function getOpenSourceContributions(): OpenSourceContribution[] {
   );
 }
 
+/** Homepage projects card — LibreLane release proof is the lead evidence image. */
+export const HOME_OPEN_SOURCE_FEATURE = {
+  title: 'Open source EDA',
+  period: 'Aug. 2026',
+  desc: 'Upstream patches in LibreLane, OpenROAD, Verilator, and OpenFPGA — including Yosys compatibility and synthesis-error counting fixes that shipped in LibreLane 3.0.8 and 3.0.10.',
+  image: '/images/open-source/librelane-3.0.8.png',
+  imageAlt:
+    'LibreLane 3.0.8 release credits tmarhguy for the Yosys compatibility fix',
+  href: '/projects/#open-source-title',
+} as const;
+
 export default contributions;

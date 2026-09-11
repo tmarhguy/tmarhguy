@@ -36,6 +36,7 @@
 @import './styles/pages/resume.css';
 @import './styles/pages/writing.css';
 @import './styles/pages/content.css';
+@import './styles/pages/exhibition.css';
 
 /* Utilities & Animations */
 @import './styles/utilities.css';

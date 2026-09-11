@@ -53,8 +53,8 @@ export default function ProfessionalSummary({
     >
       <li>
         <strong>
-          I build computer systems from discrete MOSFETs through full ASIC
-          tapeout.
+          I build computer systems from discrete logic through RTL and ASIC
+          implementation.
         </strong>
         <br />
         Computer Engineering junior at the{' '}
@@ -124,7 +124,7 @@ export default function ProfessionalSummary({
         </InlineLink>
         , a{' '}
         <InlineLink href="https://alu.tmarhguy.com" external>
-          3,488 MOSFET ALU
+          hybrid transistor ALU
         </InlineLink>
         , a{' '}
         <InlineLink href="https://github.com/tmarhguy/mac" external>
@@ -134,15 +134,16 @@ export default function ProfessionalSummary({
         <InlineLink href="https://github.com/tmarhguy/64b-sram" external>
           full-custom 22nm SRAM
         </InlineLink>
-        . All proven with <strong>UVM, cocotb, and formal verification</strong>{' '}
-        against millions of test vectors.
+        . Verification work spans{' '}
+        <strong>UVM, cocotb, and formal methods</strong>, with project-specific
+        test records linked above.
       </li>
       <li>
         <strong>The Work:</strong> Hardware Research Engineer (Fall 2026) at{' '}
         <InlineLink href={workUrl('Fluid Silicon')} external>
           Fluid Silicon
         </InlineLink>{' '}
-        (RTL & Emulation) and Software Engineer at{' '}
+        (RTL & Emulation). Previously Software Engineering Intern at{' '}
         <InlineLink href={workUrl('Aragorn')} external>
           Aragorn AI
         </InlineLink>
