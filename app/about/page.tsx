@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
+import PublicStory from '@/components/About/PublicStory';
 
 import AboutContent from '@/components/About/Sections';
 import { SchemaGraph } from '@/components/Schema';
 import PageWrapper from '@/components/Template/PageWrapper';
 import { aboutMarkdown } from '@/data/about';
-import { WIKIPEDIA_URL } from '@/data/contact';
 import profile from '@/data/profile.json';
-import { externalAnchorProps } from '@/lib/external-link';
 import { createPageMetadata } from '@/lib/metadata';
 import {
   breadcrumbNode,
@@ -43,25 +43,35 @@ export default function AboutPage() {
           ]),
         ]}
       />
-      <section className="about-page">
-        <header className="about-header">
-          <h1 className="page-title">
-            <a
-              href={WIKIPEDIA_URL}
-              className="page-title-link"
-              {...externalAnchorProps(WIKIPEDIA_URL)}
-            >
-              About
-            </a>
-          </h1>
-          <p className="about-wikipedia-note">
-            Read more on{' '}
-            <a href={WIKIPEDIA_URL} {...externalAnchorProps(WIKIPEDIA_URL)}>
-              Wikipedia
-              <span aria-hidden="true"> ↗</span>
-            </a>
-          </p>
+      <section className="about-page about-editorial">
+        <header className="about-editorial-hero">
+          <div>
+            <span className="home-section-kicker">Ghana / Philadelphia</span>
+            <h1 className="page-title">About</h1>
+            <p className="about-deck">
+              A builder.
+              <br />A student.
+              <br />A story still unfolding.
+            </p>
+            <p>
+              I’m Tyrone. I grew up in Ghana, found my way to Penn, and turned a
+              dorm-room desk into a place to build a computer.
+            </p>
+          </div>
+          <figure>
+            <Image
+              src="/images/home/dorm-work.webp"
+              alt="Tyrone working at his dorm desk, surrounded by electronics and test equipment"
+              width={1400}
+              height={877}
+              priority
+            />
+            <figcaption>
+              Somewhere between a dorm room and a hardware lab.
+            </figcaption>
+          </figure>
         </header>
+        <PublicStory />
         <AboutContent markdown={aboutMarkdown} />
       </section>
     </PageWrapper>
