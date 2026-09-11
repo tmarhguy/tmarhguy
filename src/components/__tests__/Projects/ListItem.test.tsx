@@ -73,7 +73,7 @@ describe('ListItem', () => {
     );
 
     const logLink = screen.getByRole('link', { name: /^log$/i });
-    expect(logLink).toHaveAttribute('href', '/writing/#writing-tomato-aug');
+    expect(logLink).toHaveAttribute('href', '/writing/#writing-tomato-sep');
   });
 
   it('omits the log link when the project has no build notes', () => {

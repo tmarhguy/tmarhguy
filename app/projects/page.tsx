@@ -21,7 +21,7 @@ import { AUTHOR_NAME } from '@/lib/utils';
 
 const PROJECTS_URL = `${SITE_URL}/projects/`;
 
-const PROJECTS_DESCRIPTION = `Hardware and software projects by ${AUTHOR_NAME} — RTL, FPGA, ASIC tapeouts, and full-stack systems.`;
+const PROJECTS_DESCRIPTION = `Hardware and software projects by ${AUTHOR_NAME} — RTL, FPGA, ASIC implementation, and full-stack systems.`;
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Projects',
@@ -51,18 +51,30 @@ export default function ProjectsPage() {
           ]),
         ]}
       />
-      <section className="projects-page">
+      <section className="projects-page projects-exhibition">
         <header className="projects-header">
+          <span className="home-section-kicker">
+            Selected builds / Open notebooks / Working systems
+          </span>
           <h1 className="page-title">Projects</h1>
           <p className="page-subtitle">
-            RTL through tapeout, terminal tools, and software systems — the full
-            build log.
+            From the transistor to the terminal. Computers, circuits, and tools
+            I wanted to exist—so I started building them.
           </p>
         </header>
 
-        {openSourceContributions.length > 0 && (
-          <OpenSourceStrip contributions={openSourceContributions} />
-        )}
+        <nav className="project-jump-nav" aria-label="Project categories">
+          <a href="#hardware-projects-title">
+            Hardware <span>{hardwareProjects.length}</span>
+          </a>
+          <a href="#tools-projects-title">
+            Tools <span>{toolsProjects.length}</span>
+          </a>
+          <a href="#software-projects-title">
+            Software <span>{softwareProjects.length}</span>
+          </a>
+          <a href="#open-source-title">Open source</a>
+        </nav>
 
         <section
           className="projects-list-section"
@@ -108,6 +120,13 @@ export default function ProjectsPage() {
               ))}
             </div>
           </section>
+        )}
+
+        {openSourceContributions.length > 0 && (
+          <OpenSourceStrip
+            contributions={openSourceContributions}
+            showEvidence
+          />
         )}
       </section>
     </PageWrapper>

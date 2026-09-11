@@ -1,3 +1,4 @@
+import { HOME_OPEN_SOURCE_FEATURE } from '@/data/open-source';
 import { createHeadingId } from '@/lib/anchors';
 
 export type ProjectCategory = 'hardware' | 'software' | 'tools';
@@ -30,6 +31,7 @@ export interface Project {
   highlight?: string;
   /** Optional thumbnail for featured cards */
   image?: string;
+  imageCaption?: string;
 }
 
 function sortByDateDesc(projects: Project[]): Project[] {
@@ -38,6 +40,11 @@ function sortByDateDesc(projects: Project[]): Project[] {
       Number(Boolean(b.highlight)) - Number(Boolean(a.highlight));
     if (highlightDiff !== 0) {
       return highlightDiff;
+    }
+
+    const imageDiff = Number(Boolean(b.image)) - Number(Boolean(a.image));
+    if (imageDiff !== 0) {
+      return imageDiff;
     }
 
     return new Date(b.date).getTime() - new Date(a.date).getTime();
@@ -51,7 +58,8 @@ const data: Project[] = [
     slug: 'nasdaq-itch',
     logProject: 'itch-hw',
     link: 'https://github.com/tmarhguy/itch-hw',
-    image: '/images/projects/mac-card.png',
+    image: '/images/projects/itch-bench.webp',
+    imageCaption: 'ITCH parser on Nexys A7 · bench photo',
     date: '2026-07-01',
     period: 'Jul. 2026',
     desc: 'Streaming 8-bit FSM decodes ITCH 5.0 with cocotb golden-model verification; dual-sided 512-entry BRAM limit book on Artix-7 at 100 MHz.',
@@ -65,7 +73,8 @@ const data: Project[] = [
     slug: '100mbps-udp-ip-stack',
     logProject: 'udp-stack',
     link: 'https://github.com/tmarhguy/udp-stack',
-    image: '/images/projects/riscv-card.png',
+    image: '/images/projects/udp-bench.webp',
+    imageCaption: 'Nexys A7 running the UDP stack · README bench recording',
     date: '2026-08-01',
     period: 'Jul. 2026 — Aug. 2026',
     desc: 'Deterministic 100 Mbps RMII pipeline — MAC, ARP/IP/UDP on Nexys A7 Artix-7; sub-200 ns RX-to-TX loopback with 100% cocotb coverage.',
@@ -81,10 +90,11 @@ const data: Project[] = [
     logProject: 'tomato',
     site: TOMATO_SITE_URL,
     link: TOMATO_REPO_URL,
-    image: '/images/projects/alu-card.png',
+    image: '/images/projects/tomato-half-soldered.webp',
+    imageCaption: 'Half-soldered ALU board · assembly in progress',
     date: '2025-08-01',
     period: 'Aug. 2025 — Present',
-    desc: '8-board Discrete 32-bit Polymorphic Dual-LUT3 CPU from discrete logic through PCB tapeout; FPGA prototype at 58 MHz with SymbiYosys formal verification.',
+    desc: 'Custom 32-bit architecture with a working FPGA computer, assembler, and TomatoOS over HDMI. Discrete ALU board fabricated; the complete discrete machine is in progress.',
     tech: ['SystemVerilog', 'UVM', 'SymbiYosys', 'KiCad'],
     category: 'hardware',
     onResume: true,
@@ -93,14 +103,18 @@ const data: Project[] = [
   },
   {
     title: '16-bit MAC Unit (Sky130)',
-    subtitle: 'ASIC tapeout',
+    subtitle: 'ASIC implementation',
+    slug: 'mac',
     logProject: 'mac',
+    image: '/images/projects/mac-core.webp',
+    imageCaption: 'MAC core · physical layout preview',
     link: 'https://github.com/tmarhguy/mac',
     date: '2026-01-01',
     period: 'Jan. 2026 — Present',
-    desc: 'BFloat16 MAC with FP32 accumulator and 4-cycle streaming I/O; taped out via OpenLane to TinyTapeout 07 / SkyWater 130 nm.',
+    desc: 'BFloat16 MAC with FP32 accumulator and 4-cycle streaming I/O; cocotb-verified RTL with a local LibreLane flow targeting SkyWater 130 nm. Shuttle submission is a later milestone.',
     tech: ['SystemVerilog', 'LibreLane', 'Sky130', 'cocotb'],
     category: 'hardware',
+    featured: true,
   },
   {
     title: '16×4 SRAM — Full-Custom Analog Design',
@@ -112,11 +126,13 @@ const data: Project[] = [
     desc: 'Full-custom 6T SRAM macro in 22 nm HP with clocked StrongARM sense amp; 4.571 GHz f_max with NGSpice functional readback.',
     tech: ['Electric VLSI', 'NGSpice', 'Python'],
     category: 'hardware',
-    featured: true,
-    image: '/images/projects/mac-card.png',
+    image: '/images/projects/sram-organization.webp',
+    imageCaption: '16 × 4 organization · architecture figure from the report',
   },
   {
     title: '8-Bit Ripple-Carry Adder — ESE 3700',
+    image: '/images/projects/adder-schematic.webp',
+    imageCaption: '8-bit adder schematic · design study',
     subtitle: '22 nm HP CMOS · Spring 2026',
     link: 'https://github.com/tmarhguy/ese-370-8b-adder',
     date: '2026-04-01',
@@ -137,12 +153,14 @@ const data: Project[] = [
   },
   {
     title: '8-bit Discrete Transistor ALU',
+    image: '/images/projects/alu-render.webp',
+    imageCaption: 'Hybrid CMOS ALU · PCB render',
     subtitle: '3,488 transistors',
     logProject: 'alu',
     link: 'https://alu.tmarhguy.com',
     date: '2025-06-01',
     period: 'Jun. 2025',
-    desc: 'Designed and validated from first principles — schematic, 4-layer PCB, physical bring-up, and 1.24M automated test vectors.',
+    desc: 'Hybrid CMOS ALU design: 624 discrete MOSFETs plus 2,864 transistors inside 74HC logic. Schematics, PCB layout, and 1.24M automated simulation vectors.',
     tech: ['Discrete Transistors', 'KiCad', 'Python', 'Formal Verification'],
     category: 'hardware',
   },
@@ -162,6 +180,8 @@ const data: Project[] = [
     title: 'Mango Tools',
     subtitle: 'Offline CLI utilities',
     slug: 'mango-tools',
+    image: '/images/mango/main_menu.png',
+    imageCaption: 'The terminal interface · Mango',
     logProject: 'mango',
     link: 'https://github.com/tmarhguy/tools',
     date: '2026-08-11',
@@ -173,7 +193,10 @@ const data: Project[] = [
   {
     title: 'QueuePaste',
     subtitle: 'Clipboard automation',
+    slug: 'queuepaste',
     link: 'https://github.com/tmarhguy/QueuePaste',
+    image: '/images/projects/queuepaste.webp',
+    imageCaption: 'QueuePaste · Prepare list and sequential paste',
     date: '2024-01-01',
     period: '2024 — Present',
     desc: 'Native macOS utility — load a list once, then paste each item into any app with ⌥ Space; roughly 6× faster on thousand-entry data-entry runs.',
@@ -183,7 +206,10 @@ const data: Project[] = [
   {
     title: 'YT2Spot',
     subtitle: 'YouTube Music → Spotify migration',
+    slug: 'yt2spot',
     link: 'https://github.com/tmarhguy/ytmusic-spotify-migrator',
+    image: '/images/projects/yt2spot.webp',
+    imageCaption: 'YT2Spot Migration Studio · choose source platform',
     date: '2025-08-04',
     period: 'Jul. 2025 — Aug. 2025',
     desc: 'Full-stack migration tool with fuzzy matching (~74% auto-match), OAuth Spotify auth, live progress UI, and CLI batch processing for large playlists.',
@@ -287,11 +313,7 @@ export function getProjectSlug(project: Project): string {
   return project.slug ?? createHeadingId(project.title);
 }
 
-const FEATURED_PROJECT_SLUGS = [
-  'tomato',
-  'full-custom-sram',
-  '100mbps-udp-ip-stack',
-] as const;
+const FEATURED_PROJECT_SLUGS = ['mac', '100mbps-udp-ip-stack'] as const;
 
 /** Homepage selected work — explicit cracked-hardware order. */
 export function getFeaturedProjects(): Project[] {
@@ -302,6 +324,46 @@ export function getFeaturedProjects(): Project[] {
     }
     return project;
   });
+}
+
+export interface HomeFeaturedItem {
+  title: string;
+  period: string;
+  desc: string;
+  image: string;
+  imageAlt: string;
+  href: string;
+  external?: boolean;
+}
+
+/** Homepage projects strip: open source lead, then featured builds. */
+export function getHomeFeaturedItems(): HomeFeaturedItem[] {
+  return [
+    {
+      title: HOME_OPEN_SOURCE_FEATURE.title,
+      period: HOME_OPEN_SOURCE_FEATURE.period,
+      desc: HOME_OPEN_SOURCE_FEATURE.desc,
+      image: HOME_OPEN_SOURCE_FEATURE.image,
+      imageAlt: HOME_OPEN_SOURCE_FEATURE.imageAlt,
+      href: HOME_OPEN_SOURCE_FEATURE.href,
+    },
+    ...getFeaturedProjects().map((project) => {
+      const href = project.site ?? project.link;
+      if (!href) {
+        throw new Error(`Featured project missing link: ${project.title}`);
+      }
+
+      return {
+        title: project.title,
+        period: project.period,
+        desc: project.desc,
+        image: project.image!,
+        imageAlt: `${project.title} — project screenshot`,
+        href,
+        external: true,
+      };
+    }),
+  ];
 }
 
 export function getProjectAnchorHref(project: Project): string {

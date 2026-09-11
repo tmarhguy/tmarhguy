@@ -4,6 +4,7 @@ import projects, {
   findProjectByTitle,
   getFeaturedProjects,
   getHardwareProjects,
+  getHomeFeaturedItems,
   getMoreHardwareProjects,
   getProjectAnchorHrefByTitle,
   getProjectSlug,
@@ -103,7 +104,26 @@ describe('projects data', () => {
   it('orders featured homepage projects by cracked-hardware rank', () => {
     expect(
       getFeaturedProjects().map((project) => getProjectSlug(project)),
-    ).toEqual(['tomato', 'full-custom-sram', '100mbps-udp-ip-stack']);
+    ).toEqual(['mac', '100mbps-udp-ip-stack']);
+  });
+
+  it('leads the homepage strip with open source, then MAC and UDP', () => {
+    expect(getHomeFeaturedItems().map((item) => item.title)).toEqual([
+      'Open source EDA',
+      '16-bit MAC Unit (Sky130)',
+      '100 Mbps UDP/IP Stack',
+    ]);
+    expect(getHomeFeaturedItems()[0]?.image).toBe(
+      '/images/open-source/librelane-3.0.8.png',
+    );
+    expect(getHomeFeaturedItems()[0]?.desc).toMatch(/3\.0\.8 and 3\.0\.10/);
+  });
+
+  it('features the MAC layout preview on the homepage', () => {
+    const mac = getFeaturedProjects().find(
+      (project) => getProjectSlug(project) === 'mac',
+    );
+    expect(mac?.image).toBe('/images/projects/mac-core.webp');
   });
 
   it('includes hardware, tools, and software lanes from resume work', () => {
@@ -161,6 +181,41 @@ describe('projects data', () => {
     expect(byTitle['Mango Tools']).toBe('mango');
     expect(byTitle['SPICE Automation Framework']).toBe('spice-automation');
     expect(byTitle['QueuePaste']).toBeUndefined();
+  });
+
+  it('orders category lists with images before text-only entries', () => {
+    const hardware = getHardwareProjects();
+    const firstWithoutImage = hardware.findIndex((project) => !project.image);
+    if (firstWithoutImage !== -1) {
+      expect(
+        hardware.slice(0, firstWithoutImage).every((project) => project.image),
+      ).toBe(true);
+      expect(
+        hardware.slice(firstWithoutImage).every((project) => !project.image),
+      ).toBe(true);
+    }
+
+    const tools = getToolsProjects();
+    expect(tools[0]?.title).toBe('Mango Tools');
+    expect(
+      tools.map((project) => ({
+        title: project.title,
+        image: project.image,
+      })),
+    ).toEqual([
+      {
+        title: 'Mango Tools',
+        image: '/images/mango/main_menu.png',
+      },
+      {
+        title: 'YT2Spot',
+        image: '/images/projects/yt2spot.webp',
+      },
+      {
+        title: 'QueuePaste',
+        image: '/images/projects/queuepaste.webp',
+      },
+    ]);
   });
 
   it('partitions hardware, tools, and software without overlap', () => {

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 
 import type {
@@ -12,6 +13,7 @@ import {
 
 interface OpenSourceStripProps {
   contributions: OpenSourceContribution[];
+  showEvidence?: boolean;
 }
 
 function pullForHighlight(
@@ -69,6 +71,7 @@ function trailingPulls(
 
 export default function OpenSourceStrip({
   contributions,
+  showEvidence = false,
 }: OpenSourceStripProps) {
   if (contributions.length === 0) {
     return null;
@@ -90,6 +93,50 @@ export default function OpenSourceStrip({
           Build log
         </a>
       </div>
+      {showEvidence && (
+        <div className="open-source-evidence">
+          <figure>
+            <a
+              href="/images/open-source/librelane-3.0.8.png"
+              aria-label="View full LibreLane release screenshot"
+            >
+              <Image
+                src="/images/open-source/librelane-3.0.8.png"
+                alt="LibreLane 3.0.8 release credits tmarhguy for the Yosys compatibility fix"
+                width={1246}
+                height={1199}
+                sizes="(max-width: 735px) 100vw, 50vw"
+              />
+            </a>
+            <figcaption>
+              <a href="https://github.com/librelane/librelane/releases/tag/3.0.8">
+                LibreLane · shipped in 3.0.8
+              </a>
+              <span>The compatibility fix, in the release notes.</span>
+            </figcaption>
+          </figure>
+          <figure>
+            <a
+              href="/images/open-source/openroad-contribution-activity.png"
+              aria-label="View full OpenROAD contribution screenshot"
+            >
+              <Image
+                src="/images/open-source/openroad-contribution-activity.png"
+                alt="OpenROAD contribution activity showing the LEF58 parser fix"
+                width={2012}
+                height={1084}
+                sizes="(max-width: 735px) 100vw, 50vw"
+              />
+            </a>
+            <figcaption>
+              <a href="https://github.com/The-OpenROAD-Project/OpenROAD/pull/11107">
+                OpenROAD · inside the parser
+              </a>
+              <span>The patch and its review, in the open.</span>
+            </figcaption>
+          </figure>
+        </div>
+      )}
       <ul className="projects-open-source-list">
         {contributions.map((contribution) => {
           const starsSrc = githubStarsShieldSrc(contribution.link);

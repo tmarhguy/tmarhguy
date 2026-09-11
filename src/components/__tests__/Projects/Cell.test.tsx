@@ -23,7 +23,7 @@ describe('Cell', () => {
     expect(link).toHaveClass('project-card-link');
     expect(
       document.querySelector('.project-card-affordance'),
-    ).toHaveTextContent('↗');
+    ).not.toBeInTheDocument();
   });
 
   it('renders project description', () => {
