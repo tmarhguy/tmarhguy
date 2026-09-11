@@ -32,7 +32,10 @@ const SOURCE_DIRS = [
 ].filter((dir) => existsSync(dir));
 
 /** Stub vault index files that are not publishable build notes. */
-const SKIP_FILES = new Set(['Welcome.md']);
+const SKIP_FILES = new Set([
+  'Welcome.md',
+  '2026-09-01 - Quiet stretch after HDMI.md',
+]);
 
 const PROJECT_BY_FILE = {
   'welcome-to-tomato-32.md': 'tomato',
@@ -72,8 +75,13 @@ const PROJECT_BY_FILE = {
   '2026-08-28-exploring-beyond-vivado-open-source-synthesis-pivot.md': 'tomato',
   '2026-08-28-one-press-one-key.md': 'tomato',
   '2026-08-28-successful-video-fpga-pmod.md': 'tomato',
+  '2026-08-28-pixels-on-the-glass.md': 'tomato',
   '2026-08-29-tomato-works-beautifully.md': 'tomato',
   '2026-08-29-register-upgrade.md': 'tomato',
+  '2026-09-11-hdmi-properly-captured.md': 'tomato',
+  '2026-09-11-of-course-tomato-needs-sudoku.md': 'tomato',
+  '2026-09-11-wallpaper-polish-and-the-rest-of-the-computer.md': 'tomato',
+  '2026-09-11-when-assembly-is-still-too-high-level-for-tomato.md': 'tomato',
   '2026-08-25-fab-overhead.md': 'alu',
   '2026-08-01-itch-ethernet-lab-bring-up.md': 'itch-hw',
   '2026-08-02-successful-synthesis-implementation-bitstream.md': 'itch-hw',
@@ -355,6 +363,10 @@ for (const filename of files) {
     files,
   );
   const body = smoothImportedBody(sanitized, title);
+  if (!body.trim()) {
+    skipped += 1;
+    continue;
+  }
   const project = inferProject(slug, title, body);
   const description = descriptionFrom(body, title);
   const hero = firstArticleImage(body);

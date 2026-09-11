@@ -57,24 +57,14 @@ export default function Letterhead({
   const projectNode = primaryHref ? (
     <>
       <ProjectAnchor href={primaryHref}>
-        {isPost ? (
-          <>
-            {projectLabel}
-            <span aria-hidden="true"> ↗</span>
-          </>
-        ) : (
-          'Project ↗'
-        )}
+        {isPost ? <>{projectLabel}</> : 'Project'}
       </ProjectAnchor>
       {hasSiteAndRepo ? (
         <>
           <span className="writing-letterhead-separator" aria-hidden="true">
             ·
           </span>
-          <ProjectAnchor href={projectLink!}>
-            GitHub
-            <span aria-hidden="true"> ↗</span>
-          </ProjectAnchor>
+          <ProjectAnchor href={projectLink!}>GitHub</ProjectAnchor>
         </>
       ) : null}
     </>

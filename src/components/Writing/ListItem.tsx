@@ -44,11 +44,11 @@ export default function ListItem({ entry }: ListItemProps) {
         </time>
         {hasSiteAndRepo ? (
           <>
-            <ProjectMetaLink href={projectSite!} label="Site ↗" />
-            <ProjectMetaLink href={projectLink!} label="GitHub ↗" />
+            <ProjectMetaLink href={projectSite!} label="Site" />
+            <ProjectMetaLink href={projectLink!} label="GitHub" />
           </>
         ) : primaryHref ? (
-          <ProjectMetaLink href={primaryHref} label="Project ↗" />
+          <ProjectMetaLink href={primaryHref} label="Project" />
         ) : (
           <span className="writing-item-project-label">{projectLabel}</span>
         )}
