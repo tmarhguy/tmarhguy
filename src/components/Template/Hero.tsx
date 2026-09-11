@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import profile from '@/data/profile.json';
 
-import ProfessionalSummary from './ProfessionalSummary';
+import HomeIntroduction from './HomeIntroduction';
 import ThemePortrait from './ThemePortrait';
 
 export default function Hero() {
@@ -14,7 +14,7 @@ export default function Hero() {
             <span className="hero-name">{profile.name}</span>
           </h1>
 
-          <ProfessionalSummary className="hero-intro" />
+          <HomeIntroduction className="hero-intro" />
 
           <div className="hero-cta">
             <Link href="/projects/" className="button">
@@ -22,7 +22,6 @@ export default function Hero() {
             </Link>
             <Link href="/resume/" className="hero-resume-link">
               View Resume
-              <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>

@@ -56,11 +56,11 @@ describe('work data', () => {
     }
   });
 
-  it('lists Aragorn AI as current and Vero Electric as past', () => {
+  it('lists Aragorn AI and Vero Electric as past roles', () => {
     const aragorn = work.find((job) => job.name.startsWith('Aragorn'));
     const vero = work.find((job) => job.name === 'Vero Electric');
 
-    expect(aragorn?.endDate).toBeUndefined();
+    expect(aragorn?.endDate).toBe('2026-08-31');
     expect(aragorn?.upcoming).toBeFalsy();
     expect(vero?.endDate).toBe('2026-08-01');
   });

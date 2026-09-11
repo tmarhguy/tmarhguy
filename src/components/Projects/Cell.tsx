@@ -47,11 +47,6 @@ export default function Cell({ data }: CellProps) {
               </span>
             )}
           </h3>
-          {hasLink && (
-            <span className="project-card-affordance" aria-hidden="true">
-              ↗
-            </span>
-          )}
           {subtitle && <p className="project-card-subtitle">{subtitle}</p>}
         </header>
 

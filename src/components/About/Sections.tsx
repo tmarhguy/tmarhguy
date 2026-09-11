@@ -177,11 +177,15 @@ export default function AboutContent({ markdown }: AboutContentProps) {
               </span>
             </a>
           </h2>
-          {isLogSection(section.title) ? (
-            <Markdown options={LOG_MARKDOWN_OPTIONS}>{section.body}</Markdown>
-          ) : (
-            <Markdown options={ABOUT_MARKDOWN_OPTIONS}>{section.body}</Markdown>
-          )}
+          <div className="about-section-body">
+            {isLogSection(section.title) ? (
+              <Markdown options={LOG_MARKDOWN_OPTIONS}>{section.body}</Markdown>
+            ) : (
+              <Markdown options={ABOUT_MARKDOWN_OPTIONS}>
+                {section.body}
+              </Markdown>
+            )}
+          </div>
         </section>
       ))}
     </article>

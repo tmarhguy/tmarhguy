@@ -234,7 +234,8 @@ export function getAllLogs(): LogEntry[] {
 }
 
 /** Homepage “Recent writing” strip — pinned lead, then newest. */
-const HOME_RECENT_PIN = '2026-08-29-register-upgrade';
+const HOME_RECENT_PIN =
+  '2026-09-11-wallpaper-polish-and-the-rest-of-the-computer';
 
 export function getHomeRecentLogs(limit = 3): LogEntry[] {
   const logs = getAllLogs();
@@ -295,6 +296,10 @@ export function getLogProjectGroupKey(entry: LogEntry): string {
     return entry.project;
   }
 
+  if (entry.date.startsWith('2026-09')) {
+    return 'tomato-sep';
+  }
+
   if (entry.date.startsWith('2026-08')) {
     return 'tomato-aug';
   }
@@ -308,6 +313,8 @@ export function getLogProjectGroupKey(entry: LogEntry): string {
 
 function getLogProjectGroupLabel(groupKey: string, fallback: string): string {
   switch (groupKey) {
+    case 'tomato-sep':
+      return 'Tomato CPU — September';
     case 'tomato-aug':
       return 'Tomato CPU — August';
     case 'tomato-jul':
@@ -323,22 +330,24 @@ function getLogProjectGroupSortOrder(groupKey: string): number {
   const baseId = groupKey.startsWith('tomato-') ? 'tomato' : groupKey;
   const baseOrder = getLogProjectOrder(baseId);
   const foldOffset =
-    groupKey === 'tomato-aug'
+    groupKey === 'tomato-sep'
       ? 0
-      : groupKey === 'tomato-jul'
+      : groupKey === 'tomato-aug'
         ? 1
-        : groupKey === 'tomato-earlier'
+        : groupKey === 'tomato-jul'
           ? 2
-          : 0;
+          : groupKey === 'tomato-earlier'
+            ? 3
+            : 0;
 
   return baseOrder * 10 + foldOffset;
 }
 
 /** Preferred writing-index lead sections (before date float). */
-const WRITING_SECTION_LEAD = ['tomato-aug', 'mango'] as const;
+const WRITING_SECTION_LEAD = ['tomato-sep', 'mango'] as const;
 
-/** Logs grouped by project (Tomato split into August / July / Earlier).
- *  Tomato August, then Mango, then remaining sections by newest entry. */
+/** Logs grouped by project (Tomato split into September / August / July / Earlier).
+ *  Tomato September, then Mango, then remaining sections by newest entry. */
 export function getLogsByProject(): LogProjectGroup[] {
   const groups = new Map<string, LogProjectGroup>();
 
@@ -388,7 +397,12 @@ export function getLogsByProject(): LogProjectGroup[] {
 /** Section anchor on /writing/ for a log project id (e.g. tomato → newest Tomato fold). */
 export function getWritingSectionHref(logProjectId: string): string {
   if (logProjectId === 'tomato') {
-    const folds = ['tomato-aug', 'tomato-jul', 'tomato-earlier'] as const;
+    const folds = [
+      'tomato-sep',
+      'tomato-aug',
+      'tomato-jul',
+      'tomato-earlier',
+    ] as const;
     const activeFolds = new Set(getAllLogs().map(getLogProjectGroupKey));
     const target = folds.find((fold) => activeFolds.has(fold)) ?? logProjectId;
     return `/writing/#writing-${target}`;

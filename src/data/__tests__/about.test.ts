@@ -13,7 +13,7 @@ describe('about data', () => {
     expect(aboutMarkdown).toContain('# Intro');
     expect(aboutMarkdown).toContain('University of Pennsylvania');
     expect(aboutMarkdown).toContain(
-      'discrete MOSFETs through full ASIC tapeout',
+      'discrete logic through RTL and ASIC implementation',
     );
     expect(aboutMarkdown).toContain(`[Tyrone Iras Marhguy](${WIKIPEDIA_URL})`);
   });

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 import type { Project } from '@/data/projects';
@@ -20,7 +21,21 @@ export default function ListItem({ data }: ListItemProps) {
   const titleHref = site ?? link;
 
   return (
-    <article id={getProjectSlug(data)} className="project-list-item">
+    <article
+      id={getProjectSlug(data)}
+      className={`project-list-item ${data.image ? 'project-list-item--media' : 'project-list-item--text'} ${getProjectSlug(data) === 'tomato' ? 'project-list-item--flagship' : ''}`}
+    >
+      {data.image && (
+        <figure className="project-exhibit-media">
+          <Image
+            src={data.image}
+            alt={data.imageCaption ?? `${title} project screenshot`}
+            width={1200}
+            height={750}
+          />
+          <figcaption>{data.imageCaption ?? data.subtitle}</figcaption>
+        </figure>
+      )}
       <div className="project-list-meta">
         <time className="project-list-date" dateTime={date}>
           {period}
@@ -40,9 +55,6 @@ export default function ListItem({ data }: ListItemProps) {
               {...externalAnchorProps(titleHref)}
             >
               {title}
-              <span className="project-list-affordance" aria-hidden="true">
-                ↗
-              </span>
             </a>
           ) : (
             title
@@ -54,7 +66,6 @@ export default function ListItem({ data }: ListItemProps) {
               {...externalAnchorProps(link)}
             >
               GitHub
-              <span aria-hidden="true"> ↗</span>
             </a>
           ) : null}
           {highlight && (

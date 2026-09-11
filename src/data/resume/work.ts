@@ -20,7 +20,6 @@ const work: Position[] = [
     url: 'https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently',
     startDate: '2026-08-25',
     endDate: '2026-12-07',
-    upcoming: true,
     summary:
       'Fall 2026 term at [Pennovation Center](https://pennovation.upenn.edu), Philadelphia.',
     highlights: [
@@ -33,6 +32,7 @@ const work: Position[] = [
     position: 'Software Engineering Intern',
     url: 'https://www.aragorn.ai',
     startDate: '2026-06-01',
+    endDate: '2026-08-31',
     highlights: [
       'Shipped production backend services and REST APIs for AI model-integration workflows, extending platform capabilities used in customer-facing releases.',
       'Diagnosed cross-service integration failures blocking release sprints; contributed to architecture and code reviews to harden service boundaries before deployment.',

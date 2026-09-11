@@ -33,7 +33,7 @@ export const SITE_IMAGE = `${SITE_URL}${SITE_IMAGE_PATH}`;
 export const HOME_URL = `${SITE_URL}/`;
 
 export const WRITING_DESCRIPTION =
-  'Build notes from hardware projects — ALU, Tomato CPU, FPGA tapeouts, and lab bring-up.';
+  'Build notes from hardware projects — ALU, Tomato CPU, FPGA systems, and lab bring-up.';
 
 type SchemaNode = Record<string, unknown>;
 

@@ -1,7 +1,7 @@
 import { render, screen, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { getOpenSourceContributions } from '@/data/open-source';
-import projects, { getFeaturedProjects } from '@/data/projects';
+import projects, { getHomeFeaturedItems } from '@/data/projects';
 import {
   getAllLogs,
   getHomeRecentLogs,
@@ -13,7 +13,7 @@ import WritingPage from '../writing/page';
 
 describe('writing information architecture', () => {
   it('surfaces featured projects on the homepage', () => {
-    const featured = getFeaturedProjects();
+    const featured = getHomeFeaturedItems();
 
     render(<HomePage />);
 
@@ -30,13 +30,15 @@ describe('writing information architecture', () => {
       [...section.querySelectorAll('.home-project-item h3')].map(
         (heading) => heading.textContent,
       ),
-    ).toEqual(featured.map((project) => project.title));
+    ).toEqual(featured.map((item) => item.title));
   });
 
-  it('pins Register Upgrade as the lead recent-writing card on the homepage', () => {
+  it('pins the September wallpaper log as the lead recent-writing card on the homepage', () => {
     const expected = getHomeRecentLogs(3);
 
-    expect(expected[0]?.slug).toBe('2026-08-29-register-upgrade');
+    expect(expected[0]?.slug).toBe(
+      '2026-09-11-wallpaper-polish-and-the-rest-of-the-computer',
+    );
 
     const { container } = render(<HomePage />);
     const section = screen.getByRole('region', { name: 'Recent writing' });
@@ -68,6 +70,9 @@ describe('writing information architecture', () => {
   it('shows project labels on writing cards', () => {
     render(<WritingPage />);
 
+    expect(
+      screen.getByRole('heading', { name: 'Tomato CPU — September' }),
+    ).toBeInTheDocument();
     expect(
       screen.getByRole('heading', { name: 'Tomato CPU — August' }),
     ).toBeInTheDocument();

@@ -18,65 +18,22 @@ describe('Hero', () => {
     expect(heading).toHaveTextContent('Tyrone Marhguy');
   });
 
-  it('summarizes the hardware arc and links key projects and employers', () => {
+  it('introduces the builder and links to the project and professional context', () => {
     const { container } = render(<Hero />);
-
     const intro = container.querySelector('.hero-intro');
+    expect(intro).toHaveTextContent('from first principles.');
     expect(intro).toHaveTextContent('Computer Engineering junior');
-    expect(intro).toHaveTextContent('University of Pennsylvania');
-    expect(intro).toHaveTextContent('The Builds:');
-    expect(intro).toHaveTextContent('Open Source Contributions:');
-    expect(intro).toHaveTextContent('3.0.8 and 3.0.10 releases');
-    expect(intro).toHaveTextContent('Tomato');
-    expect(intro).toHaveTextContent('100 Mbps UDP/IP stack');
-    expect(intro).toHaveTextContent('NASDAQ ITCH 5.0 FPGA parser');
-    expect(intro).toHaveTextContent('3,488 MOSFET ALU');
-    expect(intro).toHaveTextContent('The Work:');
-    expect(intro).toHaveTextContent('Fluid Silicon');
-
-    expect(
-      screen.getByRole('link', { name: /university of pennsylvania/i }),
-    ).toHaveAttribute('href', 'https://www.upenn.edu');
-    expect(screen.getByRole('link', { name: /3\.0\.8/ })).toHaveAttribute(
-      'href',
-      'https://github.com/librelane/librelane/releases/tag/3.0.8',
-    );
-    expect(screen.getByRole('link', { name: /3\.0\.10/ })).toHaveAttribute(
-      'href',
-      'https://github.com/librelane/librelane/releases/tag/3.0.10',
-    );
-    expect(screen.getByRole('link', { name: /^tomato$/i })).toHaveAttribute(
+    expect(intro).not.toHaveTextContent('incoming');
+    expect(screen.getByRole('link', { name: /^Tomato$/ })).toHaveAttribute(
       'href',
       'https://tomato.tmarhguy.com',
     );
     expect(
-      screen.getByRole('link', { name: /100 mbps udp\/ip stack/i }),
-    ).toHaveAttribute('href', 'https://github.com/tmarhguy/udp-stack');
+      screen.getByRole('link', { name: /University of Pennsylvania/ }),
+    ).toHaveAttribute('href', 'https://www.upenn.edu');
     expect(
-      screen.getByRole('link', { name: /nasdaq itch 5\.0 fpga parser/i }),
-    ).toHaveAttribute('href', 'https://github.com/tmarhguy/itch-hw');
-    expect(
-      screen.getByRole('link', { name: /3,488 MOSFET ALU/i }),
-    ).toHaveAttribute('href', 'https://alu.tmarhguy.com');
-    expect(
-      screen.getByRole('link', { name: /sky130 bfloat16 mac/i }),
-    ).toHaveAttribute('href', 'https://github.com/tmarhguy/mac');
-    expect(
-      screen.getByRole('link', { name: /full-custom 22nm sram/i }),
-    ).toHaveAttribute('href', 'https://github.com/tmarhguy/64b-sram');
-    expect(
-      screen.getByRole('link', { name: /fluid silicon/i }),
-    ).toHaveAttribute(
-      'href',
-      'https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently',
-    );
-    expect(
-      screen.getByRole('link', { name: /vero electric/i }),
-    ).toHaveAttribute('href', 'https://veroelectric.com/');
-    expect(screen.getByRole('link', { name: /aragorn ai/i })).toHaveAttribute(
-      'href',
-      'https://www.aragorn.ai',
-    );
+      screen.getByRole('link', { name: /Fluid Silicon/ }),
+    ).toBeInTheDocument();
   });
 
   it('keeps personal stats and incomplete credential lists off the homepage', () => {
