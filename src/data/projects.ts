@@ -118,7 +118,7 @@ const data: Project[] = [
   },
   {
     title: '16-bit MAC Unit (Sky130)',
-    subtitle: 'ASIC implementation',
+    subtitle: 'RTL-to-GDS',
     slug: 'mac',
     logProject: 'mac',
     image: '/images/projects/mac-core.webp',

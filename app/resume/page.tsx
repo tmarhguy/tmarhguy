@@ -21,7 +21,7 @@ import { AUTHOR_NAME, SITE_URL } from '@/lib/utils';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Resume',
-  description: `${AUTHOR_NAME}'s Resume. Computer Engineering at Penn — RTL through ASIC implementation and production software.`,
+  description: `${AUTHOR_NAME}'s Resume. Computer Engineering at Penn — RTL-to-GDS flows and production software.`,
   path: '/resume/',
 });
 

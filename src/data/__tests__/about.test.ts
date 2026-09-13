@@ -13,7 +13,7 @@ describe('about data', () => {
     expect(aboutMarkdown).toContain('# Intro');
     expect(aboutMarkdown).toContain('University of Pennsylvania');
     expect(aboutMarkdown).toContain(
-      'discrete logic through RTL and ASIC implementation',
+      'discrete logic through RTL-to-GDS flows',
     );
     expect(aboutMarkdown).toContain(`[Tyrone Iras Marhguy](${WIKIPEDIA_URL})`);
   });

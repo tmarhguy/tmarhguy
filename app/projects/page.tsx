@@ -22,7 +22,7 @@ import { AUTHOR_NAME } from '@/lib/utils';
 
 const PROJECTS_URL = `${SITE_URL}/projects/`;
 
-const PROJECTS_DESCRIPTION = `Hardware and software projects by ${AUTHOR_NAME} — RTL, FPGA, ASIC implementation, and full-stack systems.`;
+const PROJECTS_DESCRIPTION = `Hardware and software projects by ${AUTHOR_NAME} — RTL, FPGA, RTL-to-GDS flows, and full-stack systems.`;
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Projects',
