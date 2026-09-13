@@ -882,7 +882,7 @@
   background-color: var(--color-surface-subtle);
 }
 
-.post-nav-link--next {
+.post-nav-link--previous {
   text-align: right;
   align-items: flex-end;
 }
@@ -914,7 +914,7 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .post-nav-link--next {
+  .post-nav-link--previous {
     text-align: left;
     align-items: flex-start;
   }
