@@ -1,30 +1,27 @@
 name: Resume
 
-# Compiles the canonical LaTeX resume (docs/resume/hardware.tex) to PDF and
-# commits the result to public/ so the site's Download PDF buttons always
-# serve the real resume. The paths filter means this runs only when the
-# resume source (or this workflow) changes — never on unrelated commits.
-# The chore commit it creates touches only public/*.pdf, which is outside
-# the trigger paths, so the workflow cannot retrigger itself.
+# Compiles docs/resume/hardware.tex. On pull requests, verify only.
+# On push to main (and manual runs), also publish the PDFs under public/.
+# Path filters keep this off unrelated commits; the PDF-only follow-up
+# commit cannot retrigger the workflow.
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
     paths:
       - 'docs/resume/**'
       - '.github/workflows/resume.yml'
   pull_request:
-    branches: [main]
+    branches:
+      - main
     paths:
       - 'docs/resume/**'
       - '.github/workflows/resume.yml'
   workflow_dispatch:
 
-permissions:
-  contents: read
-
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: resume-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 jobs:
@@ -32,11 +29,10 @@ jobs:
     name: Compile LaTeX resume
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    # PRs only verify the .tex compiles; only main publishes the PDFs.
     permissions:
-      contents: ${{ github.event_name == 'push' && 'write' || 'read' }}
+      contents: write
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v7
 
       - name: Compile hardware.tex
@@ -48,17 +44,25 @@ jobs:
           args: -pdf -interaction=nonstopmode
 
       - name: Publish PDFs to public/
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: |
           cp docs/resume/hardware.pdf public/Tyrone-Marhguy-Resume.pdf
           cp docs/resume/hardware.pdf public/resume.pdf
-          # latexmk byproducts stay out of the repo — only public/*.pdf is committed.
-          rm -f docs/resume/hardware.pdf docs/resume/hardware.aux docs/resume/hardware.log docs/resume/hardware.out docs/resume/hardware.fls docs/resume/hardware.fdb_latexmk
-          ls -lh public/*.pdf
+          rm -f docs/resume/hardware.pdf \
+            docs/resume/hardware.aux \
+            docs/resume/hardware.log \
+            docs/resume/hardware.out \
+            docs/resume/hardware.fls \
+            docs/resume/hardware.fdb_latexmk
+          ls -lh public/Tyrone-Marhguy-Resume.pdf public/resume.pdf
 
       - name: Commit updated PDFs
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           file_pattern: 'public/Tyrone-Marhguy-Resume.pdf public/resume.pdf'
           commit_message: 'chore: resume'
-          commit_author: 'github-actions[bot] <github-actions[bot]@users.noreply.github.com>'
+          # Author/committer = whoever triggered the run (you on push/dispatch),
+          # not github-actions[bot].
+          commit_user_name: ${{ github.actor }}
+          commit_user_email: ${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com
