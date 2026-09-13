@@ -115,7 +115,7 @@
 }
 
 .resume-header {
-  text-align: left;
+  text-align: center;
   margin-bottom: 2rem;
 }
 
@@ -126,6 +126,7 @@
   letter-spacing: var(--tracking-display);
   margin-bottom: 0.75rem;
   color: var(--color-fg-bold);
+  text-align: center;
 }
 
 .resume-education-headline {
@@ -135,6 +136,8 @@
   letter-spacing: var(--tracking-label);
   color: var(--color-fg-bold);
   margin: 0 0 1rem;
+  text-align: center;
+  text-wrap: balance;
 }
 
 .resume-education-headline a {
@@ -148,13 +151,51 @@
   color: var(--color-accent);
 }
 
+.resume-availability {
+  font-family: var(--font-mono);
+  font-size: var(--text-ui);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-label);
+  color: var(--color-accent);
+  margin: 0 0 1rem;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.resume-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+}
+
+.resume-contact-line {
+  font-family: var(--font-mono);
+  font-size: var(--text-ui);
+  letter-spacing: 0.02em;
+  color: var(--color-fg-light);
+  margin: 0 auto 1.5rem;
+  text-align: center;
+  text-wrap: pretty;
+  max-width: 70ch;
+}
+
+.resume-contact-line a {
+  color: inherit;
+  white-space: nowrap;
+}
+
+/* Centered measure, left-aligned copy — header is text-align:center, so
+   without an explicit left align the disc markers float far from the text. */
 .resume-summary.professional-summary-list,
 .professional-summary-list.resume-summary {
   font-size: var(--text-md);
   line-height: var(--leading-normal);
   color: var(--color-fg);
   max-width: 62ch;
-  margin: 0;
+  margin: 0 auto;
+  text-align: left;
   list-style: disc;
   padding-left: 1.25rem;
 }
@@ -162,6 +203,7 @@
 .resume-summary.professional-summary-list li,
 .professional-summary-list.resume-summary li {
   margin-bottom: 0.75rem;
+  text-align: left;
 }
 
 .resume-summary.professional-summary-list li:last-child,

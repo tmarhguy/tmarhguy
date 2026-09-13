@@ -144,6 +144,15 @@
   outline-offset: 2px;
 }
 
+.hero-availability {
+  margin: 0.9rem 0 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-ui);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-label);
+  color: var(--color-fg-light);
+}
+
 /* Portrait — squared off. A circular avatar is the one shape this
    layout cannot use without reading as a profile card. */
 .hero-portrait {

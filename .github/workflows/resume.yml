@@ -1,0 +1,64 @@
+name: Resume
+
+# Compiles the canonical LaTeX resume (docs/resume/hardware.tex) to PDF and
+# commits the result to public/ so the site's Download PDF buttons always
+# serve the real resume. The paths filter means this runs only when the
+# resume source (or this workflow) changes — never on unrelated commits.
+# The chore commit it creates touches only public/*.pdf, which is outside
+# the trigger paths, so the workflow cannot retrigger itself.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/resume/**'
+      - '.github/workflows/resume.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/resume/**'
+      - '.github/workflows/resume.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  compile:
+    name: Compile LaTeX resume
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # PRs only verify the .tex compiles; only main publishes the PDFs.
+    permissions:
+      contents: ${{ github.event_name == 'push' && 'write' || 'read' }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Compile hardware.tex
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: docs/resume
+          root_file: hardware.tex
+          compiler: latexmk
+          args: -pdf -interaction=nonstopmode
+
+      - name: Publish PDFs to public/
+        run: |
+          cp docs/resume/hardware.pdf public/Tyrone-Marhguy-Resume.pdf
+          cp docs/resume/hardware.pdf public/resume.pdf
+          # latexmk byproducts stay out of the repo — only public/*.pdf is committed.
+          rm -f docs/resume/hardware.pdf docs/resume/hardware.aux docs/resume/hardware.log docs/resume/hardware.out docs/resume/hardware.fls docs/resume/hardware.fdb_latexmk
+          ls -lh public/*.pdf
+
+      - name: Commit updated PDFs
+        if: github.event_name == 'push'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          file_pattern: 'public/Tyrone-Marhguy-Resume.pdf public/resume.pdf'
+          commit_message: 'chore: resume'
+          commit_author: 'github-actions[bot] <github-actions[bot]@users.noreply.github.com>'

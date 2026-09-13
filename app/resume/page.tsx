@@ -32,6 +32,32 @@ export default function ResumePage() {
         <header className="resume-header">
           <h1 className="resume-title">Resume</h1>
           <ResumeEducationHeadline />
+          <p className="resume-availability">
+            {profile.availability} · {profile.currentCity} · Class of 2028
+          </p>
+          <div className="resume-actions">
+            <a
+              href="/Tyrone-Marhguy-Resume.pdf"
+              className="button"
+              download="Tyrone-Marhguy-Resume.pdf"
+            >
+              Download PDF
+            </a>
+            <a href="/contact/" className="button button-secondary">
+              Get in touch
+            </a>
+          </div>
+          <p className="resume-contact-line">
+            <a href={profile.phoneHref}>{profile.phone}</a>
+            <span aria-hidden="true"> · </span>
+            <a href={`mailto:${profile.email}`}>{profile.email}</a>
+            <span aria-hidden="true"> · </span>
+            <a href={profile.linkedin}>{profile.linkedinLabel}</a>
+            <span aria-hidden="true"> · </span>
+            <a href={profile.github}>{profile.githubLabel}</a>
+            <span aria-hidden="true"> · </span>
+            <span>{profile.currentCity}</span>
+          </p>
           <ResumeSummary />
           {/* Print-only, but real markup rather than CSS `content`, so it is
               selectable, linkable, and reads from the shared profile. The
@@ -39,9 +65,15 @@ export default function ResumePage() {
           <address className="resume-print-contact">
             <a href={`${SITE_URL}/`}>{SITE_URL.replace(/^https?:\/\//, '')}</a>
             <span aria-hidden="true"> · </span>
+            <a href={profile.phoneHref}>{profile.phone}</a>
+            <span aria-hidden="true"> · </span>
             <a href={`mailto:${profile.email}`}>{profile.email}</a>
             <span aria-hidden="true"> · </span>
-            <a href="https://github.com/tmarhguy">github.com/tmarhguy</a>
+            <a href={profile.linkedin}>{profile.linkedinLabel}</a>
+            <span aria-hidden="true"> · </span>
+            <a href={profile.github}>{profile.githubLabel}</a>
+            <span aria-hidden="true"> · </span>
+            <span>{profile.currentCity}</span>
           </address>
         </header>
 

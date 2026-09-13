@@ -8,7 +8,7 @@ import usePrefersReducedMotion from '@/hooks/usePrefersReducedMotion';
 import { copyText } from '@/lib/copy-to-clipboard';
 
 const PENN_EMAIL = profile.email;
-const [CONTACT_LOCAL_PART] = PENN_EMAIL.split('@');
+const [CONTACT_LOCAL_PART, PENN_DOMAIN] = PENN_EMAIL.split('@');
 const ROTATION_MS = 3_500;
 const COPIED_RESET_MS = 2_000;
 
@@ -20,7 +20,7 @@ const EMAIL_BY_VARIANT: Record<EmailVariant, string> = {
 };
 
 const DOMAIN_BY_VARIANT: Record<EmailVariant, string> = {
-  penn: 'engineering.upenn.edu',
+  penn: PENN_DOMAIN,
   personal: 'gmail.com',
 };
 

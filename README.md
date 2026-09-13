@@ -4,19 +4,19 @@
 
 **Computer Engineering · University of Pennsylvania**
 
-_RTL · FPGA · ASIC tapeout · verification_
+_RTL · FPGA · RTL-to-GDS · verification_
 
 <br />
 
 [![tmarhguy.com](https://img.shields.io/badge/tmarhguy.com-visit-1b2fbf?style=flat-square&labelColor=f2f1ec&color=0e1116)](https://tmarhguy.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-profile-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/tmarhguy)
-[![Email](https://img.shields.io/badge/email-tmarhguy%40engineering.upenn.edu-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:tmarhguy@engineering.upenn.edu)
+[![Email](https://img.shields.io/badge/email-tmarhguy%40seas.upenn.edu-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:tmarhguy@seas.upenn.edu)
 
 </div>
 
 <img src="public/images/me.jpg" alt="Tyrone Marhguy" width="220" align="right" />
 
-**I build computer systems from discrete MOSFETs through full ASIC tapeout.**
+**I build computer systems from discrete MOSFETs through RTL-to-GDS flows.**
 
 I am a Computer Engineering junior at the [University of Pennsylvania](https://www.upenn.edu) specializing in computer architecture, RTL design, and hardware verification. I thrive at the intersection of hardware and software—architecting boards, writing SystemVerilog, and building the constrained-random environments that prove them.
 

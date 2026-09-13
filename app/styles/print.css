@@ -54,6 +54,8 @@
   .theme-toggle,
   .reading-progress,
   .resume-nav,
+  .resume-actions,
+  .resume-contact-line,
   .hero-bg,
   .writing-rss-link,
   .about-section-nav,
@@ -88,6 +90,9 @@
     font-style: normal;
     letter-spacing: 0.04em;
     color: #333;
+    text-align: justify;
+    text-align-last: center;
+    text-wrap: balance;
   }
 
   .resume-print-contact a {

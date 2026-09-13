@@ -23,8 +23,7 @@ const work: Position[] = [
     summary:
       'Fall 2026 term at [Pennovation Center](https://pennovation.upenn.edu), Philadelphia.',
     highlights: [
-      'Design digital hardware at RTL in HDL — write the circuits themselves, not a software stand-in.',
-      'Verify that RTL in emulation and simulation before the design moves further in the flow.',
+      'Automated floorplanning, P&R, PPA extraction, timing constraints, and synthesis-to-layout handoff in Tcl/Python; built parsers that improved utilization models by 15%.',
     ],
   },
   {
@@ -45,8 +44,7 @@ const work: Position[] = [
     startDate: '2026-05-01',
     endDate: '2026-08-01',
     highlights: [
-      'Developed embedded C/C++ firmware with real-time fault-detection FSMs and SPI/I²C acquisition; debugged board bring-up with oscilloscope and logic analyzer on prototype units.',
-      'Designed BQ79616 sensing front-end in KiCad (0 ERC); integrated into 240 kWh / 120 kW BESS stack with commissioning and acceptance testing.',
+      'Developed embedded C/C++ fault-detection firmware and a BQ79616 16-channel battery-monitoring front end for a 240 kWh / 120 kW system; closed PCB ERC with 0 errors and debugged bring-up with lab instruments.',
     ],
   },
   {

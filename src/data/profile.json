@@ -11,5 +11,12 @@
   "fromCountry": "Ghana",
   "interests": "Beach, Dogs, Sudoku, Biking",
   "currentCity": "Philadelphia, PA",
-  "email": "tmarhguy@engineering.upenn.edu"
+  "email": "tmarhguy@seas.upenn.edu",
+  "phone": "+1 (267) 320-2734",
+  "phoneHref": "tel:+12673202734",
+  "linkedin": "https://www.linkedin.com/in/tmarhguy",
+  "linkedinLabel": "linkedin.com/in/tmarhguy",
+  "github": "https://github.com/tmarhguy",
+  "githubLabel": "github.com/tmarhguy",
+  "availability": "Open to Summer 2027 Hardware / RTL internships"
 }
