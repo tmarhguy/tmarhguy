@@ -3,6 +3,8 @@ title: 'When assembly is still too high-level for Tomato'
 date: '2026-09-11'
 description: 'Expanding beyond 52 opcodes—assembly can hide native Dual-LUT datapath operations Tomato already computes in one cycle.'
 project: tomato
+image: '/images/os/racer-screen.webp'
+imageAlt: 'Racer game on TomatoOS'
 priority: 1
 ---
 

@@ -3,6 +3,8 @@ title: 'Elimination of Mode Multiplexers'
 date: '2026-06-27'
 description: 'Initial State & Bottleneck: The previous ALU design utilized a parallel execution model. An incoming signal would split: one path raced through the A/B masking logic into the 74...'
 project: tomato
+image: '/images/logs/2026-06-27-alu-4b-final.png'
+imageAlt: '4-bit ALU final schematic in Digital'
 ---
 
 ## 1. The "Adder Pass-Through" Pipeline (Elimination of Mode Multiplexers)

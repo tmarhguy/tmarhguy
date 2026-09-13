@@ -3,6 +3,8 @@ title: 'Microcode Control Modularization'
 date: '2026-06-16'
 description: 'The microcode ROM was always going to be a wiring problem. Every instruction looks up a 64-bit control word: what the ALU should do, whether to write a register, read memory, ju...'
 project: tomato
+image: '/images/logs/2026-06-16-microcode-control-modularization-main.png'
+imageAlt: 'Modular main layout in Digital'
 ---
 
 The microcode ROM was always going to be a wiring problem. Every instruction looks up a 64-bit control word: what the ALU should do, whether to write a register, read memory, jump the PC, enable multiply, and so on. In simulation that's one chip and one splitter. On a breadboard it's twenty-something wires crawling across the whole CPU—and the signals don't even go where you'd expect. Shift mode comes out of the ALU decode block but plugs into mul-div. Flag-write enable lives with the memory controls but feeds the ALU. PC jump fields are split across two bytes in the ROM. Fine on paper, miserable to route.

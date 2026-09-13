@@ -3,6 +3,8 @@ title: 'Demo Ideas'
 date: '2026-07-13'
 description: "It quickly gets abstracted and perhaps indistinguishable from a black box if the final design has no reasonably impressive demo. I've considered a lot of ideas ranging from mode..."
 project: tomato
+image: '/images/os/tetris-screen.webp'
+imageAlt: 'Tetris on TomatoOS'
 ---
 
 It quickly gets abstracted and perhaps indistinguishable from a black box if the final design has no reasonably impressive demo. I've considered a lot of ideas ranging from moderate to wild ones. There is Fibonacci, Collatz conjecture, all of which are so trivial it makes tomato severely underused.

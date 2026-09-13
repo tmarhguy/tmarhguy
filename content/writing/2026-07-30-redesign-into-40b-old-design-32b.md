@@ -3,6 +3,8 @@ title: 'Redesign into 40b (Old design = 32b)'
 date: '2026-07-30'
 description: 'Date: 2026-07-30 Status: Decision in progress — full rebuild planned Supersedes: Tomato32 (32-bit word, 32-bit instruction) --- After roughly three months working on Tomato32, t...'
 project: tomato
+image: '/images/home/tomato-soldering.webp'
+imageAlt: 'Soldering the Tomato board'
 ---
 
 # Redesign into 40b

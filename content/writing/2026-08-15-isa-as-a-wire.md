@@ -3,6 +3,8 @@ title: 'ISA as a Wire'
 date: '2026-08-15'
 description: 'Tomato is a parametric datapath, not an emulator. An ISA is a mapping from someone else’s bits onto the muxes already sitting in copper — decode, not an interpreter.'
 project: tomato
+image: '/images/projects/riscv64.webp'
+imageAlt: 'RV64 pipeline source with instruction and data interfaces'
 priority: 1
 ---
 

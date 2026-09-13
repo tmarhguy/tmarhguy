@@ -3,6 +3,8 @@ title: 'The Invisible Logic: Driving the Datapath'
 date: '2026-08-23'
 description: 'No FSM on the board — so something else has to drive ~40 parallel pins. ATmega328PB at ~1 Hz, not ESP32 at 3.3 V.'
 project: tomato
+image: '/images/logs/continuity_test.jpeg'
+imageAlt: 'Probing the ALU board with a multimeter'
 ---
 
 **See also:** [First Lights and Flux](/writing/2026-08-21-first-lights-and-flux/) · [The PMOD Pivot](/writing/2026-08-26-the-pmod-pivot/) · [First Phase of Assembly](/writing/2026-08-18-first-phase-of-assembly/)

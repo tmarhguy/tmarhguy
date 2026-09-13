@@ -3,6 +3,8 @@ title: 'Understanding the UDP Stack and Connecting to ITCH'
 date: '2026-08-08'
 description: 'Why market-data pipelines need UDP over TCP — from ITCH ingestion on the FPGA to building a custom 100 Mbps stack.'
 project: udp-stack
+image: '/images/projects/udp-bench.webp'
+imageAlt: 'Nexys A7 running the UDP stack'
 ---
 
 **Date:** 2026-08-08

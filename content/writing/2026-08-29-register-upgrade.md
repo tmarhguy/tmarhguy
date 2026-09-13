@@ -4,6 +4,8 @@ date: '2026-08-29'
 priority: 2
 description: 'AS6C62256 has 15 address bits — Tomato exposes all of them: 32,768 GPR. Half a Blackwell SM.'
 project: tomato
+image: '/images/home/sram-array.webp'
+imageAlt: '16 by 4 SRAM array schematic'
 ---
 
 **See also:** [Tomato works beautifully!](/writing/2026-08-29-tomato-works-beautifully/) · [Falling back to 32b](/writing/2026-07-31-falling-back-to-32b/) · [ISA as a Wire](/writing/2026-08-15-isa-as-a-wire/)

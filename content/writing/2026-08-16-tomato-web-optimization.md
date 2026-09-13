@@ -3,6 +3,8 @@ title: 'Tomato Web Optimization'
 date: '2026-08-16'
 description: 'Vanilla HTML/CSS/JS and raw Three.js — no React, no bundler. A 31 MB KiCad GLB becomes 1.26 MB Draco, nine meshes, and the 3.5s main-thread freeze is gone.'
 project: tomato
+image: '/images/logs/tomato_home_black.png'
+imageAlt: 'Tomato homepage'
 ---
 
 **See also:** [Front-Page News in Ashtown Valley](/writing/2026-08-13-front-page-news-in-ashtown-valley/) · [PCBs Arrive!](/writing/2026-08-15-pcbs-arrive/) · [Tomato site](https://tomato.tmarhguy.com)

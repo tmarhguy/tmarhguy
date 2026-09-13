@@ -3,6 +3,8 @@ title: 'ALU Architecture Refinement & Logic Optimization'
 date: '2026-06-26'
 description: 'Refinement of Generate ($G$) and Propagate ($P$) Signals In the initial architecture, the logic generation for the 74182 look-ahead unit was bottlenecked by a naïve implementati...'
 project: alu
+image: '/images/kicad/07_alu/pcb/alu_8b_board.png'
+imageAlt: '8-bit ALU board'
 ---
 
 **Refinement of Generate ($G$) and Propagate ($P$) Signals**

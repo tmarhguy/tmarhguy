@@ -3,6 +3,8 @@ title: 'Multiplication and Division'
 date: '2026-06-15'
 description: 'One of the biggest hurdles in this build has been implementing hardware multiplication and division. The standard naive approach—sequencing operations to `shift -> add -> accumu...'
 project: tomato
+image: '/images/os/fibonacci-screen.webp'
+imageAlt: 'Fibonacci running on TomatoOS'
 ---
 
 One of the biggest hurdles in this build has been implementing hardware multiplication and division. The standard naive approach—sequencing operations to `shift -> add -> accumulate` (or `shift -> subtract` for division)—is functionally easy but architecturally painful.

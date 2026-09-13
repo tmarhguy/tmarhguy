@@ -3,6 +3,8 @@ title: 'Falling back to 32b'
 date: '2026-07-31'
 description: 'Date: 2026-07-31 Status: Decision settled — revert to Tomato32 Supersedes: Redesign into 40b Related: The lingering catch --- In a rather if not seemingly swing between implemen...'
 project: tomato
+image: '/images/assembly/placing_and_soldering.webp'
+imageAlt: 'Placing and soldering on the bench'
 ---
 
 # Falling back to 32b

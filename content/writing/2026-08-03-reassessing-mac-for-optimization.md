@@ -3,6 +3,8 @@ title: 'Reassessing Mac for optimization'
 date: '2026-08-03'
 description: 'Returning to the MAC tapeout path after months on Tomato — planning LibreLane flow, cross-verification, and timing closure.'
 project: mac
+image: '/images/projects/mac-core.webp'
+imageAlt: 'MAC core layout preview'
 ---
 
 # Reassessing MAC for optimization

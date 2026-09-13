@@ -3,6 +3,8 @@ title: 'Downgrade for an upgrade - 32b to 16b x 4'
 date: '2026-07-13'
 description: 'This ALU has taken several routes since the first abstractions. In the most recent version before this change, I wanted to wire 8 cells of 4b each into a 32b cell. The catch is ...'
 project: tomato
+image: '/images/kicad/07_alu/pcb/alu_8b_pcb.png'
+imageAlt: 'Routed 8-bit ALU board layout'
 ---
 
 This ALU has taken several routes since the first abstractions. In the most recent version before this change, I wanted to wire 8 cells of 4b each into a 32b cell. The catch is PCB fabrication do not manufacture only one board. To ensure manufacturing efficiency and reusability, I have sliced the board into 16b macro cells that are designed to support full cascading into 16b x n ALUs. So cascading 4 cells results in a 64b logic unit.

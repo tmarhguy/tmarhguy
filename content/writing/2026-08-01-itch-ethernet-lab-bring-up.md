@@ -3,6 +3,8 @@ title: 'ITCH Ethernet Lab Bring-Up'
 date: '2026-08-01'
 description: 'Preparing Nexys A7 Ethernet ingress for end-to-end Mold/ITCH UDP testing on the FPGA market-data pipeline.'
 project: itch-hw
+image: '/images/projects/itch-bench.webp'
+imageAlt: 'ITCH parser bring-up on the Nexys A7 bench'
 ---
 
 # ITCH Ethernet lab bring-up

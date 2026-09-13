@@ -3,6 +3,8 @@ title: 'Mango — Arrow Navigation & Video Pipeline'
 date: '2026-08-03'
 description: 'Arrow keys replace “Enter choice.” Video → GIF and extract-audio land in the registry; Mango marks tools ready only when the binaries exist.'
 project: mango
+image: '/images/mango/dir_navig.png'
+imageAlt: 'Mango directory navigation'
 ---
 
 **See also:** [Shell UI — Mango](/writing/2026-08-01-shell-ui-mango/) · [Tools](/writing/2026-08-01-tools/) · [System-Wide Call](/writing/2026-08-11-system-wide-call/)

@@ -8,6 +8,8 @@ image: '/images/os/desktop-home.webp'
 imageAlt: 'Tomato OS desktop with Ghana wallpaper on the FPGA'
 ---
 
+![Tomato OS desktop with Ghana wallpaper on the FPGA](/images/os/desktop-home.webp)
+
 The fall semester started, and I am taking arguably some of the hardest classes I could have put together:
 
 - **ESE 5700 (Digital Integrated Circuits and VLSI-Fundamentals)**
@@ -46,8 +48,6 @@ And eventually, the applications sitting on top of all of that have to understan
 That entire toolchain is what I have been deeply optimizing.
 
 TomatoOS now has applications, lists, graphics, input, and now even a **wallpaper**. It is kind of amazing watching the design slowly come to life.
-
-![Tomato OS desktop with Ghana wallpaper on the FPGA](/images/os/desktop-home.webp)
 
 In other words, it is becoming exactly what I dreamt it could be months ago, when I first found out that **building computers from scratch was even a thing people could do.**
 

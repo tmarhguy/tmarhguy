@@ -3,9 +3,11 @@ title: 'System-Wide Call'
 date: '2026-08-11'
 description: 'System-wide `mango` invocation — call the toolbox from any working directory.'
 project: mango
+image: '/images/mango/running_img_compress.png'
+imageAlt: 'Mango running a compression job'
 ---
 
-**See also:** [Images to PDF and Uninstall](/writing/2026-08-27-images-to-pdf-and-uninstall/) · [Shell UI — Mango](/writing/2026-08-01-shell-ui-mango/) · [Mango — Arrow Navigation & Video Pipeline](/writing/2026-08-03-mango-arrow-navigation-video-pipeline/) · [Mango Tools](/projects/#mango-tools)
+**See also:** [Images to PDF and Uninstall](/writing/2026-08-27-images-to-pdf-and-uninstall/) · [Shell UI — Mango](/writing/2026-08-01-shell-ui-mango/) · [Mango — Arrow Navigation & Video Pipeline](/writing/2026-08-03-mango-arrow-navigation-video-pipeline/) · [Mango Tools](/writing/#writing-mango)
 
 _A tool is useful when it offers the least friction for the most work done._
 

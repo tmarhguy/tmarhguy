@@ -3,6 +3,8 @@ title: 'Pipelined FPGA - What if...'
 date: '2026-07-13'
 description: 'After observing, time is but a monotonic quantity and universal. In current FPGA designs, we program and use, and for another use case, we repeat, In future tomato designs, I am...'
 project: tomato
+image: '/images/assembly/work_setup.webp'
+imageAlt: 'Workbench with PCB layout on screen and soldering station'
 ---
 
 After observing, time is but a monotonic quantity and universal. In current FPGA designs, we program and use, and for another use case, we repeat, In future tomato designs, I am considering a real time programming an use. Assume the case where all cells are already programmed, but the next instruction requires that cell4568 change from current xnor into nand(a, xor (b, c)).

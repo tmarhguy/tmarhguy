@@ -3,6 +3,8 @@ title: 'ALU - Redesign with 74251'
 date: '2026-06-26'
 description: 'In routing the ALU, I came across a realization that the fact that the 125 + 138 combination defeats the optimization i was looking for. In fact, I need 3 chips for a single ALU...'
 project: alu
+image: '/images/projects/tomato-board.webp'
+imageAlt: 'Tomato 8-bit ALU board render'
 ---
 
 In routing the ALU, I came across a realization that the fact that the 125 + 138 combination defeats the optimization i was looking for. In fact, I need 3 chips for a single ALU-cell; but the 74251 offers same logical capacity without the physical chance of contention. Over the 74151, the 74251 offers a stronger drive strength, which was my initial worry when designing with 74151.
