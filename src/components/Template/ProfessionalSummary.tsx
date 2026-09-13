@@ -53,8 +53,7 @@ export default function ProfessionalSummary({
     >
       <li>
         <strong>
-          I build computer systems from discrete logic through RTL-to-GDS
-          flows.
+          I build computer systems from discrete logic through RTL-to-GDS flows.
         </strong>
         <br />
         Computer Engineering junior at the{' '}
