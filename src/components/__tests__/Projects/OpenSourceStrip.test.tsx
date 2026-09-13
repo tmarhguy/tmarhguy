@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
 import { getOpenSourceContributions } from '@/data/open-source';
@@ -101,5 +101,69 @@ describe('OpenSourceStrip', () => {
     expect(document.getElementById('librelane-1016')).toBeTruthy();
     expect(document.getElementById('verilator')).toBeTruthy();
     expect(document.getElementById('openfpga')).toBeTruthy();
+    expect(document.getElementById('openfpga-2683')).toBeTruthy();
+  });
+
+  it('renders small proof thumbnails beside each row when showEvidence', () => {
+    const { container } = render(
+      <OpenSourceStrip
+        contributions={getOpenSourceContributions()}
+        showEvidence
+      />,
+    );
+
+    // 1015, 1016, OpenROAD, Verilator, OpenFPGA ×2 — rows, not a grid.
+    expect(
+      container.querySelector('.open-source-evidence'),
+    ).not.toBeInTheDocument();
+    expect(container.querySelectorAll('.open-source-row')).toHaveLength(6);
+    expect(
+      screen.getAllByRole('button', { name: /Open screenshot:/ }),
+    ).toHaveLength(6);
+    expect(
+      screen.getByRole('button', { name: /Yosys compatibility fix/ }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: /directlist interconnect docs/ }),
+    ).toBeInTheDocument();
+  });
+
+  it('opens the full screenshot on thumbnail click and closes on Escape', () => {
+    render(
+      <OpenSourceStrip
+        contributions={getOpenSourceContributions()}
+        showEvidence
+      />,
+    );
+
+    fireEvent.click(
+      screen.getByRole('button', { name: /Yosys compatibility fix/ }),
+    );
+
+    const dialog = screen.getByRole('dialog');
+    expect(dialog).toBeInTheDocument();
+    expect(
+      screen.getByRole('img', { name: /Yosys compatibility fix/ }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: 'LibreLane · shipped in 3.0.8' }),
+    ).toHaveAttribute(
+      'href',
+      'https://github.com/librelane/librelane/releases/tag/3.0.8',
+    );
+
+    fireEvent.keyDown(document, { key: 'Escape' });
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  });
+
+  it('omits proof thumbnails by default', () => {
+    const { container } = render(
+      <OpenSourceStrip contributions={getOpenSourceContributions()} />,
+    );
+
+    expect(
+      container.querySelector('.open-source-thumb'),
+    ).not.toBeInTheDocument();
+    expect(container.querySelector('.open-source-row')).not.toBeInTheDocument();
   });
 });

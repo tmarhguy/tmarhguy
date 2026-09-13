@@ -32,6 +32,19 @@ export interface Project {
   /** Optional thumbnail for featured cards */
   image?: string;
   imageCaption?: string;
+  /** Optional autoplay clip — replaces the still on exhibition cards */
+  video?: string;
+  videoPoster?: string;
+  /**
+   * Demoted from the main exhibition into the quiet "Earlier software"
+   * ledger. History is kept — data, images, and GitHub repos untouched.
+   */
+  earlier?: boolean;
+  /**
+   * Removed from the portfolio display entirely. The entry stays in data
+   * (and the repo stays on GitHub) — curation, not deletion.
+   */
+  hidden?: boolean;
 }
 
 function sortByDateDesc(projects: Project[]): Project[] {
@@ -92,6 +105,8 @@ const data: Project[] = [
     link: TOMATO_REPO_URL,
     image: '/images/projects/tomato-half-soldered.webp',
     imageCaption: 'Half-soldered ALU board · assembly in progress',
+    video: '/images/os/tomato-demo.mp4',
+    videoPoster: '/images/os/tomato-demo-poster.webp',
     date: '2025-08-01',
     period: 'Aug. 2025 — Present',
     desc: 'Custom 32-bit architecture with a working FPGA computer, assembler, and TomatoOS over HDMI. Discrete ALU board fabricated; the complete discrete machine is in progress.',
@@ -128,6 +143,7 @@ const data: Project[] = [
     category: 'hardware',
     image: '/images/projects/sram-organization.webp',
     imageCaption: '16 × 4 organization · architecture figure from the report',
+    featured: true,
   },
   {
     title: '8-Bit Ripple-Carry Adder — ESE 3700',
@@ -145,6 +161,8 @@ const data: Project[] = [
     title: '64-bit RISC-V CPU (RV64IM)',
     subtitle: '5-stage pipelined core',
     link: 'https://github.com/tmarhguy/riscv',
+    image: '/images/projects/riscv64.webp',
+    imageCaption: 'RV64IM core · 5-stage pipeline',
     date: '2025-10-01',
     period: '2025',
     desc: 'Custom RV64IM processor on Artix-7 at 125 MHz with 96% ISA compliance; bare-metal C via UART bootloader.',
@@ -170,6 +188,8 @@ const data: Project[] = [
     slug: 'spice-automation',
     logProject: 'spice-automation',
     link: 'https://github.com/tmarhguy/spice-automation',
+    image: '/images/projects/spice-automation.webp',
+    imageCaption: 'SPICE Automation Framework · parametric sweep report',
     date: '2026-01-01',
     period: 'Jan. 2026 — May. 2026',
     desc: 'Python pipeline driving NGSpice runs with binary-search F_max convergence; automated parametric sweeps and comparative statistical reports.',
@@ -180,6 +200,7 @@ const data: Project[] = [
     title: 'Mango Tools',
     subtitle: 'Offline CLI utilities',
     slug: 'mango-tools',
+    hidden: true,
     image: '/images/mango/main_menu.png',
     imageCaption: 'The terminal interface · Mango',
     logProject: 'mango',
@@ -194,6 +215,7 @@ const data: Project[] = [
     title: 'QueuePaste',
     subtitle: 'Clipboard automation',
     slug: 'queuepaste',
+    earlier: true,
     link: 'https://github.com/tmarhguy/QueuePaste',
     image: '/images/projects/queuepaste.webp',
     imageCaption: 'QueuePaste · Prepare list and sequential paste',
@@ -207,6 +229,7 @@ const data: Project[] = [
     title: 'YT2Spot',
     subtitle: 'YouTube Music → Spotify migration',
     slug: 'yt2spot',
+    earlier: true,
     link: 'https://github.com/tmarhguy/ytmusic-spotify-migrator',
     image: '/images/projects/yt2spot.webp',
     imageCaption: 'YT2Spot Migration Studio · choose source platform',
@@ -219,7 +242,10 @@ const data: Project[] = [
   {
     title: 'Music & You',
     subtitle: 'Music psychology + ML',
+    earlier: true,
     link: 'https://github.com/tmarhguy/music-and-you',
+    image: '/images/projects/music-and-you.webp',
+    imageCaption: 'Music & You · listening personality dashboard',
     date: '2025-10-14',
     period: 'Jul. 2025 — Oct. 2025',
     desc: 'Full-stack app predicting Big Five personality traits from Spotify listening patterns — SHAP explainability, conversational insights, and a Next.js dashboard.',
@@ -229,7 +255,11 @@ const data: Project[] = [
   {
     title: 'Color Communication Game',
     subtitle: 'Psychology experiment',
+    slug: 'color-comm',
+    hidden: true,
     link: 'https://github.com/tmarhguy/Psych_Color_Game_Experiment',
+    image: '/images/projects/color-comm.webp',
+    imageCaption: 'Color Communication Game · sender round and match history',
     date: '2025-07-20',
     period: 'Apr. 2025 — Jul. 2025',
     desc: 'Research-grade React experiment studying color–concept communication through animal associations — demographics, timed sender/receiver rounds, and JSON export for analysis.',
@@ -242,6 +272,8 @@ const data: Project[] = [
     slug: 'orange',
     logProject: 'orange',
     link: 'https://github.com/tmarhguy/metrics-api',
+    image: '/images/projects/orange-metrics.webp',
+    imageCaption: 'Orange Metrics API · PPA ingestion dashboard',
     date: '2026-03-01',
     period: 'In progress',
     desc: 'FastAPI + PostgreSQL service ingesting Vivado and OpenLane synthesis PPA metrics; Dockerized with Pytest-covered ingestion pipeline.',
@@ -251,7 +283,10 @@ const data: Project[] = [
   {
     title: 'UniBridge Ghana',
     subtitle: 'Admissions platform',
+    earlier: true,
     link: 'https://github.com/tmarhguy/unibridgeGhana',
+    image: '/images/projects/unibridge.webp',
+    imageCaption: 'UniBridge Ghana · admissions platform',
     date: '2024-06-01',
     period: '2024',
     desc: 'Centralized university admissions platform with FastAPI microservices; sub-200 ms P99 under heavy read load during result releases.',
@@ -261,7 +296,10 @@ const data: Project[] = [
   {
     title: 'MoMo Credit Score',
     subtitle: 'Alternative credit scoring',
+    earlier: true,
     link: 'https://github.com/tmarhguy/momo-credit-score',
+    image: '/images/projects/momo-credit.webp',
+    imageCaption: 'MoMo Credit Score · explainability dashboard',
     date: '2025-08-03',
     period: 'Jul. 2025 — Aug. 2025',
     desc: 'XGBoost credit scoring for mobile money users with SHAP explainability dashboard and sub-400 ms P99 latency.',
@@ -272,6 +310,8 @@ const data: Project[] = [
     title: 'SVD Compression Engine',
     subtitle: 'Real-time image compression',
     link: 'https://svd.tmarhguy.com',
+    image: '/images/projects/svd-compression.webp',
+    imageCaption: 'SVD Compression Engine · interactive demo',
     date: '2024-09-01',
     period: '2024',
     desc: 'Singular Value Decomposition from scratch with cache-optimized matrix ops; 45% speedup over naive implementations.',
@@ -284,14 +324,53 @@ export function getResumeProjects(): Project[] {
   return sortByDateDesc(data.filter((project) => project.onResume));
 }
 
+/** Main exhibition wall — curated; earlier and hidden entries live elsewhere. */
+function isMainExhibition(project: Project): boolean {
+  return !project.hidden && !project.earlier;
+}
+
+/**
+ * Hardware exhibition order — curated so the two Nexys bench shots (UDP and
+ * ITCH) never sit adjacent, with the MAC up among the first rows. Slugs must
+ * match getProjectSlug(); hardware added later without a list entry appends
+ * after, newest first, so nothing ever drops off the page.
+ */
+const HARDWARE_ORDER = [
+  'tomato',
+  'mac',
+  '100mbps-udp-ip-stack',
+  'full-custom-sram',
+  'nasdaq-itch',
+  '8-bit-ripple-carry-adder-ese-3700',
+  'spice-automation',
+  '64-bit-risc-v-cpu-rv64im',
+  '8-bit-discrete-transistor-alu',
+] as const;
+
 export function getHardwareProjects(): Project[] {
-  return sortByDateDesc(
-    data.filter((project) => project.category === 'hardware'),
+  const hardware = data.filter(
+    (project) => project.category === 'hardware' && isMainExhibition(project),
   );
+  const bySlug = new Map(
+    hardware.map((project) => [getProjectSlug(project), project]),
+  );
+  const ordered = HARDWARE_ORDER.map((slug) => {
+    const project = bySlug.get(slug);
+    if (!project) {
+      throw new Error(`Missing hardware project for order entry: ${slug}`);
+    }
+    bySlug.delete(slug);
+    return project;
+  });
+  return [...ordered, ...sortByDateDesc([...bySlug.values()])];
 }
 
 export function getToolsProjects(): Project[] {
-  return sortByDateDesc(data.filter((project) => project.category === 'tools'));
+  return sortByDateDesc(
+    data.filter(
+      (project) => project.category === 'tools' && isMainExhibition(project),
+    ),
+  );
 }
 
 /** @deprecated Use getHardwareProjects and filter by onResume instead */
@@ -303,9 +382,23 @@ export function getMoreHardwareProjects(): Project[] {
   );
 }
 
+/** Quiet "Earlier software" ledger — demoted breadth, newest first. */
+export function getEarlierProjects(): Project[] {
+  return sortByDateDesc(
+    data.filter((project) => project.earlier && !project.hidden),
+  );
+}
+
+/** Curated off the portfolio entirely; data and GitHub history preserved. */
+export function getHiddenProjects(): Project[] {
+  return sortByDateDesc(data.filter((project) => project.hidden));
+}
+
 export function getSoftwareProjects(): Project[] {
   return sortByDateDesc(
-    data.filter((project) => project.category === 'software'),
+    data.filter(
+      (project) => project.category === 'software' && isMainExhibition(project),
+    ),
   );
 }
 
@@ -313,7 +406,11 @@ export function getProjectSlug(project: Project): string {
   return project.slug ?? createHeadingId(project.title);
 }
 
-const FEATURED_PROJECT_SLUGS = ['mac', '100mbps-udp-ip-stack'] as const;
+const FEATURED_PROJECT_SLUGS = [
+  'mac',
+  '100mbps-udp-ip-stack',
+  'full-custom-sram',
+] as const;
 
 /** Homepage selected work — explicit cracked-hardware order. */
 export function getFeaturedProjects(): Project[] {
@@ -378,7 +475,10 @@ export function findProjectByTitle(titleIncludes: string): Project | undefined {
 
 export function getProjectAnchorHrefByTitle(titleIncludes: string): string {
   const project = findProjectByTitle(titleIncludes);
-  return project ? getProjectAnchorHref(project) : '/projects/';
+  if (!project || project.hidden) {
+    return '/projects/';
+  }
+  return getProjectAnchorHref(project);
 }
 
 export default data;

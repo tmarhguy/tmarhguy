@@ -1,7 +1,14 @@
 import { render, screen, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { getOpenSourceContributions } from '@/data/open-source';
-import projects, { getHomeFeaturedItems } from '@/data/projects';
+import projects, {
+  getEarlierProjects,
+  getHardwareProjects,
+  getHiddenProjects,
+  getHomeFeaturedItems,
+  getSoftwareProjects,
+  getToolsProjects,
+} from '@/data/projects';
 import {
   getAllLogs,
   getHomeRecentLogs,
@@ -90,7 +97,7 @@ describe('writing information architecture', () => {
     ).toBeInTheDocument();
   });
 
-  it('lists all projects on the projects index', () => {
+  it('lists curated projects on the projects index', () => {
     render(<ProjectsPage />);
 
     expect(
@@ -103,15 +110,35 @@ describe('writing information architecture', () => {
       screen.getByRole('heading', { level: 2, name: 'Hardware' }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('heading', { level: 2, name: 'Tools' }),
-    ).toBeInTheDocument();
+      screen.queryByRole('heading', { level: 2, name: 'Tools' }),
+    ).not.toBeInTheDocument();
     expect(
       screen.getByRole('heading', { level: 2, name: 'Software' }),
     ).toBeInTheDocument();
-    expect(screen.getAllByRole('article')).toHaveLength(projects.length);
+    expect(
+      screen.getByRole('heading', { level: 2, name: 'Earlier software' }),
+    ).toBeInTheDocument();
 
-    for (const project of projects) {
+    const mainCount =
+      getHardwareProjects().length +
+      getToolsProjects().length +
+      getSoftwareProjects().length;
+    expect(screen.getAllByRole('article')).toHaveLength(mainCount);
+
+    const visible = [
+      ...getHardwareProjects(),
+      ...getToolsProjects(),
+      ...getSoftwareProjects(),
+      ...getEarlierProjects(),
+    ];
+    expect(visible.length + getHiddenProjects().length).toBe(projects.length);
+
+    for (const project of visible) {
       expect(screen.getByText(project.title)).toBeInTheDocument();
+    }
+
+    for (const project of getHiddenProjects()) {
+      expect(screen.queryByText(project.title)).not.toBeInTheDocument();
     }
 
     for (const contribution of getOpenSourceContributions()) {

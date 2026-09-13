@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
-
+import EarlierList from '@/components/Projects/EarlierList';
 import ListItem from '@/components/Projects/ListItem';
 import OpenSourceStrip from '@/components/Projects/OpenSourceStrip';
 import { SchemaGraph } from '@/components/Schema';
 import PageWrapper from '@/components/Template/PageWrapper';
 import { getOpenSourceContributions } from '@/data/open-source';
 import {
+  getEarlierProjects,
   getHardwareProjects,
   getSoftwareProjects,
   getToolsProjects,
@@ -33,7 +34,16 @@ export default function ProjectsPage() {
   const hardwareProjects = getHardwareProjects();
   const toolsProjects = getToolsProjects();
   const softwareProjects = getSoftwareProjects();
+  const earlierProjects = getEarlierProjects();
   const openSourceContributions = getOpenSourceContributions();
+
+  // Inverted rank: the first project (Tomato) carries the highest number,
+  // counting down across sections in display order.
+  const totalProjects =
+    hardwareProjects.length + toolsProjects.length + softwareProjects.length;
+  let rank = totalProjects + 1;
+  const ranked = <T,>(projects: T[]): { project: T; number: number }[] =>
+    projects.map((project) => ({ project, number: --rank }));
 
   return (
     <PageWrapper>
@@ -67,12 +77,21 @@ export default function ProjectsPage() {
           <a href="#hardware-projects-title">
             Hardware <span>{hardwareProjects.length}</span>
           </a>
-          <a href="#tools-projects-title">
-            Tools <span>{toolsProjects.length}</span>
-          </a>
-          <a href="#software-projects-title">
-            Software <span>{softwareProjects.length}</span>
-          </a>
+          {toolsProjects.length > 0 && (
+            <a href="#tools-projects-title">
+              Tools <span>{toolsProjects.length}</span>
+            </a>
+          )}
+          {softwareProjects.length > 0 && (
+            <a href="#software-projects-title">
+              Software <span>{softwareProjects.length}</span>
+            </a>
+          )}
+          {earlierProjects.length > 0 && (
+            <a href="#earlier-projects-title">
+              Earlier <span>{earlierProjects.length}</span>
+            </a>
+          )}
           <a href="#open-source-title">Open source</a>
         </nav>
 
@@ -84,8 +103,8 @@ export default function ProjectsPage() {
             Hardware
           </h2>
           <div className="project-list">
-            {hardwareProjects.map((project) => (
-              <ListItem data={project} key={project.title} />
+            {ranked(hardwareProjects).map(({ project, number }) => (
+              <ListItem data={project} number={number} key={project.title} />
             ))}
           </div>
         </section>
@@ -99,8 +118,8 @@ export default function ProjectsPage() {
               Tools
             </h2>
             <div className="project-list">
-              {toolsProjects.map((project) => (
-                <ListItem data={project} key={project.title} />
+              {ranked(toolsProjects).map(({ project, number }) => (
+                <ListItem data={project} number={number} key={project.title} />
               ))}
             </div>
           </section>
@@ -115,10 +134,22 @@ export default function ProjectsPage() {
               Software
             </h2>
             <div className="project-list">
-              {softwareProjects.map((project) => (
-                <ListItem data={project} key={project.title} />
+              {ranked(softwareProjects).map(({ project, number }) => (
+                <ListItem data={project} number={number} key={project.title} />
               ))}
             </div>
+          </section>
+        )}
+
+        {earlierProjects.length > 0 && (
+          <section
+            className="projects-list-section"
+            aria-labelledby="earlier-projects-title"
+          >
+            <h2 className="projects-section-title" id="earlier-projects-title">
+              Earlier software
+            </h2>
+            <EarlierList projects={earlierProjects} />
           </section>
         )}
 

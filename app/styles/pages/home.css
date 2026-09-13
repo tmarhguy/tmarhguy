@@ -252,7 +252,7 @@
 
   .hero-portrait {
     order: -1;
-    width: 180px;
+    width: 210px;
     justify-self: center;
   }
 
@@ -280,7 +280,7 @@
 
 .home-projects-list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   border-top: var(--rule) solid var(--color-border);
 }
 
@@ -340,7 +340,7 @@
 .home-projects-grid {
   display: grid;
   gap: 1.75rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .home-section-header,
@@ -443,12 +443,44 @@
 @media (max-width: 960px) {
   .home-projects-list,
   .home-projects-grid {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem 1rem;
+    border-top: 0;
   }
 
-  .home-project-item {
-    padding: 1rem 0;
+  .home-project-item,
+  .home-project-item:first-child,
+  .home-project-item:last-child {
+    padding: 0 0 0.5rem;
     border-right: 0;
+    border-bottom: 0;
+  }
+
+  .home-projects-list .home-project-image {
+    margin: 0 0 0.6rem;
+    height: 120px;
+    max-height: 120px;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .home-project-item h3 {
+    margin: 0.4rem 0 0.25rem;
+    font-size: var(--text-sm);
+    line-height: 1.3;
+  }
+
+  .home-project-meta {
+    font-size: var(--text-2xs);
+  }
+
+  .home-project-item p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    font-size: var(--text-xs);
+    line-height: 1.5;
   }
 }
 
@@ -527,19 +559,53 @@
 }
 .tomato-media-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* Proportional columns (16:9 vs 720:554) so both frames share one height. */
+  grid-template-columns: 1.369fr 1fr;
   gap: 1rem;
   align-items: start;
 }
 .tomato-media-grid figure {
   margin: 0;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 .tomato-media-frame {
   position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
   background: #111;
+  flex-shrink: 0;
+  width: 100%;
+}
+.tomato-expand {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 0.4rem;
+  background: rgba(5, 7, 10, 0.65);
+  color: #fff;
+  cursor: zoom-in;
+}
+.tomato-expand:hover {
+  background: rgba(5, 7, 10, 0.9);
+}
+.tomato-expand:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+/* Native ratios — demo 854x480 (16:9), bench 720x554 — so nothing crops. */
+.tomato-demo .tomato-media-frame {
+  aspect-ratio: 16 / 9;
+}
+.tomato-board .tomato-media-frame {
+  aspect-ratio: 720 / 554;
 }
 .tomato-media-grid video,
 .tomato-media-grid img {
@@ -548,7 +614,8 @@
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
 }
 .tomato-media-grid figcaption {
   font-size: var(--text-sm);
@@ -664,9 +731,11 @@
   margin-top: 1.75rem;
   font-size: var(--text-sm);
 }
-.home-project-item p {
-  display: block;
-  overflow: visible;
+@media (min-width: 961px) {
+  .home-project-item p {
+    display: block;
+    overflow: visible;
+  }
 }
 .home-project-image {
   width: 100%;
@@ -704,11 +773,32 @@
     padding: 1.25rem;
   }
   .hero .hero-portrait {
-    order: 0;
-    width: 140px;
-    justify-self: start;
+    order: -1;
+    width: 210px;
+    justify-self: center;
   }
   .hero-statement {
     font-size: clamp(2rem, 8vw, 3rem);
+  }
+}
+
+/* Very small phones — keep 2-up but tighten so cards stay compact. */
+@media (max-width: 380px) {
+  .home-projects-list,
+  .home-projects-grid {
+    gap: 1rem 0.75rem;
+  }
+
+  .home-projects-list .home-project-image {
+    height: 100px;
+    max-height: 100px;
+  }
+
+  .home-project-item h3 {
+    font-size: var(--text-xs);
+  }
+
+  .home-project-item p {
+    -webkit-line-clamp: 2;
   }
 }
