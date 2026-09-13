@@ -3,6 +3,8 @@ title: 'Truth Table Latch'
 date: '2026-07-13'
 description: 'In the current design, the individual cells of tomato may not seem to undergo reprogramming for each operation, given the philosophy it was based off of: what if computers had t...'
 project: tomato
+image: '/images/projects/adder-schematic.webp'
+imageAlt: 'Full-adder cell chain schematic'
 ---
 
 In the current design, the individual cells of tomato may not seem to undergo reprogramming for each operation, given the philosophy it was based off of: what if computers had the flexibility of an FPGA but without the rigidity of programming for every other operation?

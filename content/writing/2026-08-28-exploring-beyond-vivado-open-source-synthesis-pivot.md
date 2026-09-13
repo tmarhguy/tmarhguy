@@ -3,6 +3,8 @@ title: 'Exploring Beyond Vivado — Open-Source Synthesis Pivot'
 date: '2026-08-28'
 description: 'openXC7 is Linux-only. On Mac: OSS CAD Suite, nixpkgs nextpnr-xilinx, local Project X-Ray. Vivado taught the cycle; FOSS owns the loop.'
 project: tomato
+image: '/images/open-source/openfpga2683.png'
+imageAlt: 'Merged OpenFPGA pull request #2683'
 ---
 
 **See also:** [Successful Video — FPGA + PMOD](/writing/2026-08-28-successful-video-fpga-pmod/) · [One Press, One Key](/writing/2026-08-28-one-press-one-key/) · [Tomato works beautifully!](/writing/2026-08-29-tomato-works-beautifully/)

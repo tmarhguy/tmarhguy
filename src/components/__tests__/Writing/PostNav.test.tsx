@@ -32,6 +32,11 @@ describe('PostNav', () => {
     expect(next).toHaveAttribute('href', '/writing/newer-post/');
     expect(next).toHaveAttribute('rel', 'next');
     expect(screen.getByText('Newer post')).toBeInTheDocument();
+
+    // Newest-first list: Next (newer) sits left, Previous (older) sits right.
+    const links = screen.getAllByRole('link');
+    expect(links[0]).toBe(next);
+    expect(links[1]).toBe(previous);
   });
 
   it('renders nothing when there are no neighbours', () => {

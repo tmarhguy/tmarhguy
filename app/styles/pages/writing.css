@@ -87,6 +87,51 @@
   border-top: none;
 }
 
+/* Log rows with a cover image show a small proof thumbnail beside the text,
+   like the open-source ledger — same bordered treatment, row keeps scanning. */
+.writing-list-item--with-thumb .project-list-body {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  min-width: 0;
+}
+.writing-list-text {
+  min-width: 0;
+}
+.writing-list-thumb {
+  flex-shrink: 0;
+  width: 96px;
+  height: 72px;
+  overflow: hidden;
+  line-height: 0;
+  border: 1px solid var(--color-border);
+  background: #0d1117;
+}
+.writing-list-thumb:hover {
+  border-color: var(--color-fg-light);
+}
+.writing-list-thumb:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+/* One identical 4:3 frame per row — cover crops a sliver, never distorts. */
+.writing-list-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+@media (max-width: 735px) {
+  .writing-list-item--with-thumb .project-list-body {
+    gap: 0.75rem;
+  }
+  .writing-list-thumb {
+    width: 80px;
+    height: 60px;
+  }
+}
+
 .writing-letterhead {
   display: flex;
   flex-direction: column;
@@ -837,7 +882,7 @@
   background-color: var(--color-surface-subtle);
 }
 
-.post-nav-link--next {
+.post-nav-link--previous {
   text-align: right;
   align-items: flex-end;
 }
@@ -869,7 +914,7 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .post-nav-link--next {
+  .post-nav-link--previous {
     text-align: left;
     align-items: flex-start;
   }

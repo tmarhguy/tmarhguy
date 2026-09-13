@@ -3,6 +3,8 @@ title: 'Architecture Upgrade'
 date: '2026-07-13'
 description: 'The sheer constraint posed by area and available hardware imply that designs that offer more for less are favourable, unlike conventional metrics like parasitic and wiring budge...'
 project: tomato
+image: '/images/projects/tomato-half-soldered.webp'
+imageAlt: 'Half-soldered ALU board'
 ---
 
 The sheer constraint posed by area and available hardware imply that designs that offer more for less are favourable, unlike conventional metrics like parasitic and wiring budget. Based on that, I've improved the ALU configuration from the original adder(mux(a, b, c), masked invert(b), carry-in)) also f(a, b, c) + g(b), h(carry in) into a more potent design: adder(mux(a, b, c), mux(a, b, c), h(carry in)).

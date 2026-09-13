@@ -13,17 +13,17 @@ describe('writing entry metadata', () => {
     );
   });
 
-  it('falls back to the site share image when an entry has no article image', async () => {
+  it('uses the article image when an entry declares one', async () => {
     const metadata = await generateMetadata({
       params: Promise.resolve({ slug: 'welcome-to-tomato-32' }),
     });
 
     expect(metadata.openGraph?.images).toEqual([
       {
-        url: '/og.png',
-        width: 1200,
-        height: 630,
-        alt: 'Tyrone Marhguy — Computer Engineering Junior at University of Pennsylvania',
+        url: `${SITE_URL}/images/home/dorm-work.webp`,
+        width: 1400,
+        height: 877,
+        alt: 'Workbench with soldering tools and test gear',
       },
     ]);
     expect(metadata.twitter?.images).toEqual(['/og.png']);

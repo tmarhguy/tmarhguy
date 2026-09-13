@@ -85,6 +85,21 @@ describe('getAdjacentLogs', () => {
     expect(adjacent.previous?.slug).toBe(logs[2].slug);
   });
 
+  it('wraps around the ends so every log stays in the loop', () => {
+    const logs = getAllLogs();
+    if (logs.length < 2) {
+      return;
+    }
+
+    const newest = getAdjacentLogs(logs[0].slug);
+    expect(newest.next?.slug).toBe(logs[logs.length - 1].slug);
+    expect(newest.previous?.slug).toBe(logs[1].slug);
+
+    const oldest = getAdjacentLogs(logs[logs.length - 1].slug);
+    expect(oldest.previous?.slug).toBe(logs[0].slug);
+    expect(oldest.next?.slug).toBe(logs[logs.length - 2].slug);
+  });
+
   it('returns null neighbours for unknown slugs', () => {
     expect(getAdjacentLogs('not-a-real-log')).toEqual({
       previous: null,

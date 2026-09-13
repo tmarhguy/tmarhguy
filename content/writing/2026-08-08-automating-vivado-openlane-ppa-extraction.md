@@ -3,6 +3,8 @@ title: 'Automating Vivado + OpenLane PPA Extraction'
 date: '2026-08-08'
 description: 'Why manual Vivado and OpenLane report scraping does not scale — and building a FastAPI + PostgreSQL pipeline to ingest PPA metrics automatically.'
 project: orange
+image: '/images/projects/orange-metrics.webp'
+imageAlt: 'PPA metrics ingestion dashboard'
 ---
 
 **Date:** 2026-08-08
@@ -40,7 +42,7 @@ Entry points today: `orange ingest` CLI, `POST /ingest/vivado`, `POST /ingest/op
 
 ## The Tooling Philosophy
 
-There's a recurring theme in my workflow: when a process introduces friction, I like to write a tool to kill it (the Linux `kill` kind, not `top`). It is exactly why I built **[Mango Tools](/projects/#mango-tools)** — a purely offline terminal UI so I never have to upload PDFs or videos to random conversion websites again. It's the same reason I built **[QueuePaste](/projects/#queuepaste)** for macOS to automate pasting thousands of rows a day for my campus job.
+There's a recurring theme in my workflow: when a process introduces friction, I like to write a tool to kill it (the Linux `kill` kind, not `top`). It is exactly why I built **[Mango Tools](/writing/#writing-mango)** — a purely offline terminal UI so I never have to upload PDFs or videos to random conversion websites again. It's the same reason I built **[QueuePaste](/projects/#queuepaste)** for macOS to automate pasting thousands of rows a day for my campus job.
 
 I like to say that a well-structured computer engineering program like [Penn's](https://cmpe.engineering.upenn.edu/) means you have the flexibility to pull from both software and hardware toolkits to solve the problem in front of you.
 

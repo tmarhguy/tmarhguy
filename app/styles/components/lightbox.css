@@ -1,0 +1,133 @@
+/* ========================================
+   LIGHTBOX
+   Full-screen media viewer (images + video)
+   ======================================== */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-lightbox);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 7, 10, 0.92);
+}
+
+.lightbox-frame {
+  position: relative;
+  margin: 0;
+  max-width: min(1040px, 94vw);
+  max-height: calc(100vh - 3rem);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.lightbox-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  background: #0d1117;
+  border: 1px solid var(--color-border);
+}
+
+.lightbox-media img,
+.lightbox-media video {
+  display: block;
+  max-width: 100%;
+  max-height: 74vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.lightbox-caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 1rem;
+  padding-top: 0.75rem;
+  color: var(--color-fg-light);
+  font-size: var(--text-sm);
+}
+
+.lightbox-caption a {
+  font-weight: 600;
+  color: var(--color-fg-bold);
+}
+
+.lightbox-count {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+}
+
+.lightbox-close,
+.lightbox-nav {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: rgba(5, 7, 10, 0.75);
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox-close:hover,
+.lightbox-nav:hover {
+  background: rgba(5, 7, 10, 0.95);
+}
+
+.lightbox-close:focus-visible,
+.lightbox-nav:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.lightbox-close {
+  top: -3rem;
+  right: 0;
+}
+
+.lightbox-nav {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-prev {
+  left: -3.25rem;
+}
+
+.lightbox-next {
+  right: -3.25rem;
+}
+
+@media (max-width: 1100px) {
+  .lightbox-prev {
+    left: 0.5rem;
+  }
+
+  .lightbox-next {
+    right: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox-close,
+  .lightbox-nav {
+    transition: none;
+  }
+}

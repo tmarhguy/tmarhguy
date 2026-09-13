@@ -1,0 +1,64 @@
+name: Resume
+
+# Compiles docs/resume/hardware.tex. On pull requests, verify only.
+# On push to main (and manual runs), also publish the PDFs under public/.
+# Path filters keep this off unrelated commits; the PDF-only follow-up
+# commit cannot retrigger the workflow.
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/resume/**'
+      - '.github/workflows/resume.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'docs/resume/**'
+      - '.github/workflows/resume.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: resume-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  compile:
+    name: Compile LaTeX resume
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Compile hardware.tex
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: docs/resume
+          root_file: hardware.tex
+          compiler: latexmk
+          args: -pdf -interaction=nonstopmode
+
+      - name: Publish PDFs to public/
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: |
+          cp docs/resume/hardware.pdf public/Tyrone-Marhguy-Resume.pdf
+          cp docs/resume/hardware.pdf public/resume.pdf
+          rm -f docs/resume/hardware.pdf \
+            docs/resume/hardware.aux \
+            docs/resume/hardware.log \
+            docs/resume/hardware.out \
+            docs/resume/hardware.fls \
+            docs/resume/hardware.fdb_latexmk
+          ls -lh public/Tyrone-Marhguy-Resume.pdf public/resume.pdf
+
+      - name: Commit updated PDFs
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          file_pattern: 'public/Tyrone-Marhguy-Resume.pdf public/resume.pdf'
+          commit_message: 'chore: resume latex compilation'

@@ -90,13 +90,13 @@ describe('page metadata', () => {
     expect(metadata.alternates?.canonical).toBe(`${SITE_URL}/writing/${slug}/`);
   });
 
-  it('declares the share card on writing entries without an article image', async () => {
+  it('declares the article image on writing entries that have one', async () => {
     const metadata = await generateWritingMetadata({
       params: Promise.resolve({ slug: 'welcome-to-tomato-32' }),
     });
 
     expect(JSON.stringify(metadata.openGraph?.images)).toContain(
-      SHARE_IMAGE_PATH,
+      '/images/home/dorm-work.webp',
     );
     expect(JSON.stringify(metadata.twitter?.images)).toContain(
       SHARE_IMAGE_PATH,

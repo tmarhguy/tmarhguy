@@ -23,7 +23,17 @@ export default function Hero() {
             <Link href="/resume/" className="hero-resume-link">
               View Resume
             </Link>
+            <a
+              href="/Tyrone-Marhguy-Resume.pdf"
+              className="hero-resume-link"
+              download="Tyrone-Marhguy-Resume.pdf"
+            >
+              PDF
+            </a>
           </div>
+          <p className="hero-availability">
+            {profile.availability} · {profile.currentCity} · Class of 2028
+          </p>
         </div>
 
         <div className="hero-portrait">

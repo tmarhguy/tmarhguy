@@ -2,7 +2,7 @@ import { WIKIPEDIA_URL } from './contact';
 
 export const aboutMarkdown = `# Intro
 
-I'm [Tyrone Iras Marhguy](${WIKIPEDIA_URL}) — a Ghanaian Computer Engineering student at the [University of Pennsylvania](https://www.upenn.edu) on a full scholarship. I build computer systems from discrete logic through RTL and ASIC implementation—architecting the boards, writing the RTL, and building the verification frameworks that prove them.
+I'm [Tyrone Iras Marhguy](${WIKIPEDIA_URL}) — a Ghanaian Computer Engineering student at the [University of Pennsylvania](https://www.upenn.edu) on a full scholarship. I build computer systems from discrete logic through RTL-to-GDS flows—architecting the boards, writing the RTL, and building the verification frameworks that prove them.
 
 # Early Life
 

@@ -3,7 +3,7 @@ title: 'LibreLane, Verilator, OpenFPGA, OpenROAD'
 date: '2026-08-15'
 description: 'LibreLane #1016 shipped as 3.0.10 — pre- and post-synth check errors both count — plus OpenROAD, LibreLane 3.0.8, Verilator, and OpenFPGA.'
 project: open-source
-image: '/images/open-source/openroad-contribution-activity.png'
+image: '/images/open-source/openroad11107.png'
 imageAlt: 'GitHub contribution activity for The-OpenROAD-Project in August 2026 — four commits and merged pull request #11107.'
 ---
 
@@ -25,13 +25,13 @@ I started small, focusing on documentation just to understand the mechanics of o
 
 Today, OpenROAD. Production tech files had a stray space after the semicolon in `MINWIDTH WRONGDIRECTION`, and they wouldn't load. [PR #11107](https://github.com/The-OpenROAD-Project/OpenROAD/pull/11107) fixes that so they do.
 
-![GitHub contribution activity — four commits in OpenROAD and pull request #11107.](/images/open-source/openroad-contribution-activity.png)
+![GitHub contribution activity — four commits in OpenROAD and pull request #11107.](/images/open-source/openroad11107.png)
 
 _OpenROAD — four commits and #11107._
 
 That LibreLane row closed the loop. [PR #1015](https://github.com/librelane/librelane/pull/1015) is the only change in [LibreLane 3.0.8](https://github.com/librelane/librelane/releases/tag/3.0.8).
 
-![LibreLane 3.0.8 — #1015 is the change that shipped.](/images/open-source/librelane-3.0.8.png)
+![LibreLane 3.0.8 — #1015 is the change that shipped.](/images/open-source/librelane1015.png)
 
 _LibreLane 3.0.8 — #1015 is the change that shipped._
 

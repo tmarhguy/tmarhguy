@@ -3,6 +3,8 @@ title: 'The lingering thoughts'
 date: '2026-07-31'
 description: 'Date: 2026-07-31 Status: Decision in progress — bring-up strategy Related: Redesign into 40b --- The ALU is routed and ready for PCB fabrication. That was the hardest slice of t...'
 project: tomato
+image: '/images/orders/pcb_order_jlcpcb.png'
+imageAlt: 'PCB fabrication order'
 ---
 
 # The lingering catch

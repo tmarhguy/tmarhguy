@@ -3,6 +3,8 @@ title: 'Open Source Contributions'
 date: '2026-08-09'
 description: 'First steps into open source: two OpenFPGA docs PRs and a Verilator fix so Linux peak memory matches what the sim actually used.'
 project: open-source
+image: '/images/open-source/openfpga2682.png'
+imageAlt: 'Merged OpenFPGA pull request #2682'
 ---
 
 **See also:** [OpenFPGA](https://github.com/lnis-uofu/OpenFPGA) · [PR #2682](https://github.com/lnis-uofu/OpenFPGA/pull/2682) · [PR #2683](https://github.com/lnis-uofu/OpenFPGA/pull/2683) · [Verilator](https://github.com/verilator/verilator) · [PR #8070](https://github.com/verilator/verilator/pull/8070)

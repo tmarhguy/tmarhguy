@@ -3,6 +3,8 @@ title: 'Successful Synthesis - Implementation - Bitstream'
 date: '2026-08-02'
 description: 'First clean Vivado build for the Nexys A7 ITCH pipeline — synthesis, implementation, and bitstream with USE_ETH=1.'
 project: itch-hw
+image: '/images/home/udp-implementation.webp'
+imageAlt: 'Implemented design in Vivado device view'
 ---
 
 # First clean Vivado build — synthesis, implementation, bitstream

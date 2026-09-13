@@ -268,18 +268,27 @@ export interface LogAdjacent {
   next: LogEntry | null;
 }
 
-/** Neighbours in the global list (newest first). */
+/** Neighbours in the global list (newest first). Wraps so Previous/Next
+ *  can walk every published log in a continuous loop. */
 export function getAdjacentLogs(slug: string): LogAdjacent {
   const logs = getAllLogs();
   const index = logs.findIndex((entry) => entry.slug === slug);
 
-  if (index === -1) {
+  if (index === -1 || logs.length === 0) {
     return { previous: null, next: null };
   }
 
+  // Single entry: nowhere else to go.
+  if (logs.length === 1) {
+    return { previous: null, next: null };
+  }
+
+  const previousIndex = (index + 1) % logs.length;
+  const nextIndex = (index - 1 + logs.length) % logs.length;
+
   return {
-    previous: logs[index + 1] ?? null,
-    next: logs[index - 1] ?? null,
+    previous: logs[previousIndex] ?? null,
+    next: logs[nextIndex] ?? null,
   };
 }
 

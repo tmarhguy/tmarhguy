@@ -3,6 +3,8 @@ title: 'Implementing Mul-Div Engine'
 date: '2026-06-10'
 description: "Today's goal is integrating the multiply-divide engine. I am considering a few ideas. 74xx284/85 can compute the lower and upper products, so I will use them and sequence to com..."
 project: tomato
+image: '/images/projects/alu-render.webp'
+imageAlt: 'Hybrid CMOS ALU board render'
 ---
 
 Today's goal is integrating the multiply-divide engine. I am considering a few ideas. 74xx284/85 can compute the lower and upper products, so I will use them and sequence to compute 32b by 32b -> 64b in 4 cycles at most. That cleanly resolves Multiply. The immediate decoder means that the multiply has access to all the different immediate variants that most ISAs have.

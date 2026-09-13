@@ -3,6 +3,8 @@ title: 'Designing Additional Boards'
 date: '2026-08-02'
 description: 'Date: 2026-08-02 Status: In progress — peripheral PCB design Related: Falling back to 32b · The lingering catch · 07 ALU board doc --- I am pushing to design the remaining board...'
 project: tomato
+image: '/images/plates/mouser-pmod-2.webp'
+imageAlt: 'PMOD peripheral module'
 ---
 
 # Designing additional boards

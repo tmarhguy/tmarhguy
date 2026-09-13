@@ -3,6 +3,8 @@ title: 'Formalizing the SPICE Automation Framework'
 date: '2026-08-08'
 description: 'Formalizing one-off NGSpice scripts from the SRAM tapeout into a reusable Python package — dynamic deck rewriting, F_max binary search, and JSON/CSV/Markdown PPA reports.'
 project: spice-automation
+image: '/images/projects/spice-automation.webp'
+imageAlt: 'SPICE parametric sweep report'
 ---
 
 **See also:** [16×4 SRAM](/projects/#full-custom-sram) · [8-bit ripple-carry adder](/projects/#8-bit-ripple-carry-adder-ese-3700) · [SPICE Automation Framework](/projects/#spice-automation) · [repo](https://github.com/tmarhguy/spice-automation)

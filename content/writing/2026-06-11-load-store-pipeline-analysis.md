@@ -3,6 +3,8 @@ title: 'Load Store Pipeline Analysis'
 date: '2026-06-11'
 description: 'Every opcode indexes a 48-bit word in the microcode ROM (`DIG_ROM_256X48_microcodeeeprom`). The fields, confirmed from `main.v:2087–2106`: | Bits | Field | Notes | |------|-----...'
 project: tomato
+image: '/images/projects/sram-organization.webp'
+imageAlt: 'Memory organization figure'
 ---
 
 # Load/Store Pipeline Analysis — Tomato32

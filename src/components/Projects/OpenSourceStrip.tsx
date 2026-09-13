@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import type { ReactNode } from 'react';
+import { useState } from 'react';
 
 import type {
   OpenSourceContribution,
@@ -10,6 +13,8 @@ import {
   githubStarsShieldSrc,
   OPEN_SOURCE_BUILD_LOG_HREF,
 } from '@/data/open-source';
+
+import Lightbox, { type LightboxItem } from '../Media/Lightbox';
 
 interface OpenSourceStripProps {
   contributions: OpenSourceContribution[];
@@ -73,9 +78,30 @@ export default function OpenSourceStrip({
   contributions,
   showEvidence = false,
 }: OpenSourceStripProps) {
+  const [viewerIndex, setViewerIndex] = useState<number | null>(null);
+
   if (contributions.length === 0) {
     return null;
   }
+
+  // One navigable gallery across every contribution's proof shots.
+  const gallery: LightboxItem[] = contributions.flatMap((contribution) =>
+    contribution.evidence.map((shot) => ({
+      kind: 'image' as const,
+      src: shot.src,
+      alt: shot.alt,
+      width: shot.width,
+      height: shot.height,
+      caption: {
+        text: shot.caption,
+        href: shot.captionHref,
+        detail: shot.detail,
+      },
+    })),
+  );
+  const galleryIndexBySrc = new Map(
+    gallery.map((item, galleryIndex) => [item.src, galleryIndex]),
+  );
 
   return (
     <section
@@ -93,51 +119,9 @@ export default function OpenSourceStrip({
           Build log
         </a>
       </div>
-      {showEvidence && (
-        <div className="open-source-evidence">
-          <figure>
-            <a
-              href="/images/open-source/librelane-3.0.8.png"
-              aria-label="View full LibreLane release screenshot"
-            >
-              <Image
-                src="/images/open-source/librelane-3.0.8.png"
-                alt="LibreLane 3.0.8 release credits tmarhguy for the Yosys compatibility fix"
-                width={1246}
-                height={1199}
-                sizes="(max-width: 735px) 100vw, 50vw"
-              />
-            </a>
-            <figcaption>
-              <a href="https://github.com/librelane/librelane/releases/tag/3.0.8">
-                LibreLane · shipped in 3.0.8
-              </a>
-              <span>The compatibility fix, in the release notes.</span>
-            </figcaption>
-          </figure>
-          <figure>
-            <a
-              href="/images/open-source/openroad-contribution-activity.png"
-              aria-label="View full OpenROAD contribution screenshot"
-            >
-              <Image
-                src="/images/open-source/openroad-contribution-activity.png"
-                alt="OpenROAD contribution activity showing the LEF58 parser fix"
-                width={2012}
-                height={1084}
-                sizes="(max-width: 735px) 100vw, 50vw"
-              />
-            </a>
-            <figcaption>
-              <a href="https://github.com/The-OpenROAD-Project/OpenROAD/pull/11107">
-                OpenROAD · inside the parser
-              </a>
-              <span>The patch and its review, in the open.</span>
-            </figcaption>
-          </figure>
-        </div>
-      )}
-      <ul className="projects-open-source-list">
+      <ul
+        className={`projects-open-source-list${showEvidence ? ' projects-open-source-list--proof' : ''}`}
+      >
         {contributions.map((contribution) => {
           const starsSrc = githubStarsShieldSrc(contribution.link);
           const stargazersHref = githubStargazersHref(contribution.link);
@@ -147,60 +131,101 @@ export default function OpenSourceStrip({
           );
 
           return (
-            <li key={contribution.slug} id={contribution.slug}>
-              <span className="projects-open-source-name">
-                <a
-                  href={contribution.link}
-                  className="projects-open-source-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
+            <li
+              key={contribution.slug}
+              id={contribution.slug}
+              className={showEvidence ? 'open-source-row' : undefined}
+            >
+              {showEvidence && contribution.evidence.length > 0 && (
+                <span
+                  className="open-source-thumbs"
+                  role="group"
+                  aria-label={`${contribution.title} proof screenshots`}
                 >
-                  {contribution.title}
-                </a>
-                {starsSrc && stargazersHref && (
-                  <a
-                    href={stargazersHref}
-                    className="projects-open-source-stars"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {/* GitHub shields are remote SVGs; next/image cannot size them. */}
-                    {/* biome-ignore lint/performance/noImgElement: shields.io badge */}
-                    <img
-                      src={starsSrc}
-                      alt={`${contribution.title} GitHub stars`}
-                      height={20}
-                    />
-                  </a>
-                )}
-              </span>
-              <span className="projects-open-source-sep" aria-hidden="true">
-                {' '}
-                —{' '}
-              </span>
-              <span className="projects-open-source-desc">
-                {emphasize(contribution.desc, contribution.pulls)}
-              </span>
-              {leftoverPulls.length > 0 && (
-                <span className="projects-open-source-pulls">
-                  {leftoverPulls.map((pull, index) => (
-                    <span key={pull.href}>
-                      {index === 0 ? ' · ' : ' · '}
-                      <a
-                        href={pull.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {pull.label}
-                      </a>
-                    </span>
+                  {contribution.evidence.map((shot) => (
+                    <button
+                      key={shot.src}
+                      type="button"
+                      className="open-source-thumb"
+                      onClick={() =>
+                        setViewerIndex(galleryIndexBySrc.get(shot.src) ?? null)
+                      }
+                      aria-label={`Open screenshot: ${shot.alt}`}
+                    >
+                      <Image
+                        src={shot.src}
+                        alt=""
+                        width={shot.width}
+                        height={shot.height}
+                        sizes="(max-width: 735px) 144px, 192px"
+                      />
+                    </button>
                   ))}
                 </span>
               )}
+              <span className="open-source-row-body">
+                <span className="projects-open-source-name">
+                  <a
+                    href={contribution.link}
+                    className="projects-open-source-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {contribution.title}
+                  </a>
+                  {starsSrc && stargazersHref && (
+                    <a
+                      href={stargazersHref}
+                      className="projects-open-source-stars"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {/* GitHub shields are remote SVGs; next/image cannot size them. */}
+                      {/* biome-ignore lint/performance/noImgElement: shields.io badge */}
+                      <img
+                        src={starsSrc}
+                        alt={`${contribution.title} GitHub stars`}
+                        height={20}
+                      />
+                    </a>
+                  )}
+                </span>
+                <span className="projects-open-source-sep" aria-hidden="true">
+                  {' '}
+                  —{' '}
+                </span>
+                <span className="projects-open-source-desc">
+                  {emphasize(contribution.desc, contribution.pulls)}
+                </span>
+                {leftoverPulls.length > 0 && (
+                  <span className="projects-open-source-pulls">
+                    {leftoverPulls.map((pull, index) => (
+                      <span key={pull.href}>
+                        {index === 0 ? ' · ' : ' · '}
+                        <a
+                          href={pull.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {pull.label}
+                        </a>
+                      </span>
+                    ))}
+                  </span>
+                )}
+              </span>
             </li>
           );
         })}
       </ul>
+      {viewerIndex !== null && gallery[viewerIndex] && (
+        <Lightbox
+          items={gallery}
+          index={viewerIndex}
+          onClose={() => setViewerIndex(null)}
+          onIndexChange={setViewerIndex}
+        />
+      )}
     </section>
   );
 }

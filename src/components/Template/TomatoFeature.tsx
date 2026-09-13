@@ -1,9 +1,68 @@
-import Image from 'next/image';
+'use client';
+
 import Link from 'next/link';
+import { useState } from 'react';
 import { TOMATO_REPO_URL, TOMATO_SITE_URL } from '@/data/projects';
+import Lightbox, { type LightboxItem } from '../Media/Lightbox';
 import TomatoOperations from './TomatoOperations';
 
+const TOMATO_VIEWER_ITEMS: LightboxItem[] = [
+  {
+    kind: 'video',
+    src: '/images/os/tomato-demo.mp4',
+    poster: '/images/os/tomato-demo-poster.webp',
+    label: 'TomatoOS games and desktop running over HDMI',
+    caption: {
+      text: 'Running / FPGA — TomatoOS demo',
+      href: TOMATO_SITE_URL,
+    },
+  },
+  {
+    kind: 'video',
+    src: '/images/assembly/work-setup.mp4',
+    label: 'Soldering components onto the Tomato Dual-LUT ALU board',
+    caption: {
+      text: 'On the bench — ALU assembly',
+      href: '/writing/2026-08-18-first-phase-of-assembly/',
+    },
+  },
+];
+
+function ExpandButton({
+  label,
+  onExpand,
+}: {
+  label: string;
+  onExpand: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      className="tomato-expand"
+      onClick={onExpand}
+      aria-label={`Expand video: ${label}`}
+    >
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 14 14"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M8.5 1.5h4v4M12.5 1.5 8 6M5.5 12.5h-4v-4M1.5 12.5 6 8"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </button>
+  );
+}
+
 export default function TomatoFeature() {
+  const [viewerIndex, setViewerIndex] = useState<number | null>(null);
   return (
     <section className="tomato-feature" aria-labelledby="tomato-title">
       <div className="home-section-header">
@@ -31,32 +90,43 @@ export default function TomatoFeature() {
           <div className="tomato-media-frame">
             <video
               controls
+              autoPlay
+              muted
+              loop
               playsInline
-              preload="none"
-              poster="/images/os/hdmi-demo-poster.webp"
+              preload="metadata"
+              poster="/images/os/tomato-demo-poster.webp"
               aria-label="TomatoOS games and desktop running over HDMI"
             >
-              <source
-                src="/images/os/hdmi-demo-games-ui.mp4"
-                type="video/mp4"
-              />
-              <a href="/images/os/hdmi-demo-games-ui.mp4">
-                Watch the TomatoOS demo
-              </a>
+              <source src="/images/os/tomato-demo.mp4" type="video/mp4" />
+              <a href="/images/os/tomato-demo.mp4">Watch the TomatoOS demo</a>
             </video>
+            <ExpandButton
+              label="TomatoOS demo"
+              onExpand={() => setViewerIndex(0)}
+            />
           </div>
           <figcaption>
             <span>Running / FPGA</span> My CPU. My assembler. TomatoOS on the
-            screen. Play the demo to see the desktop and games.
+            screen. The demo auto-plays — desktop and games.
           </figcaption>
         </figure>
         <figure className="tomato-board">
           <div className="tomato-media-frame">
-            <Image
-              src="/images/home/tomato-soldering.webp"
-              alt="Soldering components onto the Tomato Dual-LUT ALU board"
-              fill
-              sizes="(max-width: 735px) 100vw, 50vw"
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Soldering components onto the Tomato Dual-LUT ALU board"
+            >
+              <source src="/images/assembly/work-setup.mp4" type="video/mp4" />
+              <a href="/images/assembly/work-setup.mp4">Watch the bench work</a>
+            </video>
+            <ExpandButton
+              label="bench assembly"
+              onExpand={() => setViewerIndex(1)}
             />
           </div>
           <figcaption>
@@ -143,6 +213,14 @@ export default function TomatoFeature() {
           </Link>
         </div>
       </div>
+      {viewerIndex !== null && TOMATO_VIEWER_ITEMS[viewerIndex] && (
+        <Lightbox
+          items={TOMATO_VIEWER_ITEMS}
+          index={viewerIndex}
+          onClose={() => setViewerIndex(null)}
+          onIndexChange={setViewerIndex}
+        />
+      )}
     </section>
   );
 }

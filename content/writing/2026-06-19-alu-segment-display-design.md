@@ -3,6 +3,8 @@ title: 'ALU segment display design'
 date: '2026-06-19'
 description: 'Four 32-bit values on screen at once—the three LUT3 operand buses plus the ALU writeback. Each row is eight hex digits; thirty-two seven-segment displays total, live as the data...'
 project: alu
+image: '/images/logs/2026-06-19-alu-segment-display-control.png'
+imageAlt: '32-digit multiplexed display in Digital'
 ---
 
 Four 32-bit values on screen at once—the three LUT3 operand buses plus the ALU writeback. Each row is eight hex digits; thirty-two seven-segment displays total, live as the datapath moves. The display is not a separate gadget bolted on: `alu-display-control.dig` mirrors the slice—`Data_A`, `Data_B`, `Data_C` in, `Data_W` (ALU out) out.

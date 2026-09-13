@@ -95,4 +95,32 @@ describe('ListItem', () => {
     expect(screen.getByText(/Favorite project/i)).toBeInTheDocument();
     expect(document.querySelector('.project-highlight')).toBeTruthy();
   });
+
+  it('autoplays the demo video instead of the still when set', () => {
+    const { container } = render(
+      <ListItem
+        data={{
+          ...mockProject,
+          video: '/images/os/tomato-demo.mp4',
+          videoPoster: '/images/os/tomato-demo-poster.webp',
+        }}
+      />,
+    );
+    const video = container.querySelector(
+      '.project-exhibit-media video',
+    ) as HTMLVideoElement | null;
+    expect(video).toBeInTheDocument();
+    expect(video!.autoplay).toBe(true);
+    expect(video!.muted).toBe(true);
+    expect(video!.loop).toBe(true);
+    expect(video!.playsInline).toBe(true);
+    expect(video!.getAttribute('poster')).toBe(
+      '/images/os/tomato-demo-poster.webp',
+    );
+    expect(video!.querySelector('source')).toHaveAttribute(
+      'src',
+      '/images/os/tomato-demo.mp4',
+    );
+    expect(container.querySelector('.project-exhibit-media img')).toBeNull();
+  });
 });

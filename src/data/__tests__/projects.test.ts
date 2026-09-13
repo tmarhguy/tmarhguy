@@ -2,8 +2,10 @@ import { describe, expect, it } from 'vitest';
 
 import projects, {
   findProjectByTitle,
+  getEarlierProjects,
   getFeaturedProjects,
   getHardwareProjects,
+  getHiddenProjects,
   getHomeFeaturedItems,
   getMoreHardwareProjects,
   getProjectAnchorHrefByTitle,
@@ -104,7 +106,7 @@ describe('projects data', () => {
   it('orders featured homepage projects by cracked-hardware rank', () => {
     expect(
       getFeaturedProjects().map((project) => getProjectSlug(project)),
-    ).toEqual(['mac', '100mbps-udp-ip-stack']);
+    ).toEqual(['mac', '100mbps-udp-ip-stack', 'full-custom-sram']);
   });
 
   it('leads the homepage strip with open source, then MAC and UDP', () => {
@@ -112,9 +114,10 @@ describe('projects data', () => {
       'Open source EDA',
       '16-bit MAC Unit (Sky130)',
       '100 Mbps UDP/IP Stack',
+      '16×4 SRAM — Full-Custom Analog Design',
     ]);
     expect(getHomeFeaturedItems()[0]?.image).toBe(
-      '/images/open-source/librelane-3.0.8.png',
+      '/images/open-source/librelane1015.png',
     );
     expect(getHomeFeaturedItems()[0]?.desc).toMatch(/3\.0\.8 and 3\.0\.10/);
   });
@@ -126,11 +129,39 @@ describe('projects data', () => {
     expect(mac?.image).toBe('/images/projects/mac-core.webp');
   });
 
-  it('includes hardware, tools, and software lanes from resume work', () => {
+  it('curates hardware order: MAC up top, UDP and ITCH never adjacent', () => {
+    const slugs = getHardwareProjects().map((project) =>
+      getProjectSlug(project),
+    );
+    expect(slugs.slice(0, 3)).toEqual([
+      'tomato',
+      'mac',
+      '100mbps-udp-ip-stack',
+    ]);
+    const udpIndex = slugs.indexOf('100mbps-udp-ip-stack');
+    const itchIndex = slugs.indexOf('nasdaq-itch');
+    expect(udpIndex).toBeGreaterThanOrEqual(0);
+    expect(itchIndex).toBeGreaterThanOrEqual(0);
+    expect(Math.abs(udpIndex - itchIndex)).toBeGreaterThan(1);
+  });
+
+  it('keeps the full history in data while curating the wall', () => {
     expect(projects.length).toBeGreaterThanOrEqual(18);
-    expect(getHardwareProjects().length).toBeGreaterThanOrEqual(8);
-    expect(getToolsProjects().length).toBeGreaterThanOrEqual(3);
-    expect(getSoftwareProjects().length).toBeGreaterThanOrEqual(6);
+    expect(getHardwareProjects()).toHaveLength(9);
+    expect(getToolsProjects()).toHaveLength(0);
+    expect(getSoftwareProjects()).toHaveLength(2);
+    expect(getEarlierProjects().map((project) => project.title)).toEqual([
+      'Music & You',
+      'YT2Spot',
+      'MoMo Credit Score',
+      'UniBridge Ghana',
+      'QueuePaste',
+    ]);
+    expect(
+      getHiddenProjects()
+        .map((project) => project.title)
+        .sort(),
+    ).toEqual(['Color Communication Game', 'Mango Tools']);
   });
 
   it('includes related analog, tooling, and bring-up work', () => {
@@ -155,8 +186,17 @@ describe('projects data', () => {
     expect(getProjectAnchorHrefByTitle('SRAM')).toBe(
       '/projects/#full-custom-sram',
     );
-    expect(getProjectAnchorHrefByTitle('Mango')).toBe('/projects/#mango-tools');
+    expect(getProjectAnchorHrefByTitle('QueuePaste')).toBe(
+      '/projects/#queuepaste',
+    );
     expect(getProjectSlug(findProjectByTitle('Tomato')!)).toBe('tomato');
+  });
+
+  it('falls back to the projects index for curated-off entries', () => {
+    expect(getProjectAnchorHrefByTitle('Mango')).toBe('/projects/');
+    expect(getProjectAnchorHrefByTitle('Color Communication')).toBe(
+      '/projects/',
+    );
   });
 
   it('lists Tomato with both the live site and the GitHub repo', () => {
@@ -196,37 +236,24 @@ describe('projects data', () => {
     }
 
     const tools = getToolsProjects();
-    expect(tools[0]?.title).toBe('Mango Tools');
-    expect(
-      tools.map((project) => ({
-        title: project.title,
-        image: project.image,
-      })),
-    ).toEqual([
-      {
-        title: 'Mango Tools',
-        image: '/images/mango/main_menu.png',
-      },
-      {
-        title: 'YT2Spot',
-        image: '/images/projects/yt2spot.webp',
-      },
-      {
-        title: 'QueuePaste',
-        image: '/images/projects/queuepaste.webp',
-      },
-    ]);
+    expect(tools).toEqual([]);
   });
 
-  it('partitions hardware, tools, and software without overlap', () => {
+  it('partitions main, earlier, and hidden without overlap', () => {
     const hardware = getHardwareProjects();
     const tools = getToolsProjects();
     const moreHardware = getMoreHardwareProjects();
     const software = getSoftwareProjects();
+    const earlier = getEarlierProjects();
+    const hidden = getHiddenProjects();
 
-    expect(hardware.length + tools.length + software.length).toBe(
-      projects.length,
-    );
+    expect(
+      hardware.length +
+        tools.length +
+        software.length +
+        earlier.length +
+        hidden.length,
+    ).toBe(projects.length);
     expect(software.every((project) => project.category === 'software')).toBe(
       true,
     );
