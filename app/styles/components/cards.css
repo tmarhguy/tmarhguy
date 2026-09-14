@@ -284,12 +284,15 @@
 }
 
 .projects-open-source-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
   white-space: nowrap;
 }
 
 .projects-open-source-stars {
-  display: inline-block;
-  margin-left: 0.4em;
+  display: inline-flex;
+  flex-shrink: 0;
   line-height: 0;
   vertical-align: middle;
 }

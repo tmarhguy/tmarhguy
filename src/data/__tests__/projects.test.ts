@@ -146,9 +146,13 @@ describe('projects data', () => {
   });
 
   it('keeps the full history in data while curating the wall', () => {
-    expect(projects.length).toBeGreaterThanOrEqual(18);
+    expect(projects.length).toBeGreaterThanOrEqual(19);
     expect(getHardwareProjects()).toHaveLength(9);
-    expect(getToolsProjects()).toHaveLength(0);
+    expect(getToolsProjects()).toHaveLength(2);
+    expect(getToolsProjects().map((project) => project.title)).toEqual([
+      'FramePort',
+      'Mango Tools',
+    ]);
     expect(getSoftwareProjects()).toHaveLength(2);
     expect(getEarlierProjects().map((project) => project.title)).toEqual([
       'Music & You',
@@ -161,7 +165,7 @@ describe('projects data', () => {
       getHiddenProjects()
         .map((project) => project.title)
         .sort(),
-    ).toEqual(['Color Communication Game', 'Mango Tools']);
+    ).toEqual(['Color Communication Game']);
   });
 
   it('includes related analog, tooling, and bring-up work', () => {
@@ -171,6 +175,7 @@ describe('projects data', () => {
     expect(titles).toContain('8-Bit Ripple-Carry Adder — ESE 3700');
     expect(titles).toContain('QueuePaste');
     expect(titles).toContain('Mango Tools');
+    expect(titles).toContain('FramePort');
     expect(titles).toContain('YT2Spot');
     expect(titles).toContain('Music & You');
     expect(titles).toContain('Color Communication Game');
@@ -192,8 +197,8 @@ describe('projects data', () => {
     expect(getProjectSlug(findProjectByTitle('Tomato')!)).toBe('tomato');
   });
 
-  it('falls back to the projects index for curated-off entries', () => {
-    expect(getProjectAnchorHrefByTitle('Mango')).toBe('/projects/');
+  it('anchors visible projects and falls back for hidden ones', () => {
+    expect(getProjectAnchorHrefByTitle('Mango')).toBe('/projects/#mango-tools');
     expect(getProjectAnchorHrefByTitle('Color Communication')).toBe(
       '/projects/',
     );
@@ -219,8 +224,21 @@ describe('projects data', () => {
     expect(byTitle['16-bit MAC Unit (Sky130)']).toBe('mac');
     expect(byTitle['8-bit Discrete Transistor ALU']).toBe('alu');
     expect(byTitle['Mango Tools']).toBe('mango');
+    expect(byTitle['FramePort']).toBe('frameport');
     expect(byTitle['SPICE Automation Framework']).toBe('spice-automation');
     expect(byTitle['QueuePaste']).toBeUndefined();
+  });
+
+  it('lists FramePort with both the Marketplace page and the GitHub repo', () => {
+    const frameport = findProjectByTitle('FramePort')!;
+    expect(frameport.site).toBe(
+      'https://marketplace.visualstudio.com/items?itemName=tmarhguy.frameport',
+    );
+    expect(frameport.link).toBe('https://github.com/tmarhguy/frameport');
+    expect(frameport.video).toBe('/images/projects/frameport-demo.mp4');
+    expect(frameport.videoPoster).toBe(
+      '/images/projects/frameport-demo-poster.webp',
+    );
   });
 
   it('orders category lists with images before text-only entries', () => {
@@ -236,7 +254,8 @@ describe('projects data', () => {
     }
 
     const tools = getToolsProjects();
-    expect(tools).toEqual([]);
+    expect(tools).toHaveLength(2);
+    expect(tools.every((project) => project.image)).toBe(true);
   });
 
   it('partitions main, earlier, and hidden without overlap', () => {

@@ -140,6 +140,9 @@
   gap: 1rem;
   margin: 1.25rem 1.5rem 0.65rem;
 }
+.project-list-date-year {
+  display: none;
+}
 .projects-exhibition .project-list-body {
   margin: 0 1.5rem;
 }
@@ -165,7 +168,7 @@
 }
 .projects-exhibition .project-list-aux-link {
   display: inline-block;
-  margin: 0.75rem 0.75rem 0 0;
+  margin: 0.75rem 0.75rem 0 0.75rem;
 }
 .projects-exhibition .project-list-desc {
   display: block;
@@ -184,6 +187,23 @@
   margin: 0;
   min-width: 0;
 }
+.project-exhibit-media-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  background-image: none;
+  line-height: 0;
+}
+.project-exhibit-media-link:hover img,
+.project-exhibit-media-link:hover video,
+.project-exhibit-media-link:focus-visible img,
+.project-exhibit-media-link:focus-visible video {
+  opacity: 0.92;
+}
+.project-exhibit-media-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
 .project-exhibit-media img,
 .project-exhibit-media video {
   display: block;
@@ -192,6 +212,7 @@
   aspect-ratio: 16 / 10;
   object-fit: contain;
   background: var(--color-surface-subtle);
+  transition: opacity var(--duration-instant) var(--ease-out);
 }
 .project-exhibit-media figcaption {
   padding: 0.65rem 1.5rem;
@@ -237,7 +258,7 @@
   background: color-mix(in srgb, var(--color-bg) 35%, var(--color-bg-alt));
 }
 .projects-exhibition .projects-open-source-name {
-  display: block;
+  display: inline-flex;
   font-family: var(--font-display);
   font-size: var(--text-lg);
   margin-bottom: 0.5rem;
@@ -384,12 +405,101 @@
   .operation-paths strong {
     font-size: 1.2rem;
   }
-  .projects-exhibition .project-list,
+  /* Keep a compact 2-up shelf on phones; flagship still spans full width. */
+  .projects-exhibition .project-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
+  .projects-exhibition .project-list-item {
+    padding-bottom: 0.65rem;
+  }
+  .projects-exhibition .project-list-meta,
+  .projects-exhibition .project-list-body {
+    margin-left: 0.65rem;
+    margin-right: 0.65rem;
+  }
+  .projects-exhibition .project-list-meta {
+    margin-top: 0.55rem;
+    margin-bottom: 0.25rem;
+    gap: 0.35rem;
+  }
+  /* Drop month ranges — year + Log/GitHub is enough in a 2-up cell. */
+  .projects-exhibition
+    .project-list-item:not(.project-list-item--flagship)
+    .project-list-date-full {
+    display: none;
+  }
+  .projects-exhibition
+    .project-list-item:not(.project-list-item--flagship)
+    .project-list-date-year {
+    display: inline;
+  }
+  .projects-exhibition
+    .project-list-item:not(.project-list-item--flagship)
+    .project-exhibit-media
+    figcaption {
+    display: none;
+  }
+  .projects-exhibition
+    .project-list-item:not(.project-list-item--flagship)
+    .project-exhibit-media
+    img,
+  .projects-exhibition
+    .project-list-item:not(.project-list-item--flagship)
+    .project-exhibit-media
+    video {
+    aspect-ratio: 16 / 9;
+  }
+  .projects-exhibition .project-list-title {
+    font-size: var(--text-sm);
+    margin-bottom: 0.3rem;
+    line-height: 1.25;
+  }
+  .projects-exhibition .project-list-aux-link {
+    margin: 0 0 0 0.35rem;
+  }
+  .projects-exhibition .project-list-desc {
+    font-size: var(--text-xs);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  .projects-exhibition .project-list-item:not(.project-list-item--flagship) .project-list-tech {
+    display: none;
+  }
+  .projects-exhibition .project-list-item--flagship .project-list-tech {
+    margin-top: 0.5rem;
+    font-size: 0.65rem;
+    line-height: 1.5;
+  }
+  .project-exhibit-media figcaption {
+    padding: 0.45rem 0.75rem;
+  }
   .projects-exhibition .projects-open-source-list {
     grid-template-columns: 1fr;
   }
   .projects-exhibition .project-list-item--flagship {
     display: flex;
+    grid-column: 1 / -1;
+  }
+  .projects-exhibition .project-list-item--flagship .project-list-date-full {
+    display: inline;
+  }
+  .projects-exhibition .project-list-item--flagship .project-list-date-year {
+    display: none;
+  }
+  .projects-exhibition .project-list-item--flagship .project-list-desc {
+    -webkit-line-clamp: unset;
+    display: block;
+    overflow: visible;
+    font-size: var(--text-sm);
+    line-height: 1.55;
+  }
+  .projects-exhibition .project-list-item--flagship .project-list-title {
+    font-size: clamp(1.15rem, 5vw, 1.45rem);
+    margin-bottom: 0.5rem;
   }
   .about-editorial-hero figure {
     max-width: none;
@@ -582,12 +692,17 @@
   min-width: 0;
 }
 @media (max-width: 735px) {
+  /* Keep proof thumb beside the name/stars line — don't stack into a tall card. */
   .open-source-row {
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.6rem;
   }
   .open-source-thumb img {
-    height: 72px;
+    height: 64px;
+  }
+  .projects-exhibition .projects-open-source-name {
+    font-size: var(--text-md);
+    margin-bottom: 0.35rem;
   }
 }
 

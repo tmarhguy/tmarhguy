@@ -58,6 +58,12 @@ const logProjects: LogProject[] = [
     label: 'Mango Tools',
     link: 'https://github.com/tmarhguy/tools',
   },
+  {
+    id: 'frameport',
+    label: 'FramePort',
+    site: 'https://marketplace.visualstudio.com/items?itemName=tmarhguy.frameport',
+    link: 'https://github.com/tmarhguy/frameport',
+  },
 ];
 
 export function getLogProject(id: string): LogProject | undefined {

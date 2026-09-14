@@ -93,6 +93,9 @@ describe('writing information architecture', () => {
       screen.getByRole('heading', { name: 'Tomato CPU — July' }),
     ).toBeInTheDocument();
     expect(
+      screen.getByRole('heading', { name: 'FramePort' }),
+    ).toBeInTheDocument();
+    expect(
       screen.getByRole('heading', { name: 'Tomato CPU — Earlier' }),
     ).toBeInTheDocument();
   });
@@ -110,8 +113,10 @@ describe('writing information architecture', () => {
       screen.getByRole('heading', { level: 2, name: 'Hardware' }),
     ).toBeInTheDocument();
     expect(
-      screen.queryByRole('heading', { level: 2, name: 'Tools' }),
-    ).not.toBeInTheDocument();
+      screen.getByRole('heading', { level: 2, name: 'Tools' }),
+    ).toBeInTheDocument();
+    expect(screen.getByText('FramePort')).toBeInTheDocument();
+    expect(screen.getByText('Mango Tools')).toBeInTheDocument();
     expect(
       screen.getByRole('heading', { level: 2, name: 'Software' }),
     ).toBeInTheDocument();

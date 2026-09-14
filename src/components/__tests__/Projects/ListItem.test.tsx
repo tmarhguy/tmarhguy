@@ -26,6 +26,7 @@ describe('ListItem', () => {
   it('renders period in the date column', () => {
     render(<ListItem data={mockProject} />);
     expect(screen.getByText('Jul. 2026')).toBeInTheDocument();
+    expect(screen.getByText('2026')).toBeInTheDocument();
   });
 
   it('links the title when a URL is present', () => {
@@ -96,6 +97,25 @@ describe('ListItem', () => {
     expect(document.querySelector('.project-highlight')).toBeTruthy();
   });
 
+  it('links the exhibit image to the same destination as the title', () => {
+    const { container } = render(
+      <ListItem
+        data={{
+          ...mockProject,
+          image: '/images/projects/mac-core.webp',
+          imageCaption: 'MAC core preview',
+        }}
+      />,
+    );
+
+    const mediaLink = container.querySelector(
+      '.project-exhibit-media-link',
+    ) as HTMLAnchorElement | null;
+    expect(mediaLink).toBeInTheDocument();
+    expect(mediaLink).toHaveAttribute('href', mockProject.link);
+    expect(mediaLink).toHaveAttribute('aria-label', 'Open Test Project');
+  });
+
   it('autoplays the demo video instead of the still when set', () => {
     const { container } = render(
       <ListItem
@@ -122,5 +142,8 @@ describe('ListItem', () => {
       '/images/os/tomato-demo.mp4',
     );
     expect(container.querySelector('.project-exhibit-media img')).toBeNull();
+    expect(
+      container.querySelector('.project-exhibit-media-link'),
+    ).toHaveAttribute('href', mockProject.link);
   });
 });

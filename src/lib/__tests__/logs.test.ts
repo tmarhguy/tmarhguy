@@ -27,9 +27,7 @@ describe('getAllLogs', () => {
 
   it('lists the newest log as the lead writing entry', () => {
     const logs = getAllLogs();
-    expect(logs[0]?.slug).toBe(
-      '2026-09-11-wallpaper-polish-and-the-rest-of-the-computer',
-    );
+    expect(logs[0]?.slug).toBe('2026-09-13-welcome-frameport');
   });
 
   it('pins the September wallpaper log first on the homepage recent strip', () => {
@@ -39,8 +37,8 @@ describe('getAllLogs', () => {
     );
     expect(recent.map((entry) => entry.slug)).toEqual([
       '2026-09-11-wallpaper-polish-and-the-rest-of-the-computer',
-      '2026-09-11-of-course-tomato-needs-sudoku',
-      '2026-09-11-hdmi-properly-captured',
+      '2026-09-13-welcome-frameport',
+      '2026-09-13-screenshots-and-recording',
     ]);
   });
 
@@ -161,10 +159,9 @@ describe('getLogsByProject', () => {
       '2026-08-09-first-open-source-contributions',
     ]);
     expect(tomatoSepGroup.projectLabel).toBe('Tomato CPU — September');
-    expect(tomatoSepGroup.entries[0]?.slug).toBe(
-      '2026-09-11-wallpaper-polish-and-the-rest-of-the-computer',
-    );
+    expect(tomatoSepGroup.entries[0]?.slug).toBe('2026-09-13-isa-upgrade');
     expect(tomatoSepGroup.entries.map((entry) => entry.slug)).toEqual([
+      '2026-09-13-isa-upgrade',
       '2026-09-11-wallpaper-polish-and-the-rest-of-the-computer',
       '2026-09-11-of-course-tomato-needs-sudoku',
       '2026-09-11-hdmi-properly-captured',
@@ -178,8 +175,8 @@ describe('getLogsByProject', () => {
       '2026-08-29-register-upgrade',
       '2026-08-29-tomato-works-beautifully',
       '2026-08-28-successful-video-fpga-pmod',
+      '2026-08-28-pixels-on-the-glass',
       '2026-08-28-one-press-one-key',
-      '2026-08-28-exploring-beyond-vivado-open-source-synthesis-pivot',
     ]);
     expect(tomatoJulGroup.projectLabel).toBe('Tomato CPU — July');
     expect(tomatoJulGroup.entries[0]?.date).toBe('2026-07-31');
@@ -254,11 +251,26 @@ describe('writing section anchors', () => {
       '/writing/#writing-tomato-sep',
     );
     expect(getWritingSectionHref('itch-hw')).toBe('/writing/#writing-itch-hw');
+    expect(getWritingSectionHref('frameport')).toBe(
+      '/writing/#writing-frameport',
+    );
   });
 
   it('knows which log projects have published entries', () => {
     expect(projectHasWriting('tomato')).toBe(true);
+    expect(projectHasWriting('frameport')).toBe(true);
     expect(projectHasWriting('not-a-project')).toBe(false);
+  });
+
+  it('groups FramePort build notes under their own section', () => {
+    const groups = getLogsByProject();
+    const frameport = groups.find((group) => group.project === 'frameport');
+    expect(frameport?.projectLabel).toBe('FramePort');
+    expect(frameport?.entries.map((entry) => entry.slug)).toEqual([
+      '2026-09-13-welcome-frameport',
+      '2026-09-13-screenshots-and-recording',
+      '2026-09-13-other-device-stream',
+    ]);
   });
 });
 

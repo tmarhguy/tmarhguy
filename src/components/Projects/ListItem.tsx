@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import type { ReactNode } from 'react';
 
 import type { Project } from '@/data/projects';
 import { getProjectSlug } from '@/data/projects';
@@ -12,6 +13,36 @@ interface ListItemProps {
   number?: number;
 }
 
+function ExhibitMedia({
+  href,
+  label,
+  caption,
+  children,
+}: {
+  href?: string;
+  label: string;
+  caption?: string;
+  children: ReactNode;
+}) {
+  return (
+    <figure className="project-exhibit-media">
+      {href ? (
+        <a
+          href={href}
+          className="project-exhibit-media-link"
+          aria-label={label}
+          {...externalAnchorProps(href)}
+        >
+          {children}
+        </a>
+      ) : (
+        children
+      )}
+      {caption ? <figcaption>{caption}</figcaption> : null}
+    </figure>
+  );
+}
+
 export default function ListItem({ data, number }: ListItemProps) {
   const { title, link, site, period, date, desc, tech, highlight, logProject } =
     data;
@@ -21,6 +52,10 @@ export default function ListItem({ data, number }: ListItemProps) {
       : null;
   const hasSiteAndRepo = Boolean(site && link && site !== link);
   const titleHref = site ?? link;
+  // Full period on desktop; year-only on the compact mobile shelf.
+  const year = date.slice(0, 4);
+  const mediaCaption = data.imageCaption ?? data.subtitle;
+  const mediaLabel = `Open ${title}`;
 
   return (
     <article
@@ -28,7 +63,11 @@ export default function ListItem({ data, number }: ListItemProps) {
       className={`project-list-item ${data.image ? 'project-list-item--media' : 'project-list-item--text'} ${getProjectSlug(data) === 'tomato' ? 'project-list-item--flagship' : ''}`}
     >
       {data.video ? (
-        <figure className="project-exhibit-media">
+        <ExhibitMedia
+          href={titleHref}
+          label={mediaLabel}
+          caption={mediaCaption}
+        >
           <video
             autoPlay
             muted
@@ -40,24 +79,27 @@ export default function ListItem({ data, number }: ListItemProps) {
           >
             <source src={data.video} type="video/mp4" />
           </video>
-          <figcaption>{data.imageCaption ?? data.subtitle}</figcaption>
-        </figure>
+        </ExhibitMedia>
       ) : (
         data.image && (
-          <figure className="project-exhibit-media">
+          <ExhibitMedia
+            href={titleHref}
+            label={mediaLabel}
+            caption={mediaCaption}
+          >
             <Image
               src={data.image}
               alt={data.imageCaption ?? `${title} project screenshot`}
               width={1200}
               height={750}
             />
-            <figcaption>{data.imageCaption ?? data.subtitle}</figcaption>
-          </figure>
+          </ExhibitMedia>
         )
       )}
       <div className="project-list-meta">
         <time className="project-list-date" dateTime={date}>
-          {period}
+          <span className="project-list-date-full">{period}</span>
+          <span className="project-list-date-year">{year}</span>
         </time>
         {writingHref ? (
           <Link href={writingHref} className="project-list-log-link">
