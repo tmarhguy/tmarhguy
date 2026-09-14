@@ -175,8 +175,8 @@ describe('getLogsByProject', () => {
       '2026-08-29-register-upgrade',
       '2026-08-29-tomato-works-beautifully',
       '2026-08-28-successful-video-fpga-pmod',
+      '2026-08-28-pixels-on-the-glass',
       '2026-08-28-one-press-one-key',
-      '2026-08-28-exploring-beyond-vivado-open-source-synthesis-pivot',
     ]);
     expect(tomatoJulGroup.projectLabel).toBe('Tomato CPU — July');
     expect(tomatoJulGroup.entries[0]?.date).toBe('2026-07-31');
