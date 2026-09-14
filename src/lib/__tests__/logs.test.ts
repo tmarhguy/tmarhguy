@@ -159,10 +159,9 @@ describe('getLogsByProject', () => {
       '2026-08-09-first-open-source-contributions',
     ]);
     expect(tomatoSepGroup.projectLabel).toBe('Tomato CPU — September');
-    expect(tomatoSepGroup.entries[0]?.slug).toBe(
-      '2026-09-11-wallpaper-polish-and-the-rest-of-the-computer',
-    );
+    expect(tomatoSepGroup.entries[0]?.slug).toBe('2026-09-13-isa-upgrade');
     expect(tomatoSepGroup.entries.map((entry) => entry.slug)).toEqual([
+      '2026-09-13-isa-upgrade',
       '2026-09-11-wallpaper-polish-and-the-rest-of-the-computer',
       '2026-09-11-of-course-tomato-needs-sudoku',
       '2026-09-11-hdmi-properly-captured',
