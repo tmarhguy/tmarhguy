@@ -142,9 +142,8 @@ describe('ListItem', () => {
       '/images/os/tomato-demo.mp4',
     );
     expect(container.querySelector('.project-exhibit-media img')).toBeNull();
-    expect(container.querySelector('.project-exhibit-media-link')).toHaveAttribute(
-      'href',
-      mockProject.link,
-    );
+    expect(
+      container.querySelector('.project-exhibit-media-link'),
+    ).toHaveAttribute('href', mockProject.link);
   });
 });
