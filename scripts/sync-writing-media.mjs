@@ -26,6 +26,10 @@ const MEDIA_ROOTS = [
   resolve(ROOT, '../tomato/web/assets'),
   resolve(ROOT, 'alu/media'),
   resolve(ROOT, '../alu/media'),
+  resolve(ROOT, 'frameport/docs/images'),
+  resolve(ROOT, '../frameport/docs/images'),
+  resolve(ROOT, 'frameport/media/screenshots'),
+  resolve(ROOT, '../frameport/media/screenshots'),
 ];
 
 const IMAGE_REF =
@@ -80,6 +84,17 @@ export function resolveSource(relative) {
       resolve(ROOT, '../tools/media'),
     ]) {
       const candidate = join(root, name);
+      if (existsSync(candidate)) {
+        return candidate;
+      }
+    }
+  }
+
+  // /images/frameport/foo.webp ← frameport docs/images/foo.png (optimized to webp)
+  if (relative.startsWith('frameport/') && relative.endsWith('.webp')) {
+    const pngName = `${relative.slice('frameport/'.length, -'.webp'.length)}.png`;
+    for (const root of MEDIA_ROOTS) {
+      const candidate = join(root, pngName);
       if (existsSync(candidate)) {
         return candidate;
       }

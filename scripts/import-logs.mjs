@@ -26,14 +26,18 @@ const SOURCE_DIRS = [
   resolve(ROOT, 'tomato/docs/log'),
   resolve(ROOT, 'tools/log'),
   resolve(ROOT, 'alu/docs/log'),
+  resolve(ROOT, 'frameport/docs/log'),
   resolve(ROOT, '../tomato/docs/log'),
   resolve(ROOT, '../tools/log'),
   resolve(ROOT, '../alu/docs/log'),
+  resolve(ROOT, '../frameport/docs/log'),
 ].filter((dir) => existsSync(dir));
 
 /** Stub vault index files that are not publishable build notes. */
 const SKIP_FILES = new Set([
   'Welcome.md',
+  'README.md',
+  'readme.md',
   '2026-09-01 - Quiet stretch after HDMI.md',
 ]);
 
@@ -90,6 +94,10 @@ const PROJECT_BY_FILE = {
   '2026-08-09-first-open-source-contributions.md': 'open-source',
   '2026-08-11-librelane-verilator-openfpga.md': 'open-source',
   '2026-08-03-reassessing-mac-for-optimization.md': 'mac',
+  '2026-09-13-welcome-frameport.md': 'frameport',
+  '2026-09-13-screenshots-and-recording.md': 'frameport',
+  '2026-09-13-other-device-stream.md': 'frameport',
+  '2026-09-13-isa-upgrade.md': 'tomato',
 };
 
 function slugify(text) {
@@ -126,6 +134,9 @@ function inferProject(slug, title, body) {
   }
 
   const haystack = `${title} ${body}`.toLowerCase();
+  if (/frameport|vs code.*capture|hdmi.*vs code/.test(haystack)) {
+    return 'frameport';
+  }
   if (
     /open.?source|verilator|openfpga|openroad/.test(haystack) ||
     (/librelane/.test(haystack) && !/\bmac\b|tapeout|sky130/.test(haystack))
@@ -179,12 +190,23 @@ function normalizeMedia(markdown) {
   // tools/log → ../media/foo.png
   text = text.replace(/\]\(\.\.\/media\//g, '](/images/mango/');
   text = text.replace(/\bsrc=["']\.\.\/media\//g, 'src="/images/mango/');
+  // frameport/docs/log → ../images/foo.png → /images/frameport/foo.webp
+  text = text.replace(
+    /\]\(\.\.\/images\/([^)]+?)\.png\)/g,
+    '](/images/frameport/$1.webp)',
+  );
+  text = text.replace(
+    /\bsrc=["']\.\.\/images\/([^"']+?)\.png["']/g,
+    'src="/images/frameport/$1.webp"',
+  );
 
   const rewriteAssetSrc = (src) =>
     src
       .replace(/^\.\.\/\.\.\/web\/assets\//, '/images/')
       .replace(/^\.\.\/\.\.\/media\//, '/images/')
-      .replace(/^\.\.\/media\//, '/images/mango/');
+      .replace(/^\.\.\/media\//, '/images/mango/')
+      .replace(/^\.\.\/images\/(.+?)\.png$/, '/images/frameport/$1.webp')
+      .replace(/^\.\.\/images\//, '/images/frameport/');
 
   text = text.replace(
     /<video\b([^>]*)\bsrc=["']([^"']+)["']([^>]*)>/gi,
