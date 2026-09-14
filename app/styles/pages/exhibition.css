@@ -466,9 +466,7 @@
     -webkit-line-clamp: 2;
     overflow: hidden;
   }
-  .projects-exhibition
-    .project-list-item:not(.project-list-item--flagship)
-    .project-list-tech {
+  .projects-exhibition .project-list-item:not(.project-list-item--flagship) .project-list-tech {
     display: none;
   }
   .projects-exhibition .project-list-item--flagship .project-list-tech {
