@@ -389,7 +389,7 @@
   display: inline-block;
   margin: 0.5rem 1.5rem 0.5rem 0;
 }
-@media (max-width: 735px) {
+@media (max-width: 800px) {
   .tomato-operations,
   .about-editorial-hero,
   .public-story {
@@ -691,14 +691,27 @@
 .open-source-row-body {
   min-width: 0;
 }
-@media (max-width: 735px) {
+@media (max-width: 800px) {
   /* Keep proof thumb beside the name/stars line — don't stack into a tall card. */
   .open-source-row {
     flex-direction: row;
     gap: 0.6rem;
   }
+  .open-source-thumbs {
+    flex: 0 0 6rem;
+  }
+  .open-source-thumb,
+  .open-source-thumb img {
+    width: 100%;
+  }
   .open-source-thumb img {
     height: 64px;
+    object-fit: contain;
+  }
+  .projects-exhibition .projects-open-source-name {
+    max-width: 100%;
+    flex-wrap: wrap;
+    white-space: normal;
   }
   .projects-exhibition .projects-open-source-name {
     font-size: var(--text-md);

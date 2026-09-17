@@ -97,6 +97,10 @@
   background-image: none;
 }
 
+.writing-list-desc-link {
+  overflow-wrap: anywhere;
+}
+
 .writing-list-item:hover .writing-list-title-link,
 .writing-list-item:focus-within .writing-list-title-link {
   color: var(--color-accent);
