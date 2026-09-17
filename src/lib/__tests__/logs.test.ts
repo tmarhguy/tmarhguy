@@ -27,7 +27,7 @@ describe('getAllLogs', () => {
 
   it('lists the newest log as the lead writing entry', () => {
     const logs = getAllLogs();
-    expect(logs[0]?.slug).toBe('2026-09-13-welcome-frameport');
+    expect(logs[0]?.slug).toBe('2026-09-15-virtual-fallback-vs-ai');
   });
 
   it('pins the September wallpaper log first on the homepage recent strip', () => {
@@ -37,8 +37,8 @@ describe('getAllLogs', () => {
     );
     expect(recent.map((entry) => entry.slug)).toEqual([
       '2026-09-11-wallpaper-polish-and-the-rest-of-the-computer',
-      '2026-09-13-welcome-frameport',
-      '2026-09-13-screenshots-and-recording',
+      '2026-09-15-virtual-fallback-vs-ai',
+      '2026-09-15-scope-optimization',
     ]);
   });
 
@@ -159,8 +159,15 @@ describe('getLogsByProject', () => {
       '2026-08-09-first-open-source-contributions',
     ]);
     expect(tomatoSepGroup.projectLabel).toBe('Tomato CPU — September');
-    expect(tomatoSepGroup.entries[0]?.slug).toBe('2026-09-13-isa-upgrade');
+    expect(tomatoSepGroup.entries[0]?.slug).toBe(
+      '2026-09-15-virtual-fallback-vs-ai',
+    );
     expect(tomatoSepGroup.entries.map((entry) => entry.slug)).toEqual([
+      '2026-09-15-virtual-fallback-vs-ai',
+      '2026-09-15-discard-previewer-or-integrate',
+      '2026-09-14-synthesis-bypass',
+      '2026-09-14-multiple-participants',
+      '2026-09-14-envelop-tomato-gets-a-message-app',
       '2026-09-13-isa-upgrade',
       '2026-09-11-wallpaper-polish-and-the-rest-of-the-computer',
       '2026-09-11-of-course-tomato-needs-sudoku',
@@ -259,7 +266,21 @@ describe('writing section anchors', () => {
   it('knows which log projects have published entries', () => {
     expect(projectHasWriting('tomato')).toBe(true);
     expect(projectHasWriting('frameport')).toBe(true);
+    expect(projectHasWriting('envelop')).toBe(true);
     expect(projectHasWriting('not-a-project')).toBe(false);
+  });
+
+  it('groups Envelop build notes under their own section', () => {
+    const groups = getLogsByProject();
+    const envelop = groups.find((group) => group.project === 'envelop');
+    expect(envelop?.projectLabel).toBe('Envelop');
+    expect(envelop?.entries.map((entry) => entry.slug)).toEqual([
+      '2026-09-15-scope-optimization',
+      '2026-09-15-parsing-simplest',
+      '2026-09-14-website-and-world-connect',
+      '2026-09-14-native-time-consuming-but-best',
+      '2026-09-14-envelop',
+    ]);
   });
 
   it('groups FramePort build notes under their own section', () => {

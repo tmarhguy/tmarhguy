@@ -88,6 +88,12 @@ function jpeg(width: number, height: number): Buffer {
   ]);
 }
 
+function svg(width: number, height: number): Buffer {
+  return Buffer.from(
+    `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg"></svg>`,
+  );
+}
+
 describe('parseImageSize', () => {
   it.each([
     ['PNG', png(1117, 812), { width: 1117, height: 812 }],
@@ -96,6 +102,12 @@ describe('parseImageSize', () => {
     ['lossy WebP', lossyWebp(747, 610), { width: 747, height: 610 }],
     ['lossless WebP', losslessWebp(320, 240), { width: 320, height: 240 }],
     ['JPEG', jpeg(1024, 768), { width: 1024, height: 768 }],
+    ['SVG', svg(500.5, 759.25), { width: 500.5, height: 759.25 }],
+    [
+      'responsive SVG viewBox',
+      Buffer.from('<svg width="100%" viewBox="0 0 640 480"></svg>'),
+      { width: 640, height: 480 },
+    ],
   ])('reads dimensions from a valid %s header', (_, buffer, expected) => {
     expect(parseImageSize(buffer)).toEqual(expected);
   });

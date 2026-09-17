@@ -47,7 +47,9 @@ function validSize(width: number, height: number): ImageSize | null {
  * concern; a forged or truncated header is rejected here.
  */
 export function parseImageSize(buffer: Buffer): ImageSize | null {
-  return png(buffer) ?? webp(buffer) ?? gif(buffer) ?? jpeg(buffer);
+  return (
+    png(buffer) ?? webp(buffer) ?? gif(buffer) ?? jpeg(buffer) ?? svg(buffer)
+  );
 }
 
 /**
@@ -174,6 +176,35 @@ function png(buffer: Buffer): ImageSize | null {
   }
 
   return validSize(buffer.readUInt32BE(16), buffer.readUInt32BE(20));
+}
+
+function svg(buffer: Buffer): ImageSize | null {
+  const header = buffer.subarray(0, 8192).toString('utf8');
+  const tag = header.match(/<svg\b[^>]*>/i)?.[0];
+  if (!tag) {
+    return null;
+  }
+
+  const width = numericSvgAttribute(tag, 'width');
+  const height = numericSvgAttribute(tag, 'height');
+  if (width !== null && height !== null) {
+    return validSize(width, height);
+  }
+
+  const viewBox = tag.match(
+    /\bviewBox\s*=\s*["']\s*[-+]?(?:\d+(?:\.\d*)?|\.\d+)\s+[-+]?(?:\d+(?:\.\d*)?|\.\d+)\s+(\d+(?:\.\d*)?|\.\d+)\s+(\d+(?:\.\d*)?|\.\d+)\s*["']/i,
+  );
+  return viewBox ? validSize(Number(viewBox[1]), Number(viewBox[2])) : null;
+}
+
+function numericSvgAttribute(tag: string, attribute: string): number | null {
+  const match = tag.match(
+    new RegExp(
+      `\\b${attribute}\\s*=\\s*["']\\s*(\\d+(?:\\.\\d*)?|\\.\\d+)(?:px)?\\s*["']`,
+      'i',
+    ),
+  );
+  return match ? Number(match[1]) : null;
 }
 
 function gif(buffer: Buffer): ImageSize | null {
