@@ -64,6 +64,11 @@ const logProjects: LogProject[] = [
     site: 'https://marketplace.visualstudio.com/items?itemName=tmarhguy.frameport',
     link: 'https://github.com/tmarhguy/frameport',
   },
+  {
+    id: 'envelop',
+    label: 'Envelop',
+    link: 'https://github.com/tmarhguy/envelop',
+  },
 ];
 
 export function getLogProject(id: string): LogProject | undefined {

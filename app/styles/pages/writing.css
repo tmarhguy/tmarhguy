@@ -805,6 +805,39 @@
   font-variant-numeric: tabular-nums;
 }
 
+@media (max-width: 640px) {
+  .prose-table-wrap:has(table:not(:has(tr > :nth-child(3)))) {
+    overflow-x: visible;
+  }
+
+  .prose table:not(:has(tr > :nth-child(3))),
+  .prose table:not(:has(tr > :nth-child(3))) tbody,
+  .prose table:not(:has(tr > :nth-child(3))) tr,
+  .prose table:not(:has(tr > :nth-child(3))) td {
+    display: block;
+    width: 100%;
+  }
+
+  .prose table:not(:has(tr > :nth-child(3))) thead {
+    display: none;
+  }
+
+  .prose table:not(:has(tr > :nth-child(3))) tr {
+    padding: 0.75rem 0;
+    border-bottom: var(--rule) solid var(--color-border);
+  }
+
+  .prose table:not(:has(tr > :nth-child(3))) td {
+    padding: 0.2rem 0;
+    border-bottom: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .prose table:not(:has(tr > :nth-child(3))) td:first-child {
+    font-weight: var(--font-weight-medium);
+  }
+}
+
 .prose img,
 .prose video {
   display: block;

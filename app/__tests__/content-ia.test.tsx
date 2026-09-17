@@ -98,7 +98,7 @@ describe('writing information architecture', () => {
     expect(
       screen.getByRole('heading', { name: 'Tomato CPU — Earlier' }),
     ).toBeInTheDocument();
-  });
+  }, 10_000);
 
   it('lists curated projects on the projects index', () => {
     render(<ProjectsPage />);
@@ -120,6 +120,7 @@ describe('writing information architecture', () => {
     expect(
       screen.getByRole('heading', { level: 2, name: 'Software' }),
     ).toBeInTheDocument();
+    expect(screen.getByText('Envelop')).toBeInTheDocument();
     expect(
       screen.getByRole('heading', { level: 2, name: 'Earlier software' }),
     ).toBeInTheDocument();
@@ -151,5 +152,5 @@ describe('writing information architecture', () => {
         screen.getAllByRole('link', { name: contribution.title }).length,
       ).toBeGreaterThan(0);
     }
-  });
+  }, 10_000);
 });

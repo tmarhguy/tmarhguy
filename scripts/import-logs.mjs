@@ -27,10 +27,12 @@ const SOURCE_DIRS = [
   resolve(ROOT, 'tools/log'),
   resolve(ROOT, 'alu/docs/log'),
   resolve(ROOT, 'frameport/docs/log'),
+  resolve(ROOT, 'envelop/log'),
   resolve(ROOT, '../tomato/docs/log'),
   resolve(ROOT, '../tools/log'),
   resolve(ROOT, '../alu/docs/log'),
   resolve(ROOT, '../frameport/docs/log'),
+  resolve(ROOT, '../envelop/log'),
 ].filter((dir) => existsSync(dir));
 
 /** Stub vault index files that are not publishable build notes. */
@@ -98,6 +100,16 @@ const PROJECT_BY_FILE = {
   '2026-09-13-screenshots-and-recording.md': 'frameport',
   '2026-09-13-other-device-stream.md': 'frameport',
   '2026-09-13-isa-upgrade.md': 'tomato',
+  '2026-09-14-envelop-tomato-gets-a-message-app.md': 'tomato',
+  '2026-09-14-multiple-participants.md': 'tomato',
+  '2026-09-14-synthesis-bypass.md': 'tomato',
+  '2026-09-15-discard-previewer-or-integrate.md': 'tomato',
+  '2026-09-15-virtual-fallback-vs-ai.md': 'tomato',
+  '2026-09-14-envelop.md': 'envelop',
+  '2026-09-14-native-time-consuming-but-best.md': 'envelop',
+  '2026-09-14-website-and-world-connect.md': 'envelop',
+  '2026-09-15-parsing-simplest.md': 'envelop',
+  '2026-09-15-scope-optimization.md': 'envelop',
 };
 
 function slugify(text) {
@@ -179,6 +191,20 @@ function normalizeMedia(markdown) {
   text = text.replace(/\]\(\.\.\/\.\.\/\.\.\/media\//g, '](/images/');
   text = text.replace(/\bsrc=["']\.\.\/\.\.\/media\//g, 'src="/images/');
   text = text.replace(/\bsrc=["']\.\.\/\.\.\/\.\.\/media\//g, 'src="/images/');
+  // tomato/docs/log → ../../web/assets/documentation/desktop|infinix/foo.webp
+  // Flatten into /images/os/ to match the existing os/ convention.
+  text = text.replace(
+    /\]\(\.\.\/\.\.\/web\/assets\/documentation\/(?:desktop|infinix)\//g,
+    '](/images/os/',
+  );
+  text = text.replace(
+    /\bsrc=["']\.\.\/\.\.\/web\/assets\/documentation\/(?:desktop|infinix)\//g,
+    'src="/images/os/',
+  );
+  text = text.replace(
+    /\bposter=["']\.\.\/\.\.\/web\/assets\/documentation\/(?:desktop|infinix)\//g,
+    'poster="/images/os/',
+  );
   // tomato/docs/log → ../../web/assets/assembly/foo.webp
   text = text.replace(/\]\(\.\.\/\.\.\/web\/assets\//g, '](/images/');
   text = text.replace(/\bsrc=["']\.\.\/\.\.\/web\/assets\//g, 'src="/images/');
@@ -190,6 +216,29 @@ function normalizeMedia(markdown) {
   // tools/log → ../media/foo.png
   text = text.replace(/\]\(\.\.\/media\//g, '](/images/mango/');
   text = text.replace(/\bsrc=["']\.\.\/media\//g, 'src="/images/mango/');
+  // envelop/log → ../website/media/screenshots|diagrams/foo.webp
+  // Flatten into /images/envelop/ to match the frameport flat convention.
+  text = text.replace(
+    /\]\(\.\.\/website\/media\/(?:screenshots|diagrams)\//g,
+    '](/images/envelop/',
+  );
+  text = text.replace(
+    /\bsrc=["']\.\.\/website\/media\/(?:screenshots|diagrams)\//g,
+    'src="/images/envelop/',
+  );
+  text = text.replace(
+    /\bposter=["']\.\.\/website\/media\/(?:screenshots|diagrams)\//g,
+    'poster="/images/envelop/',
+  );
+  text = text.replace(/\]\(\.\.\/website\/media\//g, '](/images/envelop/');
+  text = text.replace(
+    /\bsrc=["']\.\.\/website\/media\//g,
+    'src="/images/envelop/',
+  );
+  text = text.replace(
+    /\bposter=["']\.\.\/website\/media\//g,
+    'poster="/images/envelop/',
+  );
   // frameport/docs/log → ../images/foo.png → /images/frameport/foo.webp
   text = text.replace(
     /\]\(\.\.\/images\/([^)]+?)\.png\)/g,
@@ -202,9 +251,18 @@ function normalizeMedia(markdown) {
 
   const rewriteAssetSrc = (src) =>
     src
+      .replace(
+        /^\.\.\/\.\.\/web\/assets\/documentation\/(?:desktop|infinix)\//,
+        '/images/os/',
+      )
       .replace(/^\.\.\/\.\.\/web\/assets\//, '/images/')
       .replace(/^\.\.\/\.\.\/media\//, '/images/')
       .replace(/^\.\.\/media\//, '/images/mango/')
+      .replace(
+        /^\.\.\/website\/media\/(?:screenshots|diagrams)\//,
+        '/images/envelop/',
+      )
+      .replace(/^\.\.\/website\/media\//, '/images/envelop/')
       .replace(/^\.\.\/images\/(.+?)\.png$/, '/images/frameport/$1.webp')
       .replace(/^\.\.\/images\//, '/images/frameport/');
 
@@ -234,7 +292,9 @@ function stripBrokenMedia(markdown) {
 }
 
 function findSlugForMdHref(href, files) {
-  const name = decodeURIComponent(href.split('/').pop() || '');
+  // Obsidian links wrap spaced paths in <>: [t](<./2026-09-14%20-%20Foo.md>)
+  const clean = href.trim().replace(/^</, '').replace(/>$/, '');
+  const name = decodeURIComponent(clean.split('/').pop() || '');
   if (!name.endsWith('.md')) {
     return null;
   }
@@ -293,6 +353,13 @@ function smoothImportedBody(body, title) {
   );
   text = text.replace(titleHeading, '');
 
+  // Envelop historical banner: "> **Historical, noncanonical log ...**"
+  // plus its "> ...status.md..." continuation lines. Status doc stays
+  // in the envelop repo, so drop the banner on import.
+  text = text
+    .replace(/^(?:>\s*\*\*Historical[^\n]*\n(?:^>.*\n?)*)/im, '')
+    .trimStart();
+
   while (METADATA_LINE.test(text)) {
     text = text.replace(METADATA_LINE, '').trimStart();
   }
@@ -315,6 +382,8 @@ function smoothImportedBody(body, title) {
 function descriptionFrom(body, title) {
   const plain = body
     .replace(/^#+\s+.+$/gm, '')
+    .replace(/!\[[^\]]*]\([^)]+\)/g, '')
+    .replace(/^\s*<em>.*<\/em>\s*$/gm, '')
     .replace(/\*\*([^*]+)\*\*/g, '$1')
     .replace(/\*([^*]+)\*/g, '$1')
     .replace(/\[([^\]]+)]\([^)]+\)/g, '$1')

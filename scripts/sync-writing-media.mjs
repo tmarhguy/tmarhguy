@@ -24,12 +24,22 @@ const MEDIA_ROOTS = [
   resolve(ROOT, '../tomato/media'),
   resolve(ROOT, 'tomato/web/assets'),
   resolve(ROOT, '../tomato/web/assets'),
+  resolve(ROOT, 'tomato/web/assets/documentation/desktop'),
+  resolve(ROOT, '../tomato/web/assets/documentation/desktop'),
+  resolve(ROOT, 'tomato/web/assets/documentation/infinix'),
+  resolve(ROOT, '../tomato/web/assets/documentation/infinix'),
   resolve(ROOT, 'alu/media'),
   resolve(ROOT, '../alu/media'),
   resolve(ROOT, 'frameport/docs/images'),
   resolve(ROOT, '../frameport/docs/images'),
   resolve(ROOT, 'frameport/media/screenshots'),
   resolve(ROOT, '../frameport/media/screenshots'),
+  resolve(ROOT, 'envelop/website/media/screenshots'),
+  resolve(ROOT, '../envelop/website/media/screenshots'),
+  resolve(ROOT, 'envelop/website/media/diagrams'),
+  resolve(ROOT, '../envelop/website/media/diagrams'),
+  resolve(ROOT, 'envelop/website/media'),
+  resolve(ROOT, '../envelop/website/media'),
 ];
 
 const IMAGE_REF =
@@ -84,6 +94,47 @@ export function resolveSource(relative) {
       resolve(ROOT, '../tools/media'),
     ]) {
       const candidate = join(root, name);
+      if (existsSync(candidate)) {
+        return candidate;
+      }
+    }
+  }
+
+  // /images/os/foo.webp ← tomato/web/assets/documentation/desktop|infinix/foo.webp
+  // (flattened on import to match the existing os/ convention).
+  if (relative.startsWith('os/')) {
+    const name = relative.slice('os/'.length);
+    // Basename already carries the tomato- prefix; do not re-add it.
+    for (const root of [
+      resolve(ROOT, 'tomato/web/assets/documentation/desktop'),
+      resolve(ROOT, '../tomato/web/assets/documentation/desktop'),
+      resolve(ROOT, 'tomato/web/assets/documentation/infinix'),
+      resolve(ROOT, '../tomato/web/assets/documentation/infinix'),
+      resolve(ROOT, 'tomato/web/assets/os'),
+      resolve(ROOT, '../tomato/web/assets/os'),
+    ]) {
+      const candidate = join(root, name);
+      if (existsSync(candidate)) {
+        return candidate;
+      }
+    }
+  }
+
+  // /images/envelop/foo.webp|svg ← envelop/website/media/screenshots|diagrams/foo
+  // (flattened on import to match the frameport flat convention).
+  if (relative.startsWith('envelop/')) {
+    const name = relative.slice('envelop/'.length);
+    // Guard against already-nested refs; only the basename is synced.
+    const base = name.split('/').pop();
+    for (const root of [
+      resolve(ROOT, 'envelop/website/media/screenshots'),
+      resolve(ROOT, '../envelop/website/media/screenshots'),
+      resolve(ROOT, 'envelop/website/media/diagrams'),
+      resolve(ROOT, '../envelop/website/media/diagrams'),
+      resolve(ROOT, 'envelop/website/media'),
+      resolve(ROOT, '../envelop/website/media'),
+    ]) {
+      const candidate = join(root, base);
       if (existsSync(candidate)) {
         return candidate;
       }

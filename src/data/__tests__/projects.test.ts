@@ -153,7 +153,12 @@ describe('projects data', () => {
       'FramePort',
       'Mango Tools',
     ]);
-    expect(getSoftwareProjects()).toHaveLength(2);
+    expect(getSoftwareProjects()).toHaveLength(3);
+    expect(getSoftwareProjects().map((project) => project.title)).toEqual([
+      'Envelop',
+      'Orange Metrics API',
+      'SVD Compression Engine',
+    ]);
     expect(getEarlierProjects().map((project) => project.title)).toEqual([
       'Music & You',
       'YT2Spot',
@@ -176,6 +181,7 @@ describe('projects data', () => {
     expect(titles).toContain('QueuePaste');
     expect(titles).toContain('Mango Tools');
     expect(titles).toContain('FramePort');
+    expect(titles).toContain('Envelop');
     expect(titles).toContain('YT2Spot');
     expect(titles).toContain('Music & You');
     expect(titles).toContain('Color Communication Game');
@@ -225,6 +231,7 @@ describe('projects data', () => {
     expect(byTitle['8-bit Discrete Transistor ALU']).toBe('alu');
     expect(byTitle['Mango Tools']).toBe('mango');
     expect(byTitle['FramePort']).toBe('frameport');
+    expect(byTitle.Envelop).toBe('envelop');
     expect(byTitle['SPICE Automation Framework']).toBe('spice-automation');
     expect(byTitle['QueuePaste']).toBeUndefined();
   });
@@ -239,6 +246,13 @@ describe('projects data', () => {
     expect(frameport.videoPoster).toBe(
       '/images/projects/frameport-demo-poster.webp',
     );
+  });
+
+  it('lists Envelop with both the live site and the GitHub repo', () => {
+    const envelop = findProjectByTitle('Envelop')!;
+    expect(envelop.site).toBe('https://tmarhguy.github.io/envelop/');
+    expect(envelop.link).toBe('https://github.com/tmarhguy/envelop');
+    expect(envelop.image).toBe('/images/envelop/envelop-browser-chat.webp');
   });
 
   it('orders category lists with images before text-only entries', () => {
