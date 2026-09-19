@@ -49,7 +49,7 @@
 
 \begin{center}
     {\Huge \scshape \textbf{Tyrone Marhguy}} \\ \vspace{2pt}
-    \small \textbf{Computer Engineering | Computer Architecture / RTL / FPGA / ASIC / Verification} \\ \vspace{2pt}
+    \small \textbf{Computer Engineering | Digital Hardware \& Computer Systems} \\ \vspace{2pt}
     +1 (267)-320-2734 $|$
     \href{mailto:tmarhguy@seas.upenn.edu}{\underline{tmarhguy@seas.upenn.edu}} $|$
     \href{https://tmarhguy.com}{\underline{tmarhguy.com}} $|$
@@ -58,71 +58,70 @@
 \end{center}
 \vspace{-7pt}
 
+\section{Summary}
+\small{Computer Engineering junior at the University of Pennsylvania focused on digital hardware systems spanning computer architecture, RTL/FPGA design, ASIC implementation, and verification. Built a custom 32-bit computer and timing-closed low-latency FPGA systems; merged fixes into OpenROAD, Verilator, and LibreLane.}
+\vspace{-2pt}
+
 \section{Education}
 \resumeSubHeadingListStart
   \resumeSubheading{University of Pennsylvania}{Philadelphia, PA}{B.S.E. Computer Engineering}{Aug. 2024 -- May 2028}
   \resumeItemListStart
-    \resumeItem{\textbf{Coursework:} Computer Organization \& Design, VLSI Fundamentals, Digital Logic, Embedded Systems, Data Structures \& Algorithms}
-  \resumeItemListEnd
-\resumeSubHeadingListEnd
-
-\section{Experience}
-\resumeSubHeadingListStart
-  \resumeSubheading{Hardware Research Engineer}{Aug. 2026 -- Present}{Fluid Silicon}{Philadelphia, PA}
-  \resumeItemListStart
-    \resumeItem{Automated \textbf{floorplanning, P\&R, PPA extraction, timing constraints, and synthesis-to-layout handoff} in \textbf{Tcl/Python}; built parsers that improved utilization models by \textbf{15\%}.}
-  \resumeItemListEnd
-
-  \resumeSubheading{Hardware \& Firmware Engineer}{May 2026 -- Aug. 2026}{Vero Electric}{Philadelphia, PA}
-  \resumeItemListStart
-    \resumeItem{Developed \textbf{embedded C/C++} fault-detection firmware and a \textbf{BQ79616 16-channel battery-monitoring front end} for a \textbf{240\,kWh / 120\,kW} system; closed PCB ERC with \textbf{0 errors} and debugged bring-up with lab instruments.}
+    \resumeItem{\textbf{Coursework:} Computer Organization \& Design, VLSI Fundamentals, Digital Logic, Circuit-Level Modeling, Embedded Systems}
   \resumeItemListEnd
 \resumeSubHeadingListEnd
 
 \section{Selected Hardware Projects}
 \resumeSubHeadingListStart
-  \resumeProjectHeading{\textbf{Tomato - Custom 32-bit Polymorphic CPU} $|$ \href{https://tomato.tmarhguy.com}{\underline{Website}} $|$ \href{https://github.com/tmarhguy/tomato}{\underline{GitHub}}}{2026 -- Present}
+  \resumeProjectHeading{\textbf{Tomato -- Custom 32-bit Computer Architecture} $|$ \href{https://github.com/tmarhguy/tomato}{\underline{GitHub}}}{2026 -- Present}
   \resumeItemListStart
-    \resumeItem{Architected a custom \textbf{32-bit CPU} around a programmable Dual-LUT3 datapath (\textbf{524,288 ALU opcodes}), \textbf{32,768$\times$32-bit 3R1W register file}, and 512-row ISA ROM; deployed on Artix-7 with a Python assembler and $\sim$2.3K-line assembly OS driving HDMI.}
-    \resumeItem{Verified the ALU against \textbf{130B Verilator vectors} and formally proved 1/8/32-bit implementations; Sky130 synthesis showed a Kogge--Stone carry variant \textbf{1.27$\times$ faster and 28\% smaller} than ripple.}
+    \resumeItem{Architected a custom \textbf{32-bit ISA/CPU} around a three-source Dual-LUT ALU; implemented the complete machine on Nexys A7, booting an assembly-written OS with HDMI output, input, and games; built the assembler and browser ISA emulator.}
+    \resumeItem{Validated the datapath across Verilator, UVM/SVA, and SymbiYosys formal; synthesized it in Sky130 and fabricated/soldered an 8-bit 74xx Dual-LUT ALU slice.}
+  \resumeItemListEnd
+
+  \resumeProjectHeading{\textbf{64-bit RISC-V CPU Core} $|$ \href{https://github.com/tmarhguy/riscv}{\underline{GitHub}}}{2025 -- 2026}
+  \resumeItemListStart
+    \resumeItem{Designed and verified a synthesizable \textbf{RV64IM 5-stage pipeline} in SystemVerilog with forwarding, load-use stalls, variable-latency Wishbone memory, M-mode traps/CSRs, and branch prediction; Verilator/cocotb regression passes the RV32IM compliance suite.}
   \resumeItemListEnd
 
   \resumeProjectHeading{\textbf{Low-Latency FPGA Networking \& NASDAQ ITCH} $|$ \href{https://github.com/tmarhguy/udp-stack}{\underline{UDP/IP}} $|$ \href{https://github.com/tmarhguy/itch-hw}{\underline{ITCH}}}{2026}
   \resumeItemListStart
-    \resumeItem{Built a 15-file \textbf{SystemVerilog RMII/MAC/IPv4/UDP stack} with 50/100 MHz CDC; closed at \textbf{100 MHz} (WNS +1.985 ns) in \textbf{756 LUTs / 599 FFs}, with \textbf{20 ns} simulated payload latency.}
-    \resumeItem{Designed an RTL \textbf{NASDAQ ITCH parser + 512-slot BRAM order book}: 30 ns parsing and \textbf{60 ns Add-to-BBO}; a Python/cocotb golden model drove a \textbf{10M-message Verilator regression with zero BBO mismatches}.}
+    \resumeItem{Built a pure-RTL \textbf{RMII/MAC/IPv4/UDP stack} on Artix-7 with no soft CPU/OS in the hot path; closed timing at \textbf{100 MHz} (WNS +1.985 ns) with \textbf{20 ns} simulated cut-through payload-echo latency.}
+    \resumeItem{Built live-Ethernet \textbf{ITCH 5.0} parsing and a dual-sided 512-slot BRAM order book; closed timing at \textbf{100 MHz}, with \textbf{30 ns} parse and \textbf{60 ns} Add-to-BBO latency; ran a \textbf{10M-message} Verilator/cocotb regression with zero BBO mismatches.}
   \resumeItemListEnd
 
-  \resumeProjectHeading{\textbf{64-bit RISC-V CPU Core (IronCore)} $|$ \href{https://github.com/tmarhguy/riscv}{\underline{GitHub}} $|$ FPGA}{2025 -- 2026}
+  \resumeProjectHeading{\textbf{ASIC Datapaths \& Memory} $|$ \href{https://github.com/tmarhguy/mac}{\underline{BF16 MAC}} $|$ \href{https://github.com/tmarhguy/64b-sram}{\underline{6T SRAM}}}{2026}
   \resumeItemListStart
-    \resumeItem{Designed an \textbf{RV64IM 5-stage pipeline} with forwarding, hazard detection, and 2-bit branch prediction; achieved \textbf{96\% ISA compliance} and deployed on Artix-7 at \textbf{100 MHz} with a UART bootloader running bare-metal C.}
-  \resumeItemListEnd
-
-  \resumeProjectHeading{\textbf{BFloat16 MAC - Sky130 ML Datapath} $|$ \href{https://github.com/tmarhguy/mac}{\underline{GitHub}}}{2025 -- 2026}
-  \resumeItemListStart
-    \resumeItem{Designed a \textbf{BF16 multiply $\rightarrow$ FP32 accumulate} pipeline targeting \textbf{50 MHz on Sky130}; verified 1,000 randomized cocotb vectors against a Python golden model and built the \textbf{LibreLane/OpenLane RTL-to-GDSII} flow.}
-  \resumeItemListEnd
-
-  \resumeProjectHeading{\textbf{16$\times$4 Full-Custom SRAM - 22 nm HP} $|$ \href{https://tmarhguy.com}{\underline{Portfolio}}}{2026}
-  \resumeItemListStart
-    \resumeItem{Designed transistor-level \textbf{6T SRAM} with a clocked \textbf{StrongARM sense amplifier}; automated NGSpice timing sweeps and achieved simulated functional readback to \textbf{4.571 GHz}.}
+    \resumeItem{Designed a 2-stage \textbf{BF16 $\rightarrow$ FP32 MAC} with a 4-cycle streaming interface; verified 1,000 randomized vectors against a Python/cocotb golden model and built a local LibreLane/Sky130 implementation flow.}
+    \resumeItem{Designed a full-custom \textbf{16$\times$4 6T SRAM} in PTM 22 nm HP with StrongARM sensing, replica-bitline timing, and automated NGSpice timing/power sweeps; demonstrated \textbf{4.571 GHz} sustained simulated operation.}
   \resumeItemListEnd
 \resumeSubHeadingListEnd
 
-\section{Open-Source EDA}
+\section{Engineering Experience \& Open Source}
 \resumeSubHeadingListStart
-  \resumeProjectHeading{\textbf{OpenROAD, Verilator, LibreLane, OpenFPGA} $|$ C++ / Python / EDA Infrastructure}{2026}
+  \resumeSubheading{Hardware \& Firmware Engineer}{May 2026 -- Aug. 2026}{Vero Electric}{Philadelphia, PA}
   \resumeItemListStart
-    \resumeItem{Merged upstream C++/Python fixes to production EDA tools: repaired an \textbf{OpenROAD LEF58/ODB parser}, corrected \textbf{Verilator} Linux peak-memory accounting, and restored \textbf{LibreLane/Yosys} compatibility/reporting; LibreLane fixes shipped in releases.}
+    \resumeItem{Designed/routed a \textbf{BQ79616 16-channel battery-monitoring front end} for a \textbf{240\,kWh / 120\,kW} energy-storage system; closed PCB ERC/DRC with zero errors.}
+    \resumeItem{Developed embedded C/C++ fault-detection and SPI/I\textsuperscript{2}C acquisition firmware; supported board bring-up with oscilloscopes and logic analyzers.}
+  \resumeItemListEnd
+
+  \resumeSubheading{Software Engineer Intern}{May 2026 -- Aug. 2026}{Aragorn AI}{Remote}
+  \resumeItemListStart
+    \resumeItem{Contributed to production backend/API-integration workflows for AI services; debugged cross-service issues and documented service interfaces for production integrations.}
+  \resumeItemListEnd
+
+  \resumeProjectHeading{\textbf{Open-Source EDA Contributor -- OpenROAD, Verilator, LibreLane}}{2026}
+  \resumeItemListStart
+    \resumeItem{Merged upstream C++/Python fixes for OpenROAD LEF58 parsing, Verilator Linux peak-memory reporting, and LibreLane/Yosys synthesis compatibility/check reporting, with regression coverage; LibreLane fixes shipped in releases.}
   \resumeItemListEnd
 \resumeSubHeadingListEnd
 
 \section{Technical Skills}
 \begin{itemize}[leftmargin=0.12in,label={},itemsep=0pt,topsep=2pt]
 \small{\item{
-  \textbf{Architecture / RTL:} SystemVerilog/Verilog, VHDL, CPU/SoC microarchitecture, pipelining, ISA/datapath design, memory systems, CDC \\
-  \textbf{Verification / Implementation:} UVM, SVA, cocotb, formal, Verilator; Vivado, Yosys, OpenROAD, LibreLane/OpenLane, Sky130, synthesis, STA, P\&R, DRC/LVS, SPICE \\
-  \textbf{Programming / Interfaces:} Python, C/C++, Embedded C, Tcl, Bash, Linux; Ethernet/RMII/IPv4/UDP, UART, SPI, I\textsuperscript{2}C
+  \textbf{Architecture / RTL:} SystemVerilog, Verilog; CPU/SoC microarchitecture, datapaths, pipelining, memory interfaces, CDC \\
+  \textbf{Verification:} UVM, SVA, cocotb, Verilator, SymbiYosys formal, Questa, golden-model/regression testing \\
+  \textbf{FPGA / ASIC / VLSI:} Vivado, Artix-7, Yosys, OpenROAD, LibreLane/OpenLane, Sky130, synthesis, STA, P\&R, SPICE \\
+  \textbf{Programming / Hardware:} Python, C/C++, Tcl, Bash, Linux, Git; Ethernet/RMII, UDP, SPI, I\textsuperscript{2}C, UART
 }}
 \end{itemize}
 

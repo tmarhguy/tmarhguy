@@ -65,15 +65,8 @@ describe('work data', () => {
     expect(vero?.endDate).toBe('2026-08-01');
   });
 
-  it('lists Fluid Silicon Inc. as employer, with Pennovation as the site', () => {
-    const intern = work.find((job) => job.name === 'Fluid Silicon Inc.');
-    expect(intern).toBeDefined();
-    expect(intern?.position).toBe('Hardware Research Engineer Intern');
-    expect(intern?.url).toBe(
-      'https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently',
-    );
-    expect(intern?.summary).toMatch(/Pennovation Center/);
-    expect(intern?.name).not.toMatch(/Pennovation|University of Pennsylvania/);
+  it('does not list Fluid Silicon', () => {
+    expect(work.some((job) => /fluid silicon/i.test(job.name))).toBe(false);
   });
 
   it('highlights are arrays when present', () => {

@@ -32,7 +32,7 @@ export default function Hero() {
             </a>
           </div>
           <p className="hero-availability">
-            {profile.availability} · {profile.currentCity} · Class of 2028
+            {profile.availability} · {profile.currentCity}
           </p>
         </div>
 

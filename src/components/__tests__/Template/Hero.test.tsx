@@ -31,9 +31,9 @@ describe('Hero', () => {
     expect(
       screen.getByRole('link', { name: /University of Pennsylvania/ }),
     ).toHaveAttribute('href', 'https://www.upenn.edu');
-    expect(
-      screen.getByRole('link', { name: /Fluid Silicon/ }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Aragorn/ })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Vero/ })).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /Fluid Silicon/ })).toBeNull();
   });
 
   it('keeps personal stats and incomplete credential lists off the homepage', () => {

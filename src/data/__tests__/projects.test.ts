@@ -250,7 +250,7 @@ describe('projects data', () => {
 
   it('lists Envelop with both the live site and the GitHub repo', () => {
     const envelop = findProjectByTitle('Envelop')!;
-    expect(envelop.site).toBe('https://tmarhguy.github.io/envelop/');
+    expect(envelop.site).toBe('https://envelop.tmarhguy.com');
     expect(envelop.link).toBe('https://github.com/tmarhguy/envelop');
     expect(envelop.image).toBe('/images/envelop/envelop-browser-chat.webp');
   });

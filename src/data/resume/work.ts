@@ -15,36 +15,24 @@ export interface Position {
 
 const work: Position[] = [
   {
-    name: 'Fluid Silicon Inc.',
-    position: 'Hardware Research Engineer Intern',
-    url: 'https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently',
-    startDate: '2026-08-25',
-    endDate: '2026-12-07',
-    summary:
-      'Fall 2026 term at [Pennovation Center](https://pennovation.upenn.edu), Philadelphia.',
-    highlights: [
-      'Automated floorplanning, P&R, PPA extraction, timing constraints, and synthesis-to-layout handoff in Tcl/Python; built parsers that improved utilization models by 15%.',
-    ],
-  },
-  {
-    name: 'Aragorn AI, Inc.',
-    position: 'Software Engineering Intern',
-    url: 'https://www.aragorn.ai',
-    startDate: '2026-06-01',
-    endDate: '2026-08-31',
-    highlights: [
-      'Shipped production backend services and REST APIs for AI model-integration workflows, extending platform capabilities used in customer-facing releases.',
-      'Diagnosed cross-service integration failures blocking release sprints; contributed to architecture and code reviews to harden service boundaries before deployment.',
-    ],
-  },
-  {
     name: 'Vero Electric',
     position: 'Hardware & Firmware Engineer',
     url: 'https://veroelectric.com/',
     startDate: '2026-05-01',
     endDate: '2026-08-01',
     highlights: [
-      'Developed embedded C/C++ fault-detection firmware and a BQ79616 16-channel battery-monitoring front end for a 240 kWh / 120 kW system; closed PCB ERC with 0 errors and debugged bring-up with lab instruments.',
+      'Designed/routed a BQ79616 16-channel battery-monitoring front end for a 240 kWh / 120 kW energy-storage system; closed PCB ERC/DRC with zero errors.',
+      'Developed embedded C/C++ fault-detection and SPI/I2C acquisition firmware; supported board bring-up with oscilloscopes and logic analyzers.',
+    ],
+  },
+  {
+    name: 'Aragorn AI, Inc.',
+    position: 'Software Engineer Intern',
+    url: 'https://www.aragorn.ai',
+    startDate: '2026-05-01',
+    endDate: '2026-08-31',
+    highlights: [
+      'Contributed to production backend/API-integration workflows for AI services; debugged cross-service issues and documented service interfaces for production integrations.',
     ],
   },
   {

@@ -20,8 +20,8 @@ _RTL · FPGA · RTL-to-GDS · verification_
 
 I am a Computer Engineering junior at the [University of Pennsylvania](https://www.upenn.edu) specializing in computer architecture, RTL design, and hardware verification. I thrive at the intersection of hardware and software—architecting boards, writing SystemVerilog, and building the constrained-random environments that prove them.
 
-- **Currently:** Hardware Research Engineer (Fall 2026) at [Fluid Silicon](https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently) (RTL & Emulation) & Software Engineer at [Aragorn AI](https://www.aragorn.ai).
-- **Previously:** Hardware & Firmware Engineer at [Vero Electric](https://veroelectric.com/) (PCB design & Board bring-up).
+- **Currently:** Computer Engineering junior at the [University of Pennsylvania](https://www.upenn.edu) — RTL · FPGA · RTL-to-GDS.
+- **Previously:** Software Engineer at [Aragorn AI](https://www.aragorn.ai). Hardware & Firmware Engineer at [Vero Electric](https://veroelectric.com/) (PCB design & Board bring-up).
 
 ## Open Source Contributions
 
@@ -40,16 +40,16 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 **Hardware**
 
 - **[Tomato](https://tomato.tmarhguy.com)** ([GitHub](https://github.com/tmarhguy/tomato)) — custom 32-bit CPU · discrete logic through PCB tapeout
-- **[16×4 SRAM — Full-Custom Analog Design](https://github.com/tmarhguy/64b-sram)** — 6T macro in 22 nm HP · StrongARM sense amp · 4.571 GHz fmax
-- **[SPICE Automation Framework](https://github.com/tmarhguy/spice-automation)** — NGSpice fmax binary search · parametric PPA sweeps · JSON/CSV/Markdown reports
-- **[16-Bit Mac Unit (Sky130)](https://github.com/tmarhguy/mac)** — BFloat16 MAC · OpenLane · TinyTapeout
-- **[NASDAQ ITCH 5.0 Hardware Parser](https://github.com/tmarhguy/itch-hw)** — market-data FPGA on Artix-7 · cocotb
+- **[16×4 SRAM](https://github.com/tmarhguy/64b-sram)** — 6T macro in 22 nm HP · StrongARM sense amp · 4.571 GHz fmax
+- **[SPICE Automation](https://github.com/tmarhguy/spice-automation)** — NGSpice fmax binary search · parametric PPA sweeps
+- **[16-Bit MAC (Sky130)](https://github.com/tmarhguy/mac)** — BFloat16 MAC · OpenLane · TinyTapeout
+- **[NASDAQ ITCH 5.0 Parser](https://github.com/tmarhguy/itch-hw)** — market-data FPGA on Artix-7 · cocotb
 - **[100 Mbps UDP/IP Stack](https://github.com/tmarhguy/udp-stack)** — RMII/MAC/ARP/IP/UDP · sub-200 ns loopback
-- **[8-Bit Discrete Transistor ALU](https://alu.tmarhguy.com)** — 3,488 MOSFETs · 1.24M+ automated test vectors
+- **[8-Bit Discrete ALU](https://alu.tmarhguy.com)** — 3,488 MOSFETs · 1.24M+ automated test vectors
 
 **Tools & software**
 
-- **[Envelop](https://tmarhguy.github.io/envelop/)** ([GitHub](https://github.com/tmarhguy/envelop)) — browser messenger connecting people to Tomato through verified native BLE bridges and explicitly labeled Virtual Tomato execution
+- **[Envelop](https://envelop.tmarhguy.com)** ([GitHub](https://github.com/tmarhguy/envelop)) — text people and Tomato from the browser · verified BLE · labeled Physical/Virtual
 - **[FramePort](https://marketplace.visualstudio.com/items?itemName=tmarhguy.frameport)** ([GitHub](https://github.com/tmarhguy/frameport)) — HDMI/USB capture in VS Code · PNG screenshots · silent MP4 recording · [![Open VSX version](https://img.shields.io/open-vsx/v/tmarhguy/frameport?style=flat-square)](https://open-vsx.org/extension/tmarhguy/frameport) [![Open VSX downloads](https://img.shields.io/open-vsx/dt/tmarhguy/frameport?style=flat-square)](https://open-vsx.org/extension/tmarhguy/frameport)
 - **[Mango Tools](https://github.com/tmarhguy/tools)** — offline CLI for PDF, media & images
 - **[Orange Metrics API](https://github.com/tmarhguy/metrics-api)** — Vivado & OpenLane PPA ingestion · FastAPI · PostgreSQL · Docker
@@ -58,12 +58,11 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 - **[UniBridge Ghana](https://github.com/tmarhguy/unibridgeGhana)** — university admissions platform · FastAPI · PostgreSQL
 - **[SVD Compression Engine](https://svd.tmarhguy.com)** — cache-optimized matrix ops from scratch
 
-## Experience
+## Past Experience
 
-- **[Aragorn AI](https://www.aragorn.ai/)** — Software Engineering Intern · **Present** · production backends & APIs
-- **[Fluid Silicon Inc.](https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently)** — Hardware Research Engineer Intern · [Pennovation Center](https://pennovation.upenn.edu) · Fall 2026
-- **[Howard STEM Achievers](https://education.howard.edu/affiliated-programs/stem-summer-camp-verizon-innovative-learning)** — STEM Instructor · AR/VR · Jun–Jul 2026
+- **[Aragorn AI](https://www.aragorn.ai/)** — Software Engineer Intern · May–Aug 2026 · production backends & APIs
 - **[Vero Electric](https://veroelectric.com/)** — Hardware & Firmware Engineer · battery management infrastructure · May–Aug 2026
+- **[Howard STEM Achievers](https://education.howard.edu/affiliated-programs/stem-summer-camp-verizon-innovative-learning)** — STEM Instructor · AR/VR · Jun–Jul 2026
 - **[Fife-Penn](https://fife.cis.upenn.edu/)** — Programming & Engineering Instructor · Feb–May 2025
 - **[Penn Engineering](https://www.upenn.edu)** — CIS 1100 Teaching Assistant
 

@@ -33,7 +33,7 @@ export default function ResumePage() {
           <h1 className="resume-title">Resume</h1>
           <ResumeEducationHeadline />
           <p className="resume-availability">
-            {profile.availability} · {profile.currentCity} · Class of 2028
+            {profile.availability} · {profile.currentCity}
           </p>
           <div className="resume-actions">
             <a

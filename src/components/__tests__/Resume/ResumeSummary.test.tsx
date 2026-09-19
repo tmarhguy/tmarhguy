@@ -37,12 +37,7 @@ describe('ResumeSummary', () => {
       'href',
       'https://github.com/verilator/verilator/pull/8070',
     );
-    expect(
-      screen.getByRole('link', { name: /fluid silicon/i }),
-    ).toHaveAttribute(
-      'href',
-      'https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently',
-    );
+    expect(screen.queryByRole('link', { name: /fluid silicon/i })).toBeNull();
     expect(
       screen.getByRole('link', { name: /vero electric/i }),
     ).toHaveAttribute('href', 'https://veroelectric.com/');
