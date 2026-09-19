@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import ContactIcons from '@/components/Contact/ContactIcons';
-import work from '@/data/resume/work';
+import profile from '@/data/profile.json';
 import routes from '@/data/routes';
 import { externalAnchorProps, isExternalHref } from '@/lib/external-link';
 import { AUTHOR_NAME } from '@/lib/utils';
@@ -9,7 +9,7 @@ import { AUTHOR_NAME } from '@/lib/utils';
 import ThemePortrait from './ThemePortrait';
 
 export default function Footer() {
-  const currentRole = `${work[0].position} at ${work[0].name}`;
+  const currentRole = `${profile.role} at ${profile.employer}`;
 
   return (
     <footer className="site-footer-new">

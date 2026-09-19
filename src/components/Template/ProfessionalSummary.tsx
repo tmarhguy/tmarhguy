@@ -138,15 +138,11 @@ export default function ProfessionalSummary({
         test records linked above.
       </li>
       <li>
-        <strong>The Work:</strong> Hardware Research Engineer (Fall 2026) at{' '}
-        <InlineLink href={workUrl('Fluid Silicon')} external>
-          Fluid Silicon
-        </InlineLink>{' '}
-        (RTL & Emulation). Previously Software Engineering Intern at{' '}
+        <strong>The Work:</strong> Software Engineer Intern at{' '}
         <InlineLink href={workUrl('Aragorn')} external>
           Aragorn AI
         </InlineLink>
-        . Previously Hardware & Firmware Engineer at{' '}
+        . Hardware & Firmware Engineer at{' '}
         <InlineLink href={workUrl('Vero')} external>
           Vero Electric
         </InlineLink>{' '}

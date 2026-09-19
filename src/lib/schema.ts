@@ -1,6 +1,6 @@
 import contact from '@/data/contact';
+import profile from '@/data/profile.json';
 import degrees from '@/data/resume/degrees';
-import work from '@/data/resume/work';
 import type { LogEntry } from '@/lib/logs';
 import {
   AUTHOR_NAME,
@@ -64,7 +64,7 @@ export function personNode(): SchemaNode {
   const emailItem = contact.find((item) => item.link.startsWith('mailto:'));
   const email = emailItem?.link.replace('mailto:', '');
 
-  const currentJob = work[0];
+  const penn = degrees[0];
 
   const [givenName, ...familyParts] = AUTHOR_NAME.split(' ');
   const familyName = familyParts.join(' ');
@@ -85,13 +85,13 @@ export function personNode(): SchemaNode {
       caption: AUTHOR_NAME,
     },
     description: SITE_DESCRIPTION,
-    jobTitle: currentJob.position,
+    jobTitle: profile.role,
     ...(email && { email }),
     sameAs: socialLinks,
     worksFor: {
       '@type': 'Organization',
-      name: currentJob.name,
-      url: currentJob.url,
+      name: profile.employer,
+      url: penn.link,
     },
     alumniOf: degrees.map((degree) => ({
       '@type': 'CollegeOrUniversity',

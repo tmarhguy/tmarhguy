@@ -288,7 +288,7 @@ const data: Project[] = [
     subtitle: 'Browser-to-Tomato messenger',
     slug: 'envelop',
     logProject: 'envelop',
-    site: 'https://tmarhguy.github.io/envelop/',
+    site: 'https://envelop.tmarhguy.com',
     link: 'https://github.com/tmarhguy/envelop',
     image: '/images/envelop/envelop-browser-chat.webp',
     imageCaption: 'Envelop browser chat · messaging with Tomato',

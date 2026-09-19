@@ -21,7 +21,7 @@ export default function HomeIntroduction({
       </p>
       <p className="hero-work">
         Engineering work & roles:{' '}
-        {['Fluid Silicon', 'Aragorn', 'Vero'].map((name, index) => {
+        {['Aragorn', 'Vero'].map((name, index) => {
           const job = work.find((entry) => entry.name.includes(name));
           return job ? (
             <span key={name}>

@@ -31,14 +31,14 @@ The full story is documented on [Wikipedia](${WIKIPEDIA_URL}) and in the court r
 
 # Now - (Fall 2026)
 
-- **Hardware Engineering**: This fall I'm working at [Fluid Silicon Inc.](https://penntoday.upenn.edu/news/penn-student-develops-way-computer-chips-run-more-efficiently) at the [Pennovation Center](https://pennovation.upenn.edu) as a Hardware Research Engineer Intern: RTL design in HDL, then verification in emulation and simulation.
+- **Hardware Engineering**: I'm designing RTL, FPGA, and RTL-to-GDS systems independently — from Tomato through low-latency networking hardware — then proving them in simulation, emulation, and on the bench.
 - **The Builds**: I'm building [Tomato](https://tomato.tmarhguy.com) ([GitHub](https://github.com/tmarhguy/tomato)) — a Discrete 32-bit Polymorphic Dual-LUT3 CPU with a running FPGA implementation and discrete boards in progress — and shipping low-latency networking hardware in SystemVerilog. I also designed an [8-bit hybrid transistor ALU](https://alu.tmarhguy.com) from first principles.
 - **Open Source Contributions**: I'm a contributor to open-source EDA tools.
   - **[LibreLane](https://github.com/librelane/librelane)**: Merged [PR #1015](https://github.com/librelane/librelane/pull/1015) gating deprecated abc -fast for Yosys ≥ 0.68, shipped as [3.0.8](https://github.com/librelane/librelane/releases/tag/3.0.8). Also merged [PR #1016](https://github.com/librelane/librelane/pull/1016) so Yosys check-error counts include both pre- and post-synthesis reports, shipped as [3.0.10](https://github.com/librelane/librelane/releases/tag/3.0.10).
   - **[OpenROAD](https://github.com/The-OpenROAD-Project/OpenROAD)**: Parsing fixes for LEF58_MINWIDTH ([PR #11107](https://github.com/The-OpenROAD-Project/OpenROAD/pull/11107)).
   - **[Verilator](https://github.com/verilator/verilator)**: Fixed Linux peak memory reporting ([PR #8070](https://github.com/verilator/verilator/pull/8070)).
   - **[OpenFPGA](https://github.com/lnis-uofu/OpenFPGA)**.
-- **Software & Teaching**: Professionally, I spent June–August 2026 with [Aragorn AI](https://www.aragorn.ai/) on production backends and technical documentation. Previously hardware at [Vero Electric](https://veroelectric.com/) on battery management infrastructure. I taught through [Fife-Penn STEM & CS Academy](https://fife.cis.upenn.edu/) and spent Summer 2026 as an AR/VR instructor with [Howard University STEM Achievers](https://education.howard.edu/affiliated-programs/stem-summer-camp-verizon-innovative-learning).
+- **Software & Teaching**: Professionally, I spent May–August 2026 with [Aragorn AI](https://www.aragorn.ai/) on production backends and technical documentation. Previously hardware at [Vero Electric](https://veroelectric.com/) on battery management infrastructure. I taught through [Fife-Penn STEM & CS Academy](https://fife.cis.upenn.edu/) and spent Summer 2026 as an AR/VR instructor with [Howard University STEM Achievers](https://education.howard.edu/affiliated-programs/stem-summer-camp-verizon-innovative-learning).
 
 *For press coverage and a fuller biography, see my [Wikipedia article](${WIKIPEDIA_URL}).*
 

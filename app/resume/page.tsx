@@ -33,15 +33,22 @@ export default function ResumePage() {
           <h1 className="resume-title">Resume</h1>
           <ResumeEducationHeadline />
           <p className="resume-availability">
-            {profile.availability} · {profile.currentCity} · Class of 2028
+            {profile.availability} · {profile.currentCity}
           </p>
           <div className="resume-actions">
             <a
-              href="/Tyrone-Marhguy-Resume.pdf"
+              href="/Tyrone-Marhguy-Hardware-Resume.pdf"
               className="button"
-              download="Tyrone-Marhguy-Resume.pdf"
+              download="Tyrone-Marhguy-Hardware-Resume.pdf"
             >
-              Download PDF
+              Hardware PDF
+            </a>
+            <a
+              href="/Tyrone-Marhguy-Software-Resume.pdf"
+              className="button"
+              download="Tyrone-Marhguy-Software-Resume.pdf"
+            >
+              Software PDF
             </a>
             <a href="/contact/" className="button button-secondary">
               Get in touch
