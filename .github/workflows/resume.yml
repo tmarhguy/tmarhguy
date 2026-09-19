@@ -1,9 +1,9 @@
 name: Resume
 
-# Compiles docs/resume/hardware.tex. On pull requests, verify only.
-# On push to main (and manual runs), also publish the PDFs under public/.
-# Path filters keep this off unrelated commits; the PDF-only follow-up
-# commit cannot retrigger the workflow.
+# Compiles docs/resume/hardware.tex and software.tex. On pull requests,
+# verify only. On push to main (and manual runs), also publish the PDFs
+# under public/. Path filters keep this off unrelated commits; the
+# PDF-only follow-up commit cannot retrigger the workflow.
 
 on:
   push:
@@ -43,22 +43,32 @@ jobs:
           compiler: latexmk
           args: -pdf -interaction=nonstopmode
 
+      - name: Compile software.tex
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: docs/resume
+          root_file: software.tex
+          compiler: latexmk
+          args: -pdf -interaction=nonstopmode
+
       - name: Publish PDFs to public/
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: |
-          cp docs/resume/hardware.pdf public/Tyrone-Marhguy-Resume.pdf
-          cp docs/resume/hardware.pdf public/resume.pdf
+          cp docs/resume/hardware.pdf public/Tyrone-Marhguy-Hardware-Resume.pdf
+          cp docs/resume/software.pdf public/Tyrone-Marhguy-Software-Resume.pdf
           rm -f docs/resume/hardware.pdf \
-            docs/resume/hardware.aux \
-            docs/resume/hardware.log \
-            docs/resume/hardware.out \
-            docs/resume/hardware.fls \
-            docs/resume/hardware.fdb_latexmk
-          ls -lh public/Tyrone-Marhguy-Resume.pdf public/resume.pdf
+            docs/resume/software.pdf \
+            docs/resume/*.aux \
+            docs/resume/*.log \
+            docs/resume/*.out \
+            docs/resume/*.fls \
+            docs/resume/*.fdb_latexmk
+          ls -lh public/Tyrone-Marhguy-Hardware-Resume.pdf \
+            public/Tyrone-Marhguy-Software-Resume.pdf
 
       - name: Commit updated PDFs
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          file_pattern: 'public/Tyrone-Marhguy-Resume.pdf public/resume.pdf'
+          file_pattern: 'public/Tyrone-Marhguy-Hardware-Resume.pdf public/Tyrone-Marhguy-Software-Resume.pdf'
           commit_message: 'chore: resume latex compilation'

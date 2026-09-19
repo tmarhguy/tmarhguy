@@ -59,6 +59,15 @@ describe('Hero', () => {
     expect(resumeButton).toHaveAttribute('href', '/resume/');
     expect(resumeButton).toHaveClass('hero-resume-link');
     expect(resumeButton).not.toHaveClass('button');
+
+    expect(screen.getByRole('link', { name: /hardware pdf/i })).toHaveAttribute(
+      'href',
+      '/Tyrone-Marhguy-Hardware-Resume.pdf',
+    );
+    expect(screen.getByRole('link', { name: /software pdf/i })).toHaveAttribute(
+      'href',
+      '/Tyrone-Marhguy-Software-Resume.pdf',
+    );
   });
 
   it('has decorative background elements', () => {
