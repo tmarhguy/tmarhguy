@@ -151,17 +151,6 @@
   color: var(--color-accent);
 }
 
-.resume-availability {
-  font-family: var(--font-mono);
-  font-size: var(--text-ui);
-  font-weight: var(--font-weight-medium);
-  letter-spacing: var(--tracking-label);
-  color: var(--color-accent);
-  margin: 0 0 1rem;
-  text-align: center;
-  text-wrap: balance;
-}
-
 .resume-actions {
   display: flex;
   flex-wrap: wrap;

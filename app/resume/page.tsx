@@ -32,9 +32,6 @@ export default function ResumePage() {
         <header className="resume-header">
           <h1 className="resume-title">Resume</h1>
           <ResumeEducationHeadline />
-          <p className="resume-availability">
-            {profile.availability} · {profile.currentCity}
-          </p>
           <div className="resume-actions">
             <a
               href="/Tyrone-Marhguy-Hardware-Resume.pdf"

@@ -35,6 +35,48 @@ describe('ListItem', () => {
     expect(link).toHaveAttribute('href', mockProject.link);
   });
 
+  it('puts live Open VSX shields beside the title and points them at the listing', () => {
+    render(
+      <ListItem
+        data={{
+          ...mockProject,
+          title: 'FramePort',
+          site: 'https://open-vsx.org/extension/tmarhguy/frameport',
+          link: 'https://github.com/tmarhguy/frameport',
+          openVsx: 'tmarhguy/frameport',
+        }}
+      />,
+    );
+
+    expect(screen.getByRole('link', { name: 'FramePort' })).toHaveAttribute(
+      'href',
+      'https://open-vsx.org/extension/tmarhguy/frameport',
+    );
+    const badges = screen.getByRole('link', {
+      name: /FramePort Open VSX version FramePort Open VSX downloads/,
+    });
+    expect(badges).toHaveAttribute(
+      'href',
+      'https://open-vsx.org/extension/tmarhguy/frameport',
+    );
+    expect(
+      screen.getByAltText('FramePort Open VSX version'),
+    ).toHaveAttribute(
+      'src',
+      'https://img.shields.io/open-vsx/v/tmarhguy/frameport?style=flat-square',
+    );
+    expect(
+      screen.getByAltText('FramePort Open VSX downloads'),
+    ).toHaveAttribute(
+      'src',
+      'https://img.shields.io/open-vsx/dt/tmarhguy/frameport?style=flat-square',
+    );
+    expect(screen.getByRole('link', { name: /github/i })).toHaveAttribute(
+      'href',
+      'https://github.com/tmarhguy/frameport',
+    );
+  });
+
   it('keeps the live site and GitHub as sibling links', () => {
     render(
       <ListItem

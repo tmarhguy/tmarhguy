@@ -3,7 +3,11 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 
 import type { Project } from '@/data/projects';
-import { getProjectSlug } from '@/data/projects';
+import {
+  getProjectSlug,
+  openVsxDownloadsShieldSrc,
+  openVsxVersionShieldSrc,
+} from '@/data/projects';
 import { externalAnchorProps } from '@/lib/external-link';
 import { getWritingSectionHref, projectHasWriting } from '@/lib/logs';
 
@@ -44,8 +48,18 @@ function ExhibitMedia({
 }
 
 export default function ListItem({ data, number }: ListItemProps) {
-  const { title, link, site, period, date, desc, tech, highlight, logProject } =
-    data;
+  const {
+    title,
+    link,
+    site,
+    period,
+    date,
+    desc,
+    tech,
+    highlight,
+    logProject,
+    openVsx,
+  } = data;
   const writingHref =
     logProject && projectHasWriting(logProject)
       ? getWritingSectionHref(logProject)
@@ -125,6 +139,29 @@ export default function ListItem({ data, number }: ListItemProps) {
           ) : (
             title
           )}
+          {openVsx ? (
+            <a
+              href={titleHref ?? `https://open-vsx.org/extension/${openVsx}`}
+              className="project-list-downloads"
+              {...externalAnchorProps(
+                titleHref ?? `https://open-vsx.org/extension/${openVsx}`,
+              )}
+            >
+              {/* GitHub-style shields are remote SVGs; next/image cannot size them. */}
+              {/* biome-ignore lint/performance/noImgElement: shields.io badge */}
+              <img
+                src={openVsxVersionShieldSrc(openVsx)}
+                alt={`${title} Open VSX version`}
+                height={20}
+              />
+              {/* biome-ignore lint/performance/noImgElement: shields.io badge */}
+              <img
+                src={openVsxDownloadsShieldSrc(openVsx)}
+                alt={`${title} Open VSX downloads`}
+                height={20}
+              />
+            </a>
+          ) : null}
           {hasSiteAndRepo ? (
             <a
               href={link}

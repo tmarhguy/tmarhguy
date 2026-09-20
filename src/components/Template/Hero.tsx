@@ -38,9 +38,7 @@ export default function Hero() {
               Software PDF
             </a>
           </div>
-          <p className="hero-availability">
-            {profile.availability} · {profile.currentCity}
-          </p>
+          <p className="hero-availability">{profile.currentCity}</p>
         </div>
 
         <div className="hero-portrait">

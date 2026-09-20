@@ -5,6 +5,17 @@ export type ProjectCategory = 'hardware' | 'software' | 'tools';
 
 export const TOMATO_SITE_URL = 'https://tomato.tmarhguy.com';
 export const TOMATO_REPO_URL = 'https://github.com/tmarhguy/tomato';
+export const FRAMEPORT_OPEN_VSX_ID = 'tmarhguy/frameport';
+export const FRAMEPORT_SITE_URL = `https://open-vsx.org/extension/${FRAMEPORT_OPEN_VSX_ID}`;
+
+/** Live shields.io Open VSX badges — same source as the README. */
+export function openVsxVersionShieldSrc(id: string): string {
+  return `https://img.shields.io/open-vsx/v/${id}?style=flat-square`;
+}
+
+export function openVsxDownloadsShieldSrc(id: string): string {
+  return `https://img.shields.io/open-vsx/dt/${id}?style=flat-square`;
+}
 
 export interface Project {
   title: string;
@@ -29,6 +40,8 @@ export interface Project {
   featured?: boolean;
   /** Short label for a personal standout (e.g. on the projects index) */
   highlight?: string;
+  /** Live Open VSX `namespace/name` — version + downloads shields beside the title. */
+  openVsx?: string;
   /** Optional thumbnail for featured cards */
   image?: string;
   imageCaption?: string;
@@ -88,6 +101,8 @@ const data: Project[] = [
     link: 'https://github.com/tmarhguy/udp-stack',
     image: '/images/projects/udp-bench.webp',
     imageCaption: 'Nexys A7 running the UDP stack · README bench recording',
+    video: '/images/projects/udp-bench.mp4',
+    videoPoster: '/images/projects/udp-bench.webp',
     date: '2026-08-01',
     period: 'Jul. 2026 — Aug. 2026',
     desc: 'Deterministic 100 Mbps RMII pipeline — MAC, ARP/IP/UDP on Nexys A7 Artix-7; sub-200 ns RX-to-TX loopback with 100% cocotb coverage.',
@@ -201,18 +216,18 @@ const data: Project[] = [
     subtitle: 'HDMI capture in VS Code',
     slug: 'frameport',
     logProject: 'frameport',
-    site: 'https://marketplace.visualstudio.com/items?itemName=tmarhguy.frameport',
+    site: FRAMEPORT_SITE_URL,
     link: 'https://github.com/tmarhguy/frameport',
     image: '/images/projects/frameport-marketplace.webp',
-    imageCaption:
-      'Live FPGA capture beside code · 0.2.1 shipped on the Marketplace',
+    imageCaption: 'Live FPGA capture beside code · Open VSX',
     video: '/images/projects/frameport-demo.mp4',
     videoPoster: '/images/projects/frameport-demo-poster.webp',
     date: '2026-09-13',
     period: 'Sep. 2026 — Present',
-    desc: 'VS Code extension opening HDMI and USB capture in an editor tab — live FPGA output beside code, PNG screenshots, and silent MP4 recording. Shipped 0.2.1 on the Marketplace.',
+    desc: 'VS Code extension opening HDMI and USB capture in an editor tab — live FPGA output beside code, PNG screenshots, and silent MP4 recording.',
     tech: ['TypeScript', 'VS Code API', 'FFmpeg', 'H.264'],
     category: 'tools',
+    openVsx: FRAMEPORT_OPEN_VSX_ID,
   },
   {
     title: 'Mango Tools',
@@ -290,8 +305,9 @@ const data: Project[] = [
     logProject: 'envelop',
     site: 'https://envelop.tmarhguy.com',
     link: 'https://github.com/tmarhguy/envelop',
-    image: '/images/envelop/envelop-browser-chat.webp',
-    imageCaption: 'Envelop browser chat · messaging with Tomato',
+    image: '/images/envelop/envelop-demo.gif',
+    imageCaption:
+      'From the website into browser chat · an exchange with Tomato',
     date: '2026-09-14',
     period: 'Sep. 2026 — Present',
     desc: 'Browser messenger connecting people to Tomato through verified native BLE bridges, with explicitly labeled Virtual Tomato execution when physical hardware is unavailable.',

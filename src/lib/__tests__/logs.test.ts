@@ -54,6 +54,18 @@ describe('getAllLogs', () => {
     expect(tomato?.projectSite).toBe('https://tomato.tmarhguy.com');
     expect(tomato?.projectLink).toBe('https://github.com/tmarhguy/tomato');
   });
+
+  it('attaches the FramePort Open VSX listing next to the GitHub repo', () => {
+    const frameport = getAllLogs().find(
+      (entry) => entry.project === 'frameport',
+    );
+    expect(frameport?.projectSite).toBe(
+      'https://open-vsx.org/extension/tmarhguy/frameport',
+    );
+    expect(frameport?.projectLink).toBe(
+      'https://github.com/tmarhguy/frameport',
+    );
+  });
 });
 
 describe('getLogBySlug', () => {

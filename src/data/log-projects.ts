@@ -1,4 +1,8 @@
-import { TOMATO_REPO_URL, TOMATO_SITE_URL } from '@/data/projects';
+import {
+  FRAMEPORT_SITE_URL,
+  TOMATO_REPO_URL,
+  TOMATO_SITE_URL,
+} from '@/data/projects';
 
 export interface LogProject {
   id: string;
@@ -61,7 +65,7 @@ const logProjects: LogProject[] = [
   {
     id: 'frameport',
     label: 'FramePort',
-    site: 'https://marketplace.visualstudio.com/items?itemName=tmarhguy.frameport',
+    site: FRAMEPORT_SITE_URL,
     link: 'https://github.com/tmarhguy/frameport',
   },
   {

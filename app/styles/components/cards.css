@@ -439,6 +439,28 @@ a.projects-open-source-highlight:hover {
   opacity: 0.65;
 }
 
+.project-list-downloads {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+  text-decoration: none;
+  background-image: none;
+  line-height: 0;
+  vertical-align: middle;
+}
+
+.project-list-downloads img {
+  height: 1.15em;
+  width: auto;
+  vertical-align: middle;
+}
+
+a.project-list-downloads:hover,
+a.project-list-downloads:focus-visible {
+  opacity: 0.85;
+}
+
 .project-list-aux-link {
   font-family: var(--font-mono);
   font-size: var(--text-2xs);

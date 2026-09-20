@@ -46,6 +46,8 @@ describe('Hero', () => {
     expect(screen.queryByText('Based in')).not.toBeInTheDocument();
     expect(screen.queryByText('YC Alum')).not.toBeInTheDocument();
     expect(screen.queryByText('Stanford ICME')).not.toBeInTheDocument();
+    expect(screen.queryByText(/open to/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/2027/)).not.toBeInTheDocument();
   });
 
   it('renders projects as the primary CTA and resume as the quieter link', () => {

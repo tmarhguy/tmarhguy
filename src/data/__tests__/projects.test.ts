@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
 import projects, {
+  FRAMEPORT_OPEN_VSX_ID,
+  FRAMEPORT_SITE_URL,
   findProjectByTitle,
   getEarlierProjects,
   getFeaturedProjects,
@@ -13,6 +15,8 @@ import projects, {
   getResumeProjects,
   getSoftwareProjects,
   getToolsProjects,
+  openVsxDownloadsShieldSrc,
+  openVsxVersionShieldSrc,
 } from '../projects';
 
 describe('projects data', () => {
@@ -236,12 +240,24 @@ describe('projects data', () => {
     expect(byTitle['QueuePaste']).toBeUndefined();
   });
 
-  it('lists FramePort with both the Marketplace page and the GitHub repo', () => {
+  it('lists FramePort with Open VSX, GitHub, and live download shields', () => {
     const frameport = findProjectByTitle('FramePort')!;
+    expect(frameport.site).toBe(FRAMEPORT_SITE_URL);
     expect(frameport.site).toBe(
-      'https://marketplace.visualstudio.com/items?itemName=tmarhguy.frameport',
+      'https://open-vsx.org/extension/tmarhguy/frameport',
     );
     expect(frameport.link).toBe('https://github.com/tmarhguy/frameport');
+    expect(frameport.openVsx).toBe(FRAMEPORT_OPEN_VSX_ID);
+    expect(frameport.desc).not.toMatch(/\d+\s+downloads/);
+    expect(frameport.desc).not.toMatch(/Marketplace/i);
+    expect(frameport.imageCaption).toMatch(/Open VSX/);
+    expect(frameport.imageCaption).not.toMatch(/Marketplace/i);
+    expect(openVsxVersionShieldSrc(FRAMEPORT_OPEN_VSX_ID)).toBe(
+      'https://img.shields.io/open-vsx/v/tmarhguy/frameport?style=flat-square',
+    );
+    expect(openVsxDownloadsShieldSrc(FRAMEPORT_OPEN_VSX_ID)).toBe(
+      'https://img.shields.io/open-vsx/dt/tmarhguy/frameport?style=flat-square',
+    );
     expect(frameport.video).toBe('/images/projects/frameport-demo.mp4');
     expect(frameport.videoPoster).toBe(
       '/images/projects/frameport-demo-poster.webp',
@@ -252,7 +268,15 @@ describe('projects data', () => {
     const envelop = findProjectByTitle('Envelop')!;
     expect(envelop.site).toBe('https://envelop.tmarhguy.com');
     expect(envelop.link).toBe('https://github.com/tmarhguy/envelop');
-    expect(envelop.image).toBe('/images/envelop/envelop-browser-chat.webp');
+    expect(envelop.image).toBe('/images/envelop/envelop-demo.gif');
+  });
+
+  it('plays the UDP bench recording on the project card', () => {
+    const udp = findProjectByTitle('100 Mbps UDP/IP Stack')!;
+    expect(udp.video).toBe('/images/projects/udp-bench.mp4');
+    expect(udp.videoPoster).toBe('/images/projects/udp-bench.webp');
+    expect(udp.image).toBe('/images/projects/udp-bench.webp');
+    expect(udp.imageCaption).toMatch(/bench recording/);
   });
 
   it('orders category lists with images before text-only entries', () => {

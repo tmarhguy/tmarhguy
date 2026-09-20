@@ -166,6 +166,10 @@
   margin-top: 0.75rem;
   white-space: normal;
 }
+.projects-exhibition .project-list-title .project-list-downloads {
+  margin: 0 0 0 0.5rem;
+  vertical-align: middle;
+}
 .projects-exhibition .project-list-aux-link {
   display: inline-block;
   margin: 0.75rem 0.75rem 0 0.75rem;
@@ -455,6 +459,7 @@
     margin-bottom: 0.3rem;
     line-height: 1.25;
   }
+  .projects-exhibition .project-list-title .project-list-downloads,
   .projects-exhibition .project-list-aux-link {
     margin: 0 0 0 0.35rem;
   }

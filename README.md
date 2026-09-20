@@ -50,7 +50,7 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 **Tools & software**
 
 - **[Envelop](https://envelop.tmarhguy.com)** ([GitHub](https://github.com/tmarhguy/envelop)) — text people and Tomato from the browser · verified BLE · labeled Physical/Virtual
-- **[FramePort](https://marketplace.visualstudio.com/items?itemName=tmarhguy.frameport)** ([GitHub](https://github.com/tmarhguy/frameport)) — HDMI/USB capture in VS Code · PNG screenshots · silent MP4 recording · [![Open VSX version](https://img.shields.io/open-vsx/v/tmarhguy/frameport?style=flat-square)](https://open-vsx.org/extension/tmarhguy/frameport) [![Open VSX downloads](https://img.shields.io/open-vsx/dt/tmarhguy/frameport?style=flat-square)](https://open-vsx.org/extension/tmarhguy/frameport)
+- **[FramePort](https://open-vsx.org/extension/tmarhguy/frameport)** ([GitHub](https://github.com/tmarhguy/frameport)) — HDMI/USB capture in VS Code · PNG screenshots · silent MP4 recording · [![Open VSX version](https://img.shields.io/open-vsx/v/tmarhguy/frameport?style=flat-square)](https://open-vsx.org/extension/tmarhguy/frameport) [![Open VSX downloads](https://img.shields.io/open-vsx/dt/tmarhguy/frameport?style=flat-square)](https://open-vsx.org/extension/tmarhguy/frameport)
 - **[Mango Tools](https://github.com/tmarhguy/tools)** — offline CLI for PDF, media & images
 - **[Orange Metrics API](https://github.com/tmarhguy/metrics-api)** — Vivado & OpenLane PPA ingestion · FastAPI · PostgreSQL · Docker
 - **[QueuePaste](https://github.com/tmarhguy/QueuePaste)** — macOS clipboard queue · ⌥ Space to paste
