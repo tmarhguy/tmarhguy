@@ -52,25 +52,25 @@ describe('ListItem', () => {
       'href',
       'https://open-vsx.org/extension/tmarhguy/frameport',
     );
-    const badges = screen.getByRole('link', {
-      name: /FramePort Open VSX version FramePort Open VSX downloads/,
+    const versionBadge = screen.getByRole('img', {
+      name: 'FramePort Open VSX version',
     });
-    expect(badges).toHaveAttribute(
-      'href',
-      'https://open-vsx.org/extension/tmarhguy/frameport',
-    );
-    expect(
-      screen.getByAltText('FramePort Open VSX version'),
-    ).toHaveAttribute(
+    const downloadsBadge = screen.getByRole('img', {
+      name: 'FramePort Open VSX downloads',
+    });
+    expect(versionBadge).toHaveAttribute(
       'src',
       'https://img.shields.io/open-vsx/v/tmarhguy/frameport?style=flat-square',
     );
-    expect(
-      screen.getByAltText('FramePort Open VSX downloads'),
-    ).toHaveAttribute(
+    expect(downloadsBadge).toHaveAttribute(
       'src',
       'https://img.shields.io/open-vsx/dt/tmarhguy/frameport?style=flat-square',
     );
+    expect(versionBadge.closest('a')).toHaveAttribute(
+      'href',
+      'https://open-vsx.org/extension/tmarhguy/frameport',
+    );
+    expect(downloadsBadge.closest('a')).toBe(versionBadge.closest('a'));
     expect(screen.getByRole('link', { name: /github/i })).toHaveAttribute(
       'href',
       'https://github.com/tmarhguy/frameport',
