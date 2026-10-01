@@ -48,26 +48,14 @@ function ExhibitMedia({
 }
 
 export default function ListItem({ data, number }: ListItemProps) {
-  const {
-    title,
-    link,
-    site,
-    period,
-    date,
-    desc,
-    tech,
-    highlight,
-    logProject,
-    openVsx,
-  } = data;
+  const { title, link, site, desc, tech, highlight, logProject, openVsx } =
+    data;
   const writingHref =
     logProject && projectHasWriting(logProject)
       ? getWritingSectionHref(logProject)
       : null;
   const hasSiteAndRepo = Boolean(site && link && site !== link);
   const titleHref = site ?? link;
-  // Full period on desktop; year-only on the compact mobile shelf.
-  const year = date.slice(0, 4);
   const mediaCaption = data.imageCaption ?? data.subtitle;
   const mediaLabel = `Open ${title}`;
 
@@ -110,17 +98,13 @@ export default function ListItem({ data, number }: ListItemProps) {
           </ExhibitMedia>
         )
       )}
-      <div className="project-list-meta">
-        <time className="project-list-date" dateTime={date}>
-          <span className="project-list-date-full">{period}</span>
-          <span className="project-list-date-year">{year}</span>
-        </time>
-        {writingHref ? (
+      {writingHref ? (
+        <div className="project-list-meta">
           <Link href={writingHref} className="project-list-log-link">
             Log
           </Link>
-        ) : null}
-      </div>
+        </div>
+      ) : null}
       <div className="project-list-body">
         <h3 className="project-list-title">
           {number !== undefined && (

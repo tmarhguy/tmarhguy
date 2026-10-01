@@ -1,7 +1,7 @@
 import { HOME_OPEN_SOURCE_FEATURE } from '@/data/open-source';
 import { createHeadingId } from '@/lib/anchors';
 
-export type ProjectCategory = 'hardware' | 'software' | 'tools';
+export type ProjectCategory = 'hardware' | 'systems' | 'software' | 'tools';
 
 export const TOMATO_SITE_URL = 'https://tomato.tmarhguy.com';
 export const TOMATO_REPO_URL = 'https://github.com/tmarhguy/tomato';
@@ -36,7 +36,7 @@ export interface Project {
   category: ProjectCategory;
   /** Matches the three projects on my hardware resume today */
   onResume?: boolean;
-  /** Homepage selected work — order via getFeaturedProjects() */
+  /** Homepage selected work — order via getHomeHardwarePicks()/getHomeSoftwarePicks() */
   featured?: boolean;
   /** Short label for a personal standout (e.g. on the projects index) */
   highlight?: string;
@@ -138,6 +138,7 @@ const data: Project[] = [
     logProject: 'mac',
     image: '/images/projects/mac-core.webp',
     imageCaption: 'MAC core · physical layout preview',
+    site: 'https://tmarhguy.github.io/mac/',
     link: 'https://github.com/tmarhguy/mac',
     date: '2026-01-01',
     period: 'Jan. 2026 — Present',
@@ -173,16 +174,74 @@ const data: Project[] = [
     category: 'hardware',
   },
   {
-    title: '64-bit RISC-V CPU (RV64IM)',
-    subtitle: '5-stage pipelined core',
+    title: 'Out-of-Order RISC-V CPU (RV64IM)',
+    subtitle: '2-wide superscalar · Tomasulo + ROB/LSQ',
+    slug: 'riscv64xO3',
+    site: 'https://tmarhguy.github.io/riscv/',
     link: 'https://github.com/tmarhguy/riscv',
     image: '/images/projects/riscv64.webp',
-    imageCaption: 'RV64IM core · 5-stage pipeline',
-    date: '2025-10-01',
-    period: '2025',
-    desc: 'Custom RV64IM processor on Artix-7 at 125 MHz with 96% ISA compliance; bare-metal C via UART bootloader.',
-    tech: ['SystemVerilog', 'RISC-V', 'Wishbone', 'cocotb'],
+    imageCaption: 'Out-of-order RISC-V core · 2-wide superscalar pipeline',
+    date: '2026-02-16',
+    period: 'Nov. 2025 — Present',
+    desc: 'RV64IM live with A/C in bring-up; 2-wide fetch/decode/issue/commit with gshare + BTB + RAS, AXI4-Lite memory, Verilator + cocotb + riscv-tests with Yosys/OpenLane2 feasibility.',
+    tech: ['SystemVerilog', 'RISC-V', 'AXI4-Lite', 'Verilator', 'cocotb'],
     category: 'hardware',
+  },
+  {
+    title: 'Pineapple GPU P1',
+    subtitle: 'Programmable 3D GPU · Nexys A7-100T',
+    slug: 'pineapple-gpu',
+    site: 'https://tmarhguy.github.io/gpu/',
+    link: 'https://github.com/tmarhguy/PineappleGPU',
+    image: '/images/projects/pineapple-demo.gif',
+    imageCaption: 'Pineapple demo on Nexys A7-100T · HDMI capture',
+    date: '2026-10-01',
+    period: 'Sep. 2026 — Oct. 2026',
+    desc: 'Standalone programmable 3D GPU — vertex/fragment shaders, rasterizer, depth, texture, double-buffered 320×180; pineapple and cube both rendered on silicon via FOSS Yosys/nextpnr flow.',
+    tech: ['Verilog', 'Yosys/nextpnr', 'Artix-7', 'DVI'],
+    category: 'hardware',
+  },
+  {
+    title: 'Lobster',
+    subtitle: 'Systems language for dual-LUT3 CPUs',
+    slug: 'lobster',
+    site: 'https://tmarhguy.github.io/lobster/',
+    link: 'https://github.com/tmarhguy/lobster',
+    image: '/images/projects/lobster.webp',
+    imageCaption: 'Lobster language + compiler · repo screenshot',
+    date: '2026-10-01',
+    period: 'Oct. 2026 — Present',
+    desc: 'Statically-typed systems language and optimizing compiler for dual-LUT3/Tomato targets; lexer, Pratt parser, name resolution and type checking live via lobster check across nine Rust crates.',
+    tech: ['Rust', 'Compilers', 'Tomato32', 'CLI'],
+    category: 'systems',
+  },
+  {
+    title: 'FigDB',
+    subtitle: 'Distributed transactional database',
+    slug: 'figdb',
+    site: 'https://tmarhguy.github.io/figDB/',
+    link: 'https://github.com/tmarhguy/figDB',
+    image: '/images/projects/figdb.webp',
+    imageCaption: 'FigDB database · repo screenshot',
+    date: '2026-10-01',
+    period: 'Oct. 2026 — Present',
+    desc: 'Transactional database from first principles — ordered KV, checksummed WAL, WAL-backed memtable, SSTables, LSM flush/merge with manifest and compaction; 59 tests passing.',
+    tech: ['Rust', 'LSM', 'WAL', 'Tokio'],
+    category: 'systems',
+  },
+  {
+    title: 'SeaLion',
+    subtitle: 'Distributed full-text search engine',
+    slug: 'sealion',
+    site: 'https://tmarhguy.github.io/sealion/',
+    link: 'https://github.com/tmarhguy/sealion-search-engine',
+    image: '/images/projects/sealion-demo.gif',
+    imageCaption: 'SeaLion engine · search demo',
+    date: '2026-10-01',
+    period: 'Oct. 2026 — Present',
+    desc: 'Full-text search engine from first principles — Unicode analysis, BM25-ranked phrase search over persistent .seal segments with generations and merge, oracle-verified CLI; 89 tests passing.',
+    tech: ['Rust', 'Search', 'BM25', 'CLI'],
+    category: 'systems',
   },
   {
     title: '8-bit Discrete Transistor ALU',
@@ -216,9 +275,9 @@ const data: Project[] = [
     subtitle: 'HDMI capture in VS Code',
     slug: 'frameport',
     logProject: 'frameport',
-    site: FRAMEPORT_SITE_URL,
+    site: 'https://tmarhguy.github.io/frameport/',
     link: 'https://github.com/tmarhguy/frameport',
-    image: '/images/projects/frameport-marketplace.webp',
+    image: '/images/projects/frameport-demo.gif',
     imageCaption: 'Live FPGA capture beside code · Open VSX',
     video: '/images/projects/frameport-demo.mp4',
     videoPoster: '/images/projects/frameport-demo-poster.webp',
@@ -300,7 +359,7 @@ const data: Project[] = [
   },
   {
     title: 'Envelop',
-    subtitle: 'Browser-to-Tomato messenger',
+    subtitle: 'Browser-to-FPGA remote compute',
     slug: 'envelop',
     logProject: 'envelop',
     site: 'https://envelop.tmarhguy.com',
@@ -310,7 +369,7 @@ const data: Project[] = [
       'From the website into browser chat · an exchange with Tomato',
     date: '2026-09-14',
     period: 'Sep. 2026 — Present',
-    desc: 'Browser messenger connecting people to Tomato through verified native BLE bridges, with explicitly labeled Virtual Tomato execution when physical hardware is unavailable.',
+    desc: 'Browser-to-FPGA remote-compute link for Tomato over verified native BLE bridges, with explicitly labeled Virtual Tomato execution when physical hardware is unavailable.',
     tech: ['JavaScript', 'Kotlin', 'Swift', 'BLE'],
     category: 'software',
   },
@@ -386,12 +445,13 @@ function isMainExhibition(project: Project): boolean {
 const HARDWARE_ORDER = [
   'tomato',
   'mac',
+  'pineapple-gpu',
   '100mbps-udp-ip-stack',
   'full-custom-sram',
   'nasdaq-itch',
   '8-bit-ripple-carry-adder-ese-3700',
   'spice-automation',
-  '64-bit-risc-v-cpu-rv64im',
+  'riscv64xO3',
   '8-bit-discrete-transistor-alu',
 ] as const;
 
@@ -411,6 +471,14 @@ export function getHardwareProjects(): Project[] {
     return project;
   });
   return [...ordered, ...sortByDateDesc([...bySlug.values()])];
+}
+
+export function getSystemsProjects(): Project[] {
+  return sortByDateDesc(
+    data.filter(
+      (project) => project.category === 'systems' && isMainExhibition(project),
+    ),
+  );
 }
 
 export function getToolsProjects(): Project[] {
@@ -450,22 +518,58 @@ export function getSoftwareProjects(): Project[] {
   );
 }
 
+/**
+ * Unified non-hardware wall — systems, tools, and software together.
+ * Keeps the portfolio feeling like one person's workbench instead of
+ * three thin fragments. Hardware stays its own section.
+ */
+export function getSoftwareAndSystemsProjects(): Project[] {
+  return sortByDateDesc(
+    data.filter(
+      (project) =>
+        (project.category === 'systems' ||
+          project.category === 'tools' ||
+          project.category === 'software') &&
+        isMainExhibition(project),
+    ),
+  );
+}
+
 export function getProjectSlug(project: Project): string {
   return project.slug ?? createHeadingId(project.title);
 }
 
-const FEATURED_PROJECT_SLUGS = [
+const HOME_HARDWARE_SLUGS = [
+  'pineapple-gpu',
   'mac',
   '100mbps-udp-ip-stack',
   'full-custom-sram',
 ] as const;
 
-/** Homepage selected work — explicit cracked-hardware order. */
-export function getFeaturedProjects(): Project[] {
-  return FEATURED_PROJECT_SLUGS.map((slug) => {
+const HOME_SOFTWARE_SLUGS = [
+  'lobster',
+  'figdb',
+  'sealion',
+  'frameport',
+] as const;
+
+/** Homepage hardware row — strongest silicon-backed builds first. */
+export function getHomeHardwarePicks(): Project[] {
+  return HOME_HARDWARE_SLUGS.map((slug) => {
     const project = data.find((entry) => getProjectSlug(entry) === slug);
-    if (!project?.featured) {
-      throw new Error(`Missing featured project: ${slug}`);
+    if (!project) {
+      throw new Error(`Missing homepage hardware pick: ${slug}`);
+    }
+    return project;
+  });
+}
+
+/** Homepage software row — systems flagships plus top-traction tool. */
+export function getHomeSoftwarePicks(): Project[] {
+  return HOME_SOFTWARE_SLUGS.map((slug) => {
+    const project = data.find((entry) => getProjectSlug(entry) === slug);
+    if (!project) {
+      throw new Error(`Missing homepage software pick: ${slug}`);
     }
     return project;
   });
@@ -479,9 +583,42 @@ export interface HomeFeaturedItem {
   imageAlt: string;
   href: string;
   external?: boolean;
+  /** Live Open VSX `namespace/name` — version + downloads shields on the card. */
+  openVsx?: string;
 }
 
-/** Homepage projects strip: open source lead, then featured builds. */
+function toHomeFeaturedItem(project: Project): HomeFeaturedItem {
+  const href = project.site ?? project.link;
+  if (!href) {
+    throw new Error(`Homepage pick missing link: ${project.title}`);
+  }
+  if (!project.image) {
+    throw new Error(`Homepage pick missing image: ${project.title}`);
+  }
+
+  return {
+    title: project.title,
+    period: project.period,
+    desc: project.desc,
+    image: project.image,
+    imageAlt: `${project.title} — project screenshot`,
+    href,
+    external: true,
+    openVsx: project.openVsx,
+  };
+}
+
+/** Homepage hardware row — strongest silicon-backed builds. */
+export function getHomeHardwareItems(): HomeFeaturedItem[] {
+  return getHomeHardwarePicks().map(toHomeFeaturedItem);
+}
+
+/** Homepage software row — systems flagships plus top-traction tool. */
+export function getHomeSoftwareItems(): HomeFeaturedItem[] {
+  return getHomeSoftwarePicks().map(toHomeFeaturedItem);
+}
+
+/** Homepage strip: open source lead, then the hardware and software rows. */
 export function getHomeFeaturedItems(): HomeFeaturedItem[] {
   return [
     {
@@ -492,22 +629,8 @@ export function getHomeFeaturedItems(): HomeFeaturedItem[] {
       imageAlt: HOME_OPEN_SOURCE_FEATURE.imageAlt,
       href: HOME_OPEN_SOURCE_FEATURE.href,
     },
-    ...getFeaturedProjects().map((project) => {
-      const href = project.site ?? project.link;
-      if (!href) {
-        throw new Error(`Featured project missing link: ${project.title}`);
-      }
-
-      return {
-        title: project.title,
-        period: project.period,
-        desc: project.desc,
-        image: project.image!,
-        imageAlt: `${project.title} — project screenshot`,
-        href,
-        external: true,
-      };
-    }),
+    ...getHomeHardwareItems(),
+    ...getHomeSoftwareItems(),
   ];
 }
 

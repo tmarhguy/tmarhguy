@@ -335,6 +335,17 @@
   color: var(--color-accent);
 }
 
+.home-project-shields {
+  display: inline-flex;
+  gap: 0.35rem;
+  margin-top: 0.4rem;
+}
+
+.home-project-shields img {
+  display: block;
+  height: 20px;
+}
+
 .home-project-item p {
   margin: 0;
   font-size: var(--text-sm);
@@ -350,6 +361,22 @@
   display: grid;
   gap: 1.75rem;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.home-projects-group-title {
+  margin: 1.75rem 0 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-fg-light);
+}
+
+.home-section-links {
+  display: flex;
+  flex: none;
+  gap: 1.25rem;
 }
 
 .home-section-header,
@@ -471,6 +498,10 @@
     max-height: 120px;
     aspect-ratio: 16 / 10;
     object-fit: cover;
+  }
+
+  .home-projects-group-title {
+    margin-top: 1.25rem;
   }
 
   .home-project-item h3 {

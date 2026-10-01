@@ -2,18 +2,21 @@ import { describe, expect, it } from 'vitest';
 
 import projects, {
   FRAMEPORT_OPEN_VSX_ID,
-  FRAMEPORT_SITE_URL,
   findProjectByTitle,
   getEarlierProjects,
-  getFeaturedProjects,
   getHardwareProjects,
   getHiddenProjects,
   getHomeFeaturedItems,
+  getHomeHardwarePicks,
+  getHomeSoftwareItems,
+  getHomeSoftwarePicks,
   getMoreHardwareProjects,
   getProjectAnchorHrefByTitle,
   getProjectSlug,
   getResumeProjects,
+  getSoftwareAndSystemsProjects,
   getSoftwareProjects,
+  getSystemsProjects,
   getToolsProjects,
   openVsxDownloadsShieldSrc,
   openVsxVersionShieldSrc,
@@ -107,18 +110,49 @@ describe('projects data', () => {
     );
   });
 
-  it('orders featured homepage projects by cracked-hardware rank', () => {
+  it('picks four strongest hardware projects for the homepage', () => {
     expect(
-      getFeaturedProjects().map((project) => getProjectSlug(project)),
-    ).toEqual(['mac', '100mbps-udp-ip-stack', 'full-custom-sram']);
+      getHomeHardwarePicks().map((project) => getProjectSlug(project)),
+    ).toEqual([
+      'pineapple-gpu',
+      'mac',
+      '100mbps-udp-ip-stack',
+      'full-custom-sram',
+    ]);
+    expect(getHomeHardwarePicks().every((project) => project.image)).toBe(true);
   });
 
-  it('leads the homepage strip with open source, then MAC and UDP', () => {
+  it('picks four strongest software projects for the homepage', () => {
+    expect(
+      getHomeSoftwarePicks().map((project) => getProjectSlug(project)),
+    ).toEqual(['lobster', 'figdb', 'sealion', 'frameport']);
+    expect(getHomeSoftwarePicks().every((project) => project.image)).toBe(true);
+  });
+
+  it('carries the Open VSX shields onto the FramePort homepage card', () => {
+    const frameport = getHomeSoftwareItems().find(
+      (item) => item.title === 'FramePort',
+    );
+    expect(frameport?.openVsx).toBe(FRAMEPORT_OPEN_VSX_ID);
+    expect(frameport?.image).toBe('/images/projects/frameport-demo.gif');
+    expect(
+      getHomeSoftwareItems()
+        .filter((item) => item.title !== 'FramePort')
+        .every((item) => item.openVsx === undefined),
+    ).toBe(true);
+  });
+
+  it('leads the homepage strip with open source, then hardware and software rows', () => {
     expect(getHomeFeaturedItems().map((item) => item.title)).toEqual([
       'Open source EDA',
+      'Pineapple GPU P1',
       '16-bit MAC Unit (Sky130)',
       '100 Mbps UDP/IP Stack',
       '16×4 SRAM — Full-Custom Analog Design',
+      'Lobster',
+      'FigDB',
+      'SeaLion',
+      'FramePort',
     ]);
     expect(getHomeFeaturedItems()[0]?.image).toBe(
       '/images/open-source/librelane1015.png',
@@ -127,21 +161,34 @@ describe('projects data', () => {
   });
 
   it('features the MAC layout preview on the homepage', () => {
-    const mac = getFeaturedProjects().find(
+    const mac = getHomeHardwarePicks().find(
       (project) => getProjectSlug(project) === 'mac',
     );
     expect(mac?.image).toBe('/images/projects/mac-core.webp');
+  });
+
+  it('links flagship manuals beside their GitHub repos', () => {
+    const manuals: Array<[string, string]> = [
+      ['Lobster', 'https://tmarhguy.github.io/lobster/'],
+      ['FigDB', 'https://tmarhguy.github.io/figDB/'],
+      ['SeaLion', 'https://tmarhguy.github.io/sealion/'],
+      ['Pineapple GPU P1', 'https://tmarhguy.github.io/gpu/'],
+      ['Out-of-Order RISC-V CPU (RV64IM)', 'https://tmarhguy.github.io/riscv/'],
+      ['FramePort', 'https://tmarhguy.github.io/frameport/'],
+      ['16-bit MAC Unit (Sky130)', 'https://tmarhguy.github.io/mac/'],
+    ];
+    for (const [title, site] of manuals) {
+      const project = findProjectByTitle(title)!;
+      expect(project.site).toBe(site);
+      expect(project.link).toMatch(/^https:\/\/github\.com\//);
+    }
   });
 
   it('curates hardware order: MAC up top, UDP and ITCH never adjacent', () => {
     const slugs = getHardwareProjects().map((project) =>
       getProjectSlug(project),
     );
-    expect(slugs.slice(0, 3)).toEqual([
-      'tomato',
-      'mac',
-      '100mbps-udp-ip-stack',
-    ]);
+    expect(slugs.slice(0, 3)).toEqual(['tomato', 'mac', 'pineapple-gpu']);
     const udpIndex = slugs.indexOf('100mbps-udp-ip-stack');
     const itchIndex = slugs.indexOf('nasdaq-itch');
     expect(udpIndex).toBeGreaterThanOrEqual(0);
@@ -150,8 +197,14 @@ describe('projects data', () => {
   });
 
   it('keeps the full history in data while curating the wall', () => {
-    expect(projects.length).toBeGreaterThanOrEqual(19);
-    expect(getHardwareProjects()).toHaveLength(9);
+    expect(projects.length).toBeGreaterThanOrEqual(24);
+    expect(getHardwareProjects()).toHaveLength(10);
+    expect(getSystemsProjects()).toHaveLength(3);
+    expect(getSystemsProjects().map((project) => project.title)).toEqual([
+      'Lobster',
+      'FigDB',
+      'SeaLion',
+    ]);
     expect(getToolsProjects()).toHaveLength(2);
     expect(getToolsProjects().map((project) => project.title)).toEqual([
       'FramePort',
@@ -189,7 +242,11 @@ describe('projects data', () => {
     expect(titles).toContain('YT2Spot');
     expect(titles).toContain('Music & You');
     expect(titles).toContain('Color Communication Game');
-    expect(titles).toContain('64-bit RISC-V CPU (RV64IM)');
+    expect(titles).toContain('Out-of-Order RISC-V CPU (RV64IM)');
+    expect(titles).toContain('Pineapple GPU P1');
+    expect(titles).toContain('Lobster');
+    expect(titles).toContain('FigDB');
+    expect(titles).toContain('SeaLion');
     expect(titles).toContain('UniBridge Ghana');
   });
 
@@ -240,12 +297,9 @@ describe('projects data', () => {
     expect(byTitle['QueuePaste']).toBeUndefined();
   });
 
-  it('lists FramePort with Open VSX, GitHub, and live download shields', () => {
+  it('lists FramePort with manual, GitHub, Open VSX, and live download shields', () => {
     const frameport = findProjectByTitle('FramePort')!;
-    expect(frameport.site).toBe(FRAMEPORT_SITE_URL);
-    expect(frameport.site).toBe(
-      'https://open-vsx.org/extension/tmarhguy/frameport',
-    );
+    expect(frameport.site).toBe('https://tmarhguy.github.io/frameport/');
     expect(frameport.link).toBe('https://github.com/tmarhguy/frameport');
     expect(frameport.openVsx).toBe(FRAMEPORT_OPEN_VSX_ID);
     expect(frameport.desc).not.toMatch(/\d+\s+downloads/);
@@ -296,8 +350,45 @@ describe('projects data', () => {
     expect(tools.every((project) => project.image)).toBe(true);
   });
 
+  it('lists the new systems projects with repo screenshots', () => {
+    const lobster = findProjectByTitle('Lobster')!;
+    expect(lobster.category).toBe('systems');
+    expect(lobster.link).toBe('https://github.com/tmarhguy/lobster');
+    expect(lobster.image).toBe('/images/projects/lobster.webp');
+
+    const figdb = findProjectByTitle('FigDB')!;
+    expect(figdb.category).toBe('systems');
+    expect(figdb.link).toBe('https://github.com/tmarhguy/figDB');
+    expect(figdb.image).toBe('/images/projects/figdb.webp');
+
+    const sealion = findProjectByTitle('SeaLion')!;
+    expect(sealion.category).toBe('systems');
+    expect(sealion.link).toBe(
+      'https://github.com/tmarhguy/sealion-search-engine',
+    );
+    expect(sealion.image).toBe('/images/projects/sealion-demo.gif');
+  });
+
+  it('lists Pineapple GPU with the optimized demo gif', () => {
+    const pineapple = findProjectByTitle('Pineapple GPU')!;
+    expect(pineapple.category).toBe('hardware');
+    expect(pineapple.link).toBe('https://github.com/tmarhguy/PineappleGPU');
+    expect(pineapple.image).toBe('/images/projects/pineapple-demo.gif');
+    expect(pineapple.imageCaption).toMatch(/HDMI capture/);
+  });
+
+  it('names the RISC-V entry plainly and keeps the repo slug', () => {
+    const riscv = findProjectByTitle('Out-of-Order RISC-V')!;
+    expect(riscv.category).toBe('hardware');
+    expect(getProjectSlug(riscv)).toBe('riscv64xO3');
+    expect(riscv.tech).toContain('AXI4-Lite');
+    expect(riscv.tech).not.toContain('Wishbone');
+    expect(riscv.imageCaption).toMatch(/Out-of-order RISC-V core/);
+  });
+
   it('partitions main, earlier, and hidden without overlap', () => {
     const hardware = getHardwareProjects();
+    const systems = getSystemsProjects();
     const tools = getToolsProjects();
     const moreHardware = getMoreHardwareProjects();
     const software = getSoftwareProjects();
@@ -306,12 +397,16 @@ describe('projects data', () => {
 
     expect(
       hardware.length +
+        systems.length +
         tools.length +
         software.length +
         earlier.length +
         hidden.length,
     ).toBe(projects.length);
     expect(software.every((project) => project.category === 'software')).toBe(
+      true,
+    );
+    expect(systems.every((project) => project.category === 'systems')).toBe(
       true,
     );
     expect(tools.every((project) => project.category === 'tools')).toBe(true);
@@ -321,5 +416,20 @@ describe('projects data', () => {
     expect(moreHardware.length).toBe(
       hardware.length - getResumeProjects().length,
     );
+  });
+
+  it('unifies systems, tools, and software into one wall', () => {
+    const unified = getSoftwareAndSystemsProjects();
+    expect(unified).toHaveLength(
+      getSystemsProjects().length +
+        getToolsProjects().length +
+        getSoftwareProjects().length,
+    );
+    const titles = unified.map((project) => project.title);
+    expect(titles).toContain('Lobster');
+    expect(titles).toContain('FigDB');
+    expect(titles).toContain('SeaLion');
+    expect(titles).toContain('FramePort');
+    expect(titles).toContain('Envelop');
   });
 });

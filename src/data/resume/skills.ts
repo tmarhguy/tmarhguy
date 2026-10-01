@@ -282,6 +282,11 @@ const skills: Skill[] = [
     category: ['Software', 'Verification'],
   },
   {
+    title: 'Rust',
+    competency: 4,
+    category: ['Software'],
+  },
+  {
     title: 'C/C++',
     competency: 4,
     category: ['Embedded', 'Software'],

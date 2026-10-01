@@ -42,15 +42,20 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 - **[Tomato](https://tomato.tmarhguy.com)** ([GitHub](https://github.com/tmarhguy/tomato)) — custom 32-bit CPU · discrete logic through PCB tapeout
 - **[16×4 SRAM](https://github.com/tmarhguy/64b-sram)** — 6T macro in 22 nm HP · StrongARM sense amp · 4.571 GHz fmax
 - **[SPICE Automation](https://github.com/tmarhguy/spice-automation)** — NGSpice fmax binary search · parametric PPA sweeps
-- **[16-Bit MAC (Sky130)](https://github.com/tmarhguy/mac)** — BFloat16 MAC · OpenLane · TinyTapeout
+- **[16-Bit MAC (Sky130)](https://github.com/tmarhguy/mac)** ([Manual](https://tmarhguy.github.io/mac/)) — BFloat16 MAC · OpenLane · TinyTapeout
+- **[Pineapple GPU P1](https://github.com/tmarhguy/PineappleGPU)** ([Manual](https://tmarhguy.github.io/gpu/)) — programmable 3D GPU on Nexys A7-100T · rendered on silicon
+- **[Out-of-Order RISC-V CPU](https://github.com/tmarhguy/riscv)** ([Manual](https://tmarhguy.github.io/riscv/)) — RV64IM · 2-wide superscalar out-of-order · Tomasulo + ROB/LSQ · AXI4-Lite
 - **[NASDAQ ITCH 5.0 Parser](https://github.com/tmarhguy/itch-hw)** — market-data FPGA on Artix-7 · cocotb
 - **[100 Mbps UDP/IP Stack](https://github.com/tmarhguy/udp-stack)** — RMII/MAC/ARP/IP/UDP · sub-200 ns loopback
 - **[8-Bit Discrete ALU](https://alu.tmarhguy.com)** — 3,488 MOSFETs · 1.24M+ automated test vectors
 
-**Tools & software**
+**Software & systems**
 
-- **[Envelop](https://envelop.tmarhguy.com)** ([GitHub](https://github.com/tmarhguy/envelop)) — text people and Tomato from the browser · verified BLE · labeled Physical/Virtual
-- **[FramePort](https://open-vsx.org/extension/tmarhguy/frameport)** ([GitHub](https://github.com/tmarhguy/frameport)) — HDMI/USB capture in VS Code · PNG screenshots · silent MP4 recording · [![Open VSX version](https://img.shields.io/open-vsx/v/tmarhguy/frameport?style=flat-square)](https://open-vsx.org/extension/tmarhguy/frameport) [![Open VSX downloads](https://img.shields.io/open-vsx/dt/tmarhguy/frameport?style=flat-square)](https://open-vsx.org/extension/tmarhguy/frameport)
+- **[Lobster](https://github.com/tmarhguy/lobster)** ([Manual](https://tmarhguy.github.io/lobster/)) — systems language + optimizing compiler for dual-LUT3/Tomato · Rust
+- **[FigDB](https://github.com/tmarhguy/figDB)** ([Manual](https://tmarhguy.github.io/figDB/)) — transactional database from first principles · LSM + WAL · Rust
+- **[SeaLion](https://github.com/tmarhguy/sealion-search-engine)** ([Manual](https://tmarhguy.github.io/sealion/)) — full-text search engine from first principles · BM25 · Rust
+- **[Envelop](https://envelop.tmarhguy.com)** ([GitHub](https://github.com/tmarhguy/envelop)) — browser-to-FPGA remote compute for Tomato · verified BLE · labeled Physical/Virtual
+- **[FramePort](https://tmarhguy.github.io/frameport/)** ([GitHub](https://github.com/tmarhguy/frameport)) — HDMI/USB capture in VS Code · PNG screenshots · silent MP4 recording · [![Open VSX version](https://img.shields.io/open-vsx/v/tmarhguy/frameport?style=flat-square)](https://open-vsx.org/extension/tmarhguy/frameport) [![Open VSX downloads](https://img.shields.io/open-vsx/dt/tmarhguy/frameport?style=flat-square)](https://open-vsx.org/extension/tmarhguy/frameport)
 - **[Mango Tools](https://github.com/tmarhguy/tools)** — offline CLI for PDF, media & images
 - **[Orange Metrics API](https://github.com/tmarhguy/metrics-api)** — Vivado & OpenLane PPA ingestion · FastAPI · PostgreSQL · Docker
 - **[QueuePaste](https://github.com/tmarhguy/QueuePaste)** — macOS clipboard queue · ⌥ Space to paste

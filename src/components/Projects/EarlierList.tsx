@@ -80,7 +80,6 @@ export default function EarlierList({ projects }: { projects: Project[] }) {
                   ) : (
                     project.title
                   )}
-                  <time dateTime={project.date}>{project.period}</time>
                 </span>
                 <span className="earlier-desc">{project.desc}</span>
               </span>

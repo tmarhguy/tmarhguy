@@ -33,6 +33,10 @@ describe('Hero', () => {
     ).toHaveAttribute('href', 'https://www.upenn.edu');
     expect(screen.getByRole('link', { name: /Aragorn/ })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Vero/ })).toBeInTheDocument();
+    expect(intro).toHaveTextContent('open-source EDA');
+    expect(
+      screen.getByRole('link', { name: /fixes shipped upstream/ }),
+    ).toHaveAttribute('href', '/projects/#open-source-title');
     expect(screen.queryByRole('link', { name: /Fluid Silicon/ })).toBeNull();
   });
 
