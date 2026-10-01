@@ -37,10 +37,13 @@
   \end{tabularx}\vspace{-1.5pt}
 }
 
+\newcounter{projectnum}
 \newcommand{\project}[3]{%
+  \stepcounter{projectnum}%
+  \vspace{1pt}%
   \begin{tabularx}{\textwidth}{@{}Xr@{}}
-    \textbf{#1} \textbar{} #2 & #3
-  \end{tabularx}\vspace{-3pt}
+    \textbf{\theprojectnum. #1} \textbar{} #2 & #3
+  \end{tabularx}\vspace{-1pt}%
 }
 
 \newcommand{\resumeitem}[1]{\item #1}
@@ -132,8 +135,8 @@ Computer Engineering junior building systems from search/indexing and transactio
 
 \project
   {SeaLion --- Full-Text Search Engine}
-  {\href{https://github.com/tmarhguy/sealion-search-engine}{GitHub}}
   {Rust / BM25 / Search / Storage}
+  {\href{https://github.com/tmarhguy/sealion-search-engine}{GitHub}}
 
 \begin{itemize}
   \resumeitem{
@@ -146,8 +149,8 @@ Computer Engineering junior building systems from search/indexing and transactio
 
 \project
   {FigDB --- Transactional Storage Engine}
-  {\href{https://github.com/tmarhguy/figDB}{GitHub}}
   {Rust / LSM / WAL / Tokio}
+  {\href{https://github.com/tmarhguy/figDB}{GitHub}}
 
 \begin{itemize}
   \resumeitem{
@@ -159,8 +162,8 @@ Computer Engineering junior building systems from search/indexing and transactio
 
 \project
   {Lobster --- Systems Language \& Optimizing Compiler}
-  {\href{https://github.com/tmarhguy/lobster}{GitHub}}
   {Rust / Compilers / Tomato32}
+  {\href{https://github.com/tmarhguy/lobster}{GitHub}}
 
 \begin{itemize}
   \resumeitem{
@@ -173,10 +176,10 @@ Computer Engineering junior building systems from search/indexing and transactio
 
 \project
   {FramePort --- HDMI Capture Inside VS Code}
+  {TypeScript / VS Code API / FFmpeg}
   {\href{https://open-vsx.org/extension/tmarhguy/frameport}{Open VSX}
    \textbar{}
    \href{https://github.com/tmarhguy/frameport}{GitHub}}
-  {TypeScript / VS Code API / FFmpeg}
 
 \begin{itemize}
   \resumeitem{
@@ -189,10 +192,10 @@ Computer Engineering junior building systems from search/indexing and transactio
 
 \project
   {Envelop --- Browser-to-FPGA Remote Compute}
+  {TypeScript / Swift / Kotlin / BLE}
   {\href{https://envelop.tmarhguy.com}{Website}
    \textbar{}
    \href{https://github.com/tmarhguy/envelop}{GitHub}}
-  {TypeScript / Swift / Kotlin / BLE}
 
 \begin{itemize}
   \resumeitem{

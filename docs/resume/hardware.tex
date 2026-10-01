@@ -37,10 +37,13 @@
   \end{tabularx}\vspace{-1.5pt}
 }
 
+\newcounter{projectnum}
 \newcommand{\project}[3]{%
+  \stepcounter{projectnum}%
+  \vspace{1pt}%
   \begin{tabularx}{\textwidth}{@{}Xr@{}}
-    \textbf{#1} \textbar{} #2 & #3
-  \end{tabularx}\vspace{-3pt}
+    \textbf{\theprojectnum. #1} \textbar{} #2 & #3
+  \end{tabularx}\vspace{-1pt}%
 }
 
 \newcommand{\resumeitem}[1]{\item #1}
@@ -139,10 +142,10 @@ Computer Engineering junior building from transistor-level CMOS and physical des
 
 \project
   {Tomato --- Custom 32-bit Polymorphic CPU}
+  {SystemVerilog / FPGA / KiCad / Formal}
   {\href{https://tomato.tmarhguy.com}{Website}
    \textbar{}
    \href{https://github.com/tmarhguy/tomato}{GitHub}}
-  {SystemVerilog / FPGA / KiCad / Formal}
 
 \begin{itemize}
   \resumeitem{
@@ -161,8 +164,8 @@ Computer Engineering junior building from transistor-level CMOS and physical des
 
 \project
   {Out-of-Order RISC-V CPU (RV64IMAC)}
-  {\href{https://github.com/tmarhguy/riscv}{GitHub}}
   {SystemVerilog / RISC-V / AXI4-Lite}
+  {\href{https://github.com/tmarhguy/riscv}{GitHub}}
 
 \begin{itemize}
   \resumeitem{
@@ -174,8 +177,8 @@ Computer Engineering junior building from transistor-level CMOS and physical des
 
 \project
   {Pineapple GPU P1 --- Standalone Programmable 3D GPU}
-  {\href{https://github.com/tmarhguy/PineappleGPU}{GitHub}}
   {Verilog / Artix-7 / DVI}
+  {\href{https://github.com/tmarhguy/PineappleGPU}{GitHub}}
 
 \begin{itemize}
   \resumeitem{
@@ -187,10 +190,10 @@ Computer Engineering junior building from transistor-level CMOS and physical des
 
 \project
   {Low-Latency FPGA Networking \& NASDAQ ITCH}
+  {SystemVerilog / RMII / cocotb}
   {\href{https://github.com/tmarhguy/udp-stack}{UDP/IP}
    \textbar{}
    \href{https://github.com/tmarhguy/itch-hw}{ITCH}}
-  {SystemVerilog / RMII / cocotb}
 
 \begin{itemize}
   \resumeitem{
@@ -202,10 +205,10 @@ Computer Engineering junior building from transistor-level CMOS and physical des
 
 \project
   {ASIC / Full-Custom Datapaths}
+  {Sky130 / 22 nm HP / SPICE}
   {\href{https://github.com/tmarhguy/mac}{MAC}
    \textbar{}
    \href{https://github.com/tmarhguy/64b-sram}{SRAM}}
-  {Sky130 / 22 nm HP / SPICE}
 
 \begin{itemize}
   \resumeitem{
