@@ -44,7 +44,7 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 - **[SPICE Automation](https://github.com/tmarhguy/spice-automation)** — NGSpice fmax binary search · parametric PPA sweeps
 - **[16-Bit MAC (Sky130)](https://github.com/tmarhguy/mac)** ([Manual](https://tmarhguy.github.io/mac/)) — BFloat16 MAC · OpenLane · TinyTapeout
 - **[Pineapple GPU P1](https://github.com/tmarhguy/PineappleGPU)** ([Manual](https://tmarhguy.github.io/gpu/)) — programmable 3D GPU on Nexys A7-100T · rendered on silicon
-- **[Out-of-Order RISC-V CPU](https://github.com/tmarhguy/riscv)** ([Manual](https://tmarhguy.github.io/riscv/)) — RV64IM · 2-wide superscalar out-of-order · Tomasulo + ROB/LSQ · AXI4-Lite
+- **[Out-of-Order RISC-V CPU](https://github.com/tmarhguy/riscv)** ([Manual](https://tmarhguy.github.io/riscv/)) — RV64IMAC · 2-wide superscalar out-of-order · Tomasulo + ROB/LSQ · AXI4-Lite
 - **[NASDAQ ITCH 5.0 Parser](https://github.com/tmarhguy/itch-hw)** — market-data FPGA on Artix-7 · cocotb
 - **[100 Mbps UDP/IP Stack](https://github.com/tmarhguy/udp-stack)** — RMII/MAC/ARP/IP/UDP · sub-200 ns loopback
 - **[8-Bit Discrete ALU](https://alu.tmarhguy.com)** — 3,488 MOSFETs · 1.24M+ automated test vectors
