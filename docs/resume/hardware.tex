@@ -37,12 +37,10 @@
   \end{tabularx}\vspace{-1.5pt}
 }
 
-\newcounter{projectnum}
 \newcommand{\project}[3]{%
-  \stepcounter{projectnum}%
   \vspace{1pt}%
   \begin{tabularx}{\textwidth}{@{}Xr@{}}
-    \textbf{\theprojectnum. #1} \textbar{} #2 & #3
+    \textbf{#1} \textbar{} #2 & #3
   \end{tabularx}\vspace{-1pt}%
 }
 
