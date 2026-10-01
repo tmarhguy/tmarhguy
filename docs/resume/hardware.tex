@@ -28,7 +28,7 @@
   {}
   [\color{rulegray}\titlerule]
 
-\titlespacing*{\section}{0pt}{5.5pt}{2.5pt}
+\titlespacing*{\section}{0pt}{4.5pt}{2pt}
 
 \newcommand{\entry}[4]{%
   \begin{tabularx}{\textwidth}{@{}Xr@{}}
@@ -47,8 +47,8 @@
 
 \setlist[itemize]{
   leftmargin=15pt,
-  itemsep=0.8pt,
-  topsep=1.3pt,
+  itemsep=0.6pt,
+  topsep=1pt,
   parsep=0pt,
   partopsep=0pt
 }
@@ -73,7 +73,7 @@
 
 \section{Summary}
 
-Computer Engineering junior building from transistor-level CMOS and physical design through RTL, FPGA systems, CPU/GPU microarchitecture, networking, formal verification, and ASIC implementation. Built custom processors, a programmable 3D GPU, low-latency Ethernet/ITCH datapaths, SRAM/MAC blocks, and merged fixes into production EDA toolchains.
+Computer Engineering junior building from transistor-level CMOS and physical design through RTL, FPGA systems, CPU/GPU microarchitecture, networking, formal verification, and ASIC implementation. Built custom processors, a programmable 3D GPU, low-latency datapaths, SRAM/MAC blocks, and production EDA fixes.
 
 \section{Education}
 
@@ -103,8 +103,8 @@ Computer Engineering junior building from transistor-level CMOS and physical des
   \resumeitem{
     Developed embedded C/C++ fault-detection firmware and a
     \textbf{BQ79616 16-channel battery-monitoring front end} for a
-    \textbf{240 kWh / 120 kW} system; closed PCB ERC with \textbf{0 errors}
-    and debugged hardware/firmware bring-up using lab instrumentation.
+    \textbf{240 kWh / 120 kW} system; closed PCB ERC with \textbf{0 errors};
+    bring-up with lab instrumentation.
   }
 \end{itemize}
 
@@ -116,11 +116,9 @@ Computer Engineering junior building from transistor-level CMOS and physical des
 
 \begin{itemize}
   \resumeitem{
-    Merged fixes into production EDA tools: repaired an
-    \textbf{OpenROAD LEF58/ODB parser}, corrected \textbf{Verilator Linux
-    peak-memory accounting}, and restored LibreLane/Yosys synthesis compatibility
-    and reporting; LibreLane patches shipped in releases
-    \textbf{3.0.8 and 3.0.10}.
+    Merged fixes into production EDA tools (\textbf{OpenROAD} parser,
+    \textbf{Verilator} peak-memory accounting, LibreLane/Yosys reporting);
+    shipped in releases \textbf{3.0.8 and 3.0.10}.
   }
 \end{itemize}
 
@@ -133,8 +131,7 @@ Computer Engineering junior building from transistor-level CMOS and physical des
 \begin{itemize}
   \resumeitem{
     Shipped production backend services and REST APIs; resolved cross-service
-    failures blocking releases and hardened system boundaries through architecture
-    and code reviews.
+    failures and hardened system boundaries.
   }
 \end{itemize}
 
@@ -151,29 +148,27 @@ Computer Engineering junior building from transistor-level CMOS and physical des
   \resumeitem{
     Architected a custom 32-bit CPU around two programmable
     \textbf{LUT3 planes + 8-way carry/flag select}
-    (\textbf{524,288 ALU configurations}), a three-source datapath, and
-    microcoded control; built a working FPGA computer with assembler and
+    (\textbf{524,288 ALU configurations}), three-source datapath, and
+    microcoded control; working FPGA computer with assembler and
     TomatoOS over HDMI.
   }
 
   \resumeitem{
-    Verified up to \textbf{130B Verilator vectors} plus formal 1/8/32-bit proofs;
-    fabricated the discrete ALU PCB and continued the full 74xx/discrete machine
-    toward physical bring-up.
+    \textbf{130B Verilator vectors} + formal 1/8/32-bit proofs; fabricated discrete
+    ALU PCB; full 74xx/discrete machine toward bring-up.
   }
 \end{itemize}
 
 \project
-  {riscv64xO3 --- 64-bit Superscalar OoO RISC-V}
+  {Out-of-Order RISC-V CPU (RV64IMAC)}
   {\href{https://github.com/tmarhguy/riscv}{GitHub}}
   {SystemVerilog / RISC-V / AXI4-Lite}
 
 \begin{itemize}
   \resumeitem{
-    Built an RV64IM core with A/C bring-up and a
-    \textbf{2-wide fetch/decode/issue/commit} pipeline, gshare predictor,
-    BTB + RAS, AXI4-Lite memory, and Verilator/cocotb/riscv-tests verification
-    with Yosys/OpenLane2 feasibility checks.
+    RV64IMAC (riscv64xO3): \textbf{2-wide fetch/decode/issue/commit}, gshare +
+    BTB + RAS, AXI4-Lite; Verilator/cocotb/riscv-tests with Yosys/OpenLane2
+    feasibility.
   }
 \end{itemize}
 
@@ -184,10 +179,9 @@ Computer Engineering junior building from transistor-level CMOS and physical des
 
 \begin{itemize}
   \resumeitem{
-    Implemented programmable vertex/fragment shading, triangle rasterization,
-    depth testing, texture sampling, and double-buffered \textbf{320x180} output;
-    rendered interactive pineapple and cube scenes on a Nexys A7 using a
-    FOSS Yosys/nextpnr flow.
+    Vertex/fragment shading, rasterization, depth, texture, double-buffered
+    \textbf{320x180}; interactive pineapple/cube scenes on a Nexys A7 via
+    FOSS Yosys/nextpnr.
   }
 \end{itemize}
 
@@ -200,10 +194,9 @@ Computer Engineering junior building from transistor-level CMOS and physical des
 
 \begin{itemize}
   \resumeitem{
-    Built a deterministic \textbf{100 Mbps RMII/MAC/IPv4/UDP} pipeline and an
-    RTL ITCH 5.0 parser with a 512-entry BRAM limit book; closed networking at
-    \textbf{100 MHz} and verified ITCH against a Python/cocotb golden model over
-    a \textbf{10M-message} regression with zero BBO mismatches.
+    Built a \textbf{100 Mbps RMII/MAC/IPv4/UDP} pipeline and RTL ITCH 5.0 parser
+    with 512-entry BRAM book; closed at \textbf{100 MHz}; \textbf{10M-message}
+    regression, zero BBO mismatches vs Python/cocotb model.
   }
 \end{itemize}
 
@@ -218,8 +211,7 @@ Computer Engineering junior building from transistor-level CMOS and physical des
   \resumeitem{
     Designed a BF16 multiply-to-FP32-accumulate MAC with LibreLane/OpenLane
     hardening and a transistor-level \textbf{16x4 6T SRAM} with StrongARM sensing;
-    automated NGSpice sweeps and achieved simulated functional readback to
-    \textbf{4.571 GHz}.
+    NGSpice-swept simulated readback to \textbf{4.571 GHz}.
   }
 \end{itemize}
 
@@ -236,7 +228,7 @@ LibreLane/OpenLane, Sky130, synthesis, STA, P\&R, DRC/LVS, SPICE,
 KiCad, Electric VLSI \\
 
 \textbf{Programming / Interfaces:}
-Python, C/C++, Embedded C, Tcl, Bash, Linux;
+Python, C/C++, Tcl, Bash, Linux;
 Ethernet/RMII/IPv4/UDP, AXI4-Lite, UART, SPI, I2C
 
 \end{document}

@@ -174,7 +174,7 @@ const data: Project[] = [
     category: 'hardware',
   },
   {
-    title: 'Out-of-Order RISC-V CPU (RV64IM)',
+    title: 'Out-of-Order RISC-V CPU (RV64IMAC)',
     subtitle: '2-wide superscalar · Tomasulo + ROB/LSQ',
     slug: 'riscv64xO3',
     site: 'https://tmarhguy.github.io/riscv/',
@@ -183,7 +183,7 @@ const data: Project[] = [
     imageCaption: 'Out-of-order RISC-V core · 2-wide superscalar pipeline',
     date: '2026-02-16',
     period: 'Nov. 2025 — Present',
-    desc: 'RV64IM live with A/C in bring-up; 2-wide fetch/decode/issue/commit with gshare + BTB + RAS, AXI4-Lite memory, Verilator + cocotb + riscv-tests with Yosys/OpenLane2 feasibility.',
+    desc: 'RV64IMAC; 2-wide fetch/decode/issue/commit with gshare + BTB + RAS, AXI4-Lite memory, Verilator + cocotb + riscv-tests with Yosys/OpenLane2 feasibility.',
     tech: ['SystemVerilog', 'RISC-V', 'AXI4-Lite', 'Verilator', 'cocotb'],
     category: 'hardware',
   },

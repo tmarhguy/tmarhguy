@@ -173,7 +173,7 @@ describe('projects data', () => {
       ['FigDB', 'https://tmarhguy.github.io/figDB/'],
       ['SeaLion', 'https://tmarhguy.github.io/sealion/'],
       ['Pineapple GPU P1', 'https://tmarhguy.github.io/gpu/'],
-      ['Out-of-Order RISC-V CPU (RV64IM)', 'https://tmarhguy.github.io/riscv/'],
+      ['Out-of-Order RISC-V CPU (RV64IMAC)', 'https://tmarhguy.github.io/riscv/'],
       ['FramePort', 'https://tmarhguy.github.io/frameport/'],
       ['16-bit MAC Unit (Sky130)', 'https://tmarhguy.github.io/mac/'],
     ];
@@ -242,7 +242,7 @@ describe('projects data', () => {
     expect(titles).toContain('YT2Spot');
     expect(titles).toContain('Music & You');
     expect(titles).toContain('Color Communication Game');
-    expect(titles).toContain('Out-of-Order RISC-V CPU (RV64IM)');
+    expect(titles).toContain('Out-of-Order RISC-V CPU (RV64IMAC)');
     expect(titles).toContain('Pineapple GPU P1');
     expect(titles).toContain('Lobster');
     expect(titles).toContain('FigDB');
