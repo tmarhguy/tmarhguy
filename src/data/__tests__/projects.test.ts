@@ -187,11 +187,15 @@ describe('projects data', () => {
     }
   });
 
-  it('curates hardware order: MAC up top, UDP and ITCH never adjacent', () => {
+  it('leads with Tomato, GPU, and ALU while separating UDP and ITCH', () => {
     const slugs = getHardwareProjects().map((project) =>
       getProjectSlug(project),
     );
-    expect(slugs.slice(0, 3)).toEqual(['tomato', 'mac', 'pineapple-gpu']);
+    expect(slugs.slice(0, 3)).toEqual([
+      'tomato',
+      'pineapple-gpu',
+      '8-bit-discrete-transistor-alu',
+    ]);
     const udpIndex = slugs.indexOf('100mbps-udp-ip-stack');
     const itchIndex = slugs.indexOf('nasdaq-itch');
     expect(udpIndex).toBeGreaterThanOrEqual(0);
