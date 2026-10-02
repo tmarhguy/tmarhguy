@@ -25,7 +25,11 @@ export default function PressPage() {
           className={index === 0 ? 'press-lead' : 'press-secondary'}
         >
           <div className="press-feature-link">
-            <a href={entry.url} {...externalAnchorProps(entry.url)}>
+            <a
+              href={entry.url}
+              aria-label={`${entry.title} (opens in new tab)`}
+              {...externalAnchorProps(entry.url)}
+            >
               <SourcePreview
                 url={entry.url}
                 publisher={entry.publisher}
