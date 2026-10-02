@@ -49,7 +49,7 @@
   min-height: 36px;
   padding: 0.25rem 0.625rem;
   color: #fff;
-  background-color: var(--color-accent);
+  background-color: var(--color-accent-fill);
   border-radius: 3px;
   background-image: none;
   font-family: var(--font-display);
@@ -64,7 +64,7 @@
 }
 .hero-wikipedia:hover {
   color: #fff;
-  filter: brightness(1.12);
+  background-color: var(--color-accent-fill-hover);
   background-image: none;
 }
 .hero-wikipedia:hover .hero-wikipedia-label {
@@ -85,7 +85,7 @@
     gap: 0.25rem 0.75rem;
   }
   .hero-identity-row .hero-name {
-    font-size: 1.25rem;
+    font-size: 1.75rem;
   }
   .hero-wikipedia {
     font-size: 0.75rem;
@@ -922,10 +922,18 @@
 }
 
 .hero-identity-row .hero-name {
-  font-size: 1.5rem;
+  font-size: 2.25rem;
 }
 @media (max-width: 480px) {
   .hero-identity-row .hero-name {
-    font-size: 1.25rem;
+    font-size: 1.75rem;
   }
+}
+
+.hero-intro a {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+.hero-intro a:hover {
+  color: var(--color-accent-hover);
 }

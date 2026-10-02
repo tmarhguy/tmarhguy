@@ -120,6 +120,10 @@ export default function ProfessionalSummary({
               Tomato
             </InlineLink>
             ), a{' '}
+            <InlineLink href="https://tmarhguy.github.io/gpu/" external>
+              Pineapple GPU
+            </InlineLink>
+            , a{' '}
             <InlineLink href="https://github.com/tmarhguy/udp-stack" external>
               100 Mbps UDP/IP stack
             </InlineLink>
@@ -132,7 +136,7 @@ export default function ProfessionalSummary({
               hybrid transistor ALU
             </InlineLink>
             , a{' '}
-            <InlineLink href="https://github.com/tmarhguy/mac" external>
+            <InlineLink href="https://tmarhguy.github.io/mac/" external>
               Sky130 BFloat16 MAC
             </InlineLink>
             , and a{' '}
