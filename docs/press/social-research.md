@@ -2,17 +2,17 @@
 
 Selection prioritizes original announcements, substantive first-person reflections, and positive community coverage. Engagement is a discovery signal, not a claim of independent verification. Counts change; these observations stay in research notes rather than appearing on the page.
 
-| Source | Published | Observed signal | Included as |
-| --- | --- | --- | --- |
-| Tyrone, LinkedIn: Penn scholarship | 28 August 2024 | 5,932 reactions; 538 comments in public metadata | Original announcement |
-| Tyrone, LinkedIn: WASSCE results | 19 December 2023 | 507 reactions; 85 comments | Original announcement |
-| Tyrone, LinkedIn: Olympiad awards | 30 December 2023 | 1,097 reactions; 61 comments | Original announcement |
-| Tyrone, LinkedIn: SAT result | 20 December 2023 | 637 reactions; 39 comments | Original announcement |
-| Tyrone, LinkedIn: identity and education | 23 October 2025 | 5,524 reactions; 143 comments | First-person reflection |
-| Tyrone, LinkedIn: school rules and opportunity | 27 October 2025 | 2,749 reactions; 90 comments | First-person reflection |
-| Peter Bawuah, Facebook: ALU | 4 February 2026 | Public post: 2.8K likes, 91 comments, 89 shares | Engineering community response |
-| Kobe Boujee, Instagram: ALU | 31 January 2026 | Native reel: 26.5K likes, 475 comments | Related to his existing Facebook video |
-| Nkonkonsa, Instagram: Penn | 29 August 2024 | Native post: 4.3K likes, 107 comments | Related to the Penn announcement |
+| Source                                         | Published        | Observed signal                                  | Included as                            |
+| ---------------------------------------------- | ---------------- | ------------------------------------------------ | -------------------------------------- |
+| Tyrone, LinkedIn: Penn scholarship             | 28 August 2024   | 5,932 reactions; 538 comments in public metadata | Original announcement                  |
+| Tyrone, LinkedIn: WASSCE results               | 19 December 2023 | 507 reactions; 85 comments                       | Original announcement                  |
+| Tyrone, LinkedIn: Olympiad awards              | 30 December 2023 | 1,097 reactions; 61 comments                     | Original announcement                  |
+| Tyrone, LinkedIn: SAT result                   | 20 December 2023 | 637 reactions; 39 comments                       | Original announcement                  |
+| Tyrone, LinkedIn: identity and education       | 23 October 2025  | 5,524 reactions; 143 comments                    | First-person reflection                |
+| Tyrone, LinkedIn: school rules and opportunity | 27 October 2025  | 2,749 reactions; 90 comments                     | First-person reflection                |
+| Peter Bawuah, Facebook: ALU                    | 4 February 2026  | Public post: 2.8K likes, 91 comments, 89 shares  | Engineering community response         |
+| Kobe Boujee, Instagram: ALU                    | 31 January 2026  | Native reel: 26.5K likes, 475 comments           | Related to his existing Facebook video |
+| Nkonkonsa, Instagram: Penn                     | 29 August 2024   | Native post: 4.3K likes, 107 comments            | Related to the Penn announcement       |
 
 All original permalinks are recorded in `src/data/press.json`. LinkedIn dates come from each post's publication metadata, excluding comment timestamps and author follower counts. Instagram dates come from the native post's time element. Peter Bawuah's public post shows February 4 and belongs to the 2026 ALU coverage; its erroneous reference to a 2023 court ruling is not repeated in our summary (the ruling was in 2021).
 
