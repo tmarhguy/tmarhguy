@@ -115,6 +115,12 @@ export default function CoverageArchive() {
                 <ol className="press-entries">
                   {entries
                     .filter((entry) => entry.date.startsWith(year))
+                    .sort((a, b) =>
+                      newestFirst
+                        ? Number(b.id === 'kobe-social') -
+                          Number(a.id === 'kobe-social')
+                        : 0,
+                    )
                     .map((entry) => (
                       <li key={entry.id}>
                         <article className="press-entry">
@@ -130,6 +136,9 @@ export default function CoverageArchive() {
                               <p className="press-entry-meta">
                                 <span>{entry.publisher}</span>
                                 <span>{entry.format}</span>
+                                {newestFirst && entry.id === 'kobe-social' && (
+                                  <span>Pinned</span>
+                                )}
                               </p>
                               <h4>
                                 <a

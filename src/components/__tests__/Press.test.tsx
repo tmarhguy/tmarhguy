@@ -3,6 +3,20 @@ import { describe, expect, it } from 'vitest';
 import CoverageArchive from '../Press/CoverageArchive';
 
 describe('coverage archive controls', () => {
+  it('pins Kobe first without changing its publication date', () => {
+    const { container } = render(<CoverageArchive />);
+    const first = container.querySelector('.press-year .press-entries > li');
+    expect(first).toHaveTextContent('Kobe Boujee');
+    expect(first?.querySelector('time')).toHaveAttribute(
+      'dateTime',
+      '2026-01-31',
+    );
+    expect(first).toHaveTextContent('Pinned');
+    fireEvent.change(screen.getByLabelText('Order'), {
+      target: { value: 'oldest' },
+    });
+    expect(screen.queryByText('Pinned')).not.toBeInTheDocument();
+  });
   it('filters, announces empty results, and resets all filters', () => {
     render(<CoverageArchive />);
     fireEvent.change(screen.getByLabelText('Format'), {
