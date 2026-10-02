@@ -1,220 +1,91 @@
+% Standalone one-page resume. All layout settings live in this preamble.
 \documentclass[10pt,letterpaper]{article}
-
-\usepackage[margin=0.50in]{geometry}
+\usepackage[left=0.52in,right=0.52in,top=0.45in,bottom=0.45in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{microtype}
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage[hidelinks]{hyperref}
-\usepackage{xcolor}
-\usepackage{tabularx}
-
-\input{glyphtounicode}
-\pdfgentounicode=1
-
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
-\setlength{\tabcolsep}{0pt}
+\setlength{\emergencystretch}{1em}
 \urlstyle{same}
-
-\definecolor{rulegray}{gray}{0.25}
-
-\titleformat{\section}
-  {\large\scshape}
-  {}
-  {0pt}
-  {}
-  [\color{rulegray}\titlerule]
-
-\titlespacing*{\section}{0pt}{5.5pt}{2.5pt}
-
-\newcommand{\entry}[4]{%
-  \begin{tabularx}{\textwidth}{@{}Xr@{}}
-    \textbf{#1} & #2 \\
-    \textit{#3} & \textit{#4}
-  \end{tabularx}\vspace{-1.5pt}
-}
-
-\newcommand{\project}[3]{%
-  \vspace{1pt}%
-  \begin{tabularx}{\textwidth}{@{}Xr@{}}
-    \textbf{#1} \textbar{} #2 & #3
-  \end{tabularx}\vspace{-1pt}%
-}
-
-\newcommand{\resumeitem}[1]{\item #1}
-
-\setlist[itemize]{
-  leftmargin=15pt,
-  itemsep=0.8pt,
-  topsep=1.3pt,
-  parsep=0pt,
-  partopsep=0pt
-}
-
+\raggedright
+\raggedbottom
+\titleformat{\section}{\fontsize{11}{13}\selectfont\bfseries}{}{0pt}{}[\titlerule]
+\titlespacing*{\section}{0pt}{7pt}{4pt}
+\setlist[itemize]{label=\textbullet,leftmargin=12pt,labelsep=5pt,
+  topsep=2pt,itemsep=1.5pt,parsep=0pt,partopsep=0pt}
+% Paragraph-based headings avoid table padding and preserve reading order.
+\newcommand{\role}[4]{\par\addvspace{4pt}%
+  \textbf{#1}\hfill {\small #2}\par
+  \textit{#3}\hfill {\small #4}\par}
+\newcommand{\project}[3]{\par\addvspace{4pt}%
+  \textbf{#1}\enspace {\small #2}\hfill {\small #3}\par}
+\newcommand{\code}[1]{\href{https://github.com/tmarhguy/#1}{Code}}
+\newcommand{\docs}[1]{\href{https://tmarhguy.github.io/#1/}{Docs}}
+\newcommand{\skill}[2]{\textbf{#1:} #2\par}
 \begin{document}
-
+\fontsize{10.5}{12.2}\selectfont
 \begin{center}
-  {\LARGE\textbf{Tyrone Marhguy}}\\[-1pt]
-  \textbf{Computer Engineering --- Software Engineering / Systems / Backend / Developer Tools}\\[1.5pt]
-  \href{tel:+12673202734}{+1 (267) 320-2734}
-  \;|\;
-  \href{mailto:tmarhguy@seas.upenn.edu}{tmarhguy@seas.upenn.edu}
-  \;|\;
-  \href{https://tmarhguy.com}{tmarhguy.com}
-  \;|\;
-  \href{https://linkedin.com/in/tmarhguy}{linkedin.com/in/tmarhguy}
-  \;|\;
-  \href{https://github.com/tmarhguy}{github.com/tmarhguy}
+{\fontsize{23}{25}\selectfont\bfseries Tyrone Marhguy}\par
+\vspace{3pt}
+Computer Engineering | Systems, Backend \& Developer Tools\par
+\vspace{3pt}
+{\small \href{mailto:tmarhguy@engineering.upenn.edu}{tmarhguy@engineering.upenn.edu}
+\enspace\textbar\enspace \href{tel:+12673202734}{(267) 320-2734}
+\enspace\textbar\enspace \href{https://tmarhguy.com}{tmarhguy.com}\par
+\href{https://github.com/tmarhguy}{github.com/tmarhguy}
+\enspace\textbar\enspace \href{https://linkedin.com/in/tmarhguy}{linkedin.com/in/tmarhguy}}
 \end{center}
-
-\vspace{-5pt}
-
-\section{Summary}
-
-Computer Engineering junior building systems from search/indexing and transactional storage to compilers, developer tools, and production APIs. Shipped public software and merged C++/Python fixes into major open-source EDA codebases; strongest in Rust/C++, backend systems, performance, and correctness-focused engineering.
-
 \section{Education}
-
-\entry
-  {University of Pennsylvania}
-  {Philadelphia, PA}
-  {B.S.E. Computer Engineering}
-  {Aug. 2024 -- May 2028}
+\textbf{University of Pennsylvania}\hfill Philadelphia, PA\par
+B.S.E. in Computer Engineering\hfill Expected May 2028\par
 
 \section{Experience}
-
-\entry
-  {Software Engineer Intern}
-  {May 2026 -- Aug. 2026}
-  {Aragorn AI}
-  {Remote}
-
+\role{Software Engineer Intern}{May -- Aug. 2026}{Aragorn AI}{Remote}
 \begin{itemize}
-  \resumeitem{
-    Shipped \textbf{production backend services and REST APIs} for AI integrations;
-    resolved cross-service failures blocking releases and hardened service boundaries
-    through architecture and code reviews.
-  }
+\item Contributed to \textbf{production backend and API-integration workflows} for AI services; debugged cross-service failures and documented interfaces for production integrations.
 \end{itemize}
-
-\entry
-  {Open-Source Software Contributor}
-  {2026 -- Present}
-  {OpenROAD, Verilator, LibreLane, OpenFPGA}
-  {C++ / Python / EDA Infrastructure}
-
+\role{Open-Source Software Contributor}{2026 -- Present}{OpenROAD, Verilator, LibreLane, OpenFPGA}{C++ / Python}
 \begin{itemize}
-  \resumeitem{
-    Merged upstream fixes into production engineering tools: repaired an
-    \textbf{OpenROAD LEF58/ODB parser}, corrected \textbf{Verilator Linux peak-memory
-    accounting}, and fixed LibreLane/Yosys synthesis compatibility and reporting;
-    LibreLane fixes shipped in releases \textbf{3.0.8 and 3.0.10}.
-  }
+\item Fixed OpenROAD's LEF58 parser and Verilator's Linux peak-memory reporting; shipped Yosys compatibility and synthesis-reporting fixes in \textbf{LibreLane 3.0.8 and 3.0.10}.
 \end{itemize}
-
-\entry
-  {Hardware \& Firmware Engineer}
-  {May 2026 -- Aug. 2026}
-  {Vero Electric}
-  {Philadelphia, PA}
-
+\role{Hardware \& Firmware Engineer}{May -- Aug. 2026}{Vero Electric}{Philadelphia, PA}
 \begin{itemize}
-  \resumeitem{
-    Developed \textbf{embedded C/C++ fault-detection firmware} for a BQ79616
-    battery-monitoring system and debugged firmware/hardware integration on a
-    \textbf{240 kWh / 120 kW} platform using lab instrumentation.
-  }
+\item Developed \textbf{embedded C/C++ fault-detection and SPI/I2C acquisition firmware} for a 16-channel battery monitor; debugged board integration on a \textbf{240 kWh / 120 kW} energy-storage platform.
 \end{itemize}
-
-\section{Selected Software \& Systems Projects}
-
-\project
-  {SeaLion --- Full-Text Search Engine}
-  {Rust / BM25 / Search / Storage}
-  {\href{https://github.com/tmarhguy/sealion-search-engine}{GitHub}}
-
+\role{Teaching Assistant | CIS 1100}{Aug. -- Dec. 2025}{University of Pennsylvania}{Philadelphia, PA}
 \begin{itemize}
-  \resumeitem{
-    Built a full-text search engine from first principles with
-    \textbf{Unicode analysis, BM25-ranked phrase search, persistent \texttt{.seal}
-    segments, index generations, and segment merging}; validated optimized behavior
-    against a reference oracle with \textbf{89 passing tests}.
-  }
+\item Authored \textbf{50+ pytest autograding suites for 300+ students}, covering edge cases, boundaries and regressions for weekly programming assignments.
 \end{itemize}
-
-\project
-  {FigDB --- Transactional Storage Engine}
-  {Rust / LSM / WAL / Tokio}
-  {\href{https://github.com/tmarhguy/figDB}{GitHub}}
-
+\section{Selected Software Projects}
+\project{SeaLion | Distributed Full-Text Search}{Rust}{\docs{sealion}\enspace\textbar\enspace\code{sealion-search-engine}}
 \begin{itemize}
-  \resumeitem{
-    Implemented ordered KV storage, a \textbf{checksummed WAL}, WAL-backed memtables,
-    SSTables, LSM flush/merge, manifests, and compaction from first principles;
-    maintained \textbf{59 passing tests} across persistence and recovery behavior.
-  }
+\item Built Unicode analysis, inverted indexes, persistent segments and \textbf{BM25 ranking} from first principles; added exact Block-Max WAND, typo correction, crawling, and shards/replicas with failover.
+\item Validated search against a reference oracle; documented \textbf{155 passing tests} and release benchmarks of \textbf{5,114 docs/s indexing} and \textbf{271 queries/s} exact WAND search.
 \end{itemize}
-
-\project
-  {Lobster --- Systems Language \& Optimizing Compiler}
-  {Rust / Compilers / Tomato32}
-  {\href{https://github.com/tmarhguy/lobster}{GitHub}}
-
+\project{FigDB | Durable LSM Storage Engine}{Rust}{\docs{figDB}\enspace\textbar\enspace\code{figDB}}
 \begin{itemize}
-  \resumeitem{
-    Designed a statically typed systems language and compiler targeting conventional
-    and dual-LUT3/Tomato architectures; implemented a lexer, \textbf{Pratt parser},
-    name resolution, and type checking behind \texttt{lobster check} across
-    \textbf{nine Rust crates}.
-  }
+\item Implemented a \textbf{checksummed WAL}, memtables, Bloom-filtered SSTables, crash-safe manifests and size-tiered compaction; added a TCP server/CLI and seeded kill/restart recovery tests.
 \end{itemize}
-
-\project
-  {FramePort --- HDMI Capture Inside VS Code}
-  {TypeScript / VS Code API / FFmpeg}
-  {\href{https://open-vsx.org/extension/tmarhguy/frameport}{Open VSX}
-   \textbar{}
-   \href{https://github.com/tmarhguy/frameport}{GitHub}}
-
+\project{Lobster | Systems Language \& Compiler}{Rust}{\docs{lobster}\enspace\textbar\enspace\code{lobster}}
 \begin{itemize}
-  \resumeitem{
-    Published a VS Code extension for live HDMI/USB capture, pixel inspection,
-    PNG screenshots, and H.264 recording; reached \textbf{1,250+ Open VSX downloads}
-    and implemented backpressure, lifecycle recovery, save safety, diagnostics,
-    and encode/decode regression coverage.
-  }
+\item Built a lexer, \textbf{Pratt parser}, name resolution and type checker; lowered typed HIR/MIR into verified \textbf{SSA}, implemented optimization passes, and differential-tested execution with a reference interpreter.
 \end{itemize}
-
-\project
-  {Envelop --- Browser-to-FPGA Remote Compute}
-  {TypeScript / Swift / Kotlin / BLE}
-  {\href{https://envelop.tmarhguy.com}{Website}
-   \textbar{}
-   \href{https://github.com/tmarhguy/envelop}{GitHub}}
-
+\project{FramePort | HDMI Capture in VS Code}{TypeScript / FFmpeg}{\docs{frameport}\enspace\textbar\enspace\href{https://open-vsx.org/extension/tmarhguy/frameport}{Install}}
 \begin{itemize}
-  \resumeitem{
-    Built a browser-to-hardware messaging system connecting remote clients to physical
-    Tomato FPGA computers through verified native BLE bridges; implemented a durable
-    job queue, bridge leases, replay-safe handling, binary \texttt{ENVELOP/1} protocol,
-    and web, Swift, and Android clients.
-  }
+\item Published a VS Code extension with \textbf{1,300+ Open VSX downloads} for live HDMI/USB capture, pixel inspection, PNG screenshots and \textbf{H.264 recording}; implemented backpressure, lifecycle recovery, safe saves and encode/decode regression coverage.
 \end{itemize}
-
+\project{Envelop | Browser-to-FPGA Messaging}{TypeScript / Swift / Kotlin}{\href{https://envelop.tmarhguy.com}{Demo}\enspace\textbar\enspace\code{envelop}}
+\begin{itemize}
+\item Connected browser clients to physical Tomato computers through native BLE bridges; implemented a \textbf{durable job queue}, bridge leases, replay-safe handling and the binary \textbf{ENVELOP/1} protocol.
+\end{itemize}
 \section{Technical Skills}
-
-\textbf{Languages:}
-Rust, Python, C/C++, TypeScript/JavaScript, Swift, Java/Kotlin, Bash, SQL, Embedded C \\
-
-\textbf{Systems / Backend:}
-Linux, concurrency, networking, storage engines, search/indexing, compilers,
-FastAPI, Node.js, REST APIs, PostgreSQL, Supabase, Redis, binary protocols \\
-
-\textbf{Tooling / DevOps:}
-Docker, Kubernetes, GitHub Actions, CI/CD, Nginx, FFmpeg,
-VS Code Extension API, pytest, browser/integration testing
-
+\skill{Languages}{Rust, C/C++, Python, TypeScript/JavaScript, Swift, Java/Kotlin, SQL, Bash}
+\skill{Systems}{Linux, concurrency, networking, storage engines, search/indexing, compilers, binary protocols}
+\skill{Backend}{FastAPI, Node.js, REST APIs, PostgreSQL, Supabase, Redis}
+\skill{Tooling}{Docker, Kubernetes, GitHub Actions, CI/CD, Nginx, FFmpeg, VS Code API, pytest}
 \end{document}

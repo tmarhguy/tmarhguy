@@ -10,7 +10,7 @@ _RTL · FPGA · RTL-to-GDS · verification_
 
 [![tmarhguy.com](https://img.shields.io/badge/tmarhguy.com-visit-1b2fbf?style=flat-square&labelColor=f2f1ec&color=0e1116)](https://tmarhguy.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-profile-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/tmarhguy)
-[![Email](https://img.shields.io/badge/email-tmarhguy%40seas.upenn.edu-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:tmarhguy@seas.upenn.edu)
+[![Email](https://img.shields.io/badge/email-tmarhguy%40engineering.upenn.edu-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:tmarhguy@engineering.upenn.edu)
 
 </div>
 

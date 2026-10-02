@@ -12,12 +12,16 @@ on:
     paths:
       - 'docs/resume/**'
       - '.github/workflows/resume.yml'
+      - 'scripts/build-resumes.mjs'
+      - 'src/data/profile.json'
   pull_request:
     branches:
       - main
     paths:
       - 'docs/resume/**'
       - '.github/workflows/resume.yml'
+      - 'scripts/build-resumes.mjs'
+      - 'src/data/profile.json'
   workflow_dispatch:
 
 concurrency:
@@ -35,39 +39,40 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Compile hardware.tex
+      - name: Compile both resumes
         uses: xu-cheng/latex-action@v4
         with:
           working_directory: docs/resume
-          root_file: hardware.tex
+          root_file: |
+            hardware.tex
+            software.tex
           compiler: latexmk
-          args: -pdf -interaction=nonstopmode
+          args: -pdf -halt-on-error -file-line-error -interaction=nonstopmode
 
-      - name: Compile software.tex
-        uses: xu-cheng/latex-action@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
         with:
-          working_directory: docs/resume
-          root_file: software.tex
-          compiler: latexmk
-          args: -pdf -interaction=nonstopmode
+          node-version: 22
+
+      - name: Install PDF validation tools
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Validate one-page layout
+        run: node scripts/build-resumes.mjs --verify-only docs/resume
+
+      - name: Upload review PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: resumes
+          path: docs/resume/*.pdf
+          if-no-files-found: error
 
       - name: Publish PDFs to public/
-        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
-        run: |
-          cp docs/resume/hardware.pdf public/Tyrone-Marhguy-Hardware-Resume.pdf
-          cp docs/resume/software.pdf public/Tyrone-Marhguy-Software-Resume.pdf
-          rm -f docs/resume/hardware.pdf \
-            docs/resume/software.pdf \
-            docs/resume/*.aux \
-            docs/resume/*.log \
-            docs/resume/*.out \
-            docs/resume/*.fls \
-            docs/resume/*.fdb_latexmk
-          ls -lh public/Tyrone-Marhguy-Hardware-Resume.pdf \
-            public/Tyrone-Marhguy-Software-Resume.pdf
+        if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+        run: node scripts/build-resumes.mjs --verify-only docs/resume --publish
 
       - name: Commit updated PDFs
-        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           file_pattern: 'public/Tyrone-Marhguy-Hardware-Resume.pdf public/Tyrone-Marhguy-Software-Resume.pdf'

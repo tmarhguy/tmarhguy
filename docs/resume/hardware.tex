@@ -1,235 +1,90 @@
+% Standalone one-page resume. All layout settings live in this preamble.
 \documentclass[10pt,letterpaper]{article}
-
-\usepackage[margin=0.50in]{geometry}
+\usepackage[left=0.52in,right=0.52in,top=0.45in,bottom=0.45in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{microtype}
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage[hidelinks]{hyperref}
-\usepackage{xcolor}
-\usepackage{tabularx}
-
-\input{glyphtounicode}
-\pdfgentounicode=1
-
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
-\setlength{\tabcolsep}{0pt}
+\setlength{\emergencystretch}{1em}
 \urlstyle{same}
-
-\definecolor{rulegray}{gray}{0.25}
-
-\titleformat{\section}
-  {\large\scshape}
-  {}
-  {0pt}
-  {}
-  [\color{rulegray}\titlerule]
-
-\titlespacing*{\section}{0pt}{4.5pt}{2pt}
-
-\newcommand{\entry}[4]{%
-  \begin{tabularx}{\textwidth}{@{}Xr@{}}
-    \textbf{#1} & #2 \\
-    \textit{#3} & \textit{#4}
-  \end{tabularx}\vspace{-1.5pt}
-}
-
-\newcommand{\project}[3]{%
-  \vspace{1pt}%
-  \begin{tabularx}{\textwidth}{@{}Xr@{}}
-    \textbf{#1} \textbar{} #2 & #3
-  \end{tabularx}\vspace{-1pt}%
-}
-
-\newcommand{\resumeitem}[1]{\item #1}
-
-\setlist[itemize]{
-  leftmargin=15pt,
-  itemsep=0.6pt,
-  topsep=1pt,
-  parsep=0pt,
-  partopsep=0pt
-}
-
+\raggedright
+\raggedbottom
+\titleformat{\section}{\fontsize{11}{13}\selectfont\bfseries}{}{0pt}{}[\titlerule]
+\titlespacing*{\section}{0pt}{7pt}{4pt}
+\setlist[itemize]{label=\textbullet,leftmargin=12pt,labelsep=5pt,
+  topsep=2pt,itemsep=1.5pt,parsep=0pt,partopsep=0pt}
+% Paragraph-based headings avoid table padding and preserve reading order.
+\newcommand{\role}[4]{\par\addvspace{4pt}%
+  \textbf{#1}\hfill {\small #2}\par
+  \textit{#3}\hfill {\small #4}\par}
+\newcommand{\project}[3]{\par\addvspace{4pt}%
+  \textbf{#1}\enspace {\small #2}\hfill {\small #3}\par}
+\newcommand{\code}[1]{\href{https://github.com/tmarhguy/#1}{Code}}
+\newcommand{\docs}[1]{\href{https://tmarhguy.github.io/#1/}{Docs}}
+\newcommand{\skill}[2]{\textbf{#1:} #2\par}
 \begin{document}
-
+\fontsize{10.5}{12.2}\selectfont
 \begin{center}
-  {\LARGE\textbf{Tyrone Marhguy}}\\[-1pt]
-  \textbf{Computer Engineering --- Computer Architecture / RTL / FPGA / ASIC / Verification}\\[1.5pt]
-  \href{tel:+12673202734}{+1 (267) 320-2734}
-  \;|\;
-  \href{mailto:tmarhguy@seas.upenn.edu}{tmarhguy@seas.upenn.edu}
-  \;|\;
-  \href{https://tmarhguy.com}{tmarhguy.com}
-  \;|\;
-  \href{https://linkedin.com/in/tmarhguy}{linkedin.com/in/tmarhguy}
-  \;|\;
-  \href{https://github.com/tmarhguy}{github.com/tmarhguy}
+{\fontsize{23}{25}\selectfont\bfseries Tyrone Marhguy}\par
+\vspace{3pt}
+Computer Engineering | Architecture, RTL, FPGA \& ASIC\par
+\vspace{3pt}
+{\small \href{mailto:tmarhguy@engineering.upenn.edu}{tmarhguy@engineering.upenn.edu}
+\enspace\textbar\enspace \href{tel:+12673202734}{(267) 320-2734}
+\enspace\textbar\enspace \href{https://tmarhguy.com}{tmarhguy.com}\par
+\href{https://github.com/tmarhguy}{github.com/tmarhguy}
+\enspace\textbar\enspace \href{https://linkedin.com/in/tmarhguy}{linkedin.com/in/tmarhguy}}
 \end{center}
-
-\vspace{-5pt}
-
-\section{Summary}
-
-Computer Engineering junior building from transistor-level CMOS and physical design through RTL, FPGA systems, CPU/GPU microarchitecture, networking, formal verification, and ASIC implementation. Built custom processors, a programmable 3D GPU, low-latency datapaths, SRAM/MAC blocks, and production EDA fixes.
-
 \section{Education}
-
-\entry
-  {University of Pennsylvania}
-  {Philadelphia, PA}
-  {B.S.E. Computer Engineering}
-  {Aug. 2024 -- May 2028}
-
-\vspace{-2pt}
-
-\begin{itemize}
-  \resumeitem{
-    Coursework: Computer Organization \& Design, VLSI, Digital Logic, Embedded Systems
-  }
-\end{itemize}
+\textbf{University of Pennsylvania}\hfill Philadelphia, PA\par
+B.S.E. in Computer Engineering\hfill Expected May 2028\par
+{\small Coursework: Computer Organization \& Design, VLSI, Digital Logic, Embedded Systems}\par
 
 \section{Experience}
-
-\entry
-  {Hardware \& Firmware Engineer}
-  {May 2026 -- Aug. 2026}
-  {Vero Electric}
-  {Philadelphia, PA}
-
+\role{Hardware \& Firmware Engineer}{May -- Aug. 2026}{Vero Electric}{Philadelphia, PA}
 \begin{itemize}
-  \resumeitem{
-    Developed embedded C/C++ fault-detection firmware and a
-    \textbf{BQ79616 16-channel battery-monitoring front end} for a
-    \textbf{240 kWh / 120 kW} system; closed PCB ERC with \textbf{0 errors};
-    bring-up with lab instrumentation.
-  }
+\item Designed and routed a \textbf{BQ79616 16-channel battery-monitoring front end} for a \textbf{240 kWh / 120 kW} energy-storage system; closed PCB ERC/DRC with zero errors.
+\item Developed embedded C/C++ fault detection and SPI/I2C acquisition firmware; supported board bring-up with oscilloscopes and logic analyzers.
 \end{itemize}
-
-\entry
-  {Open-Source EDA Contributor}
-  {2026 -- Present}
-  {OpenROAD, Verilator, LibreLane, OpenFPGA}
-  {C++ / Python / EDA Infrastructure}
-
+\role{Open-Source EDA Contributor}{2026 -- Present}{OpenROAD, Verilator, LibreLane, OpenFPGA}{C++ / Python}
 \begin{itemize}
-  \resumeitem{
-    Merged fixes into production EDA tools (\textbf{OpenROAD} parser,
-    \textbf{Verilator} peak-memory accounting, LibreLane/Yosys reporting);
-    shipped in releases \textbf{3.0.8 and 3.0.10}.
-  }
+\item Fixed OpenROAD's LEF58 parser and Verilator's Linux peak-memory accounting; shipped Yosys compatibility and synthesis-reporting fixes in \textbf{LibreLane 3.0.8 and 3.0.10}.
 \end{itemize}
-
-\entry
-  {Software Engineer Intern}
-  {May 2026 -- Aug. 2026}
-  {Aragorn AI}
-  {Remote}
-
+\role{Software Engineer Intern}{May -- Aug. 2026}{Aragorn AI}{Remote}
 \begin{itemize}
-  \resumeitem{
-    Shipped production backend services and REST APIs; resolved cross-service
-    failures and hardened system boundaries.
-  }
+\item Contributed to production backend/API integrations for AI services; debugged cross-service failures and documented service interfaces.
 \end{itemize}
-
 \section{Selected Hardware Projects}
-
-\project
-  {Tomato --- Custom 32-bit Polymorphic CPU}
-  {SystemVerilog / FPGA / KiCad / Formal}
-  {\href{https://tomato.tmarhguy.com}{Website}
-   \textbar{}
-   \href{https://github.com/tmarhguy/tomato}{GitHub}}
-
+\project{Tomato | Custom 32-bit CPU}{SystemVerilog / FPGA / KiCad}{\href{https://tomato.tmarhguy.com}{Demo}\enspace\textbar\enspace\code{tomato}}
 \begin{itemize}
-  \resumeitem{
-    Architected a custom 32-bit CPU around two programmable
-    \textbf{LUT3 planes + 8-way carry/flag select}
-    (\textbf{524,288 ALU configurations}), three-source datapath, and
-    microcoded control; working FPGA computer with assembler and
-    TomatoOS over HDMI.
-  }
-
-  \resumeitem{
-    \textbf{130B Verilator vectors} + formal 1/8/32-bit proofs; fabricated discrete
-    ALU PCB; full 74xx/discrete machine toward bring-up.
-  }
+\item Designed a three-source datapath with \textbf{dual programmable LUT3 planes}, 8-way carry/flag selection and \textbf{524,288 ALU control configurations}; implemented microcoded control and an assembler.
+\item Built a complete FPGA computer that boots assembly-written Tomato OS over HDMI; fabricated and soldered an 8-bit 74xx ALU slice, with formal proofs at 1/8/32-bit widths.
+\item Recorded a \textbf{130-billion-vector Verilator ALU regression} against a reference model; checked in the verification harness and reproduction commands.
 \end{itemize}
-
-\project
-  {Out-of-Order RISC-V CPU (RV64IMAC)}
-  {SystemVerilog / RISC-V / AXI4-Lite}
-  {\href{https://github.com/tmarhguy/riscv}{GitHub}}
-
+\project{RISC-V CPU | riscv64xO3}{SystemVerilog / AXI4-Lite}{\docs{riscv}\enspace\textbar\enspace\code{riscv}}
 \begin{itemize}
-  \resumeitem{
-    RV64IMAC (riscv64xO3): \textbf{2-wide fetch/decode/issue/commit}, gshare +
-    BTB + RAS, AXI4-Lite; Verilator/cocotb/riscv-tests with Yosys/OpenLane2
-    feasibility.
-  }
+\item Implemented an \textbf{RV64IM scalar pipeline} and AXI4-Lite instruction/data masters; developing 2-wide out-of-order execution. Added Verilator/cocotb ISA tests and Yosys/OpenLane2 feasibility flows.
 \end{itemize}
-
-\project
-  {Pineapple GPU P1 --- Standalone Programmable 3D GPU}
-  {Verilog / Artix-7 / DVI}
-  {\href{https://github.com/tmarhguy/PineappleGPU}{GitHub}}
-
+\project{Pineapple GPU | Programmable 3D Graphics}{Verilog / Artix-7}{\code{PineappleGPU}}
 \begin{itemize}
-  \resumeitem{
-    Vertex/fragment shading, rasterization, depth, texture, double-buffered
-    \textbf{320x180}; interactive pineapple/cube scenes on a Nexys A7 via
-    FOSS Yosys/nextpnr.
-  }
+\item Built programmable vertex/fragment shaders, rasterization, depth and texture pipelines, and \textbf{320$\times$180 double buffering}; rendered interactive scenes on a Nexys A7 using Yosys/nextpnr.
 \end{itemize}
-
-\project
-  {Low-Latency FPGA Networking \& NASDAQ ITCH}
-  {SystemVerilog / RMII / cocotb}
-  {\href{https://github.com/tmarhguy/udp-stack}{UDP/IP}
-   \textbar{}
-   \href{https://github.com/tmarhguy/itch-hw}{ITCH}}
-
+\project{FPGA Networking \& NASDAQ ITCH}{SystemVerilog / cocotb}{\href{https://github.com/tmarhguy/udp-stack}{UDP}\enspace\textbar\enspace\href{https://github.com/tmarhguy/itch-hw}{ITCH}}
 \begin{itemize}
-  \resumeitem{
-    Built a \textbf{100 Mbps RMII/MAC/IPv4/UDP} pipeline and RTL ITCH 5.0 parser
-    with 512-entry BRAM book; closed at \textbf{100 MHz}; \textbf{10M-message}
-    regression, zero BBO mismatches vs Python/cocotb model.
-  }
+\item Built a \textbf{100 Mbps RMII/MAC/IPv4/UDP} pipeline and ITCH 5.0 parser with a 512-entry BRAM order book; closed timing at \textbf{100 MHz} and checked 10M messages against a Python reference with zero BBO mismatches.
 \end{itemize}
-
-\project
-  {ASIC / Full-Custom Datapaths}
-  {Sky130 / 22 nm HP / SPICE}
-  {\href{https://github.com/tmarhguy/mac}{MAC}
-   \textbar{}
-   \href{https://github.com/tmarhguy/64b-sram}{SRAM}}
-
+\project{ASIC \& Full-Custom Datapaths}{Sky130 / SPICE}{\href{https://github.com/tmarhguy/mac}{MAC}\enspace\textbar\enspace\href{https://github.com/tmarhguy/64b-sram}{SRAM}}
 \begin{itemize}
-  \resumeitem{
-    Designed a BF16 multiply-to-FP32-accumulate MAC with LibreLane/OpenLane
-    hardening and a transistor-level \textbf{16x4 6T SRAM} with StrongARM sensing;
-    NGSpice-swept simulated readback to \textbf{4.571 GHz}.
-  }
+\item Designed a two-stage \textbf{BF16-to-FP32 MAC} with cocotb verification and LibreLane flow configuration; built a transistor-level \textbf{16$\times$4 6T SRAM} with StrongARM sensing and NGSpice readback sweeps.
 \end{itemize}
-
 \section{Technical Skills}
-
-\textbf{Architecture / RTL:}
-SystemVerilog/Verilog, VHDL, CPU/GPU/SoC microarchitecture, pipelining,
-superscalar/OoO design, ISA/datapath design, branch prediction,
-memory systems, CDC \\
-
-\textbf{Verification / ASIC:}
-UVM, SVA, cocotb, formal, Verilator; Vivado, Yosys, OpenROAD,
-LibreLane/OpenLane, Sky130, synthesis, STA, P\&R, DRC/LVS, SPICE,
-KiCad, Electric VLSI \\
-
-\textbf{Programming / Interfaces:}
-Python, C/C++, Tcl, Bash, Linux;
-Ethernet/RMII/IPv4/UDP, AXI4-Lite, UART, SPI, I2C
-
+\skill{RTL / Architecture}{SystemVerilog, Verilog, VHDL; CPU/GPU datapaths, pipelining, memory systems, CDC}
+\skill{Verification}{UVM, SVA, cocotb, formal verification, Verilator, Python, C/C++}
+\skill{Implementation}{Vivado, Yosys, OpenROAD, LibreLane/OpenLane, STA, P\&R, DRC/LVS, SPICE, KiCad}
+\skill{Interfaces / Tools}{Ethernet, RMII, AXI4-Lite, UART, SPI, I2C; Linux, Tcl, Bash, Git}
 \end{document}
