@@ -1,12 +1,10 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import PublicStory from '@/components/About/PublicStory';
 
 import AboutContent from '@/components/About/Sections';
 import { SchemaGraph } from '@/components/Schema';
 import PageWrapper from '@/components/Template/PageWrapper';
 import { aboutMarkdown } from '@/data/about';
-import profile from '@/data/profile.json';
 import { createPageMetadata } from '@/lib/metadata';
 import {
   breadcrumbNode,
@@ -14,14 +12,14 @@ import {
   profilePageNode,
   SITE_URL,
 } from '@/lib/schema';
-import { AUTHOR_NAME } from '@/lib/utils';
 
 const ABOUT_URL = `${SITE_URL}/about/`;
 
-const ABOUT_DESCRIPTION = `Learn about ${AUTHOR_NAME} — ${profile.role} at ${profile.employer} working across hardware RTL and production software.`;
+const ABOUT_DESCRIPTION =
+  'Tyrone Marhguy is a Ghanaian Computer Engineering student at Penn. His story spans the Achimota admission case, academic awards, and building computers from first principles.';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'About',
+  title: 'About Tyrone Marhguy',
   description: ABOUT_DESCRIPTION,
   path: '/about/',
 });
@@ -48,14 +46,13 @@ export default function AboutPage() {
           <div>
             <span className="home-section-kicker">Ghana / Philadelphia</span>
             <h1 className="page-title">About</h1>
-            <p className="about-deck">
-              A builder.
-              <br />A student.
-              <br />A story still unfolding.
-            </p>
+            <p className="about-deck">From Ghana to Penn.</p>
             <p>
-              I’m Tyrone. I grew up in Ghana, found my way to Penn, and turned a
-              dorm-room desk into a place to build a computer.
+              I’m Tyrone Marhguy, a Computer Engineering student at the
+              University of Pennsylvania. I grew up in Ghana and attended
+              Achimota School after a court ruling upheld my right to study
+              while keeping my dreadlocks. Today, I design hardware and write
+              the software that runs on it.
             </p>
           </div>
           <figure>
@@ -66,12 +63,12 @@ export default function AboutPage() {
               height={877}
               priority
             />
-            <figcaption>
-              Somewhere between a dorm room and a hardware lab.
-            </figcaption>
+            <figcaption>Working on Tomato at my desk at Penn.</figcaption>
           </figure>
         </header>
-        <PublicStory />
+        <p>
+          <a href="/press/">Press coverage and interviews</a>
+        </p>
         <AboutContent markdown={aboutMarkdown} />
       </section>
     </PageWrapper>

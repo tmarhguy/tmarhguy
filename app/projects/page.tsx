@@ -8,8 +8,7 @@ import { getOpenSourceContributions } from '@/data/open-source';
 import {
   getEarlierProjects,
   getHardwareProjects,
-  getSoftwareProjects,
-  getToolsProjects,
+  getSoftwareAndSystemsProjects,
 } from '@/data/projects';
 import { createPageMetadata } from '@/lib/metadata';
 import {
@@ -32,15 +31,13 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function ProjectsPage() {
   const hardwareProjects = getHardwareProjects();
-  const toolsProjects = getToolsProjects();
-  const softwareProjects = getSoftwareProjects();
+  const softwareProjects = getSoftwareAndSystemsProjects();
   const earlierProjects = getEarlierProjects();
   const openSourceContributions = getOpenSourceContributions();
 
   // Inverted rank: the first project (Tomato) carries the highest number,
   // counting down across sections in display order.
-  const totalProjects =
-    hardwareProjects.length + toolsProjects.length + softwareProjects.length;
+  const totalProjects = hardwareProjects.length + softwareProjects.length;
   let rank = totalProjects + 1;
   const ranked = <T,>(projects: T[]): { project: T; number: number }[] =>
     projects.map((project) => ({ project, number: --rank }));
@@ -77,14 +74,9 @@ export default function ProjectsPage() {
           <a href="#hardware-projects-title">
             Hardware <span>{hardwareProjects.length}</span>
           </a>
-          {toolsProjects.length > 0 && (
-            <a href="#tools-projects-title">
-              Tools <span>{toolsProjects.length}</span>
-            </a>
-          )}
           {softwareProjects.length > 0 && (
             <a href="#software-projects-title">
-              Software <span>{softwareProjects.length}</span>
+              Software & Systems <span>{softwareProjects.length}</span>
             </a>
           )}
           {earlierProjects.length > 0 && (
@@ -109,29 +101,13 @@ export default function ProjectsPage() {
           </div>
         </section>
 
-        {toolsProjects.length > 0 && (
-          <section
-            className="projects-list-section"
-            aria-labelledby="tools-projects-title"
-          >
-            <h2 className="projects-section-title" id="tools-projects-title">
-              Tools
-            </h2>
-            <div className="project-list">
-              {ranked(toolsProjects).map(({ project, number }) => (
-                <ListItem data={project} number={number} key={project.title} />
-              ))}
-            </div>
-          </section>
-        )}
-
         {softwareProjects.length > 0 && (
           <section
             className="projects-list-section"
             aria-labelledby="software-projects-title"
           >
             <h2 className="projects-section-title" id="software-projects-title">
-              Software
+              Software & Systems
             </h2>
             <div className="project-list">
               {ranked(softwareProjects).map(({ project, number }) => (

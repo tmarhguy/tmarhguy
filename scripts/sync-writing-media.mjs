@@ -40,6 +40,9 @@ const MEDIA_ROOTS = [
   resolve(ROOT, '../envelop/website/media/diagrams'),
   resolve(ROOT, 'envelop/website/media'),
   resolve(ROOT, '../envelop/website/media'),
+  resolve(ROOT, '../PineappleGPU/media/screenshots'),
+  resolve(ROOT, '../PineappleGPU/media/videos'),
+  resolve(ROOT, '../PineappleGPU/docs/validation'),
 ];
 
 const IMAGE_REF =

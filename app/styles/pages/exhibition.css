@@ -483,7 +483,7 @@
     padding: 0.45rem 0.75rem;
   }
   .projects-exhibition .projects-open-source-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .projects-exhibition .project-list-item--flagship {
     display: flex;
@@ -777,4 +777,21 @@
   display: block;
   margin-top: 0.2rem;
   color: var(--color-fg-light);
+}
+
+.projects-exhibition .project-list-meta {
+  height: 1.5rem;
+  min-height: 1.5rem;
+  line-height: 1.5rem;
+}
+.projects-exhibition .project-list-title .project-list-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  max-width: 100%;
+  margin: 0.5rem 0 0;
+}
+.projects-exhibition .project-list-downloads img {
+  max-width: 100%;
+  height: auto;
 }

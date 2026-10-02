@@ -7,7 +7,14 @@ import Hero from '@/components/Template/Hero';
 import HomeContributions from '@/components/Template/HomeContributions';
 import PageWrapper from '@/components/Template/PageWrapper';
 import TomatoFeature from '@/components/Template/TomatoFeature';
-import { getHomeFeaturedItems } from '@/data/projects';
+import { HOME_OPEN_SOURCE_FEATURE } from '@/data/open-source';
+import {
+  getHomeHardwareItems,
+  getHomeSoftwareItems,
+  type HomeFeaturedItem,
+  openVsxDownloadsShieldSrc,
+  openVsxVersionShieldSrc,
+} from '@/data/projects';
 import { externalAnchorProps } from '@/lib/external-link';
 import { formatDateCompact } from '@/lib/log-content';
 import { getHomeRecentLogs } from '@/lib/logs';
@@ -19,8 +26,53 @@ export const metadata: Metadata = {
   alternates: { canonical: `${SITE_URL}/` },
 };
 
+function HomeProjectCard({ item }: { item: HomeFeaturedItem }) {
+  const content = (
+    <>
+      <Image
+        className="home-project-image"
+        src={item.image}
+        alt={item.imageAlt}
+        width={640}
+        height={400}
+      />
+      <h3>{item.title}</h3>
+      {item.openVsx ? (
+        <span className="home-project-shields">
+          {/* GitHub-style shields are remote SVGs; next/image cannot size them. */}
+          {/* biome-ignore lint/performance/noImgElement: shields.io badge */}
+          <img
+            src={openVsxVersionShieldSrc(item.openVsx)}
+            alt={`${item.title} Open VSX version`}
+            height={20}
+          />
+          {/* biome-ignore lint/performance/noImgElement: shields.io badge */}
+          <img
+            src={openVsxDownloadsShieldSrc(item.openVsx)}
+            alt={`${item.title} Open VSX downloads`}
+            height={20}
+          />
+        </span>
+      ) : null}
+      <p>{item.desc}</p>
+    </>
+  );
+
+  return (
+    <a
+      key={item.title}
+      href={item.href}
+      className="home-project-item"
+      {...externalAnchorProps(item.href)}
+    >
+      {content}
+    </a>
+  );
+}
+
 export default function HomePage() {
-  const featuredItems = getHomeFeaturedItems();
+  const hardwareItems = getHomeHardwareItems();
+  const softwareItems = getHomeSoftwareItems();
   const recentLogs = getHomeRecentLogs(3);
 
   return (
@@ -39,50 +91,29 @@ export default function HomePage() {
             </span>
             <h2 id="home-projects-title">Projects</h2>
           </div>
-          <Link href="/projects/" className="home-section-all">
-            View all
-          </Link>
+          <span className="home-section-links">
+            <Link
+              href={HOME_OPEN_SOURCE_FEATURE.href}
+              className="home-section-all"
+            >
+              Open source
+            </Link>
+            <Link href="/projects/" className="home-section-all">
+              View all
+            </Link>
+          </span>
         </div>
+        <h3 className="home-projects-group-title">Hardware</h3>
         <div className="home-projects-list">
-          {featuredItems.map((item) => {
-            const content = (
-              <>
-                <Image
-                  className="home-project-image"
-                  src={item.image}
-                  alt={item.imageAlt}
-                  width={640}
-                  height={400}
-                />
-                <span className="home-project-meta">{item.period}</span>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-              </>
-            );
-
-            if (item.external) {
-              return (
-                <a
-                  key={item.title}
-                  href={item.href}
-                  className="home-project-item"
-                  {...externalAnchorProps(item.href)}
-                >
-                  {content}
-                </a>
-              );
-            }
-
-            return (
-              <Link
-                key={item.title}
-                href={item.href}
-                className="home-project-item"
-              >
-                {content}
-              </Link>
-            );
-          })}
+          {hardwareItems.map((item) => (
+            <HomeProjectCard key={item.title} item={item} />
+          ))}
+        </div>
+        <h3 className="home-projects-group-title">Software & Systems</h3>
+        <div className="home-projects-list">
+          {softwareItems.map((item) => (
+            <HomeProjectCard key={item.title} item={item} />
+          ))}
         </div>
       </section>
       <section className="home-writing" aria-labelledby="home-writing-title">

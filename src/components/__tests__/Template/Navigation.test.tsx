@@ -55,6 +55,10 @@ describe('Navigation', () => {
     expect(
       screen.getByRole('link', { name: /engineering log/i }),
     ).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /^press$/i })).toHaveAttribute(
+      'href',
+      '/press',
+    );
     expect(screen.getByRole('link', { name: /contact/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /github/i })).toHaveAttribute(
       'href',

@@ -134,7 +134,7 @@ describe('project-backed hardware skills', () => {
         'KiCad',
         'NGSpice',
         'Electric VLSI',
-        'RISC-V (RV64IM)',
+        'RISC-V (RV64IMAC)',
         'Wishbone B4',
         'RMII / 100 Mbps MAC',
         'SPI/I²C',

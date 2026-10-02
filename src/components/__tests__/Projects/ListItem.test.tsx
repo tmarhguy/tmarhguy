@@ -23,10 +23,12 @@ describe('ListItem', () => {
     expect(screen.getByText(mockProject.desc)).toBeInTheDocument();
   });
 
-  it('renders period in the date column', () => {
-    render(<ListItem data={mockProject} />);
-    expect(screen.getByText('Jul. 2026')).toBeInTheDocument();
-    expect(screen.getByText('2026')).toBeInTheDocument();
+  it('omits the date column and only shows the log link when present', () => {
+    const { container } = render(<ListItem data={mockProject} />);
+    expect(container.querySelector('.project-list-date')).toBeNull();
+    expect(
+      screen.queryByRole('link', { name: /^log$/i }),
+    ).not.toBeInTheDocument();
   });
 
   it('links the title when a URL is present', () => {

@@ -33,7 +33,9 @@
     "favicon": "node scripts/generate-favicon.mjs",
     "import-logs": "node scripts/import-logs.mjs",
     "sync-writing-media": "node scripts/sync-writing-media.mjs",
-    "verify-export": "node scripts/verify-export.mjs"
+    "verify-export": "node scripts/verify-export.mjs",
+    "resume:build": "node scripts/build-resumes.mjs --publish",
+    "resume:check": "node scripts/build-resumes.mjs"
   },
   "dependencies": {
     "@fontsource-variable/bricolage-grotesque": "^5.3.0",

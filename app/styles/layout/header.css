@@ -162,7 +162,7 @@
   display: none;
 }
 
-@media (max-width: 735px) {
+@media (max-width: 1099px) {
   .hamburger-container {
     display: block;
   }

@@ -28,7 +28,7 @@ describe('EarlierList', () => {
     expect(document.getElementById('queuepaste')).toBeTruthy();
   });
 
-  it('links titles out and shows period with description', () => {
+  it('links titles out and shows description without dates', () => {
     render(<EarlierList projects={getEarlierProjects()} />);
 
     expect(screen.getByRole('link', { name: 'QueuePaste' })).toHaveAttribute(

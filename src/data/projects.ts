@@ -1,7 +1,7 @@
 import { HOME_OPEN_SOURCE_FEATURE } from '@/data/open-source';
 import { createHeadingId } from '@/lib/anchors';
 
-export type ProjectCategory = 'hardware' | 'software' | 'tools';
+export type ProjectCategory = 'hardware' | 'systems' | 'software' | 'tools';
 
 export const TOMATO_SITE_URL = 'https://tomato.tmarhguy.com';
 export const TOMATO_REPO_URL = 'https://github.com/tmarhguy/tomato';
@@ -36,7 +36,7 @@ export interface Project {
   category: ProjectCategory;
   /** Matches the three projects on my hardware resume today */
   onResume?: boolean;
-  /** Homepage selected work — order via getFeaturedProjects() */
+  /** Homepage selected work — order via getHomeHardwarePicks()/getHomeSoftwarePicks() */
   featured?: boolean;
   /** Short label for a personal standout (e.g. on the projects index) */
   highlight?: string;
@@ -138,6 +138,7 @@ const data: Project[] = [
     logProject: 'mac',
     image: '/images/projects/mac-core.webp',
     imageCaption: 'MAC core · physical layout preview',
+    site: 'https://tmarhguy.github.io/mac/',
     link: 'https://github.com/tmarhguy/mac',
     date: '2026-01-01',
     period: 'Jan. 2026 — Present',
@@ -173,21 +174,81 @@ const data: Project[] = [
     category: 'hardware',
   },
   {
-    title: '64-bit RISC-V CPU (RV64IM)',
-    subtitle: '5-stage pipelined core',
+    title: 'Out-of-Order RISC-V CPU (RV64IMAC)',
+    subtitle: '2-wide superscalar · Tomasulo + ROB/LSQ',
+    slug: 'riscv64xO3',
+    site: 'https://tmarhguy.github.io/riscv/',
     link: 'https://github.com/tmarhguy/riscv',
     image: '/images/projects/riscv64.webp',
-    imageCaption: 'RV64IM core · 5-stage pipeline',
-    date: '2025-10-01',
-    period: '2025',
-    desc: 'Custom RV64IM processor on Artix-7 at 125 MHz with 96% ISA compliance; bare-metal C via UART bootloader.',
-    tech: ['SystemVerilog', 'RISC-V', 'Wishbone', 'cocotb'],
+    imageCaption: 'Out-of-order RISC-V core · 2-wide superscalar pipeline',
+    date: '2026-02-16',
+    period: 'Nov. 2025 — Present',
+    desc: 'RV64IMAC; 2-wide fetch/decode/issue/commit with gshare + BTB + RAS, AXI4-Lite memory, Verilator + cocotb + riscv-tests with Yosys/OpenLane2 feasibility.',
+    tech: ['SystemVerilog', 'RISC-V', 'AXI4-Lite', 'Verilator', 'cocotb'],
     category: 'hardware',
+  },
+  {
+    title: 'Pineapple GPU P1',
+    subtitle: 'Programmable 3D GPU · Nexys A7-100T',
+    slug: 'pineapple-gpu',
+    site: 'https://tmarhguy.github.io/gpu/',
+    link: 'https://github.com/tmarhguy/PineappleGPU',
+    image: '/images/projects/pineapple-demo.gif',
+    imageCaption: 'Pineapple demo on Nexys A7-100T · HDMI capture',
+    date: '2026-10-01',
+    period: 'Sep. 2026 — Oct. 2026',
+    desc: 'Standalone programmable 3D GPU — vertex/fragment shaders, rasterizer, depth, texture, double-buffered 320×180; pineapple and cube both rendered on silicon via FOSS Yosys/nextpnr flow.',
+    tech: ['Verilog', 'Yosys/nextpnr', 'Artix-7', 'DVI'],
+    category: 'hardware',
+  },
+  {
+    title: 'Lobster',
+    subtitle: 'Systems language for dual-LUT3 CPUs',
+    slug: 'lobster',
+    site: 'https://tmarhguy.github.io/lobster/',
+    link: 'https://github.com/tmarhguy/lobster',
+    image: '/images/projects/lobster.webp',
+    imageCaption: 'Lobster language + compiler · repo screenshot',
+    date: '2026-10-01',
+    period: 'Oct. 2026 — Present',
+    desc: 'Systems language and compiler built in Rust — Pratt parsing, type checking, verified SSA, optimization passes, and differential testing with a reference interpreter.',
+    tech: ['Rust', 'Compilers', 'Tomato32', 'CLI'],
+    category: 'systems',
+  },
+  {
+    title: 'FigDB',
+    subtitle: 'Transactional database from first principles',
+    slug: 'figdb',
+    site: 'https://tmarhguy.github.io/figDB/',
+    link: 'https://github.com/tmarhguy/figDB',
+    image: '/images/projects/figdb.webp',
+    imageCaption: 'FigDB transactional database · repo screenshot',
+    date: '2026-10-01',
+    period: 'Oct. 2026 — Present',
+    desc: 'Transactional database built from first principles in Rust — ordered key-value storage, a checksummed WAL, WAL-backed memtables, immutable SSTables, LSM flush/merge, manifests, compaction, crash recovery, and correctness testing. Growing toward MVCC and distributed transactions.',
+    tech: ['Rust', 'LSM', 'WAL', 'Tokio'],
+    category: 'systems',
+  },
+  {
+    title: 'SeaLion',
+    subtitle: 'Distributed full-text search engine',
+    slug: 'sealion',
+    site: 'https://tmarhguy.github.io/sealion/',
+    link: 'https://github.com/tmarhguy/sealion-search-engine',
+    image: '/images/projects/sealion-demo.gif',
+    imageCaption: 'SeaLion engine · search demo',
+    date: '2026-10-01',
+    period: 'Oct. 2026 — Present',
+    desc: 'Distributed full-text search built in Rust — BM25 ranking, exact Block-Max WAND, typo correction, crawling, and shards with failover; 155 documented passing tests.',
+    tech: ['Rust', 'Search', 'BM25', 'CLI'],
+    category: 'systems',
   },
   {
     title: '8-bit Discrete Transistor ALU',
     image: '/images/projects/alu-render.webp',
-    imageCaption: 'Hybrid CMOS ALU · PCB render',
+    imageCaption: 'Hybrid CMOS ALU · interactive board model',
+    video: '/images/projects/alu-demo.mp4',
+    videoPoster: '/images/projects/alu-demo-poster.jpg',
     subtitle: '3,488 transistors',
     logProject: 'alu',
     link: 'https://alu.tmarhguy.com',
@@ -216,9 +277,9 @@ const data: Project[] = [
     subtitle: 'HDMI capture in VS Code',
     slug: 'frameport',
     logProject: 'frameport',
-    site: FRAMEPORT_SITE_URL,
+    site: 'https://tmarhguy.github.io/frameport/',
     link: 'https://github.com/tmarhguy/frameport',
-    image: '/images/projects/frameport-marketplace.webp',
+    image: '/images/projects/frameport-demo.gif',
     imageCaption: 'Live FPGA capture beside code · Open VSX',
     video: '/images/projects/frameport-demo.mp4',
     videoPoster: '/images/projects/frameport-demo-poster.webp',
@@ -300,7 +361,7 @@ const data: Project[] = [
   },
   {
     title: 'Envelop',
-    subtitle: 'Browser-to-Tomato messenger',
+    subtitle: 'Browser-to-FPGA remote compute',
     slug: 'envelop',
     logProject: 'envelop',
     site: 'https://envelop.tmarhguy.com',
@@ -310,7 +371,7 @@ const data: Project[] = [
       'From the website into browser chat · an exchange with Tomato',
     date: '2026-09-14',
     period: 'Sep. 2026 — Present',
-    desc: 'Browser messenger connecting people to Tomato through verified native BLE bridges, with explicitly labeled Virtual Tomato execution when physical hardware is unavailable.',
+    desc: 'Browser-to-FPGA remote-compute link for Tomato over verified native BLE bridges, with explicitly labeled Virtual Tomato execution when physical hardware is unavailable.',
     tech: ['JavaScript', 'Kotlin', 'Swift', 'BLE'],
     category: 'software',
   },
@@ -358,12 +419,14 @@ const data: Project[] = [
     title: 'SVD Compression Engine',
     subtitle: 'Real-time image compression',
     link: 'https://svd.tmarhguy.com',
-    image: '/images/projects/svd-compression.webp',
-    imageCaption: 'SVD Compression Engine · interactive demo',
+    image: '/images/projects/svd-demo.gif',
+    imageCaption: 'Adjusting image rank · browser-based SVD compression',
+    video: '/images/projects/svd-demo.mp4',
+    videoPoster: '/images/projects/svd-demo-poster.jpg',
     date: '2024-09-01',
     period: '2024',
-    desc: 'Singular Value Decomposition from scratch with cache-optimized matrix ops; 45% speedup over naive implementations.',
-    tech: ['C++', 'NumPy', 'Linear Algebra', 'WASM'],
+    desc: 'Client-side image compression using truncated SVD: upload an image and adjust its rank to compare detail, reconstruction error, and file size. Web Workers and caching keep decomposition off the main thread.',
+    tech: ['TypeScript', 'React', 'Web Workers', 'Linear Algebra'],
     category: 'software',
   },
 ];
@@ -385,14 +448,15 @@ function isMainExhibition(project: Project): boolean {
  */
 const HARDWARE_ORDER = [
   'tomato',
+  'pineapple-gpu',
+  '8-bit-discrete-transistor-alu',
+  'riscv64xO3',
   'mac',
   '100mbps-udp-ip-stack',
   'full-custom-sram',
   'nasdaq-itch',
   '8-bit-ripple-carry-adder-ese-3700',
   'spice-automation',
-  '64-bit-risc-v-cpu-rv64im',
-  '8-bit-discrete-transistor-alu',
 ] as const;
 
 export function getHardwareProjects(): Project[] {
@@ -411,6 +475,14 @@ export function getHardwareProjects(): Project[] {
     return project;
   });
   return [...ordered, ...sortByDateDesc([...bySlug.values()])];
+}
+
+export function getSystemsProjects(): Project[] {
+  return sortByDateDesc(
+    data.filter(
+      (project) => project.category === 'systems' && isMainExhibition(project),
+    ),
+  );
 }
 
 export function getToolsProjects(): Project[] {
@@ -450,22 +522,77 @@ export function getSoftwareProjects(): Project[] {
   );
 }
 
+/**
+ * Unified non-hardware wall — systems, tools, and software together.
+ * Keeps the portfolio feeling like one person's workbench instead of
+ * three thin fragments. Hardware stays its own section.
+ */
+// Lead with relevance, then alternate demos and repository images.
+const SOFTWARE_AND_SYSTEMS_ORDER = [
+  'sealion',
+  'frameport',
+  'lobster',
+  'envelop',
+  'figdb',
+  'mango-tools',
+] as const;
+
+export function getSoftwareAndSystemsProjects(): Project[] {
+  const projects = data.filter(
+    (project) =>
+      (project.category === 'systems' ||
+        project.category === 'tools' ||
+        project.category === 'software') &&
+      isMainExhibition(project),
+  );
+  const bySlug = new Map(
+    projects.map((project) => [getProjectSlug(project), project]),
+  );
+  const ordered = SOFTWARE_AND_SYSTEMS_ORDER.map((slug) => {
+    const project = bySlug.get(slug);
+    if (!project)
+      throw new Error(`Missing software project for order entry: ${slug}`);
+    bySlug.delete(slug);
+    return project;
+  });
+  return [...ordered, ...sortByDateDesc([...bySlug.values()])];
+}
+
 export function getProjectSlug(project: Project): string {
   return project.slug ?? createHeadingId(project.title);
 }
 
-const FEATURED_PROJECT_SLUGS = [
+const HOME_HARDWARE_SLUGS = [
+  'pineapple-gpu',
   'mac',
   '100mbps-udp-ip-stack',
   'full-custom-sram',
 ] as const;
 
-/** Homepage selected work — explicit cracked-hardware order. */
-export function getFeaturedProjects(): Project[] {
-  return FEATURED_PROJECT_SLUGS.map((slug) => {
+const HOME_SOFTWARE_SLUGS = [
+  'sealion',
+  'frameport',
+  'lobster',
+  'figdb',
+] as const;
+
+/** Homepage hardware row — strongest silicon-backed builds first. */
+export function getHomeHardwarePicks(): Project[] {
+  return HOME_HARDWARE_SLUGS.map((slug) => {
     const project = data.find((entry) => getProjectSlug(entry) === slug);
-    if (!project?.featured) {
-      throw new Error(`Missing featured project: ${slug}`);
+    if (!project) {
+      throw new Error(`Missing homepage hardware pick: ${slug}`);
+    }
+    return project;
+  });
+}
+
+/** Homepage software row — systems flagships plus top-traction tool. */
+export function getHomeSoftwarePicks(): Project[] {
+  return HOME_SOFTWARE_SLUGS.map((slug) => {
+    const project = data.find((entry) => getProjectSlug(entry) === slug);
+    if (!project) {
+      throw new Error(`Missing homepage software pick: ${slug}`);
     }
     return project;
   });
@@ -479,9 +606,42 @@ export interface HomeFeaturedItem {
   imageAlt: string;
   href: string;
   external?: boolean;
+  /** Live Open VSX `namespace/name` — version + downloads shields on the card. */
+  openVsx?: string;
 }
 
-/** Homepage projects strip: open source lead, then featured builds. */
+function toHomeFeaturedItem(project: Project): HomeFeaturedItem {
+  const href = project.site ?? project.link;
+  if (!href) {
+    throw new Error(`Homepage pick missing link: ${project.title}`);
+  }
+  if (!project.image) {
+    throw new Error(`Homepage pick missing image: ${project.title}`);
+  }
+
+  return {
+    title: project.title,
+    period: project.period,
+    desc: project.desc,
+    image: project.image,
+    imageAlt: `${project.title} — project screenshot`,
+    href,
+    external: true,
+    openVsx: project.openVsx,
+  };
+}
+
+/** Homepage hardware row — strongest silicon-backed builds. */
+export function getHomeHardwareItems(): HomeFeaturedItem[] {
+  return getHomeHardwarePicks().map(toHomeFeaturedItem);
+}
+
+/** Homepage software row — systems flagships plus top-traction tool. */
+export function getHomeSoftwareItems(): HomeFeaturedItem[] {
+  return getHomeSoftwarePicks().map(toHomeFeaturedItem);
+}
+
+/** Homepage strip: open source lead, then the hardware and software rows. */
 export function getHomeFeaturedItems(): HomeFeaturedItem[] {
   return [
     {
@@ -492,22 +652,8 @@ export function getHomeFeaturedItems(): HomeFeaturedItem[] {
       imageAlt: HOME_OPEN_SOURCE_FEATURE.imageAlt,
       href: HOME_OPEN_SOURCE_FEATURE.href,
     },
-    ...getFeaturedProjects().map((project) => {
-      const href = project.site ?? project.link;
-      if (!href) {
-        throw new Error(`Featured project missing link: ${project.title}`);
-      }
-
-      return {
-        title: project.title,
-        period: project.period,
-        desc: project.desc,
-        image: project.image!,
-        imageAlt: `${project.title} — project screenshot`,
-        href,
-        external: true,
-      };
-    }),
+    ...getHomeHardwareItems(),
+    ...getHomeSoftwareItems(),
   ];
 }
 

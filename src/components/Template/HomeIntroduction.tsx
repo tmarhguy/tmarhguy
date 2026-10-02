@@ -17,7 +17,9 @@ export default function HomeIntroduction({
         <a href="https://www.upenn.edu">University of Pennsylvania</a>. I design
         processors, build the hardware, and write the software that runs on
         them. My independent 32-bit computer is{' '}
-        <a href="https://tomato.tmarhguy.com">Tomato</a>.
+        <a href="https://tomato.tmarhguy.com">Tomato</a>. I also contribute to
+        open-source EDA — LibreLane, Verilator, OpenROAD, and OpenFPGA — with{' '}
+        <a href="/projects/#open-source-title">fixes shipped upstream</a>.
       </p>
       <p className="hero-work">
         Engineering work & roles:{' '}
@@ -35,7 +37,8 @@ export default function HomeIntroduction({
       </p>
       <p className="hero-story-link">
         <a href="/about/">From Ghana to Penn: my story</a>
-        <a href="https://en.wikipedia.org/wiki/Tyrone_Marhguy">Wikipedia</a>
+        {' · '}
+        <a href="/press/">Press & interviews</a>
       </p>
     </div>
   );

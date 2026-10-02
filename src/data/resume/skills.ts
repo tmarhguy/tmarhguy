@@ -76,7 +76,7 @@ const skills: Skill[] = [
     category: ['FPGA & HDL'],
   },
   {
-    title: 'RISC-V (RV64IM)',
+    title: 'RISC-V (RV64IMAC)',
     competency: 4,
     category: ['FPGA & HDL'],
   },
@@ -280,6 +280,11 @@ const skills: Skill[] = [
     title: 'Python',
     competency: 5,
     category: ['Software', 'Verification'],
+  },
+  {
+    title: 'Rust',
+    competency: 4,
+    category: ['Software'],
   },
   {
     title: 'C/C++',

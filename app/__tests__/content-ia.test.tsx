@@ -6,8 +6,7 @@ import projects, {
   getHardwareProjects,
   getHiddenProjects,
   getHomeFeaturedItems,
-  getSoftwareProjects,
-  getToolsProjects,
+  getSoftwareAndSystemsProjects,
 } from '@/data/projects';
 import {
   getAllLogs,
@@ -34,10 +33,24 @@ describe('writing information architecture', () => {
       within(section).getByRole('link', { name: 'View all' }),
     ).toHaveAttribute('href', '/projects/');
     expect(
+      within(section).getByRole('link', { name: 'Open source' }),
+    ).toHaveAttribute('href', '/projects/#open-source-title');
+    expect(
+      [...section.querySelectorAll('.home-projects-group-title')].map(
+        (heading) => heading.textContent,
+      ),
+    ).toEqual(['Hardware', 'Software & Systems']);
+    expect(
       [...section.querySelectorAll('.home-project-item h3')].map(
         (heading) => heading.textContent,
       ),
-    ).toEqual(featured.map((item) => item.title));
+    ).toEqual(featured.slice(1).map((item) => item.title));
+    expect(
+      within(section).getByAltText('FramePort Open VSX downloads'),
+    ).toHaveAttribute(
+      'src',
+      'https://img.shields.io/open-vsx/dt/tmarhguy/frameport?style=flat-square',
+    );
   });
 
   it('pins the September wallpaper log as the lead recent-writing card on the homepage', () => {
@@ -113,28 +126,25 @@ describe('writing information architecture', () => {
       screen.getByRole('heading', { level: 2, name: 'Hardware' }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('heading', { level: 2, name: 'Tools' }),
+      screen.getByRole('heading', { level: 2, name: 'Software & Systems' }),
     ).toBeInTheDocument();
+    expect(screen.getByText('Lobster')).toBeInTheDocument();
+    expect(screen.getByText('FigDB')).toBeInTheDocument();
+    expect(screen.getByText('SeaLion')).toBeInTheDocument();
     expect(screen.getByText('FramePort')).toBeInTheDocument();
     expect(screen.getByText('Mango Tools')).toBeInTheDocument();
-    expect(
-      screen.getByRole('heading', { level: 2, name: 'Software' }),
-    ).toBeInTheDocument();
     expect(screen.getByText('Envelop')).toBeInTheDocument();
     expect(
       screen.getByRole('heading', { level: 2, name: 'Earlier software' }),
     ).toBeInTheDocument();
 
     const mainCount =
-      getHardwareProjects().length +
-      getToolsProjects().length +
-      getSoftwareProjects().length;
+      getHardwareProjects().length + getSoftwareAndSystemsProjects().length;
     expect(screen.getAllByRole('article')).toHaveLength(mainCount);
 
     const visible = [
       ...getHardwareProjects(),
-      ...getToolsProjects(),
-      ...getSoftwareProjects(),
+      ...getSoftwareAndSystemsProjects(),
       ...getEarlierProjects(),
     ];
     expect(visible.length + getHiddenProjects().length).toBe(projects.length);

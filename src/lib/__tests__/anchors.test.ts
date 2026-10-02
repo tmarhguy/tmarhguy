@@ -32,11 +32,11 @@ describe('createHeadingId', () => {
         createHeadingId(title),
       ]),
     ).toEqual([
-      ['Early Life', 'early-life'],
-      ['Achimota', 'achimota'],
-      ['Academics', 'academics'],
-      ['Now - (Fall 2026)', 'now-fall-2026'],
-      ['Hobbies and Interests', 'hobbies-and-interests'],
+      ['Growing up in Ghana', 'growing-up-in-ghana'],
+      ['Attending Achimota', 'attending-achimota'],
+      ['School and academic awards', 'school-and-academic-awards'],
+      ['What I’m building now', 'what-im-building-now'],
+      ['Away from the desk', 'away-from-the-desk'],
     ]);
   });
 });
