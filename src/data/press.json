@@ -603,7 +603,15 @@
     "summary": "Rising’s first Alumni of the Year award, followed by a speech at the Global Schools Forum annual conference.",
     "format": "Programme feature",
     "evidence": "Publisher page: title and publication date verified.",
-    "checked": "2026-10-01"
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "Rising Academies · LinkedIn",
+        "title": "Rising celebrates its Alumni of the Year",
+        "url": "https://www.linkedin.com/posts/rising-academy-network_rising-academies-blog-activity-7164119912968380416-Nrzx",
+        "kind": "Social post"
+      }
+    ]
   },
   {
     "id": "banda-first",
@@ -860,6 +868,12 @@
         "title": "The same engineering story on TikTok",
         "url": "https://www.tiktok.com/@kobeboujee/video/7601576358887755016",
         "kind": "Social video"
+      },
+      {
+        "publisher": "Kobe Boujee · Instagram",
+        "title": "Video response to my computer-brain project",
+        "url": "https://www.instagram.com/reel/DULteJdAsyC/",
+        "kind": "Social post"
       }
     ]
   },
@@ -873,7 +887,15 @@
     "summary": "Further reporting on the ALU and studying computer engineering at Penn.",
     "format": "Article",
     "evidence": "Publisher page: title and publication date verified.",
-    "checked": "2026-10-01"
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "Ghanaian American Journal · LinkedIn",
+        "title": "Reporting on the transistor-level ALU project",
+        "url": "https://www.linkedin.com/posts/ghanaian-american-journal_gajnews-tyronemarhguy-computerengineering-activity-7424129504396099584-tANe",
+        "kind": "Social post"
+      }
+    ]
   },
   {
     "id": "ghana-insider",
@@ -980,6 +1002,124 @@
     "summary": "BBC Pidgin reports on the court victory and the public response to the ruling.",
     "format": "Article",
     "evidence": "Publisher title and publication timestamp verified directly from BBC page metadata.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "penn-announcement",
+    "date": "2024-08-28",
+    "publisher": "Tyrone Marhguy · LinkedIn",
+    "title": "Announcing my scholarship to Penn",
+    "url": "https://www.linkedin.com/posts/tmarhguy_upenn-duke-williams-activity-7234536077342986242-XmaT",
+    "topic": "Academic milestones",
+    "summary": "My announcement of a full scholarship to study Computer Engineering at Penn, with thanks to the people who helped me get there.",
+    "format": "Social post",
+    "evidence": "Original public LinkedIn post and publication metadata; engagement snapshot recorded in docs/press/social-research.md.",
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "Tyrone Marhguy · Facebook",
+        "title": "My Penn scholarship announcement",
+        "url": "https://www.facebook.com/tmarhguy/posts/1686889705410011",
+        "kind": "Social post"
+      },
+      {
+        "publisher": "Tyrone Marhguy · X",
+        "title": "My Penn scholarship announcement",
+        "url": "https://twitter.com/marhguy_tyrone/status/1828774524663521769",
+        "kind": "Social post"
+      },
+      {
+        "publisher": "Nkonkonsa · Instagram",
+        "title": "Celebrating the Penn scholarship and academic journey",
+        "url": "https://www.instagram.com/p/C_QIAwUIv5e/",
+        "kind": "Social post"
+      },
+      {
+        "publisher": "Abel Ohene Acquaye · LinkedIn",
+        "title": "A mentor reflects on the journey to Penn",
+        "url": "https://www.linkedin.com/posts/abel-ohene-acquaye-22497441_i-get-to-meet-incredibly-talented-students-activity-7234597368933810177-FhCe",
+        "kind": "Social post"
+      }
+    ]
+  },
+  {
+    "id": "wassce-announcement",
+    "date": "2023-12-19",
+    "publisher": "Tyrone Marhguy · LinkedIn",
+    "title": "Celebrating eight A1s in the WASSCE",
+    "url": "https://www.linkedin.com/posts/tmarhguy_wassce-tyronemarhguy-achimotaschool-activity-7142801411855101952-68dh",
+    "topic": "Academic milestones",
+    "summary": "Sharing the moment I checked my results and celebrated eight A1s with friends.",
+    "format": "Social post",
+    "evidence": "Original public LinkedIn post and publication metadata; engagement snapshot recorded in docs/press/social-research.md.",
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "Tyrone Marhguy · X",
+        "title": "Celebrating my WASSCE results with friends",
+        "url": "https://twitter.com/i/status/1737040972045832553",
+        "kind": "Social post"
+      }
+    ]
+  },
+  {
+    "id": "olympiad-announcement",
+    "date": "2023-12-30",
+    "publisher": "Tyrone Marhguy · LinkedIn",
+    "title": "Celebrating the American Mathematics Olympiad awards",
+    "url": "https://www.linkedin.com/posts/tmarhguy_yesterday-was-big-sincere-gratitude-we-activity-7146932808572219392-wu8Y",
+    "topic": "Academic milestones",
+    "summary": "My account of the awards ceremony: national top scorer and gold in the American Mathematics Olympiad, and silver in the Vanda Science Olympiad.",
+    "format": "Social post",
+    "evidence": "Original public LinkedIn post and publication metadata; engagement snapshot recorded in docs/press/social-research.md.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "sat-announcement",
+    "date": "2023-12-20",
+    "publisher": "Tyrone Marhguy · LinkedIn",
+    "title": "A 1500 SAT score and the next step",
+    "url": "https://www.linkedin.com/posts/tmarhguy_tyronemarhguy-tyrone-achimotaschool-activity-7143325012022784003-BcK8",
+    "topic": "Academic milestones",
+    "summary": "Sharing my SAT result and thanking the people who supported my preparation.",
+    "format": "Social post",
+    "evidence": "Original public LinkedIn post and publication metadata; engagement snapshot recorded in docs/press/social-research.md.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "identity-reflection",
+    "date": "2025-10-23",
+    "publisher": "Tyrone Marhguy · LinkedIn",
+    "title": "Reflecting on education, identity, and the court victory",
+    "url": "https://www.linkedin.com/posts/tmarhguy_there-is-a-beautiful-caution-from-the-house-activity-7387152075953975296-sNfG",
+    "topic": "Rights & education",
+    "summary": "Looking back on the admission dispute, the academic milestones that followed, and my next chapter at Penn.",
+    "format": "Social post",
+    "evidence": "Original public LinkedIn post and publication metadata; engagement snapshot recorded in docs/press/social-research.md.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "education-reflection",
+    "date": "2025-10-27",
+    "publisher": "Tyrone Marhguy · LinkedIn",
+    "title": "A conversation about school rules and opportunity",
+    "url": "https://www.linkedin.com/posts/tmarhguy_this-write-up-is-a-humble-conversation-not-activity-7388670835676446721-NhCQ",
+    "topic": "Rights & education",
+    "summary": "My reflections on school hair rules, inclusion, and what education should make possible.",
+    "format": "Social post",
+    "evidence": "Original public LinkedIn post and publication metadata; engagement snapshot recorded in docs/press/social-research.md.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "peter-bawuah-alu",
+    "date": "2026-02-04",
+    "publisher": "Peter Bawuah · Facebook",
+    "title": "Celebrating the transistor-level ALU build",
+    "url": "https://www.facebook.com/100061365678263/posts/inspiring-story-tyrone-marhguy-a-former-student-of-achimota-shs-currently-studyi/1546029687452539/",
+    "topic": "Engineering",
+    "summary": "Peter Bawuah celebrates my 8-bit ALU project and the work behind it.",
+    "format": "Social post",
+    "evidence": "Public Facebook post dated February 4; 2.8K likes, 91 comments, 89 shares observed 1 October 2026. The post misdates the court ruling as 2023; the ruling was 2021.",
     "checked": "2026-10-01"
   }
 ]
