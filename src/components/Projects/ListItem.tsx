@@ -98,13 +98,13 @@ export default function ListItem({ data, number }: ListItemProps) {
           </ExhibitMedia>
         )
       )}
-      {writingHref ? (
-        <div className="project-list-meta">
+      <div className="project-list-meta">
+        {writingHref ? (
           <Link href={writingHref} className="project-list-log-link">
             Log
           </Link>
-        </div>
-      ) : null}
+        ) : null}
+      </div>
       <div className="project-list-body">
         <h3 className="project-list-title">
           {number !== undefined && (

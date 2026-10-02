@@ -152,7 +152,7 @@ describe('projects data', () => {
       'SeaLion',
       'FramePort',
       'Lobster',
-      'Fig',
+      'FigDB',
     ]);
     expect(getHomeFeaturedItems()[0]?.image).toBe(
       '/images/open-source/librelane1015.png',
@@ -170,7 +170,7 @@ describe('projects data', () => {
   it('links flagship manuals beside their GitHub repos', () => {
     const manuals: Array<[string, string]> = [
       ['Lobster', 'https://tmarhguy.github.io/lobster/'],
-      ['Fig', 'https://tmarhguy.github.io/figDB/'],
+      ['FigDB', 'https://tmarhguy.github.io/figDB/'],
       ['SeaLion', 'https://tmarhguy.github.io/sealion/'],
       ['Pineapple GPU P1', 'https://tmarhguy.github.io/gpu/'],
       [
@@ -205,7 +205,7 @@ describe('projects data', () => {
     expect(getSystemsProjects()).toHaveLength(3);
     expect(getSystemsProjects().map((project) => project.title)).toEqual([
       'Lobster',
-      'Fig',
+      'FigDB',
       'SeaLion',
     ]);
     expect(getToolsProjects()).toHaveLength(2);
@@ -248,7 +248,7 @@ describe('projects data', () => {
     expect(titles).toContain('Out-of-Order RISC-V CPU (RV64IMAC)');
     expect(titles).toContain('Pineapple GPU P1');
     expect(titles).toContain('Lobster');
-    expect(titles).toContain('Fig');
+    expect(titles).toContain('FigDB');
     expect(titles).toContain('SeaLion');
     expect(titles).toContain('UniBridge Ghana');
   });
@@ -359,7 +359,7 @@ describe('projects data', () => {
     expect(lobster.link).toBe('https://github.com/tmarhguy/lobster');
     expect(lobster.image).toBe('/images/projects/lobster.webp');
 
-    const figdb = findProjectByTitle('Fig')!;
+    const figdb = findProjectByTitle('FigDB')!;
     expect(figdb.category).toBe('systems');
     expect(figdb.link).toBe('https://github.com/tmarhguy/figDB');
     expect(figdb.image).toBe('/images/projects/figdb.webp');
@@ -446,7 +446,7 @@ describe('projects data', () => {
     );
     const titles = unified.map((project) => project.title);
     expect(titles).toContain('Lobster');
-    expect(titles).toContain('Fig');
+    expect(titles).toContain('FigDB');
     expect(titles).toContain('SeaLion');
     expect(titles).toContain('FramePort');
     expect(titles).toContain('Envelop');

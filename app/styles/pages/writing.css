@@ -979,3 +979,13 @@
     display: none;
   }
 }
+
+@media (max-width: 640px) {
+  .writing-list-item .project-list-meta {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .writing-list-item .writing-item-project-link {
+    flex: 0 0 auto;
+  }
+}

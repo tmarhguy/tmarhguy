@@ -129,7 +129,7 @@ describe('writing information architecture', () => {
       screen.getByRole('heading', { level: 2, name: 'Software & Systems' }),
     ).toBeInTheDocument();
     expect(screen.getByText('Lobster')).toBeInTheDocument();
-    expect(screen.getByText('Fig')).toBeInTheDocument();
+    expect(screen.getByText('FigDB')).toBeInTheDocument();
     expect(screen.getByText('SeaLion')).toBeInTheDocument();
     expect(screen.getByText('FramePort')).toBeInTheDocument();
     expect(screen.getByText('Mango Tools')).toBeInTheDocument();

@@ -10,9 +10,9 @@ describe('ResumeSummary', () => {
     expect(
       screen.getByText(/Computer Engineering Junior/i),
     ).toBeInTheDocument();
-    expect(screen.getByText(/Open Source Contributions:/)).toBeInTheDocument();
-    expect(screen.getByText(/The Builds:/)).toBeInTheDocument();
-    expect(screen.getByText(/The Work:/)).toBeInTheDocument();
+    expect(screen.getByText(/^Open source$/)).toBeInTheDocument();
+    expect(screen.getByText(/^Selected builds$/)).toBeInTheDocument();
+    expect(screen.getByText(/^Experience$/)).toBeInTheDocument();
 
     expect(
       screen.getByRole('link', { name: /university of pennsylvania/i }),
