@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import work from '@/data/resume/work';
 
 export default function HomeIntroduction({
@@ -19,7 +21,7 @@ export default function HomeIntroduction({
         them. My independent 32-bit computer is{' '}
         <a href="https://tomato.tmarhguy.com">Tomato</a>. I also contribute to
         open-source EDA — LibreLane, Verilator, OpenROAD, and OpenFPGA — with{' '}
-        <a href="/projects/#open-source-title">fixes shipped upstream</a>.
+        <Link href="/projects/#open-source-title">fixes shipped upstream</Link>.
       </p>
       <p className="hero-work">
         Engineering work & roles:{' '}

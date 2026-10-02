@@ -18,9 +18,9 @@ Notable additions include Rising Academies' first Alumni of the Year award, GSTE
 
 ## Remaining research leads
 
-- BBC Africa's 2024 feature: confirmed by Tyrone's public LinkedIn acknowledgement (`https://www.linkedin.com/feed/update/urn%3Ali%3Aactivity%3A7250747026051657728/`). Find the original BBC permalink before adding it as an independent BBC entry.
+- BBC Africa's 2024 feature: Tyrone's public LinkedIn acknowledgement (12 October 2024) is now archived as `bbc-reflection`. Find the original BBC permalink before adding it as an independent BBC entry.
 - Kofi TV's February 2026 full interview: GHnow verifies the interview and date. Add the original YouTube/Facebook full episode when its precise permalink is verified.
-- The AfricaDream and Campus Chronicles LinkedIn ALU posts: confirm publication dates and editorial accuracy before adding separate timeline entries.
+- The Africa Dream, Faisal Zakari Ibrahim, and Alain Lessick LinkedIn ALU posts are now grouped under `alu-announcement` with JSON-LD verified dates. Campus Chronicles LinkedIn ALU posts still need date confirmation before adding.
 - Yale Model African Union invitation: locate the organizer's original dated announcement, rather than relying on a repost.
 - Metro TV's 2021 interview and 3Xtra's full interview: find native publication metadata and group clips with full episodes.
 - Global African Times scholarship article resolves to a parked domain; excluded until an authoritative archived copy is found.
@@ -38,4 +38,4 @@ Do not silently remove unavailable historical reporting. Document a changed or b
 
 Featured coverage now leads with the computer-brain story, followed by the user-selected BBC article and DW. The BBC image uses the family selfie from the article body. Ten publisher images in `press-fallbacks.json` provide deterministic illustrative fallbacks, with an existing local photo if remote images fail. Sources for each fallback remain in that manifest. The archive retains all coverage and descending chronology.
 
-The social research pass added seven timeline entries and eight related links, bringing the catalogue to 63 entries and 116 distinct source links. Original milestone announcements are grouped with their Facebook/X versions and relevant community responses. See [social research](social-research.md) for permalink provenance and engagement observations.
+The social research pass added seven timeline entries and eight related links, bringing the catalogue to 63 entries and 116 distinct source links. A 4 October 2026 pass added three timeline entries (ALU announcement, 2021 school announcement, BBC reflection) and eleven related links, bringing the catalogue to 66 entries and 137 distinct source links. Original milestone announcements are grouped with their Facebook/X versions and relevant community responses. See [social research](social-research.md) for permalink provenance and engagement observations.
