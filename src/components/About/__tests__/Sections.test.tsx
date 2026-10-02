@@ -14,12 +14,13 @@ function getActualSectionTitles(markdown: string) {
 }
 
 describe('AboutContent', () => {
-  it('links the intro author name to Wikipedia', () => {
+  it('links the public biography to Wikipedia', () => {
     render(<AboutContent markdown={aboutMarkdown} />);
 
-    expect(
-      screen.getByRole('link', { name: 'Tyrone Iras Marhguy' }),
-    ).toHaveAttribute('href', WIKIPEDIA_URL);
+    expect(screen.getByRole('link', { name: 'Wikipedia' })).toHaveAttribute(
+      'href',
+      WIKIPEDIA_URL,
+    );
   });
 
   it('renders intro copy without an Intro heading', () => {
@@ -120,10 +121,10 @@ Lead paragraph.
       <AboutContent markdown={aboutMarkdown} />,
     );
 
-    expect(html).toContain('href="#early-life"');
-    expect(html).toContain('id="early-life"');
-    expect(html).toContain('href="#academics"');
-    expect(html).toContain('id="academics"');
+    expect(html).toContain('href="#growing-up-in-ghana"');
+    expect(html).toContain('id="growing-up-in-ghana"');
+    expect(html).toContain('href="#school-and-academic-awards"');
+    expect(html).toContain('id="school-and-academic-awards"');
   });
 
   it('supports same-page hash navigation from section links', async () => {
@@ -133,31 +134,35 @@ Lead paragraph.
 
     const nav = screen.getByRole('navigation', { name: 'About sections' });
     const navLink = within(nav).getByRole('link', {
-      name: 'Academics',
+      name: 'School and academic awards',
     });
 
     navLink.click();
 
     await waitFor(() => {
-      expect(window.location.hash).toBe('#academics');
+      expect(window.location.hash).toBe('#school-and-academic-awards');
     });
     expect(
-      screen.getByRole('heading', { name: 'Academics' }).closest('section'),
+      screen
+        .getByRole('heading', { name: 'School and academic awards' })
+        .closest('section'),
     ).toHaveTextContent('WASSCE');
 
-    const heading = screen.getByRole('heading', { name: 'Now - (Fall 2026)' });
+    const heading = screen.getByRole('heading', {
+      name: 'What I’m building now',
+    });
     const permalink = within(heading).getByRole('link', {
-      name: 'Now - (Fall 2026)',
+      name: 'What I’m building now',
     });
 
     permalink.click();
 
     await waitFor(() => {
-      expect(window.location.hash).toBe('#now-fall-2026');
+      expect(window.location.hash).toBe('#what-im-building-now');
     });
     expect(
       screen
-        .getByRole('heading', { name: 'Now - (Fall 2026)' })
+        .getByRole('heading', { name: 'What I’m building now' })
         .closest('section'),
     ).toHaveTextContent('Tomato');
   });

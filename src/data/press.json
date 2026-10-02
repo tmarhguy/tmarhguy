@@ -1,0 +1,985 @@
+[
+  {
+    "id": "brain-hair",
+    "date": "2021-03-20",
+    "publisher": "MyNewsGH",
+    "title": "I wish Achimota School focuses on my brain not my hair",
+    "url": "https://www.mynewsgh.com/?p=132420",
+    "topic": "Rights & education",
+    "summary": "My first response to the admission dispute, before the court case began.",
+    "format": "Interview",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "ges-directive",
+    "date": "2021-03-20",
+    "publisher": "MyJoyOnline",
+    "title": "GES directs Achimota School to admit 2 students with dreadlocks",
+    "url": "https://www.myjoyonline.com/ges-directs-achimota-school-to-admit-2-students-with-dreadlocks/",
+    "topic": "Rights & education",
+    "summary": "Early reporting on the admission dispute and the Ghana Education Service’s response.",
+    "format": "Article",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "siblings",
+    "date": "2021-03-23",
+    "publisher": "MyJoyOnline",
+    "title": "Siblings of Rastafarian refused admission to Achimota School allegedly ordered to cut their hair at St. John’s Grammar",
+    "url": "https://www.myjoyonline.com/siblings-of-rastafarian-refused-admission-to-achimota-school-allegedly-ordered-to-cut-their-hair-at-st-johns-grammar/",
+    "topic": "Rights & education",
+    "summary": "Reporting on how the school hair rules affected my family.",
+    "format": "Article",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "Pulse Ghana",
+        "title": "St John’s Grammar allegedly asks siblings of rejected Achimota student to cut their hair",
+        "url": "https://www.pulse.com.gh/story/st-johns-grammar-allegedly-asks-siblings-of-rejected-achimota-student-to-cut-their-2024081213110050180",
+        "kind": "Related coverage"
+      }
+    ]
+  },
+  {
+    "id": "alorvi",
+    "date": "2021-03-24",
+    "publisher": "MyJoyOnline",
+    "title": "Kwami Alorvi: The Achimota/Rastafarian boys brouhaha, a needless controversy?",
+    "url": "https://www.myjoyonline.com/kwami-alorvi-the-achimota-rastafarian-boys-brouhaha-a-needless-controversy/",
+    "topic": "Rights & education",
+    "summary": "An opinion piece on the school’s rules and the public debate.",
+    "format": "Opinion",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "lawyer-letter",
+    "date": "2021-03-25",
+    "publisher": "Pulse Ghana",
+    "title": "Achimota School must state reasons for denying Rastafarian students – Lawyer",
+    "url": "https://www.pulse.com.gh/story/achimota-school-must-give-reasons-for-denying-rastafarian-students-lawyer-2024081213115868200",
+    "topic": "Rights & education",
+    "summary": "Coverage of the request for an explanation of the admission decision.",
+    "format": "Article",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "parliament-response",
+    "date": "2021-03-25",
+    "publisher": "MyJoyOnline",
+    "title": "Rastafarian religion may complicate matters for students denied admission – Deputy Speaker",
+    "url": "https://www.myjoyonline.com/rastafarian-religion-may-complicate-matters-for-students-denied-admission-deputy-speaker/",
+    "topic": "Rights & education",
+    "summary": "Reporting on the parliamentary response to the admission dispute.",
+    "format": "Article",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "rockstone",
+    "date": "2021-03-25",
+    "publisher": "Pulse Ghana",
+    "title": "Reggie Rockstone cuts ties with Achimota School over dreadlocks rejection",
+    "url": "https://www.pulse.com.gh/articles/celebrities/reggie-rockstone-cuts-ties-with-achimota-school-over-dreadlocks-rejection-video-2024081213154732520",
+    "topic": "Rights & education",
+    "summary": "A public response to the school’s decision.",
+    "format": "Video",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "scholarship-offers",
+    "date": "2021-03-25",
+    "publisher": "MyJoyOnline",
+    "title": "Rastafarian boy and siblings refused admission to some SHSs get 6 scholarships",
+    "url": "https://www.myjoyonline.com/?p=10031785389",
+    "topic": "Rights & education",
+    "summary": "School offers made while the admission dispute was unfolding.",
+    "format": "Article",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "teachers",
+    "date": "2021-03-26",
+    "publisher": "YEN",
+    "title": "3 Former teachers of Rastafarian speak up; talk about his conduct in JHS",
+    "url": "https://yen.com.gh/184400-3-former-teachers-rastafarians-speak-talk-conduct-jhs.html",
+    "topic": "Rights & education",
+    "summary": "My former teachers discuss my time in junior high school.",
+    "format": "Article",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "court-filing",
+    "date": "2021-04-01",
+    "publisher": "Dennislaw News",
+    "title": "Rasta student sues Achimota school, demands to be admitted and compensated",
+    "url": "https://dennislawnews.com/article/rasta-student-sues-achimota-school--demands-to-be-admitted-and-compensated",
+    "topic": "Rights & education",
+    "summary": "Reporting on the suit filed at the High Court.",
+    "format": "Article",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "hearing-date",
+    "date": "2021-05-14",
+    "publisher": "Citi Newsroom",
+    "title": "High court to give judgement on rasta student’s suit on May 31",
+    "url": "https://www.citinewsroom.com/2021/05/high-court-to-give-judgement-on-rasta-students-suit-on-may-31/",
+    "topic": "Rights & education",
+    "summary": "Reporting from the legal proceedings ahead of the admission ruling.",
+    "format": "Article",
+    "evidence": "Publisher page: title and publication date verified.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "court-ruling",
+    "date": "2021-05-31",
+    "publisher": "Citi Newsroom",
+    "title": "High Court orders Achimota School to admit Rasta student, Tyrone Marhguy",
+    "url": "https://www.citinewsroom.com/2021/05/high-court-orders-achimota-school-to-admit-rasta-student-tyrone-marhguy/",
+    "topic": "Rights & education",
+    "summary": "Coverage of the ruling that allowed me to enroll without cutting my hair.",
+    "format": "Article",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "Asaase Radio",
+        "title": "Court orders Achimota School to admit Rastafarian student",
+        "url": "https://asaaseradio.com/court-orders-achimota-school-to-admit-rastafarian-student/",
+        "kind": "Related coverage"
+      }
+    ]
+  },
+  {
+    "id": "engineer-dream",
+    "date": "2021-05-31",
+    "publisher": "MyJoyOnline",
+    "title": "My dream of becoming an engineer is back on course",
+    "url": "https://www.myjoyonline.com/my-dream-of-becoming-an-engineer-is-back-on-course-rastafarian-boy-says-after-court-ruling/",
+    "topic": "Rights & education",
+    "summary": "A conversation after the ruling about returning to school and continuing toward engineering.",
+    "format": "Interview",
+    "evidence": "Publisher page: title and publication date verified.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "welcome-face",
+    "date": "2021-05-31",
+    "publisher": "MyJoyOnline",
+    "title": "Rastafarians vs Achimota: I don’t think I’ll be a welcome face there – Tyrone Marhguy",
+    "url": "https://www.myjoyonline.com/rastafarians-vs-achimota-i-dont-think-ill-be-a-welcome-face-there-tyrone-marhguy/",
+    "topic": "Interviews",
+    "summary": "A conversation on Joy FM’s Top Story about returning to school after the ruling.",
+    "format": "Interview",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "inspire",
+    "date": "2021-06-01",
+    "publisher": "3News",
+    "title": "Our story should inspire all Rasta students worldwide – Marhguy",
+    "url": "https://3news.com/featured/our-story-should-inspire-all-rasta-students-worldwide-marhguy",
+    "topic": "Interviews",
+    "summary": "My response on TV3’s News 360 after the court decision.",
+    "format": "Interview",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "bbc-appeal",
+    "date": "2021-06-04",
+    "publisher": "BBC Pidgin",
+    "title": "Achimota school rasta: 'Rastafarian in Achimota school' appeal no get locus",
+    "url": "https://www.bbc.com/pidgin/world-57306291",
+    "topic": "Rights & education",
+    "summary": "BBC Pidgin’s report on the education minister’s response to the planned appeal.",
+    "format": "Article",
+    "evidence": "Wikipedia reference supplies publication date; BBC blocks automated reading",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "first-exams",
+    "date": "2021-06-04",
+    "publisher": "MyJoyOnline",
+    "title": "Tyrone Marhguy sits for exams hours after being enrolled at Achimota School",
+    "url": "https://www.myjoyonline.com/tyrone-marhguy-sits-for-exams-hours-after-being-enrolled-at-achimota-school/",
+    "topic": "Rights & education",
+    "summary": "My first day at Achimota, arriving during end-of-term exams.",
+    "format": "Article",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "GBC",
+        "title": "Second Rastafarian student, Tyrone Marhguy, enrolls in Achimota School",
+        "url": "https://www.gbcghanaonline.com/news/education/second-rastafarian-student-tyrone-marhguy-enrolls-in-achimota-school/2021/5/",
+        "kind": "Related coverage"
+      }
+    ]
+  },
+  {
+    "id": "dw",
+    "date": "2021-06-12",
+    "publisher": "Deutsche Welle",
+    "title": "Ghana Rastafarians win in court",
+    "url": "https://www.dw.com/en/ghana-rastafarians-start-school-after-court-victory/video-57864466",
+    "topic": "Rights & education",
+    "summary": "A video report on the court victory and starting school.",
+    "format": "Video",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "appeal-response",
+    "date": "2021-09-14",
+    "publisher": "Citi Newsroom",
+    "title": "Appeal against ruling on Rastafarian student’s case unnecessary – Kofi Asare",
+    "url": "https://citinewsroom.com/2021/09/appeal-against-ruling-on-rastafarian-students-case-unnecessary-kofi-asare/",
+    "topic": "Rights & education",
+    "summary": "Africa Education Watch responds to the appeal.",
+    "format": "Article",
+    "evidence": "Publisher tag archive and Wikipedia reference; article access challenge",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "class-results",
+    "date": "2021-09-23",
+    "publisher": "Adom / Kasapa FM",
+    "title": "Tyrone Marghuy tops class in Science & Elective Maths despite admission woes",
+    "url": "https://www.adomonline.com/tyrone-marghuy-tops-class-in-science-elective-maths-despite-admission-woes/",
+    "topic": "Academic milestones",
+    "summary": "Reporting on my early exam results after enrolling late.",
+    "format": "Article",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "Pulse Ghana",
+        "title": "Achimota School Rasta student tops science and elective maths class",
+        "url": "https://www.pulse.com.gh/news/local/achimota-school-discriminating-against-rasta-students-professor/6xd3wsn",
+        "kind": "Related reporting"
+      }
+    ]
+  },
+  {
+    "id": "impunity-watch",
+    "date": "2021-09-29",
+    "publisher": "Impunity Watch · Syracuse University",
+    "title": "Achimota School Appeals Judgment that Greenlights Wearing Dreadlocks in School",
+    "url": "https://impunitywatch.com/achimota-school-appeals-judgment-that-greenlights-wearing-dreadlocks-in-school/",
+    "topic": "Rights & education",
+    "summary": "A rights-focused report on the appeal and the earlier judgment.",
+    "format": "Article",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "ap",
+    "date": "2021-10-19",
+    "publisher": "Associated Press",
+    "title": "In Ghana, Rastafarian high schooler fights to keep his hair",
+    "url": "https://apnews.com/article/africa-religion-education-ghana-186c67bd473f892c054e5d1f9368b555",
+    "topic": "Rights & education",
+    "summary": "Kwasi Gyamfi Asiedu’s account of the admission case and its wider significance.",
+    "format": "Article",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "Voice of America",
+        "title": "Rastafarian Teen Fights to Keep Dreadlocks",
+        "url": "https://www.voanews.com/a/rastafarian-teen-fights-to-keep-dreadlocks/6276979.html",
+        "kind": "Syndicated AP story"
+      },
+      {
+        "publisher": "The Gleaner",
+        "title": "In Ghana, Rastafarian high schooler fights to keep his hair",
+        "url": "https://jamaica-gleaner.com/article/world-news/20211019/ghana-rastafarian-high-schooler-fights-keep-his-hair",
+        "kind": "Syndicated AP story"
+      },
+      {
+        "publisher": "Indianapolis Recorder",
+        "title": "22 October 2021 print edition",
+        "url": "https://indianapolisrecorder.com/wp-content/uploads/2021/10/Oct-22-2021.pdf",
+        "kind": "Syndicated AP story · print PDF"
+      }
+    ],
+    "featured": "Where the story began"
+  },
+  {
+    "id": "nsmq",
+    "date": "2023-06-02",
+    "publisher": "MyJoyOnline",
+    "title": "Rastafarian student nearly rejected by Achimota School may represent them at NSMQ",
+    "url": "https://www.myjoyonline.com/rastafarian-student-nearly-rejected-by-achimota-school-may-represent-them-at-nsmq/",
+    "topic": "Academic milestones",
+    "summary": "Coverage of my appearance in Achimota’s National Science & Maths Quiz preparations.",
+    "format": "Article",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "MyNewsGH",
+        "title": "Achimota School: Rejected Rasta student set to lead team in NMSQ",
+        "url": "https://www.mynewsgh.com/achimota-school-rejected-rasta-student-set-to-lead-team-in-nmsq/",
+        "kind": "Related coverage"
+      },
+      {
+        "publisher": "Class FM",
+        "title": "Initially-rejected Rasta brainiac part of Achimota school’s NSMQ team",
+        "url": "https://www.classfmonline.com/news/general/Initially-rejected-Rasta-brainiac-part-of-Achimota-school-s-NSMQ-team-42635",
+        "kind": "Related coverage"
+      }
+    ]
+  },
+  {
+    "id": "thehub",
+    "date": "2023-10-10",
+    "publisher": "The Hub News",
+    "title": "Accra High Court Orders Achimota School to Admit Banned Rastafarian Students",
+    "url": "https://thehub.news/accra-high-court-orders-achimota-school-to-admit-banned-rastafarian-students/",
+    "topic": "Rights & education",
+    "summary": "A report looking back at the admission ruling.",
+    "format": "Article",
+    "note": "This page currently displays 10 October 2023; the court ruling it describes was on 31 May 2021.",
+    "evidence": "Current publisher page date; Wikipedia instead cites 31 May 2021",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "cri-celebration",
+    "date": "2023-12-19",
+    "publisher": "Ghanamma / Child Rights International",
+    "title": "Child Rights International celebrates Tyrone Marhguy for excelling in WASSCE",
+    "url": "https://www.ghanamma.com/2023/12/19/child-rights-international-celebrates-tyrone-marhguy-for-excelling-in-wassce/",
+    "topic": "Academic milestones",
+    "summary": "Coverage reproducing Child Rights International’s statement on education, the court decision, and the WASSCE results.",
+    "format": "Statement coverage",
+    "evidence": "Publisher page: title and publication date verified.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "stonebwoy",
+    "date": "2023-12-19",
+    "publisher": "MyJoyOnline",
+    "title": "Stonebwoy to give Achimota’s Tyrone Marhguy VIP tickets to his BHIM concert",
+    "url": "https://www.myjoyonline.com/stonebwoy-to-give-achimotas-tyrone-marhguy-vip-tickets-to-his-bhim-concert/",
+    "topic": "Academic milestones",
+    "summary": "Stonebwoy celebrates the examination results and offers concert tickets for Tyrone and friends.",
+    "format": "Article",
+    "evidence": "Publisher page: title and publication date verified.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "wassce",
+    "date": "2023-12-19",
+    "publisher": "MyJoyOnline",
+    "title": "Rastafarian Achimota student Tyrone Marhguy scores 8 As in WASSCE",
+    "url": "https://www.myjoyonline.com/rastafarian-achimota-student-tyrone-marhguy-scores-8-as-in-wassce/",
+    "topic": "Academic milestones",
+    "summary": "The first reports on my eight A1 grades in the final school exams.",
+    "format": "Article",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "GBC",
+        "title": "Achimota Rastafarian student scores 8 A1s in 2023 WASSCE",
+        "url": "https://www.gbcghanaonline.com/news/education/rastafarian-student-scores-8-a1s/2023/5/",
+        "kind": "Related coverage"
+      },
+      {
+        "publisher": "Prime News Ghana",
+        "title": "Tyrone Marhguy: Rastafarian Achimota student excels in 2023 WASSCE",
+        "url": "https://www.primenewsghana.com/general-news/tyrone-marhguy-rastafarian-achimota-student-excels-in-2023-wassce.html",
+        "kind": "Related coverage"
+      },
+      {
+        "publisher": "Adom",
+        "title": "Achimota Rastafarian student scores 8 A1s in 2023 WASSCE",
+        "url": "https://www.adomonline.com/achimota-rastafarian-student-scores-8-a1s-in-2023-wassce/",
+        "kind": "Related coverage"
+      },
+      {
+        "publisher": "Eagle Ghana",
+        "title": "Achimota’s nightmare: Tyrone Iras Marhguy scores straight A1s in 2023 WASSCE",
+        "url": "https://www.eagleghana.com/achimotas-nightmare-tyrone-iras-marhguy-scores-straight-a1s-in-2023-wassce/",
+        "kind": "Related coverage"
+      },
+      {
+        "publisher": "Citi Newsroom",
+        "title": "Rastafarian student “rejected” by Achimota School excels in 2023 WASSCE",
+        "url": "https://www.citinewsroom.com/2023/12/rastafarian-student-rejected-by-achimota-school-excels-in-2023-wassce/",
+        "kind": "Related reporting"
+      },
+      {
+        "publisher": "YEN",
+        "title": "Achimota Rasta student’s WASSCE results",
+        "url": "https://yen.com.gh/education/247900-tyrone-marghuy-rasta-student-achimota-shs-2023-results-pop-up/",
+        "kind": "Related reporting"
+      },
+      {
+        "publisher": "YEN",
+        "title": "How Ghanaians reacted to the eight As",
+        "url": "https://yen.com.gh/entertainment/celebrities/247924-tyrone-marghuy-how-ghanaians-reacted-achimota-rasta-student-scoring-8as-stop-reggae/",
+        "kind": "Related reporting"
+      },
+      {
+        "publisher": "YEN",
+        "title": "Achimota School congratulates Tyrone",
+        "url": "https://yen.com.gh/people/248070-tyron-marhguy-achimota-school-finally-congratulates-rastafarian-netizens-serve-trolls/",
+        "kind": "Related reporting"
+      },
+      {
+        "publisher": "Phylx Entertainment · Instagram",
+        "title": "Celebrating the WASSCE results",
+        "url": "https://www.instagram.com/reel/C1CorBoAc55/",
+        "kind": "Social celebration"
+      }
+    ]
+  },
+  {
+    "id": "citi-video",
+    "date": "2023-12-20",
+    "publisher": "Citi FM",
+    "title": "Achimota School’s Tyrone Marhguy shares his inspiring journey to 8 A’s in WASSCE",
+    "url": "https://www.youtube.com/watch?v=suLP0hJWMBI",
+    "topic": "Interviews",
+    "summary": "A video conversation after the WASSCE results.",
+    "format": "Video",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "3Xtra · Facebook",
+        "title": "An exclusive conversation with King Kwaku Mensah",
+        "url": "https://www.facebook.com/3xtraGH/videos/tyrone-iras-marhguy-the-rastafarian-student-who-faced-admission-denial-by-achimo/1205444053835701/",
+        "kind": "Related interview"
+      }
+    ]
+  },
+  {
+    "id": "sat",
+    "date": "2023-12-20",
+    "publisher": "YEN",
+    "title": "Tyrone Marhguy shares his SAT results",
+    "url": "https://yen.com.gh/people/248073-tyron-marhguy-shows-results-sat-exams-fans-marvel-rastafarians-brilliance/",
+    "topic": "Academic milestones",
+    "summary": "Reporting on the SAT result and the encouragement that followed.",
+    "format": "Article",
+    "evidence": "Publisher page: title and publication date verified.",
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "Modern Ghana",
+        "title": "Ghanaians celebrate the SAT results",
+        "url": "https://www.modernghana.com/news/1281301/brilliant-netizens-react-as-achimota-rasta.amp",
+        "kind": "Related reporting"
+      }
+    ]
+  },
+  {
+    "id": "not-discouraged",
+    "date": "2023-12-21",
+    "publisher": "Citi Newsroom",
+    "title": "I wasn’t discouraged by Achimota School’s rejection – Tyrone Marhguy",
+    "url": "https://www.citinewsroom.com/2023/12/i-wasnt-discouraged-by-achimota-schools-rejection-tyrone-marhguy/",
+    "topic": "Interviews",
+    "summary": "Looking back on the admission case and finishing school.",
+    "format": "Interview",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "YEN",
+        "title": "University ambitions after the SAT and WASSCE",
+        "url": "https://yen.com.gh/education/248100-tyrone-marhguy-achimota-rasta-student-targets-harvard-cornell-mit-success-sat/",
+        "kind": "Related reporting"
+      },
+      {
+        "publisher": "YEN",
+        "title": "Reflecting on expectations before the WASSCE results",
+        "url": "https://yen.com.gh/education/248101-tyrone-marhguy-achimota-rasta-student-admits-expecting-8as-wassce/",
+        "kind": "Related reporting"
+      }
+    ]
+  },
+  {
+    "id": "voice",
+    "date": "2023-12-21",
+    "publisher": "The Voice",
+    "title": "Rastafarian student denied school admission over his locks triumphs in exams",
+    "url": "https://www.voice-online.co.uk/news/world-news/2023/12/21/rastafarian-student-denied-school-admission-over-his-locks-triumphs-in-exams/",
+    "topic": "Academic milestones",
+    "summary": "The UK publication’s coverage of my school results.",
+    "format": "Article",
+    "evidence": "Publisher indexed metadata and Wikipedia reference; publisher returned 520",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "kod",
+    "date": "2023-12-22",
+    "publisher": "Citi Newsroom",
+    "title": "KOD delivers on promise, celebrates Tyrone Marhguy",
+    "url": "https://www.citinewsroom.com/2023/12/kod-delivers-on-promise-lavishes-tyrone-marhguy-with-cash-and-products/",
+    "topic": "Academic milestones",
+    "summary": "A report on Kofi Okyere-Darko’s support and encouragement following the WASSCE results.",
+    "format": "Article",
+    "evidence": "Publisher page: title and publication date verified.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "olympiads",
+    "date": "2023-12-30",
+    "publisher": "MyJoyOnline",
+    "title": "Tyrone Marhguy wins American Math Olympiad awards",
+    "url": "https://www.myjoyonline.com/tyrone-marhguy-wins-american-math-olympiad-awards/",
+    "topic": "Academic milestones",
+    "summary": "Coverage of my mathematics and science Olympiad medals.",
+    "format": "Article",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "Citi Newsroom",
+        "title": "Tyrone Marhguy wins American Math Olympiad awards",
+        "url": "https://www.citinewsroom.com/2023/12/tyrone-marhguy-wins-american-math-olympiad-awards/",
+        "kind": "Related reporting"
+      },
+      {
+        "publisher": "YEN",
+        "title": "Tyrone wins two Olympiad awards",
+        "url": "https://yen.com.gh/education/248566-tyrone-marhguy-excels-8-wins-2-american-math-olympiad-awards/",
+        "kind": "Related reporting"
+      },
+      {
+        "publisher": "YEN",
+        "title": "Achimota School hails its Olympiad top scorer",
+        "url": "https://yen.com.gh/education/248599-tyrone-marhguy-achimota-school-hails-prodigy-emerging-2023-math-olympiad/",
+        "kind": "Related reporting"
+      }
+    ]
+  },
+  {
+    "id": "gstep",
+    "date": "2024-01-03",
+    "publisher": "MyJoyOnline",
+    "title": "GSTEP youth ambassador Tyrone Marhguy wins two medals from 2023 International Olympiad competitions",
+    "url": "https://www.myjoyonline.com/gstep-youth-ambassador-tyrone-marhguy-wins-two-medals-from-2023-international-olympiad-competitions/",
+    "topic": "Academic milestones",
+    "summary": "A follow-up connecting the Olympiad medals with my GSTEP youth ambassador work.",
+    "format": "Article",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "calculator",
+    "date": "2024-01-05",
+    "publisher": "YEN",
+    "title": "Why I chose not to use a calculator for Core Maths",
+    "url": "https://yen.com.gh/education/248894-wassce-2023-tyrone-marhguy-details-opted-calculator-core-maths/",
+    "topic": "Interviews",
+    "summary": "A TV3 interview excerpt on enjoying mathematics and approaching the examination.",
+    "format": "Interview coverage",
+    "evidence": "Publisher page: title and publication date verified.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "rising-award",
+    "date": "2024-02-15",
+    "publisher": "Rising Academies",
+    "title": "Student who captured Ghana’s imagination wins Rising’s Alumni Award",
+    "url": "https://www.risingacademies.com/risingnews/2024/2/15/student-who-captured-ghanas-imagination-wins-risings-alumni-award-2f9yp",
+    "topic": "Academic milestones",
+    "summary": "Rising’s first Alumni of the Year award, followed by a speech at the Global Schools Forum annual conference.",
+    "format": "Programme feature",
+    "evidence": "Publisher page: title and publication date verified.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "banda-first",
+    "date": "2024-02-17",
+    "publisher": "Dr. Banda Khalifa · YouTube",
+    "title": "From Legal Battle to Academic Gold: The Tyrone Marhguy Story",
+    "url": "https://www.youtube.com/watch?v=UvQMXTrgrPk",
+    "topic": "Interviews",
+    "summary": "A long-form conversation about education, identity, resilience, and academic progress.",
+    "format": "Video interview",
+    "evidence": "Native YouTube expanded description: Premiered Feb 17, 2024; title and channel verified.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "penn",
+    "date": "2024-08-28",
+    "publisher": "MyJoyOnline",
+    "title": "Achimota School’s Tyrone Marhguy gets full scholarship at University of Pennsylvania",
+    "url": "https://www.myjoyonline.com/achimota-schools-tyrone-marhguy-gets-full-scholarship-at-university-of-pennsylvania/",
+    "topic": "Academic milestones",
+    "summary": "The announcement of my next chapter: studying Computer Engineering at Penn.",
+    "format": "Article",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "3News",
+        "title": "Tyrone Iras Marhguy receives full scholarship to study at University of Pennsylvania",
+        "url": "https://3news.com/news/tyrone-iras-marhguy-receives-full-scholarship-to-study-at-university-of-pennsylvania",
+        "kind": "Related coverage"
+      },
+      {
+        "publisher": "Asaase Radio",
+        "title": "Tyrone Marhguy gets full scholarship to pursue Computer Engineering at Penn University",
+        "url": "https://asaaseradio.com/tyrone-marhguy-gets-full-scholarship-to-pursue-computer-engineering-at-penn-university/",
+        "kind": "Related coverage"
+      },
+      {
+        "publisher": "Graphic Online",
+        "title": "Achimota “Rastafarian” Tyrone Marhguy awarded full scholarship",
+        "url": "https://www.graphic.com.gh/news/education/achimota-rastafarian-student-tyrone-marhguy-awarded-full-scholarship.html",
+        "kind": "Related coverage"
+      },
+      {
+        "publisher": "Pulse Ghana",
+        "title": "Achimota SHS’s Tyrone Marhguy gets full scholarship to study Computer Engineering at Penn",
+        "url": "https://www.pulse.com.gh/story/achimota-shss-tyrone-marhguy-gets-full-scholarship-to-study-computer-engineering-at-2024092708481489765",
+        "kind": "Related coverage"
+      },
+      {
+        "publisher": "Citi Newsroom",
+        "title": "Full scholarship to study at the University of Pennsylvania",
+        "url": "https://www.citinewsroom.com/2024/08/tyrone-marhguy-gets-full-scholarship-to-study-at-university-of-pennsylvania/",
+        "kind": "Related reporting"
+      },
+      {
+        "publisher": "YEN",
+        "title": "Achimota graduate earns a full scholarship to Penn",
+        "url": "https://yen.com.gh/education/265404-tyrone-marhguy-achimota-graduate-full-scholarship-study-penn/",
+        "kind": "Related reporting"
+      },
+      {
+        "publisher": "Kwadwo Sheldon Studios · TikTok",
+        "title": "From Achimota to a scholarship at Penn",
+        "url": "https://www.tiktok.com/@kwadwosheldonstudios/video/7408574418877779206",
+        "kind": "Social commentary"
+      }
+    ],
+    "note": "Some linked reports incorrectly name Penn State. I attend the University of Pennsylvania."
+  },
+  {
+    "id": "settling-us",
+    "date": "2024-09-03",
+    "publisher": "YEN",
+    "title": "Tyrone Marhguy settles into life in the US",
+    "url": "https://yen.com.gh/people/265840-tyronne-marhguy-achimota-rasta-settles-nicely-photos-a-fun-time-evokes-joy/",
+    "topic": "Academic milestones",
+    "summary": "A follow-up on the move to the United States and the community welcoming Tyrone.",
+    "format": "Article",
+    "evidence": "Publisher page: title and publication date verified.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "humble-beginnings",
+    "date": "2024-09-06",
+    "publisher": "Humble Beginning Stories",
+    "title": "Tyrone Marhguy | Ghana & USA | Call To ACTION",
+    "url": "https://www.hbsblog.ca/single-post/tyrone-marhguy-ghana-usa-call-to-action",
+    "topic": "Interviews",
+    "summary": "A profile tracing the journey through school, advocacy, academic competitions, and the move to Penn.",
+    "format": "Profile",
+    "evidence": "Publisher page: title and publication date verified.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "educational-connect",
+    "date": "2025-01-09",
+    "publisher": "Educational Connect",
+    "title": "Interview with Tyrone Marhguy: The Journey to University of Pennsylvania",
+    "url": "https://www.educationalconnect.org/post/interview-with-tyrone-marhguy-the-journey-to-university-of-pennsylvania",
+    "topic": "Interviews",
+    "summary": "A conversation about my upbringing, college applications, and settling into life at Penn.",
+    "format": "Interview",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01",
+    "featured": "In my own words"
+  },
+  {
+    "id": "ucc-commentary",
+    "date": "2025-03-01",
+    "publisher": "UCC Law Journal",
+    "title": "Tyron Marhguy v. Board of Governors Achimota Senior High School: A Commentary",
+    "url": "https://journal.ucc.edu.gh/index.php/ucclj/article/view/1725",
+    "topic": "Rights & education",
+    "summary": "Idowu A. Akinloye and Maruf Adeniyi Nasir examine religious freedom and the significance of the admission case.",
+    "format": "Research",
+    "evidence": "Native journal page explicitly lists publication date 2025-03-01; title, authors, DOI, and abstract verified.",
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "UCC Law Journal",
+        "title": "Read the full legal commentary (PDF)",
+        "url": "https://journal.ucc.edu.gh/index.php/ucclj/article/download/1725/817/5979",
+        "kind": "Full text"
+      }
+    ]
+  },
+  {
+    "id": "uniformity",
+    "date": "2025-10-24",
+    "publisher": "Modern Ghana",
+    "title": "What has uniformity got to do with equality?",
+    "url": "https://www.modernghana.com/news/1443253/what-has-uniformity-got-to-do-with-equality.html",
+    "topic": "Rights & education",
+    "summary": "A follow-up on the debate over hair rules, equality, and access to education.",
+    "format": "Article",
+    "evidence": "Publisher page: title and publication date verified.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "alu-news24",
+    "date": "2026-01-28",
+    "publisher": "Ghana News24",
+    "title": "Ghanaian student Tyrone Marhguy builds computer brain from scratch",
+    "url": "https://www.ghananews24.com/tech/article/ghanaian-student-tyrone-marhguy-builds-computer-brain-from-scratch-ghana-news-24",
+    "topic": "Engineering",
+    "summary": "Coverage of the independent transistor-level ALU project.",
+    "format": "Article",
+    "evidence": "Publisher page: title and publication date verified.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "alu-first",
+    "date": "2026-01-29",
+    "publisher": "YEN",
+    "title": "Tyrone Marhguy: Achimota “Rasta Boy” Builds “Computer Brain” From Scratch, Shares Fresh Life Update",
+    "url": "https://yen.com.gh/people/298736-tyron-marhguy-achimota-boy-builds-computer-brain-scratch-shares-fresh-life-update/",
+    "topic": "Engineering",
+    "summary": "Coverage of my independent hardware project and the work behind it.",
+    "format": "Article",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "Ghana Extractives",
+        "title": "Ghanaian student Tyrone Marhguy builds “computer brain” from scratch in U.S. dorm",
+        "url": "https://ghextractives.com/ghanaian-student-tyrone-marhguy-builds-computer-brain-from-scratch-in-u-s-dorm/",
+        "kind": "Related coverage"
+      },
+      {
+        "publisher": "Pulse Ghana",
+        "title": "Ghanaian prodigy Tyrone Iras Marhguy engineers a “Computer Brain” at Penn",
+        "url": "https://www.pulse.com.gh/story/ghanaian-prodigy-tyrone-iras-marhguy-engineers-a-computer-brain-at-penn-2026012908461619474",
+        "kind": "Related reporting"
+      },
+      {
+        "publisher": "Ghanamma",
+        "title": "Ghana’s Tyrone Marhguy builds CPU from scratch",
+        "url": "https://www.ghanamma.com/2026/01/29/ghanas-tyrone-marhguy-builds-cpu-from-scratch/",
+        "kind": "Reposted reporting"
+      },
+      {
+        "publisher": "Voice of KNUST · Facebook",
+        "title": "The transistor-level ALU project",
+        "url": "https://www.facebook.com/THEVOKOFFICIAL1/posts/914589601092160",
+        "kind": "Social coverage"
+      },
+      {
+        "publisher": "Voice of KNUST · Facebook",
+        "title": "Watch the ALU project demonstration",
+        "url": "https://www.facebook.com/THEVOKOFFICIAL1/videos/watch-how-ghanaian-student-at-the-uni-of-pennsylvania-tyrone-marhguy-built-a-com/2407937899667226/",
+        "kind": "Social video"
+      },
+      {
+        "publisher": "Typical African · X",
+        "title": "Meet Tyrone Marhguy from Ghana",
+        "url": "https://x.com/Joe__Bassey/status/2016949224588661117",
+        "kind": "Social coverage"
+      },
+      {
+        "publisher": "MeYɛ Asanteni · Facebook",
+        "title": "Poised for greatness: the ALU project",
+        "url": "https://www.facebook.com/Mey3asanteni/videos/trending-on-social-media-poised-for-greateness-the-kumasi-tafo-native-tyrone-ira/1226180535520440/",
+        "kind": "Social video"
+      }
+    ]
+  },
+  {
+    "id": "alu-followup",
+    "date": "2026-01-30",
+    "publisher": "3Music TV",
+    "title": "Ghanaian Genius Tyrone Marhguy Builds a “Computer Brain” From Scratch",
+    "url": "https://www.3music.tv/section/news/article/ghanaian-genius-tyrone-marhguy-builds-a-computer-brain-from-scratch-2026-01-30",
+    "topic": "Engineering",
+    "summary": "A report on the 8-bit arithmetic logic unit I built from discrete components.",
+    "format": "Article",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "RENDERGH",
+        "title": "From Accra to Penn: The Story of a Ghanaian Innovator Who Built a Computer Brain",
+        "url": "https://rendergh.net/from-accra-to-penn-the-story-of-a-ghanaian-innovator-who-built-a-computer-brain/",
+        "kind": "Related coverage"
+      }
+    ]
+  },
+  {
+    "id": "gstep-social",
+    "date": "2026-01-30",
+    "publisher": "GSTEP · Facebook",
+    "title": "Celebrating a GSTEP ambassador’s engineering milestone",
+    "url": "https://www.facebook.com/GSTEPGH/posts/we-are-excited-to-celebrate-tyrone-marhguy-a-2022-gstep-ambassador-who-built-a-f/872149248783657/",
+    "topic": "Engineering",
+    "summary": "The STEM programme celebrates its former youth ambassador’s work on the ALU.",
+    "format": "Social post",
+    "evidence": "Native Facebook caption and January 30 date, including GSTEP2026, verified.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "kobe-social",
+    "date": "2026-01-31",
+    "publisher": "Kobe Boujee · Facebook",
+    "title": "Tyrone Marhguy builds a computer brain from scratch",
+    "url": "https://www.facebook.com/kobeboujee/videos/22yr-old-ghanaian-us-based-student-tyrone-marhguy-builds-computer-brain-from-scr/2501012323628086/",
+    "topic": "Engineering",
+    "summary": "A creator’s video response celebrating the engineering project and its Ghanaian roots.",
+    "format": "Social post",
+    "evidence": "Native Facebook caption and January 31 verified; Google indexed year 2026.",
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "Kobe Boujee · TikTok",
+        "title": "The same engineering story on TikTok",
+        "url": "https://www.tiktok.com/@kobeboujee/video/7601576358887755016",
+        "kind": "Social video"
+      }
+    ]
+  },
+  {
+    "id": "gaj-report",
+    "date": "2026-02-02",
+    "publisher": "Gaj Report",
+    "title": "Ghana’s Tyrone Iras Marhguy builds “computer brain” at US university",
+    "url": "https://gajreport.com/2026/02/02/ghanas-tyrone-iras-marhguy-builds-computer-brain-at-us-university/",
+    "topic": "Engineering",
+    "summary": "Further reporting on the ALU and studying computer engineering at Penn.",
+    "format": "Article",
+    "evidence": "Publisher page: title and publication date verified.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "ghana-insider",
+    "date": "2026-02-03",
+    "publisher": "The Ghana Insider · Instagram",
+    "title": "Meet Tyrone Iras Marhguy",
+    "url": "https://www.instagram.com/p/DUSou31DBTy/",
+    "topic": "Engineering",
+    "summary": "An illustrated social feature celebrating the first-principles engineering project.",
+    "format": "Social post",
+    "evidence": "Native Instagram image attribution explicitly dated February 03, 2026.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "kofi-followup",
+    "date": "2026-02-05",
+    "publisher": "GHnow / Kofi TV",
+    "title": "Tyrone Marhguy reflects on Achimota and the NSMQ",
+    "url": "https://www.ghnow.com/watch-tyrone-marhguy-speak-about-why-he-was-unable-to-represent-achimota-school-in-the-nsmq/",
+    "topic": "Interviews",
+    "summary": "Coverage of a Kofi TV conversation about school, subject choices, and the path beyond Achimota.",
+    "format": "Interview coverage",
+    "evidence": "Publisher page: title and publication date verified.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "sheldon-video",
+    "date": "2026-02-14",
+    "publisher": "Kwadwo Sheldon Studios · YouTube",
+    "title": "Ghana’s Tyrone Marhguy Builds a Computer Brain From Scratch",
+    "url": "https://www.youtube.com/watch?v=ZawiM-SvKfQ",
+    "topic": "Engineering",
+    "summary": "A full-length video discussion of the ALU project, with social clips grouped below.",
+    "format": "Video",
+    "evidence": "Google video result explicitly dated February 14, 2026; original YouTube destination verified.",
+    "checked": "2026-10-01",
+    "related": [
+      {
+        "publisher": "Kwadwo Sheldon · Facebook",
+        "title": "Nobody Can Stop Reggae: the ALU story",
+        "url": "https://www.facebook.com/kwadwosheldon/videos/nobody-can-stop-reggae-ghanas-tyrone-marhguy-builds-a-computer-brain-from-scratc/765570326169306/",
+        "kind": "Social video"
+      },
+      {
+        "publisher": "Kwadwo Sheldon Studios · TikTok",
+        "title": "Nobody Can Stop Reggae: the ALU story",
+        "url": "https://www.tiktok.com/@kwadwosheldonstudios/video/7606781545034026247",
+        "kind": "Social video"
+      }
+    ]
+  },
+  {
+    "id": "joy-engineering",
+    "date": "2026-04-16",
+    "publisher": "MyJoyOnline · Joy Learning",
+    "title": "Rastafarian student Tyrone Marhguy turns discarded electronics into “computer brain”",
+    "url": "https://www.myjoyonline.com/rastafarian-student-tyrone-marhguy-turns-discarded-electronics-into-computer-brain/",
+    "topic": "Engineering",
+    "summary": "A feature based on a Joy Learning conversation about building hardware from first principles.",
+    "format": "Interview",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01",
+    "featured": "What I’m building now",
+    "related": [
+      {
+        "publisher": "Atinka TV Ghana · Facebook",
+        "title": "Following Tyrone’s journey at Penn",
+        "url": "https://www.facebook.com/AtinkaTVGhana/posts/currently-studying-computer-engineering-at-the-university-of-pennsylvania-tyrone/1022127780142604/",
+        "kind": "Social coverage"
+      }
+    ]
+  },
+  {
+    "id": "banda-penn",
+    "date": "2026-06-06",
+    "publisher": "Dr. Banda Khalifa · YouTube",
+    "title": "From Ghana to UPenn: Tyrone Marhguy on Discipline and Ambition",
+    "url": "https://www.youtube.com/watch?v=A3JTj9-xYCM",
+    "topic": "Interviews",
+    "summary": "A conversation about the journey to Penn, discipline, identity, and ambition.",
+    "format": "Video interview",
+    "evidence": "Google video result explicitly dated June 6, 2026; native title and channel verified.",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "empower",
+    "date": "2026-07-20",
+    "publisher": "Empower · Tristan Canfor-Dumas",
+    "title": "Tyrone Marghuy Shares His Story and How He Got Into UPenn | CEO TALK #30",
+    "url": "https://podbay.fm/p/empower-756393/e/1784548800",
+    "topic": "Interviews",
+    "summary": "A 55-minute conversation about the journey and life in Philadelphia.",
+    "format": "Podcast",
+    "evidence": "Publisher page or indexed publisher excerpt",
+    "checked": "2026-10-01"
+  },
+  {
+    "id": "bbc-victory",
+    "date": "2021-06-01",
+    "publisher": "BBC Pidgin",
+    "title": "Ghana Achimota high school: Ghanaians hail ruling on dreadlocks students as ‘progressive’",
+    "url": "https://www.bbc.com/pidgin/sport-57307283",
+    "topic": "Rights & education",
+    "summary": "BBC Pidgin reports on the court victory and the public response to the ruling.",
+    "format": "Article",
+    "evidence": "Publisher title and publication timestamp verified directly from BBC page metadata.",
+    "checked": "2026-10-01"
+  }
+]

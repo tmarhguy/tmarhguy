@@ -1,5 +1,8 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+
+import { getContactItems } from '@/data/contact';
+import profile from '@/data/profile.json';
 
 import Footer from '../../Template/Footer';
 
@@ -69,6 +72,38 @@ describe('Footer', () => {
     const socialSection = document.querySelector('.footer-social');
     expect(socialSection).toBeInTheDocument();
     expect(screen.getByText('Connect')).toBeInTheDocument();
+  });
+
+  it('groups all Connect links once with visible labels and correct email behavior', () => {
+    render(<Footer />);
+    const connect = screen.getByRole('navigation', { name: 'Connect' });
+    const links = within(connect).getAllByRole('link');
+    expect(links).toHaveLength(getContactItems().length);
+    expect(new Set(links.map((link) => link.getAttribute('href'))).size).toBe(
+      links.length,
+    );
+    const professional = within(connect).getByRole('list', {
+      name: 'Professional',
+    });
+    expect(
+      within(professional)
+        .getAllByRole('link')
+        .map((link) => link.textContent?.split(' (')[0]),
+    ).toEqual(['Email', 'LinkedIn', 'GitHub']);
+    expect(
+      within(connect).getByRole('list', { name: 'Writing & builds' }),
+    ).toBeInTheDocument();
+    expect(
+      within(connect).getByRole('list', { name: 'Social' }),
+    ).toBeInTheDocument();
+    const email = within(connect).getByRole('link', { name: 'Email' });
+    expect(email).toHaveAttribute('href', `mailto:${profile.email}`);
+    expect(email).not.toHaveAttribute('target');
+    expect(
+      within(connect).getByRole('link', {
+        name: 'LinkedIn (opens in new tab)',
+      }),
+    ).toHaveAttribute('target', '_blank');
   });
 
   it('has link to home from avatar', () => {

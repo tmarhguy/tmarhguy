@@ -37,7 +37,8 @@ export default function HomeIntroduction({
       </p>
       <p className="hero-story-link">
         <a href="/about/">From Ghana to Penn: my story</a>
-        <a href="https://en.wikipedia.org/wiki/Tyrone_Marhguy">Wikipedia</a>
+        {' · '}
+        <a href="/press/">Press & interviews</a>
       </p>
     </div>
   );

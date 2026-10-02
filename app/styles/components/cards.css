@@ -441,6 +441,8 @@ a.projects-open-source-highlight:hover {
 
 .project-list-downloads {
   display: inline-flex;
+  flex-wrap: wrap;
+  max-width: calc(100% - 0.5rem);
   align-items: center;
   gap: 0.35rem;
   flex-shrink: 0;

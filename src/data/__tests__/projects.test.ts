@@ -125,7 +125,7 @@ describe('projects data', () => {
   it('picks four strongest software projects for the homepage', () => {
     expect(
       getHomeSoftwarePicks().map((project) => getProjectSlug(project)),
-    ).toEqual(['lobster', 'figdb', 'sealion', 'frameport']);
+    ).toEqual(['sealion', 'frameport', 'lobster', 'figdb']);
     expect(getHomeSoftwarePicks().every((project) => project.image)).toBe(true);
   });
 
@@ -149,10 +149,10 @@ describe('projects data', () => {
       '16-bit MAC Unit (Sky130)',
       '100 Mbps UDP/IP Stack',
       '16×4 SRAM — Full-Custom Analog Design',
-      'Lobster',
-      'FigDB',
       'SeaLion',
       'FramePort',
+      'Lobster',
+      'Fig',
     ]);
     expect(getHomeFeaturedItems()[0]?.image).toBe(
       '/images/open-source/librelane1015.png',
@@ -170,10 +170,13 @@ describe('projects data', () => {
   it('links flagship manuals beside their GitHub repos', () => {
     const manuals: Array<[string, string]> = [
       ['Lobster', 'https://tmarhguy.github.io/lobster/'],
-      ['FigDB', 'https://tmarhguy.github.io/figDB/'],
+      ['Fig', 'https://tmarhguy.github.io/figDB/'],
       ['SeaLion', 'https://tmarhguy.github.io/sealion/'],
       ['Pineapple GPU P1', 'https://tmarhguy.github.io/gpu/'],
-      ['Out-of-Order RISC-V CPU (RV64IMAC)', 'https://tmarhguy.github.io/riscv/'],
+      [
+        'Out-of-Order RISC-V CPU (RV64IMAC)',
+        'https://tmarhguy.github.io/riscv/',
+      ],
       ['FramePort', 'https://tmarhguy.github.io/frameport/'],
       ['16-bit MAC Unit (Sky130)', 'https://tmarhguy.github.io/mac/'],
     ];
@@ -202,7 +205,7 @@ describe('projects data', () => {
     expect(getSystemsProjects()).toHaveLength(3);
     expect(getSystemsProjects().map((project) => project.title)).toEqual([
       'Lobster',
-      'FigDB',
+      'Fig',
       'SeaLion',
     ]);
     expect(getToolsProjects()).toHaveLength(2);
@@ -245,7 +248,7 @@ describe('projects data', () => {
     expect(titles).toContain('Out-of-Order RISC-V CPU (RV64IMAC)');
     expect(titles).toContain('Pineapple GPU P1');
     expect(titles).toContain('Lobster');
-    expect(titles).toContain('FigDB');
+    expect(titles).toContain('Fig');
     expect(titles).toContain('SeaLion');
     expect(titles).toContain('UniBridge Ghana');
   });
@@ -356,7 +359,7 @@ describe('projects data', () => {
     expect(lobster.link).toBe('https://github.com/tmarhguy/lobster');
     expect(lobster.image).toBe('/images/projects/lobster.webp');
 
-    const figdb = findProjectByTitle('FigDB')!;
+    const figdb = findProjectByTitle('Fig')!;
     expect(figdb.category).toBe('systems');
     expect(figdb.link).toBe('https://github.com/tmarhguy/figDB');
     expect(figdb.image).toBe('/images/projects/figdb.webp');
@@ -418,6 +421,22 @@ describe('projects data', () => {
     );
   });
 
+  it('leads with SeaLion and FramePort and separates similar repository images', () => {
+    const slugs = getSoftwareAndSystemsProjects().map(getProjectSlug);
+    expect(slugs.slice(0, 6)).toEqual([
+      'sealion',
+      'frameport',
+      'lobster',
+      'envelop',
+      'figdb',
+      'mango-tools',
+    ]);
+    expect(
+      Math.abs(slugs.indexOf('lobster') - slugs.indexOf('figdb')),
+    ).toBeGreaterThan(1);
+    expect(new Set(slugs).size).toBe(slugs.length);
+  });
+
   it('unifies systems, tools, and software into one wall', () => {
     const unified = getSoftwareAndSystemsProjects();
     expect(unified).toHaveLength(
@@ -427,7 +446,7 @@ describe('projects data', () => {
     );
     const titles = unified.map((project) => project.title);
     expect(titles).toContain('Lobster');
-    expect(titles).toContain('FigDB');
+    expect(titles).toContain('Fig');
     expect(titles).toContain('SeaLion');
     expect(titles).toContain('FramePort');
     expect(titles).toContain('Envelop');

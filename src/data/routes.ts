@@ -30,6 +30,10 @@ const routes: Route[] = [
     path: '/writing',
   },
   {
+    label: 'Press',
+    path: '/press',
+  },
+  {
     label: 'Stats',
     path: '/stats',
     primary: false,

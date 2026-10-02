@@ -52,7 +52,7 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 **Software & systems**
 
 - **[Lobster](https://github.com/tmarhguy/lobster)** ([Manual](https://tmarhguy.github.io/lobster/)) — systems language + optimizing compiler for dual-LUT3/Tomato · Rust
-- **[FigDB](https://github.com/tmarhguy/figDB)** ([Manual](https://tmarhguy.github.io/figDB/)) — transactional database from first principles · LSM + WAL · Rust
+- **[Fig](https://github.com/tmarhguy/figDB)** ([Manual](https://tmarhguy.github.io/figDB/)) — transactional database from first principles · LSM + WAL · Rust
 - **[SeaLion](https://github.com/tmarhguy/sealion-search-engine)** ([Manual](https://tmarhguy.github.io/sealion/)) — full-text search engine from first principles · BM25 · Rust
 - **[Envelop](https://envelop.tmarhguy.com)** ([GitHub](https://github.com/tmarhguy/envelop)) — browser-to-FPGA remote compute for Tomato · verified BLE · labeled Physical/Virtual
 - **[FramePort](https://tmarhguy.github.io/frameport/)** ([GitHub](https://github.com/tmarhguy/frameport)) — HDMI/USB capture in VS Code · PNG screenshots · silent MP4 recording · [![Open VSX version](https://img.shields.io/open-vsx/v/tmarhguy/frameport?style=flat-square)](https://open-vsx.org/extension/tmarhguy/frameport) [![Open VSX downloads](https://img.shields.io/open-vsx/dt/tmarhguy/frameport?style=flat-square)](https://open-vsx.org/extension/tmarhguy/frameport)

@@ -9,56 +9,49 @@ describe('about data', () => {
     expect(aboutMarkdown.length).toBeGreaterThan(0);
   });
 
-  it('contains the intro section', () => {
-    expect(aboutMarkdown).toContain('# Intro');
+  it('introduces the story and links the public biography', () => {
+    expect(aboutMarkdown).toContain('# Growing up in Ghana');
     expect(aboutMarkdown).toContain('University of Pennsylvania');
-    expect(aboutMarkdown).toContain('discrete logic through RTL-to-GDS flows');
-    expect(aboutMarkdown).toContain(`[Tyrone Iras Marhguy](${WIKIPEDIA_URL})`);
+    expect(aboutMarkdown).toContain('Computer Engineering');
+    expect(aboutMarkdown).toContain(`[Wikipedia](${WIKIPEDIA_URL})`);
   });
 
   it('contains early life and family background', () => {
-    expect(aboutMarkdown).toContain('# Early Life');
+    expect(aboutMarkdown).toContain('# Growing up in Ghana');
     expect(aboutMarkdown).toContain('triplet');
     expect(aboutMarkdown).toContain('Nikita');
     expect(aboutMarkdown).toContain('Ghana');
   });
 
   it('contains the Achimota section', () => {
-    expect(aboutMarkdown).toContain('# Achimota');
+    expect(aboutMarkdown).toContain('# Attending Achimota');
     expect(aboutMarkdown).toContain('Rastafarian');
-    expect(aboutMarkdown).toContain('Marhguy v. Achimota School');
+    expect(aboutMarkdown).toContain('High Court ruled in our favor');
   });
 
   it('contains the academics section', () => {
-    expect(aboutMarkdown).toContain('# Academics');
+    expect(aboutMarkdown).toContain('# School and academic awards');
     expect(aboutMarkdown).toContain('WASSCE');
-    expect(aboutMarkdown).toContain('B.S.E. Computer Engineering');
+    expect(aboutMarkdown).toContain('B.S.E. in Computer Engineering');
     expect(aboutMarkdown).toContain('American Mathematics Olympiad');
   });
 
   it('contains hobbies and interests', () => {
-    expect(aboutMarkdown).toContain('# Hobbies and Interests');
+    expect(aboutMarkdown).toContain('# Away from the desk');
     expect(aboutMarkdown).toContain('Sudoku');
-    expect(aboutMarkdown).toContain('Biking');
+    expect(aboutMarkdown).toContain('biking');
   });
 
   it('contains the now section', () => {
-    expect(aboutMarkdown).toContain('# Now');
+    expect(aboutMarkdown).toContain('# What I’m building now');
     expect(aboutMarkdown).not.toContain('Fluid Silicon');
     expect(aboutMarkdown).toContain('Tomato');
     expect(aboutMarkdown).toContain('https://tomato.tmarhguy.com');
-    expect(aboutMarkdown).toContain('https://github.com/tmarhguy/tomato');
     expect(aboutMarkdown).toContain('LibreLane');
-    expect(aboutMarkdown).toContain('3.0.8');
-    expect(aboutMarkdown).toContain('3.0.10');
-    expect(aboutMarkdown).toContain('1016');
     expect(aboutMarkdown).toContain('OpenROAD');
     expect(aboutMarkdown).toContain('Verilator');
     expect(aboutMarkdown).toContain('Aragorn AI');
-    expect(aboutMarkdown).toContain('Fife-Penn');
-    expect(aboutMarkdown).toContain('STEM Achievers');
-    expect(aboutMarkdown).toContain('Professionally');
-    expect(aboutMarkdown).toContain('battery management infrastructure');
+    expect(aboutMarkdown).toContain('Vero Electric');
   });
 
   it('contains valid markdown links', () => {

@@ -1,6 +1,8 @@
 import Link from 'next/link';
 
+import { WIKIPEDIA_URL } from '@/data/contact';
 import profile from '@/data/profile.json';
+import { externalAnchorProps } from '@/lib/external-link';
 
 import HomeIntroduction from './HomeIntroduction';
 import ThemePortrait from './ThemePortrait';
@@ -10,9 +12,22 @@ export default function Hero() {
     <section className="hero">
       <div className="hero-grid">
         <div className="hero-primary">
-          <h1 className="hero-title">
-            <span className="hero-name">{profile.name}</span>
-          </h1>
+          <div className="hero-identity-row">
+            <h1 className="hero-title">
+              <span className="hero-name">{profile.name}</span>
+            </h1>
+            <a
+              className="hero-wikipedia"
+              href={WIKIPEDIA_URL}
+              {...externalAnchorProps(WIKIPEDIA_URL)}
+            >
+              <span className="wikipedia-mark" aria-hidden="true">
+                W
+              </span>
+              <span className="hero-wikipedia-label">Wikipedia</span>
+              <span className="sr-only"> (opens in new tab)</span>
+            </a>
+          </div>
 
           <HomeIntroduction className="hero-intro" />
 

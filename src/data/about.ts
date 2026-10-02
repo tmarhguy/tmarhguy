@@ -1,52 +1,33 @@
 import { WIKIPEDIA_URL } from './contact';
 
-export const aboutMarkdown = `# Intro
+export const aboutMarkdown = `# Growing up in Ghana
 
-I'm [Tyrone Iras Marhguy](${WIKIPEDIA_URL}) — a Ghanaian Computer Engineering student at the [University of Pennsylvania](https://www.upenn.edu) on a full scholarship. I build computer systems from discrete logic through RTL-to-GDS flows—architecting the boards, writing the RTL, and building the verification frameworks that prove them.
+I grew up between Kumasi and Accra with my sisters, Nikita and Amrita. We are triplets. For several years, our family lived primarily on a parked bus. Working with limited resources taught me to repair things and find practical ways to make them useful.
 
-# Early Life
+Before Achimota School, I studied in Kumasi and at Rising Academy in Ablekuma.
 
-I was born in Ghana on November 24, 2003. I'm a triplet — my [sisters](https://www.myjoyonline.com/siblings-of-rastafarian-refused-admission-to-achimota-school-allegedly-ordered-to-cut-their-hair-at-st-johns-grammar/) are Nikita Marhguy and Amrita Marhguy. We grew up between Kumasi and Accra, and for several years our family lived primarily on a parked bus.
+# Attending Achimota
 
-At thirteen, I charged phones with a car battery and nails heated in a coal pot — not because I was curious, but because we needed to survive. That same instinct drives how I build today: understand the physics, verify the design, ship something that works on real silicon and in production code.
+In March 2021, Achimota School denied me admission because I wear dreadlocks as an expression of my Rastafarian faith. My family challenged the decision alongside the family of Oheneba Kwaku Nkrabea.
 
-Before [Achimota School](https://achimotashs.com/), I studied in Kumasi and at Rising Academy in Ablekuma.
+On 31 May 2021, Ghana’s High Court ruled in our favor and ordered the school to admit us. I enrolled shortly afterward and completed my secondary education there. [BBC Pidgin](https://www.bbc.com/pidgin/world-57306291) and [Deutsche Welle](https://www.dw.com/en/ghana-rastafarians-start-school-after-court-victory/video-57864466) covered the case and our return to school.
 
-# Achimota
+# School and academic awards
 
-In March 2021, Achimota School denied me admission because I wear dreadlocks as an expression of my Rastafarian faith. My father, Tereo Marhguy, challenged the decision in Ghana's High Court alongside the family of Oheneba Kwaku Nkrabea, who faced the same refusal.
+- **2021:** After enrolling late, I topped my class in Science and Elective Mathematics, as reported by [Adom](https://www.adomonline.com/tyrone-marghuy-tops-class-in-science-elective-maths-despite-admission-woes/).
+- **2023:** I earned eight A1 grades in the WASSCE at Achimota, covered by [MyJoyOnline](https://www.myjoyonline.com/rastafarian-achimota-student-tyrone-marhguy-scores-8-as-in-wassce/).
+- **2023:** I received a gold medal and the national top-scorer award in the American Mathematics Olympiad, and a silver medal in the Vanda Science International Olympiad. [MyJoyOnline reported on the awards](https://www.myjoyonline.com/tyrone-marhguy-wins-american-math-olympiad-awards/).
+- **2024:** A full scholarship brought me to the [University of Pennsylvania](https://www.upenn.edu) to study Computer Engineering.
 
-On May 31, 2021, the Human Rights Division ruled in our favor — finding that denying us education over our hair violated our rights to education, dignity, and religious expression. The case drew national debate and international coverage from outlets including the [Associated Press](https://apnews.com/article/africa-religion-education-ghana-186c67bd473f892c054e5d1f9368b555), [Voice of America](https://www.voanews.com/a/rastafarian-teen-fights-to-keep-dreadlocks/6276979.html), and [Deutsche Welle](https://www.dw.com/en/ghana-rastafarians-start-school-after-court-victory/video-57864466). I enrolled, finished secondary school, and the ruling has since been cited in broader conversations about religious freedom in Ghanaian education.
+# What I’m building now
 
-The full story is documented on [Wikipedia](${WIKIPEDIA_URL}) and in the court record for [Marhguy v. Achimota School](https://superlawgh.com/judgements/tyrone-marghuy-v-achimota-school-anor-2021-hc-high-court-%C2%B7-suit-no-hr-0055-2021-%C2%B7-31-may-2021-%C2%B7/).
+I’m working toward a B.S.E. in Computer Engineering, expected in 2028. My independent project, [Tomato](https://tomato.tmarhguy.com), is a 32-bit computer with a running FPGA implementation and discrete hardware boards in progress. I design the architecture, build the boards, and write the software.
 
-# Academics
+I also build systems software, including a search engine, a compiler, and a database, and contribute fixes to open-source EDA tools such as LibreLane, OpenROAD, Verilator, and OpenFPGA. My engineering work has included production software at Aragorn AI and battery-management hardware at Vero Electric. I’ve also taught STEM, computer science, and AR/VR.
 
-- **2023 WASSCE** — 8 A1s at Achimota School, reported widely in Ghanaian media including [The Voice](https://www.voice-online.co.uk/news/world-news/2023/12/21/rastafarian-student-denied-school-admission-over-his-locks-triumphs-in-exams/) and [Citi Newsroom](https://citinewsroom.com/2023/12/rastafarian-student-rejected-by-achimota-school-excels-in-2023-wassce/).
-- **American Mathematics Olympiad** — national top scorer and gold medalist among 150,000+ students worldwide ([MyJoyOnline](https://www.myjoyonline.com/tyrone-marhguy-wins-american-math-olympiad-awards/)).
-- **Vanda Science International Olympiad** — silver medal, 38,000+ participants.
-- **SAT** — 99th percentile globally.
-- **2024** — full scholarship to Penn for Computer Engineering, with additional offers from Duke, Williams, and Franklin & Marshall ([3news](https://3news.com/news/tyrone-iras-marhguy-receives-full-scholarship-to-study-at-university-of-pennsylvania/)).
-- **Now** — B.S.E. Computer Engineering at the [University of Pennsylvania](https://www.upenn.edu), expected 2028; concurrent master's coursework in Electrical Engineering.
+My [projects](/projects/), [resume](/resume/), and [engineering log](/writing/) go into the technical work. The [press archive](/press/) collects the reporting and interviews; [Wikipedia](${WIKIPEDIA_URL}) provides a public biography.
 
-# Now - (Fall 2026)
+# Away from the desk
 
-- **Hardware Engineering**: I'm designing RTL, FPGA, and RTL-to-GDS systems independently — from Tomato through low-latency networking hardware — then proving them in simulation, emulation, and on the bench.
-- **The Builds**: I'm building [Tomato](https://tomato.tmarhguy.com) ([GitHub](https://github.com/tmarhguy/tomato)) — a Discrete 32-bit Polymorphic Dual-LUT3 CPU with a running FPGA implementation and discrete boards in progress — and shipping low-latency networking hardware in SystemVerilog. I also designed an [8-bit hybrid transistor ALU](https://alu.tmarhguy.com) from first principles.
-- **Open Source Contributions**: I'm a contributor to open-source EDA tools.
-  - **[LibreLane](https://github.com/librelane/librelane)**: Merged [PR #1015](https://github.com/librelane/librelane/pull/1015) gating deprecated abc -fast for Yosys ≥ 0.68, shipped as [3.0.8](https://github.com/librelane/librelane/releases/tag/3.0.8). Also merged [PR #1016](https://github.com/librelane/librelane/pull/1016) so Yosys check-error counts include both pre- and post-synthesis reports, shipped as [3.0.10](https://github.com/librelane/librelane/releases/tag/3.0.10).
-  - **[OpenROAD](https://github.com/The-OpenROAD-Project/OpenROAD)**: Parsing fixes for LEF58_MINWIDTH ([PR #11107](https://github.com/The-OpenROAD-Project/OpenROAD/pull/11107)).
-  - **[Verilator](https://github.com/verilator/verilator)**: Fixed Linux peak memory reporting ([PR #8070](https://github.com/verilator/verilator/pull/8070)).
-  - **[OpenFPGA](https://github.com/lnis-uofu/OpenFPGA)**.
-- **Software & Teaching**: Professionally, I spent May–August 2026 with [Aragorn AI](https://www.aragorn.ai/) on production backends and technical documentation. Previously hardware at [Vero Electric](https://veroelectric.com/) on battery management infrastructure. I taught through [Fife-Penn STEM & CS Academy](https://fife.cis.upenn.edu/) and spent Summer 2026 as an AR/VR instructor with [Howard University STEM Achievers](https://education.howard.edu/affiliated-programs/stem-summer-camp-verizon-innovative-learning).
-
-*For press coverage and a fuller biography, see my [Wikipedia article](${WIKIPEDIA_URL}).*
-
-# Hobbies and Interests
-
-- Beach
-- Dogs
-- Sudoku
-- Biking
-
+I enjoy the beach, dogs, Sudoku, and biking.
 `;

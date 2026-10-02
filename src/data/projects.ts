@@ -211,21 +211,21 @@ const data: Project[] = [
     imageCaption: 'Lobster language + compiler · repo screenshot',
     date: '2026-10-01',
     period: 'Oct. 2026 — Present',
-    desc: 'Statically-typed systems language and optimizing compiler for dual-LUT3/Tomato targets; lexer, Pratt parser, name resolution and type checking live via lobster check across nine Rust crates.',
+    desc: 'Systems language and compiler built in Rust — Pratt parsing, type checking, verified SSA, optimization passes, and differential testing with a reference interpreter.',
     tech: ['Rust', 'Compilers', 'Tomato32', 'CLI'],
     category: 'systems',
   },
   {
-    title: 'FigDB',
-    subtitle: 'Distributed transactional database',
+    title: 'Fig',
+    subtitle: 'Transactional database from first principles',
     slug: 'figdb',
     site: 'https://tmarhguy.github.io/figDB/',
     link: 'https://github.com/tmarhguy/figDB',
     image: '/images/projects/figdb.webp',
-    imageCaption: 'FigDB database · repo screenshot',
+    imageCaption: 'Fig transactional database · repo screenshot',
     date: '2026-10-01',
     period: 'Oct. 2026 — Present',
-    desc: 'Transactional database from first principles — ordered KV, checksummed WAL, WAL-backed memtable, SSTables, LSM flush/merge with manifest and compaction; 59 tests passing.',
+    desc: 'Transactional database built from first principles in Rust — ordered key-value storage, a checksummed WAL, WAL-backed memtables, immutable SSTables, LSM flush/merge, manifests, compaction, crash recovery, and correctness testing. Growing toward MVCC and distributed transactions.',
     tech: ['Rust', 'LSM', 'WAL', 'Tokio'],
     category: 'systems',
   },
@@ -239,14 +239,16 @@ const data: Project[] = [
     imageCaption: 'SeaLion engine · search demo',
     date: '2026-10-01',
     period: 'Oct. 2026 — Present',
-    desc: 'Full-text search engine from first principles — Unicode analysis, BM25-ranked phrase search over persistent .seal segments with generations and merge, oracle-verified CLI; 89 tests passing.',
+    desc: 'Distributed full-text search built in Rust — BM25 ranking, exact Block-Max WAND, typo correction, crawling, and shards with failover; 155 documented passing tests.',
     tech: ['Rust', 'Search', 'BM25', 'CLI'],
     category: 'systems',
   },
   {
     title: '8-bit Discrete Transistor ALU',
     image: '/images/projects/alu-render.webp',
-    imageCaption: 'Hybrid CMOS ALU · PCB render',
+    imageCaption: 'Hybrid CMOS ALU · interactive board model',
+    video: '/images/projects/alu-demo.mp4',
+    videoPoster: '/images/projects/alu-demo-poster.jpg',
     subtitle: '3,488 transistors',
     logProject: 'alu',
     link: 'https://alu.tmarhguy.com',
@@ -523,16 +525,35 @@ export function getSoftwareProjects(): Project[] {
  * Keeps the portfolio feeling like one person's workbench instead of
  * three thin fragments. Hardware stays its own section.
  */
+// Lead with relevance, then alternate demos and repository images.
+const SOFTWARE_AND_SYSTEMS_ORDER = [
+  'sealion',
+  'frameport',
+  'lobster',
+  'envelop',
+  'figdb',
+  'mango-tools',
+] as const;
+
 export function getSoftwareAndSystemsProjects(): Project[] {
-  return sortByDateDesc(
-    data.filter(
-      (project) =>
-        (project.category === 'systems' ||
-          project.category === 'tools' ||
-          project.category === 'software') &&
-        isMainExhibition(project),
-    ),
+  const projects = data.filter(
+    (project) =>
+      (project.category === 'systems' ||
+        project.category === 'tools' ||
+        project.category === 'software') &&
+      isMainExhibition(project),
   );
+  const bySlug = new Map(
+    projects.map((project) => [getProjectSlug(project), project]),
+  );
+  const ordered = SOFTWARE_AND_SYSTEMS_ORDER.map((slug) => {
+    const project = bySlug.get(slug);
+    if (!project)
+      throw new Error(`Missing software project for order entry: ${slug}`);
+    bySlug.delete(slug);
+    return project;
+  });
+  return [...ordered, ...sortByDateDesc([...bySlug.values()])];
 }
 
 export function getProjectSlug(project: Project): string {
@@ -547,10 +568,10 @@ const HOME_HARDWARE_SLUGS = [
 ] as const;
 
 const HOME_SOFTWARE_SLUGS = [
-  'lobster',
-  'figdb',
   'sealion',
   'frameport',
+  'lobster',
+  'figdb',
 ] as const;
 
 /** Homepage hardware row — strongest silicon-backed builds first. */
