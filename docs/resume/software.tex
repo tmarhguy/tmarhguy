@@ -67,9 +67,9 @@ B.S.E. in Computer Engineering\hfill Expected May 2028\par
 \item Built Unicode analysis, inverted indexes, persistent segments and \textbf{BM25 ranking} from first principles; added exact Block-Max WAND, typo correction, crawling, and shards/replicas with failover.
 \item Validated search against a reference oracle; documented \textbf{155 passing tests} and release benchmarks of \textbf{5,114 docs/s indexing} and \textbf{271 queries/s} exact WAND search.
 \end{itemize}
-\project{FigDB | Durable LSM Storage Engine}{Rust}{\docs{figDB}\enspace\textbar\enspace\code{figDB}}
+\project{Fig | Transactional Database}{Rust}{\docs{figDB}\enspace\textbar\enspace\code{figDB}}
 \begin{itemize}
-\item Implemented a \textbf{checksummed WAL}, memtables, Bloom-filtered SSTables, crash-safe manifests and size-tiered compaction; added a TCP server/CLI and seeded kill/restart recovery tests.
+\item Built a transactional database from first principles with a \textbf{checksummed WAL}, WAL-backed memtables, immutable SSTables, LSM flush/merge, manifests and compaction; implemented \textbf{crash recovery} and correctness tests.
 \end{itemize}
 \project{Lobster | Systems Language \& Compiler}{Rust}{\docs{lobster}\enspace\textbar\enspace\code{lobster}}
 \begin{itemize}
