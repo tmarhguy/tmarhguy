@@ -284,14 +284,6 @@
   scroll-margin-top: calc(var(--header-height) + var(--scroll-offset-resume));
 }
 
-@media (max-width: 735px) {
-  .resume-section {
-    scroll-margin-top: calc(
-      var(--header-height-mobile) + var(--scroll-offset-resume)
-    );
-  }
-}
-
 /* Printed resumes need contact details, which live in the footer on screen.
    Shown only by print.css. */
 .resume-print-contact {

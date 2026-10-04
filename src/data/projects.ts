@@ -419,14 +419,12 @@ const data: Project[] = [
     title: 'SVD Compression Engine',
     subtitle: 'Real-time image compression',
     link: 'https://svd.tmarhguy.com',
-    image: '/images/projects/svd-demo.gif',
-    imageCaption: 'Adjusting image rank · browser-based SVD compression',
-    video: '/images/projects/svd-demo.mp4',
-    videoPoster: '/images/projects/svd-demo-poster.jpg',
+    image: '/images/projects/svd-compression.webp',
+    imageCaption: 'SVD Compression Engine · interactive demo',
     date: '2024-09-01',
     period: '2024',
-    desc: 'Client-side image compression using truncated SVD: upload an image and adjust its rank to compare detail, reconstruction error, and file size. Web Workers and caching keep decomposition off the main thread.',
-    tech: ['TypeScript', 'React', 'Web Workers', 'Linear Algebra'],
+    desc: 'Singular Value Decomposition from scratch with cache-optimized matrix ops; 45% speedup over naive implementations.',
+    tech: ['C++', 'NumPy', 'Linear Algebra', 'WASM'],
     category: 'software',
   },
 ];
@@ -448,15 +446,15 @@ function isMainExhibition(project: Project): boolean {
  */
 const HARDWARE_ORDER = [
   'tomato',
-  'pineapple-gpu',
-  '8-bit-discrete-transistor-alu',
-  'riscv64xO3',
   'mac',
+  'pineapple-gpu',
   '100mbps-udp-ip-stack',
   'full-custom-sram',
   'nasdaq-itch',
   '8-bit-ripple-carry-adder-ese-3700',
   'spice-automation',
+  'riscv64xO3',
+  '8-bit-discrete-transistor-alu',
 ] as const;
 
 export function getHardwareProjects(): Project[] {

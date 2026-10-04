@@ -21,15 +21,7 @@
     "summary": "Early reporting on the admission dispute and the Ghana Education Service’s response.",
     "format": "Article",
     "evidence": "Publisher page or indexed publisher excerpt",
-    "checked": "2026-10-04",
-    "related": [
-      {
-        "publisher": "Kuulpeeps · Facebook",
-        "title": "Covering the admissions and dreadlocks dispute",
-        "url": "https://www.facebook.com/Kuulpeeps/posts/1924249581048451/",
-        "kind": "Social coverage"
-      }
-    ]
+    "checked": "2026-10-01"
   },
   {
     "id": "siblings",
@@ -97,15 +89,7 @@
     "summary": "A public response to the school’s decision.",
     "format": "Video",
     "evidence": "Publisher page or indexed publisher excerpt",
-    "checked": "2026-10-04",
-    "related": [
-      {
-        "publisher": "Reggie Rockstone · Facebook",
-        "title": "Celebrating meeting Tyrone",
-        "url": "https://www.facebook.com/ReggieRockstoneOfficial/posts/941135717380808/",
-        "kind": "Social post"
-      }
-    ]
+    "checked": "2026-10-01"
   },
   {
     "id": "scholarship-offers",
@@ -720,15 +704,7 @@
     "summary": "A profile tracing the journey through school, advocacy, academic competitions, and the move to Penn.",
     "format": "Profile",
     "evidence": "Publisher page: title and publication date verified.",
-    "checked": "2026-10-04",
-    "related": [
-      {
-        "publisher": "Tyrone Marhguy · LinkedIn",
-        "title": "Thanking Humble Beginning Stories for the feature",
-        "url": "https://www.linkedin.com/posts/tmarhguy_tyronemarhguy-communityadvocate-inclusivitymatters-activity-7239116517894721537-BPuU",
-        "kind": "Social post"
-      }
-    ]
+    "checked": "2026-10-01"
   },
   {
     "id": "educational-connect",
@@ -1038,7 +1014,7 @@
     "summary": "My announcement of a full scholarship to study Computer Engineering at Penn, with thanks to the people who helped me get there.",
     "format": "Social post",
     "evidence": "Original public LinkedIn post and publication metadata; engagement snapshot recorded in docs/press/social-research.md.",
-    "checked": "2026-10-04",
+    "checked": "2026-10-01",
     "related": [
       {
         "publisher": "Tyrone Marhguy · Facebook",
@@ -1063,18 +1039,6 @@
         "title": "A mentor reflects on the journey to Penn",
         "url": "https://www.linkedin.com/posts/abel-ohene-acquaye-22497441_i-get-to-meet-incredibly-talented-students-activity-7234597368933810177-FhCe",
         "kind": "Social post"
-      },
-      {
-        "publisher": "Emmanuel Sarpong · LinkedIn",
-        "title": "Amplifying the Penn scholarship announcement",
-        "url": "https://www.linkedin.com/posts/olelesalvador_icymi-tyrone-iras-marhguy-a-ghanaian-activity-7234552940022120448-sZXo",
-        "kind": "Social post"
-      },
-      {
-        "publisher": "Edward Asare · LinkedIn",
-        "title": "An inspiring tale of perseverance to Penn",
-        "url": "https://www.linkedin.com/posts/edwardasare1_in-an-inspiring-tale-of-perseverance-and-activity-7234590556096450560-ig7j",
-        "kind": "Social post"
       }
     ]
   },
@@ -1088,37 +1052,13 @@
     "summary": "Sharing the moment I checked my results and celebrated eight A1s with friends.",
     "format": "Social post",
     "evidence": "Original public LinkedIn post and publication metadata; engagement snapshot recorded in docs/press/social-research.md.",
-    "checked": "2026-10-04",
+    "checked": "2026-10-01",
     "related": [
       {
         "publisher": "Tyrone Marhguy · X",
         "title": "Celebrating my WASSCE results with friends",
         "url": "https://twitter.com/i/status/1737040972045832553",
         "kind": "Social post"
-      },
-      {
-        "publisher": "Tyrone Marhguy · Facebook",
-        "title": "Odds against odds, 8As bagged",
-        "url": "https://www.facebook.com/tmarhguy/posts/odds-against-odds-8as-bagged-we-did-it-family-we-made-it-tyronemarhguy-achimotas/1534674093964907/",
-        "kind": "Social post"
-      },
-      {
-        "publisher": "Stonebwoy · X",
-        "title": "Responding to the 8As announcement",
-        "url": "https://x.com/stonebwoy/status/1737079602336403926",
-        "kind": "Social post"
-      },
-      {
-        "publisher": "Samuel Okudzeto Ablakwa · X",
-        "title": "Congratulating Tyrone on the WASSCE results",
-        "url": "https://x.com/S_OkudzetoAblak/status/1737396598307471409",
-        "kind": "Social post"
-      },
-      {
-        "publisher": "High Schools Society · Facebook",
-        "title": "Celebrating the WASSCE results",
-        "url": "https://www.facebook.com/highschoolssociety/posts/marhguy_tyrone-the-rastafarian-who-was-almost-denied-admission-to-achimota-schoo/737515741740183/",
-        "kind": "Social coverage"
       }
     ]
   },
@@ -1132,15 +1072,7 @@
     "summary": "My account of the awards ceremony: national top scorer and gold in the American Mathematics Olympiad, and silver in the Vanda Science Olympiad.",
     "format": "Social post",
     "evidence": "Original public LinkedIn post and publication metadata; engagement snapshot recorded in docs/press/social-research.md.",
-    "checked": "2026-10-04",
-    "related": [
-      {
-        "publisher": "American Math Olympiad · Instagram",
-        "title": "Celebrating the Olympiad awards",
-        "url": "https://www.instagram.com/p/C1fv_BXsM1o/",
-        "kind": "Social post"
-      }
-    ]
+    "checked": "2026-10-01"
   },
   {
     "id": "sat-announcement",
@@ -1189,93 +1121,5 @@
     "format": "Social post",
     "evidence": "Public Facebook post dated February 4; 2.8K likes, 91 comments, 89 shares observed 1 October 2026. The post misdates the court ruling as 2023; the ruling was 2021.",
     "checked": "2026-10-01"
-  },
-  {
-    "id": "school-announcement",
-    "date": "2021-06-03",
-    "publisher": "Tyrone Marhguy · X",
-    "title": "I finally will go to school tomorrow",
-    "url": "https://x.com/marhguy_tyrone/status/1400516922773475331",
-    "topic": "Rights & education",
-    "summary": "My announcement that I would finally begin school at Achimota following the court ruling.",
-    "format": "Social post",
-    "evidence": "Native X post timestamped 3 June 2021; status ID timestamp decodes to 2021-06-03.",
-    "checked": "2026-10-04",
-    "related": [
-      {
-        "publisher": "Tyrone Marhguy · X",
-        "title": "No dreadlocks indeed",
-        "url": "https://x.com/marhguy_tyrone/status/1399776003526963203",
-        "kind": "Social post"
-      }
-    ]
-  },
-  {
-    "id": "bbc-reflection",
-    "date": "2024-10-12",
-    "publisher": "Tyrone Marhguy · LinkedIn",
-    "title": "How come you still have yours?",
-    "url": "https://www.linkedin.com/posts/tmarhguy_about-a-month-ago-i-got-into-a-conversation-activity-7250747026051657728-rZ4M",
-    "topic": "Rights & education",
-    "summary": "Recounting a conversation about Ghanaian school hair rules and thanking BBC Africa for its feature.",
-    "format": "Social post",
-    "evidence": "LinkedIn public post JSON-LD datePublished 2024-10-12; post thanks BBC Africa and shows 37 comments.",
-    "checked": "2026-10-04"
-  },
-  {
-    "id": "alu-announcement",
-    "date": "2026-01-27",
-    "publisher": "Tyrone Marhguy · LinkedIn",
-    "title": "I built a computer from scratch in my dorm",
-    "url": "https://www.linkedin.com/posts/tmarhguy_computerarchitecture-vlsi-cpudesign-activity-7421915468891860993-RvPa",
-    "topic": "Engineering",
-    "summary": "My original announcement of the 8-bit ALU built from 3,488 transistors, with 19 operations and verification.",
-    "format": "Social post",
-    "evidence": "LinkedIn public post JSON-LD datePublished 2026-01-27; 4,514 reactions and 289 comments observed 4 October 2026.",
-    "checked": "2026-10-04",
-    "related": [
-      {
-        "publisher": "Faisal Zakari Ibrahim · LinkedIn",
-        "title": "Writing up the ALU project",
-        "url": "https://www.linkedin.com/posts/faisalzakariibrahim_tyrone-marhguy-a-former-achimota-school-activity-7422503020317356032-Q1Xw",
-        "kind": "Social post"
-      },
-      {
-        "publisher": "The Africa Dream · LinkedIn",
-        "title": "Reframing the ALU project for a general audience",
-        "url": "https://www.linkedin.com/posts/theafricandreamsl_theafricandream-activity-7423751414381858816-ibJW",
-        "kind": "Social post"
-      },
-      {
-        "publisher": "Alain Liale Lessick · LinkedIn",
-        "title": "Sharing the ALU story",
-        "url": "https://www.linkedin.com/posts/alain-lessick_ghananews-ghanatech-ghanaeducation-activity-7431699398029619201-Fart",
-        "kind": "Social post"
-      },
-      {
-        "publisher": "Achimota School · Facebook",
-        "title": "Kudos to Akora Tyrone Iras Marhguy",
-        "url": "https://www.facebook.com/AchimotaSchool/posts/achimotaexcellence-kudos-to-akora-tyrone-iras-marhguy-tmarhguy-currently-studyin/1327341979435752/",
-        "kind": "Social post"
-      },
-      {
-        "publisher": "Achimota School · Facebook",
-        "title": "Watch the ALU project demonstration",
-        "url": "https://www.facebook.com/AchimotaSchool/videos/1240776421346888/",
-        "kind": "Social video"
-      },
-      {
-        "publisher": "Achimota School · Instagram",
-        "title": "Celebrating the ALU build",
-        "url": "https://www.instagram.com/reel/DUUwl3uijXN/",
-        "kind": "Social post"
-      },
-      {
-        "publisher": "Engineering community · Facebook",
-        "title": "Sharing the ALU build in a hardware group",
-        "url": "https://www.facebook.com/groups/2793980537487264/posts/4259386080946695/",
-        "kind": "Social coverage"
-      }
-    ]
   }
 ]

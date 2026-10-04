@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export default function HomeContributions() {
   return (
     <section
@@ -49,12 +47,9 @@ export default function HomeContributions() {
           </a>
         </article>
       </div>
-      <Link
-        className="home-contributions-all"
-        href="/projects/#open-source-title"
-      >
+      <a className="home-contributions-all" href="/projects/#open-source-title">
         More contributions, including OpenFPGA
-      </Link>
+      </a>
     </section>
   );
 }
