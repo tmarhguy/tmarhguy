@@ -1121,5 +1121,61 @@
     "format": "Social post",
     "evidence": "Public Facebook post dated February 4; 2.8K likes, 91 comments, 89 shares observed 1 October 2026. The post misdates the court ruling as 2023; the ruling was 2021.",
     "checked": "2026-10-01"
+  },
+  {
+    "id": "alu-announcement",
+    "date": "2026-01-27",
+    "publisher": "Tyrone Marhguy · LinkedIn",
+    "title": "I built a computer from scratch in my dorm",
+    "url": "https://www.linkedin.com/posts/tmarhguy_computerarchitecture-vlsi-cpudesign-activity-7421915468891860993-RvPa",
+    "topic": "Engineering",
+    "summary": "My original announcement of the 8-bit ALU built from 3,488 transistors, with 19 operations and verification.",
+    "format": "Social post",
+    "evidence": "LinkedIn public post JSON-LD datePublished 2026-01-27; 4,514 reactions and 289 comments observed 4 October 2026. Same post as the /feed/update/urn:li:activity:7421915468891860993 permalink.",
+    "checked": "2026-10-04",
+    "related": [
+      {
+        "publisher": "Faisal Zakari Ibrahim · LinkedIn",
+        "title": "Writing up the ALU project",
+        "url": "https://www.linkedin.com/posts/faisalzakariibrahim_tyrone-marhguy-a-former-achimota-school-activity-7422503020317356032-Q1Xw",
+        "kind": "Social post"
+      },
+      {
+        "publisher": "The Africa Dream · LinkedIn",
+        "title": "Reframing the ALU project for a general audience",
+        "url": "https://www.linkedin.com/posts/theafricandreamsl_theafricandream-activity-7423751414381858816-ibJW",
+        "kind": "Social post"
+      },
+      {
+        "publisher": "Alain Liale Lessick · LinkedIn",
+        "title": "Sharing the ALU story",
+        "url": "https://www.linkedin.com/posts/alain-lessick_ghananews-ghanatech-ghanaeducation-activity-7431699398029619201-Fart",
+        "kind": "Social post"
+      },
+      {
+        "publisher": "Achimota School · Facebook",
+        "title": "Kudos to Akora Tyrone Iras Marhguy",
+        "url": "https://www.facebook.com/AchimotaSchool/posts/achimotaexcellence-kudos-to-akora-tyrone-iras-marhguy-tmarhguy-currently-studyin/1327341979435752/",
+        "kind": "Social post"
+      },
+      {
+        "publisher": "Achimota School · Facebook",
+        "title": "Watch the ALU project demonstration",
+        "url": "https://www.facebook.com/AchimotaSchool/videos/1240776421346888/",
+        "kind": "Social video"
+      },
+      {
+        "publisher": "Achimota School · Instagram",
+        "title": "Celebrating the ALU build",
+        "url": "https://www.instagram.com/reel/DUUwl3uijXN/",
+        "kind": "Social post"
+      },
+      {
+        "publisher": "Engineering community · Facebook",
+        "title": "Sharing the ALU build in a hardware group",
+        "url": "https://www.facebook.com/groups/2793980537487264/posts/4259386080946695/",
+        "kind": "Social coverage"
+      }
+    ]
   }
 ]
