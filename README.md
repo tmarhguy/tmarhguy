@@ -44,6 +44,7 @@ Highlights below — **[all projects →](https://tmarhguy.com/projects/)** · *
 - **[16-Bit MAC (Sky130)](https://github.com/tmarhguy/mac)** ([Manual](https://tmarhguy.github.io/mac/)) — BFloat16 MAC · OpenLane · TinyTapeout
 - **[100 Mbps UDP/IP Stack](https://github.com/tmarhguy/udp-stack)** — RMII/MAC/ARP/IP/UDP · sub-200 ns loopback
 - **[16×4 SRAM](https://github.com/tmarhguy/64b-sram)** — 6T macro in 22 nm HP · StrongARM sense amp · 4.571 GHz fmax
+- **[SRAM-Based 4-bit MAC — ESE 5700](https://tmarhguy.github.io/mac-unit/)** ([GitHub](https://github.com/tmarhguy/mac-unit)) — 6T cell, 16×4 macro, 17-cycle dot product · GPDK 18 nm
 - **[NASDAQ ITCH 5.0 Parser](https://github.com/tmarhguy/itch-hw)** — market-data FPGA on Artix-7 · cocotb
 - **[Out-of-Order RISC-V CPU](https://github.com/tmarhguy/riscv)** ([Manual](https://tmarhguy.github.io/riscv/)) — RV64IMAC · 2-wide superscalar out-of-order · Tomasulo + ROB/LSQ · AXI4-Lite
 - **[8-Bit Discrete ALU](https://alu.tmarhguy.com)** — 3,488 MOSFETs · 1.24M+ automated test vectors

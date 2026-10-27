@@ -179,6 +179,10 @@ describe('projects data', () => {
       ],
       ['FramePort', 'https://tmarhguy.github.io/frameport/'],
       ['16-bit MAC Unit (Sky130)', 'https://tmarhguy.github.io/mac/'],
+      [
+        'SRAM-Based 4-bit MAC — ESE 5700',
+        'https://tmarhguy.github.io/mac-unit/',
+      ],
     ];
     for (const [title, site] of manuals) {
       const project = findProjectByTitle(title)!;
@@ -205,7 +209,7 @@ describe('projects data', () => {
 
   it('keeps the full history in data while curating the wall', () => {
     expect(projects.length).toBeGreaterThanOrEqual(24);
-    expect(getHardwareProjects()).toHaveLength(10);
+    expect(getHardwareProjects()).toHaveLength(11);
     expect(getSystemsProjects()).toHaveLength(3);
     expect(getSystemsProjects().map((project) => project.title)).toEqual([
       'Lobster',
@@ -242,6 +246,18 @@ describe('projects data', () => {
     expect(titles).toContain('16×4 SRAM — Full-Custom Analog Design');
     expect(titles).toContain('8-bit Discrete Transistor ALU');
     expect(titles).toContain('8-Bit Ripple-Carry Adder — ESE 3700');
+    expect(titles).toContain('SRAM-Based 4-bit MAC — ESE 5700');
+    const ese5700 = findProjectByTitle('ESE 5700')!;
+    expect(ese5700.site).toBe('https://tmarhguy.github.io/mac-unit/');
+    expect(ese5700.link).toBe('https://github.com/tmarhguy/mac-unit');
+    expect(ese5700.image).toBe('/images/projects/ese5700-mac-poster.webp');
+    expect(ese5700.video).toBe('/images/projects/ese5700-mac.mp4');
+    expect(ese5700.videoPoster).toBe('/images/projects/ese5700-mac-poster.webp');
+    expect(getProjectSlug(ese5700)).toBe('ese5700-mac');
+    const hardwareSlugs = getHardwareProjects().map(getProjectSlug);
+    expect(hardwareSlugs.indexOf('ese5700-mac')).toBe(
+      hardwareSlugs.indexOf('8-bit-ripple-carry-adder-ese-3700') - 1,
+    );
     expect(titles).toContain('QueuePaste');
     expect(titles).toContain('Mango Tools');
     expect(titles).toContain('FramePort');
