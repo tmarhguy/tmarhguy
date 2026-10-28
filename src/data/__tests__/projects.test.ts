@@ -252,7 +252,9 @@ describe('projects data', () => {
     expect(ese5700.link).toBe('https://github.com/tmarhguy/mac-unit');
     expect(ese5700.image).toBe('/images/projects/ese5700-mac-poster.webp');
     expect(ese5700.video).toBe('/images/projects/ese5700-mac.mp4');
-    expect(ese5700.videoPoster).toBe('/images/projects/ese5700-mac-poster.webp');
+    expect(ese5700.videoPoster).toBe(
+      '/images/projects/ese5700-mac-poster.webp',
+    );
     expect(getProjectSlug(ese5700)).toBe('ese5700-mac');
     const hardwareSlugs = getHardwareProjects().map(getProjectSlug);
     expect(hardwareSlugs.indexOf('ese5700-mac')).toBe(
