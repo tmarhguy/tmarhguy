@@ -14,6 +14,16 @@ export default function HomeContributions() {
       </div>
       <div className="contribution-grid">
         <article>
+          <h3>Coyote</h3>
+          <p>
+            Dropping stale RDMA metadata and the unused RAW path so the shell
+            always segments RDMA.
+          </p>
+          <a href="https://github.com/fpgasystems/Coyote/pull/259">
+            Merged #259 · 0.3.0
+          </a>
+        </article>
+        <article>
           <h3>LibreLane</h3>
           <p>
             Keeping the chip implementation flow compatible with newer Yosys
@@ -36,19 +46,9 @@ export default function HomeContributions() {
             Inspect the patch
           </a>
         </article>
-        <article>
-          <h3>Verilator</h3>
-          <p>
-            Using peak resident memory for Linux statistics, so reported memory
-            reflects the process’s physical footprint.
-          </p>
-          <a href="https://github.com/verilator/verilator/pull/8070">
-            Inspect the patch
-          </a>
-        </article>
       </div>
       <a className="home-contributions-all" href="/projects/#open-source-title">
-        More contributions, including OpenFPGA
+        More contributions, including Verilator and OpenFPGA
       </a>
     </section>
   );

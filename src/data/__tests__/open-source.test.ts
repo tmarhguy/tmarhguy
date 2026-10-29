@@ -23,8 +23,9 @@ describe('open-source data', () => {
     }
   });
 
-  it('includes OpenROAD, LibreLane, Verilator, and OpenFPGA with pull links', () => {
+  it('includes Coyote, OpenROAD, LibreLane, Verilator, and OpenFPGA with pull links', () => {
     const entries = getOpenSourceContributions();
+    const coyote = entries.find((entry) => entry.slug === 'coyote');
     const openroad = entries.find((entry) => entry.slug === 'openroad');
     const librelane = entries.find((entry) => entry.slug === 'librelane');
     const librelaneChk = entries.find(
@@ -36,7 +37,10 @@ describe('open-source data', () => {
       (entry) => entry.slug === 'openfpga-2683',
     );
 
-    expect(entries[0]?.slug).toBe('librelane-1016');
+    expect(entries[0]?.slug).toBe('coyote');
+    expect(coyote?.desc).toMatch(/\*\*the shell always segments RDMA\*\*/);
+    expect(coyote?.pulls[0]?.href).toContain('/pull/259');
+    expect(coyote?.link).toBe('https://github.com/fpgasystems/Coyote');
     expect(openroad?.desc).toMatch(/\*\*production LEF files load\*\*/);
     expect(openroad?.pulls[0]?.href).toContain('/pull/11107');
     expect(librelane?.desc).toMatch(/==shipped as 3\.0\.8==/);

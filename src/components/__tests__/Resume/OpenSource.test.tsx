@@ -12,6 +12,14 @@ describe('OpenSource', () => {
     expect(
       screen.getByRole('heading', { name: /open source/i }),
     ).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Coyote' })).toHaveAttribute(
+      'href',
+      'https://github.com/fpgasystems/Coyote',
+    );
+    expect(screen.getByRole('link', { name: '#259' })).toHaveAttribute(
+      'href',
+      'https://github.com/fpgasystems/Coyote/pull/259',
+    );
     expect(screen.getByRole('link', { name: 'LibreLane' })).toHaveAttribute(
       'href',
       'https://github.com/librelane/librelane',
@@ -61,10 +69,15 @@ describe('OpenSource', () => {
       document
         .querySelectorAll('.open-source .jobs-container')[0]
         ?.querySelectorAll('.points li').length,
+    ).toBe(1);
+    expect(
+      document
+        .querySelectorAll('.open-source .jobs-container')[1]
+        ?.querySelectorAll('.points li').length,
     ).toBe(2);
     expect(
       document
-        .querySelectorAll('.open-source .jobs-container')[3]
+        .querySelectorAll('.open-source .jobs-container')[4]
         ?.querySelectorAll('.points li').length,
     ).toBe(2);
   });

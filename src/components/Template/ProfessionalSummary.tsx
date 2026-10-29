@@ -69,7 +69,14 @@ export default function ProfessionalSummary({
           <strong>Open source</strong>
           <span>
             {' '}
-            Writing core C++/Python patches for open-source EDA tools (
+            Writing patches for open-source hardware and EDA (
+            <InlineLink
+              href="https://github.com/fpgasystems/Coyote/pull/259"
+              external
+            >
+              Coyote
+            </InlineLink>
+            ,{' '}
             <InlineLink
               href="https://github.com/verilator/verilator/pull/8070"
               external
@@ -94,7 +101,8 @@ export default function ProfessionalSummary({
             <InlineLink href="https://github.com/lnis-uofu/OpenFPGA" external>
               OpenFPGA
             </InlineLink>
-            ), including fixes shipped in the LibreLane{' '}
+            ), including Coyote RDMA metadata cleanup and fixes shipped in the
+            LibreLane{' '}
             <InlineLink
               href="https://github.com/librelane/librelane/releases/tag/3.0.8"
               external

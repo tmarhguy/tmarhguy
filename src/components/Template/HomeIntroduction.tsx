@@ -18,7 +18,8 @@ export default function HomeIntroduction({
         processors, build the hardware, and write the software that runs on
         them. My independent 32-bit computer is{' '}
         <a href="https://tomato.tmarhguy.com">Tomato</a>. I also contribute to
-        open-source EDA — LibreLane, Verilator, OpenROAD, and OpenFPGA — with{' '}
+        open-source hardware — Coyote, LibreLane, Verilator, OpenROAD, and
+        OpenFPGA — with{' '}
         <a href="/projects/#open-source-title">fixes shipped upstream</a>.
       </p>
       <p className="hero-work">
