@@ -125,6 +125,8 @@ Lead paragraph.
     expect(html).toContain('id="growing-up-in-ghana"');
     expect(html).toContain('href="#school-and-academic-awards"');
     expect(html).toContain('id="school-and-academic-awards"');
+    expect(html).toContain('src="/images/about/wind-generator.mp4"');
+    expect(html).toContain('loop');
   });
 
   it('supports same-page hash navigation from section links', async () => {

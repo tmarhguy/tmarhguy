@@ -1,7 +1,7 @@
 'use client';
 
 import Markdown from 'markdown-to-jsx';
-import { Children, type ReactNode } from 'react';
+import { Children, type ComponentPropsWithoutRef, type ReactNode } from 'react';
 import { createUniqueHeadingIds } from '@/lib/anchors';
 import { linkAuthorNameInMarkdown } from '@/lib/author-links';
 import { extractLogMarker } from '@/lib/logEntry';
@@ -50,8 +50,24 @@ const LOG_MARKDOWN_OPTIONS = {
   overrides: withMarkdownLinks({ li: { component: LogEntry } }),
 };
 
+function AboutVideo(props: ComponentPropsWithoutRef<'video'>) {
+  return (
+    <video
+      {...props}
+      autoPlay
+      muted
+      loop
+      playsInline
+      controls
+      preload={props.preload ?? 'metadata'}
+    />
+  );
+}
+
 const ABOUT_MARKDOWN_OPTIONS = {
-  overrides: withMarkdownLinks(),
+  overrides: withMarkdownLinks({
+    video: { component: AboutVideo },
+  }),
 };
 
 interface AboutSection {
