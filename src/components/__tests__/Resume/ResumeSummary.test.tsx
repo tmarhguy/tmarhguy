@@ -21,6 +21,10 @@ describe('ResumeSummary', () => {
       'href',
       'https://tomato.tmarhguy.com',
     );
+    expect(screen.getByRole('link', { name: /coyote/i })).toHaveAttribute(
+      'href',
+      'https://github.com/fpgasystems/Coyote/pull/259',
+    );
     expect(screen.getByRole('link', { name: /librelane/i })).toHaveAttribute(
       'href',
       'https://github.com/librelane/librelane/pull/1015',

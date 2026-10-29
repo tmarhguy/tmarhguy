@@ -9,8 +9,7 @@ import PageWrapper from '@/components/Template/PageWrapper';
 import TomatoFeature from '@/components/Template/TomatoFeature';
 import { HOME_OPEN_SOURCE_FEATURE } from '@/data/open-source';
 import {
-  getHomeHardwareItems,
-  getHomeSoftwareItems,
+  getHomeProjectItems,
   type HomeFeaturedItem,
   openVsxDownloadsShieldSrc,
   openVsxVersionShieldSrc,
@@ -29,13 +28,28 @@ export const metadata: Metadata = {
 function HomeProjectCard({ item }: { item: HomeFeaturedItem }) {
   const content = (
     <>
-      <Image
-        className="home-project-image"
-        src={item.image}
-        alt={item.imageAlt}
-        width={640}
-        height={400}
-      />
+      {item.video ? (
+        <video
+          className="home-project-image"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster={item.videoPoster ?? item.image}
+          aria-label={item.imageAlt}
+        >
+          <source src={item.video} type="video/mp4" />
+        </video>
+      ) : (
+        <Image
+          className="home-project-image"
+          src={item.image}
+          alt={item.imageAlt}
+          width={640}
+          height={400}
+        />
+      )}
       <h3>{item.title}</h3>
       {item.openVsx ? (
         <span className="home-project-shields">
@@ -71,8 +85,7 @@ function HomeProjectCard({ item }: { item: HomeFeaturedItem }) {
 }
 
 export default function HomePage() {
-  const hardwareItems = getHomeHardwareItems();
-  const softwareItems = getHomeSoftwareItems();
+  const projectItems = getHomeProjectItems();
   const recentLogs = getHomeRecentLogs(3);
 
   return (
@@ -103,15 +116,8 @@ export default function HomePage() {
             </Link>
           </span>
         </div>
-        <h3 className="home-projects-group-title">Hardware</h3>
         <div className="home-projects-list">
-          {hardwareItems.map((item) => (
-            <HomeProjectCard key={item.title} item={item} />
-          ))}
-        </div>
-        <h3 className="home-projects-group-title">Software & Systems</h3>
-        <div className="home-projects-list">
-          {softwareItems.map((item) => (
+          {projectItems.map((item) => (
             <HomeProjectCard key={item.title} item={item} />
           ))}
         </div>

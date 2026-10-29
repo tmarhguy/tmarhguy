@@ -56,6 +56,35 @@ export function githubStargazersHref(link: string): string | null {
 
 const contributions: OpenSourceContribution[] = [
   {
+    title: 'Coyote',
+    slug: 'coyote',
+    link: 'https://github.com/fpgasystems/Coyote',
+    date: '2026-10-20',
+    period: 'Oct. 2026',
+    desc: 'Drops stale RDMA metadata and the unused RAW path so **the shell always segments RDMA**; ==merged · 0.3.0==',
+    pulls: [
+      {
+        label: '#259',
+        href: 'https://github.com/fpgasystems/Coyote/pull/259',
+      },
+      {
+        label: '0.3.0',
+        href: 'https://github.com/fpgasystems/Coyote/milestone/2',
+      },
+    ],
+    evidence: [
+      {
+        src: '/images/open-source/coyote259.png',
+        width: 1400,
+        height: 1600,
+        alt: 'Merged Coyote pull request #259 cleaning request and completion metadata',
+        caption: 'Coyote · merged upstream',
+        captionHref: 'https://github.com/fpgasystems/Coyote/pull/259',
+        detail: 'req_t/ack_t cleanup and RAW RDMA path removed.',
+      },
+    ],
+  },
+  {
     title: 'LibreLane',
     slug: 'librelane',
     link: 'https://github.com/librelane/librelane',
@@ -226,9 +255,9 @@ export function getOpenSourceContributions(): OpenSourceContribution[] {
 
 /** Homepage projects card — LibreLane release proof is the lead evidence image. */
 export const HOME_OPEN_SOURCE_FEATURE = {
-  title: 'Open source EDA',
-  period: 'Aug. 2026',
-  desc: 'Upstream patches in LibreLane, OpenROAD, Verilator, and OpenFPGA — including Yosys compatibility and synthesis-error counting fixes that shipped in LibreLane 3.0.8 and 3.0.10.',
+  title: 'Open source',
+  period: 'Aug. 2026 — Oct. 2026',
+  desc: 'Upstream patches in Coyote, LibreLane, OpenROAD, Verilator, and OpenFPGA — including Coyote RDMA metadata cleanup merged for 0.3.0, and Yosys compatibility and synthesis-error counting fixes that shipped in LibreLane 3.0.8 and 3.0.10.',
   image: '/images/open-source/librelane1015.png',
   imageAlt:
     'LibreLane 3.0.8 release credits tmarhguy for the Yosys compatibility fix',

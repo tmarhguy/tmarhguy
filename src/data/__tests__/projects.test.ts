@@ -8,6 +8,8 @@ import projects, {
   getHiddenProjects,
   getHomeFeaturedItems,
   getHomeHardwarePicks,
+  getHomeProjectItems,
+  getHomeProjectPicks,
   getHomeSoftwareItems,
   getHomeSoftwarePicks,
   getMoreHardwareProjects,
@@ -110,49 +112,46 @@ describe('projects data', () => {
     );
   });
 
-  it('picks four strongest hardware projects for the homepage', () => {
+  it('picks four homepage projects: UDP, ITCH, ESE 5700 MAC, FramePort', () => {
+    expect(
+      getHomeProjectPicks().map((project) => getProjectSlug(project)),
+    ).toEqual([
+      '100mbps-udp-ip-stack',
+      'nasdaq-itch',
+      'ese5700-mac',
+      'frameport',
+    ]);
+    expect(getHomeProjectPicks()).toHaveLength(4);
+    expect(getHomeProjectPicks().every((project) => project.image)).toBe(true);
     expect(
       getHomeHardwarePicks().map((project) => getProjectSlug(project)),
-    ).toEqual([
-      'pineapple-gpu',
-      'mac',
-      '100mbps-udp-ip-stack',
-      'full-custom-sram',
-    ]);
-    expect(getHomeHardwarePicks().every((project) => project.image)).toBe(true);
-  });
-
-  it('picks four strongest software projects for the homepage', () => {
+    ).toEqual(['100mbps-udp-ip-stack', 'nasdaq-itch', 'ese5700-mac']);
     expect(
       getHomeSoftwarePicks().map((project) => getProjectSlug(project)),
-    ).toEqual(['sealion', 'frameport', 'lobster', 'figdb']);
-    expect(getHomeSoftwarePicks().every((project) => project.image)).toBe(true);
+    ).toEqual(['frameport']);
   });
 
   it('carries the Open VSX shields onto the FramePort homepage card', () => {
-    const frameport = getHomeSoftwareItems().find(
+    const frameport = getHomeProjectItems().find(
       (item) => item.title === 'FramePort',
     );
     expect(frameport?.openVsx).toBe(FRAMEPORT_OPEN_VSX_ID);
     expect(frameport?.image).toBe('/images/projects/frameport-demo.gif');
     expect(
-      getHomeSoftwareItems()
+      getHomeProjectItems()
         .filter((item) => item.title !== 'FramePort')
         .every((item) => item.openVsx === undefined),
     ).toBe(true);
+    expect(getHomeSoftwareItems()[0]?.title).toBe('FramePort');
   });
 
-  it('leads the homepage strip with open source, then hardware and software rows', () => {
+  it('leads the homepage strip with open source, then the four project cards', () => {
     expect(getHomeFeaturedItems().map((item) => item.title)).toEqual([
-      'Open source EDA',
-      'Pineapple GPU P1',
-      '16-bit MAC Unit (Sky130)',
+      'Open source',
       '100 Mbps UDP/IP Stack',
-      '16×4 SRAM — Full-Custom Analog Design',
-      'SeaLion',
+      'NASDAQ ITCH 5.0 Hardware Parser',
+      'SRAM-Based 4-bit MAC — ESE 5700',
       'FramePort',
-      'Lobster',
-      'FigDB',
     ]);
     expect(getHomeFeaturedItems()[0]?.image).toBe(
       '/images/open-source/librelane1015.png',
@@ -160,11 +159,14 @@ describe('projects data', () => {
     expect(getHomeFeaturedItems()[0]?.desc).toMatch(/3\.0\.8 and 3\.0\.10/);
   });
 
-  it('features the MAC layout preview on the homepage', () => {
-    const mac = getHomeHardwarePicks().find(
-      (project) => getProjectSlug(project) === 'mac',
+  it('features the ESE 5700 MAC walkthrough video on the homepage', () => {
+    const mac = getHomeProjectItems().find(
+      (item) => item.title === 'SRAM-Based 4-bit MAC — ESE 5700',
     );
-    expect(mac?.image).toBe('/images/projects/mac-core.webp');
+    expect(mac?.image).toBe('/images/projects/ese5700-mac-poster.webp');
+    expect(mac?.video).toBe('/images/projects/ese5700-mac.mp4');
+    expect(mac?.videoPoster).toBe('/images/projects/ese5700-mac-poster.webp');
+    expect(mac?.href).toBe('https://tmarhguy.github.io/mac-unit/');
   });
 
   it('links flagship manuals beside their GitHub repos', () => {

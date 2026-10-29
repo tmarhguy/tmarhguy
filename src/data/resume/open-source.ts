@@ -8,6 +8,14 @@ export interface ResumeOpenSourceEntry {
 
 const openSource: ResumeOpenSourceEntry[] = [
   {
+    title: 'Coyote',
+    link: 'https://github.com/fpgasystems/Coyote',
+    period: 'Oct. 2026',
+    highlights: [
+      'Merged [#259](https://github.com/fpgasystems/Coyote/pull/259) for [0.3.0](https://github.com/fpgasystems/Coyote/milestone/2): dropped stale RDMA metadata and the unused RAW path so the shell always segments RDMA (−558 / +48).',
+    ],
+  },
+  {
     title: 'LibreLane',
     link: 'https://github.com/librelane/librelane',
     period: 'Aug. 2026',

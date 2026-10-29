@@ -35,22 +35,31 @@ describe('writing information architecture', () => {
     expect(
       within(section).getByRole('link', { name: 'Open source' }),
     ).toHaveAttribute('href', '/projects/#open-source-title');
-    expect(
-      [...section.querySelectorAll('.home-projects-group-title')].map(
-        (heading) => heading.textContent,
-      ),
-    ).toEqual(['Hardware', 'Software & Systems']);
+    expect(section.querySelectorAll('.home-projects-group-title')).toHaveLength(
+      0,
+    );
     expect(
       [...section.querySelectorAll('.home-project-item h3')].map(
         (heading) => heading.textContent,
       ),
     ).toEqual(featured.slice(1).map((item) => item.title));
+    expect(featured.slice(1).map((item) => item.title)).toEqual([
+      '100 Mbps UDP/IP Stack',
+      'NASDAQ ITCH 5.0 Hardware Parser',
+      'SRAM-Based 4-bit MAC — ESE 5700',
+      'FramePort',
+    ]);
     expect(
       within(section).getByAltText('FramePort Open VSX downloads'),
     ).toHaveAttribute(
       'src',
       'https://img.shields.io/open-vsx/dt/tmarhguy/frameport?style=flat-square',
     );
+    expect(
+      section.querySelector(
+        'video.home-project-image source[src="/images/projects/ese5700-mac.mp4"]',
+      ),
+    ).toBeTruthy();
   });
 
   it('pins the September wallpaper log as the lead recent-writing card on the homepage', () => {

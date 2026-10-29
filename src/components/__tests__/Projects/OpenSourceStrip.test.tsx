@@ -96,6 +96,7 @@ describe('OpenSourceStrip', () => {
 
   it('exposes stable anchor ids for deep links', () => {
     render(<OpenSourceStrip contributions={getOpenSourceContributions()} />);
+    expect(document.getElementById('coyote')).toBeTruthy();
     expect(document.getElementById('openroad')).toBeTruthy();
     expect(document.getElementById('librelane')).toBeTruthy();
     expect(document.getElementById('librelane-1016')).toBeTruthy();
@@ -112,14 +113,14 @@ describe('OpenSourceStrip', () => {
       />,
     );
 
-    // 1015, 1016, OpenROAD, Verilator, OpenFPGA ×2 — rows, not a grid.
+    // Coyote, 1015, 1016, OpenROAD, Verilator, OpenFPGA ×2 — rows, not a grid.
     expect(
       container.querySelector('.open-source-evidence'),
     ).not.toBeInTheDocument();
-    expect(container.querySelectorAll('.open-source-row')).toHaveLength(6);
+    expect(container.querySelectorAll('.open-source-row')).toHaveLength(7);
     expect(
       screen.getAllByRole('button', { name: /Open screenshot:/ }),
-    ).toHaveLength(6);
+    ).toHaveLength(7);
     expect(
       screen.getByRole('button', { name: /Yosys compatibility fix/ }),
     ).toBeInTheDocument();
