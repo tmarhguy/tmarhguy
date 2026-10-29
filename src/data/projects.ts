@@ -579,40 +579,41 @@ export function getProjectSlug(project: Project): string {
   return project.slug ?? createHeadingId(project.title);
 }
 
-const HOME_HARDWARE_SLUGS = [
-  'pineapple-gpu',
-  'mac',
+/**
+ * Homepage project strip — four cards in one row (2×2 on small screens).
+ * UDP and ITCH for systems datapaths, ESE 5700 MAC for silicon depth,
+ * FramePort last as shipped tooling.
+ */
+const HOME_PROJECT_SLUGS = [
   '100mbps-udp-ip-stack',
-  'full-custom-sram',
-] as const;
-
-const HOME_SOFTWARE_SLUGS = [
-  'sealion',
+  'nasdaq-itch',
+  'ese5700-mac',
   'frameport',
-  'lobster',
-  'figdb',
 ] as const;
 
-/** Homepage hardware row — strongest silicon-backed builds first. */
-export function getHomeHardwarePicks(): Project[] {
-  return HOME_HARDWARE_SLUGS.map((slug) => {
+/** Homepage project picks — UDP, ITCH, ESE 5700 MAC, FramePort. */
+export function getHomeProjectPicks(): Project[] {
+  return HOME_PROJECT_SLUGS.map((slug) => {
     const project = data.find((entry) => getProjectSlug(entry) === slug);
     if (!project) {
-      throw new Error(`Missing homepage hardware pick: ${slug}`);
+      throw new Error(`Missing homepage project pick: ${slug}`);
     }
     return project;
   });
 }
 
-/** Homepage software row — systems flagships plus top-traction tool. */
+/** @deprecated Prefer getHomeProjectPicks — kept for callers that split by category. */
+export function getHomeHardwarePicks(): Project[] {
+  return getHomeProjectPicks().filter(
+    (project) => project.category === 'hardware',
+  );
+}
+
+/** @deprecated Prefer getHomeProjectPicks — kept for callers that split by category. */
 export function getHomeSoftwarePicks(): Project[] {
-  return HOME_SOFTWARE_SLUGS.map((slug) => {
-    const project = data.find((entry) => getProjectSlug(entry) === slug);
-    if (!project) {
-      throw new Error(`Missing homepage software pick: ${slug}`);
-    }
-    return project;
-  });
+  return getHomeProjectPicks().filter(
+    (project) => project.category !== 'hardware',
+  );
 }
 
 export interface HomeFeaturedItem {
@@ -648,17 +649,22 @@ function toHomeFeaturedItem(project: Project): HomeFeaturedItem {
   };
 }
 
-/** Homepage hardware row — strongest silicon-backed builds. */
+/** Homepage project strip — four cards. */
+export function getHomeProjectItems(): HomeFeaturedItem[] {
+  return getHomeProjectPicks().map(toHomeFeaturedItem);
+}
+
+/** @deprecated Prefer getHomeProjectItems. */
 export function getHomeHardwareItems(): HomeFeaturedItem[] {
   return getHomeHardwarePicks().map(toHomeFeaturedItem);
 }
 
-/** Homepage software row — systems flagships plus top-traction tool. */
+/** @deprecated Prefer getHomeProjectItems. */
 export function getHomeSoftwareItems(): HomeFeaturedItem[] {
   return getHomeSoftwarePicks().map(toHomeFeaturedItem);
 }
 
-/** Homepage strip: open source lead, then the hardware and software rows. */
+/** Open-source lead plus the four homepage project cards. */
 export function getHomeFeaturedItems(): HomeFeaturedItem[] {
   return [
     {
@@ -669,8 +675,7 @@ export function getHomeFeaturedItems(): HomeFeaturedItem[] {
       imageAlt: HOME_OPEN_SOURCE_FEATURE.imageAlt,
       href: HOME_OPEN_SOURCE_FEATURE.href,
     },
-    ...getHomeHardwareItems(),
-    ...getHomeSoftwareItems(),
+    ...getHomeProjectItems(),
   ];
 }
 
