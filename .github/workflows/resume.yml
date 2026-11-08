@@ -71,9 +71,26 @@ jobs:
         if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: node scripts/build-resumes.mjs --verify-only docs/resume --publish
 
+      # Rebase-retry instead of git-auto-commit: concurrent main pushes were
+      # rejecting the PDF commit with a non-fast-forward error.
       - name: Commit updated PDFs
         if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
-        uses: stefanzweifel/git-auto-commit-action@v6
-        with:
-          file_pattern: 'public/Tyrone-Marhguy-Hardware-Resume.pdf public/Tyrone-Marhguy-Software-Resume.pdf'
-          commit_message: 'chore: resume latex compilation'
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/Tyrone-Marhguy-Hardware-Resume.pdf public/Tyrone-Marhguy-Software-Resume.pdf
+          if git diff --staged --quiet; then
+            echo 'No PDF changes to commit.'
+            exit 0
+          fi
+          git commit -m 'chore: resume latex compilation'
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push attempt ${attempt} failed; retrying…"
+            sleep $((attempt * 3))
+          done
+          echo 'Failed to push resume PDFs after retries.'
+          exit 1
